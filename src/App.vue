@@ -1,21 +1,39 @@
 <template>
   <div id="app">
     <p class="example-var">Rado</p>
-    <!-- <Header></Header>  -->
-    <!-- .container (navigation, header image) -->
-    <!-- <router-view/> -->
-    <!-- <HowItWorks></HowItWorks>
+    <Header></Header>
+    <HowItWorks></HowItWorks>
     <CustomerReviews></CustomerReviews>
     <HowToUse></HowToUse>
     <Team></Team>
-    <Footer></Footer> -->
+    <Footer></Footer>
   </div>
 </template>
 
+<script>
+import Header from "./components/Header";
+import HowItWorks from "./components/HowItWorks";
+import CustomerReviews from "./components/CustomerReviews";
+import HowToUse from "./components/HowToUse";
+import Team from "./components/Team";
+import Footer from "./components/Footer";
+
+export default {
+  components: {
+    Header,
+    HowItWorks,
+    CustomerReviews,
+    HowToUse,
+    Team,
+    Footer
+  }
+};
+</script>
+
 <style lang="scss">
-@import './assets/main.scss';
-@import 'node_modules/bootstrap/scss/bootstrap';
-@import 'node_modules/bootstrap-vue/src/index.scss';
+@import "./assets/main.scss";
+@import "node_modules/bootstrap/scss/bootstrap";
+@import "node_modules/bootstrap-vue/src/index.scss";
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
