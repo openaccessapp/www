@@ -1,14 +1,19 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <!-- <Header></Header>  -->
+    <!-- .container (navigation, header image) -->
+    <!-- <router-view/> -->
+    <!-- <HowItWorks></HowItWorks>
+    <CustomerReviews></CustomerReviews>
+    <HowToUse></HowToUse>
+    <Team></Team>
+    <Footer></Footer> -->
   </div>
 </template>
 
 <style lang="scss">
+@import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/bootstrap-vue/src/index.scss';
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
