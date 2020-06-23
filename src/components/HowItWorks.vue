@@ -1,11 +1,39 @@
 <template>
-  <div class="row">
-    <div>How it works</div>
-    <div class="col-4"></div>
-    <div>1 Download</div>
-    <div>
-      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-      ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et.H4
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h2>How it works</h2>
+      </div>
+    </div>
+    <div class="row content">
+      <div class="col-4 text-section">
+        <div class="section">
+          <h3>1. Download</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+            ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et.H4
+          </p>
+        </div>
+        <div class="section mt-5">
+          <h3>2. find</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+            ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et.H4
+          </p>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="mock-image"></div>
+      </div>
+      <div class="col-4 text-section">
+        <div class="section">
+          <h3>3. Plan</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+            ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et.H4
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -16,5 +44,23 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+@import '../assets/main.scss';
+.section {
+  p, h3 {
+    text-align: left;
+  }
+}
+
+.mock-image {
+  width: 100%;
+  height: 600px;
+  background-color: $color__main;
+}
+
+.text-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 </style>

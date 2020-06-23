@@ -1,20 +1,28 @@
 <template>
-  <div class="row">
-    <div class="col-6">
-      <img src="../assets/Layer2.png" />
-      <div class="butler">Plan Safe Visits</div>
-      <div class>Plan save visits, quickly, queue-free and stay healthy</div>
-      <img src="../assets/en_badge_web_generic.png" />
-      <img src="../assets/1200px-Download_on_the_App_Store_Badge.svg.png" />
-    </div>
-    <div class="col-6">
-      <div>
-        If you own or manage a place
-        <button class="btn">Go to place App</button>
+  <div class="container">
+    <div class="row nav">
+      <div class="col-6">
+        <img src="../assets/logo.png" />
       </div>
-      <div class="images">
-        <img src="../assets/georg-arthur-pflueger-eO_JhqabBY0-unsplash.png" />
-        <img class="position" src="../assets/georg-arthur-pflueger-eO_JhqabBY0-unsplash-1.png" />
+      <div class="col-6">
+        <div>
+          If you own or manage a place
+          <button class="btn">Go to place App</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <div class="butler">Plan Safe Visits</div>
+        <div class>Plan save visits, quickly, queue-free and stay healthy</div>
+        <img src="../assets/google-play.png" />
+        <img src="../assets/app-store.png" />
+      </div>
+      <div class="col-6">
+        <div class="images">
+          <img class="people-image" src="../assets/people.png" />
+          <img class="position blurred-image" src="../assets/blur-effect.png" />
+        </div>
       </div>
     </div>
   </div>
@@ -26,8 +34,8 @@ export default {
 };
 </script>
 
-<style scoped>
-div.butler {
+<style scoped lang="scss">
+.butler {
   font-family: Butler;
   font-weight: black;
   font-size: 50px;
@@ -38,13 +46,23 @@ button.btn {
   background: #00ce9e;
   color: white;
 }
-div.images {
-  width: 726px;
+.images {
   position: relative;
 }
 img.position {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+.images {
+  .people-image,
+  .blurred-image {
+    width: 100%;
+  }
+}
+
+.nav {
+  margin: 25px 0 50px;
 }
 </style>
