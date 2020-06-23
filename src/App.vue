@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <p class="example-var">Rado</p>
     <Header></Header>
     <HowItWorks></HowItWorks>
     <CustomerReviews></CustomerReviews>
