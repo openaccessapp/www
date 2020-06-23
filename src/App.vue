@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <p class="example-var">Rado</p>
     <!-- <Header></Header>  -->
     <!-- .container (navigation, header image) -->
     <!-- <router-view/> -->
@@ -12,6 +13,7 @@
 </template>
 
 <style lang="scss">
+@import './assets/main.scss';
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import 'node_modules/bootstrap-vue/src/index.scss';
 #app {
@@ -21,17 +23,7 @@
   text-align: center;
   color: #2c3e50;
 }
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.example-var {
+  color: $color__button;
 }
 </style>
