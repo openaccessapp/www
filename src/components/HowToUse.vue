@@ -1,24 +1,30 @@
 <template>
   <div class="container-fluid">
     <div class="mock-image">
-      <!-- <img :src="urlToImage" /> TODO (Milen) -->
+      <img :src="imageLink" />
     </div>
     <div class="usage-description">
-      <h3>How to use</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
-        sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat,
-        sed diam voluptua. At vero eos et.H4
-      </p>
+      <h3>{{title}}</h3>
+      <p>{{description}}</p>
     </div>
   </div>
 </template>
 
 <script>
-
+import howToUse from "js-yaml-loader!../../content-manager/how-to-use.yaml";
 export default {
   name: "CustomerReviews",
+  data() {
+    return {
+      title: "",
+      imageLink: "",
+      description: ""
+    };
+  },
   mounted() {
+    this.title = howToUse.title;
+    this.description = howToUse.description;
+    this.imageLink = howToUse["image-link"];
   }
 };
 </script>

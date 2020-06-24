@@ -1,13 +1,16 @@
 <template>
   <div class="container-fluid">
-    
-    <img src="../assets/logo-text.png"/>
+    <div class="row"></div>
+    <img src="../assets/logo-text.png" />
   </div>
 </template>
 
 <script>
 export default {
-  name: "CustomerReviews"
+  name: "CustomerReviews",
+  data() {
+    return {};
+  }
 };
 </script>
 
@@ -15,13 +18,13 @@ export default {
 @import "../assets/main.scss";
 
 .container-fluid {
-    display: flex;
-    place-items: flex-end;
-    justify-content: center;
-    
-    width: 100%;
-    padding: 0;
-    height: 400px;
-    background-color: $color__main;
+  display: flex;
+  place-items: flex-end;
+  justify-content: center;
+
+  width: 100%;
+  padding: 0;
+  height: 400px;
+  background-color: $color__main;
 }
 </style>
