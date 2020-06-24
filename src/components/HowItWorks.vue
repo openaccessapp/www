@@ -8,7 +8,7 @@
     <div class="row content">
       <div class="col-4 text-section">
         <div class="section">
-          <h3>1. Download</h3>
+          <h3 v-for="title in sections" :key="title">{{title}}</h3>
           <p>
             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
             ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et.H4
@@ -24,7 +24,14 @@
       </div>
       <div class="col-4">
         <div class="mock-image">
-          <iframe width="862" height="485" src="https://www.youtube.com/embed/JlJPe5qryDQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe
+            width="862"
+            height="485"
+            src="https://www.youtube.com/embed/JlJPe5qryDQ"
+            frameborder="0"
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
           <!-- <iframe width="862" height="485" :src="urlToVideo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
           <!-- TODO (Milen) -->
         </div>
@@ -45,15 +52,23 @@
 <script>
 export default {
   name: "HowItWorks",
-  mounted() {
+  mounted() {},
+  data() {
+    return {
+      sections: "",
+      title: "",
+      text: "",
+      videoLink: ""
+    };
   }
 };
 </script>
 
 <style scoped lang="scss">
-@import '../assets/main.scss';
+@import "../assets/main.scss";
 .section {
-  p, h3 {
+  p,
+  h3 {
     text-align: left;
   }
 }
