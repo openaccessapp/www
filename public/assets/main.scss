@@ -9,3 +9,12 @@ $color__main: #F7F7FA;
 .container, .container-fluid {
     margin-top: 150px;
 }
+
+#app .container:first-child {
+    margin-top: 0;
+}
+
+.person-avatar {
+    width: 80px;
+    max-height: 80px;
+  }
