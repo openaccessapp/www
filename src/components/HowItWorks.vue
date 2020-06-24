@@ -9,27 +9,16 @@
       <div class="col-4 text-section">
         <div class="section">
           <h3>{{sections[0].title}}</h3>
-          <p>
-            {{sections[0].text}}
-          </p>
+          <p>{{sections[0].text}}</p>
         </div>
         <div class="section mt-5">
           <h3>{{sections[1].title}}</h3>
-          <p>
-            {{sections[1].text}}
-          </p>
+          <p>{{sections[1].text}}</p>
         </div>
       </div>
       <div class="col-4">
         <div class="mock-image">
-          <!-- <iframe
-            width="862"
-            height="485"
-            src="https://www.youtube.com/embed/JlJPe5qryDQ"
-            frameborder="0"
-            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe> -->
+          <iframe width="370" height="600" :src="videoLink" frameborder="0">{{videoLink}}</iframe>
           <!-- <iframe width="862" height="485" :src="urlToVideo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
           <!-- TODO (Milen) -->
         </div>
@@ -37,9 +26,7 @@
       <div class="col-4 text-section">
         <div class="section">
           <h3>{{sections[2].title}}</h3>
-          <p>
-            {{sections[2].text}}
-          </p>
+          <p>{{sections[2].text}}</p>
         </div>
       </div>
     </div>
@@ -59,8 +46,10 @@ export default {
     };
   },
   mounted() {
+    this.title = howItWorks.title;
+    this.text = howItWorks.text;
     this.sections = howItWorks.sections;
-    // TODO (Milen)
+    this.videoLink = howItWorks["video-link"];
   }
 };
 </script>
