@@ -1,6 +1,8 @@
 <template>
   <div class="container-fluid">
-    <div class="mock-image"></div>
+    <div class="mock-image">
+      <!-- <img :src="urlToImage" /> TODO (Milen) -->
+    </div>
     <div class="usage-description">
       <h3>How to use</h3>
       <p>
@@ -13,11 +15,10 @@
 </template>
 
 <script>
-import info from "js-yaml-loader!../../HowToUse.yaml";
+
 export default {
   name: "CustomerReviews",
   mounted() {
-    console.log(info);
   }
 };
 </script>

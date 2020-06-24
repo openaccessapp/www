@@ -23,7 +23,11 @@
         </div>
       </div>
       <div class="col-4">
-        <div class="mock-image"></div>
+        <div class="mock-image">
+          <iframe width="862" height="485" src="https://www.youtube.com/embed/JlJPe5qryDQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <!-- <iframe width="862" height="485" :src="urlToVideo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+          <!-- TODO (Milen) -->
+        </div>
       </div>
       <div class="col-4 text-section">
         <div class="section">
@@ -40,7 +44,9 @@
 
 <script>
 export default {
-  name: "HowItWorks"
+  name: "HowItWorks",
+  mounted() {
+  }
 };
 </script>
 

@@ -5,6 +5,7 @@
           <h2>Team</h2>
       </div>
     </div>
+    <!-- V-for for team members TODO (Milen) -->
     <div class="row content">
       <div class="col-4">
         <img src="../assets/logo.png" />

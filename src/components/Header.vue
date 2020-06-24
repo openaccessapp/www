@@ -6,17 +6,18 @@
       </div>
       <div class="col-6">
         <div>
-          If you own or manage a place
-          <button class="btn">Go to place App</button>
+          {{navigationText}}
+          <button class="btn">{{buttonText}}</button>
         </div>
       </div>
     </div>
     <div class="row">
-      <div class="col-6">
-        <div class="butler">Plan Safe Visits</div>
+      <div class="col-6"> 
+        <div class="butler">{{title}}</div>
         <div class>Plan save visits, quickly, queue-free and stay healthy</div>
-        <img src="../assets/google-play.png" />
-        <img src="../assets/app-store.png" />
+        <a :href="googlePlayLink"><img src="../assets/google-play.png" /></a>
+        <img src="../assets/app-store.png" /> 
+        <!-- TODO (Milen) for app store -->
       </div>
       <div class="col-6">
         <div class="images">
@@ -29,8 +30,27 @@
 </template>
 
 <script>
+import header from "js-yaml-loader!../../content-manager/header.yaml";
 export default {
-  name: "Header"
+  name: "Header",
+  data() {
+    return {
+      // START: Expected data from .yaml
+      navigationText: '',
+      buttonText: '',
+      title: '',
+      description: '',
+      googlePlayLink: '',
+      appStoreLink: '' 
+      // END: Expected data from .yaml
+    }
+  },
+  mounted() {
+    this.navigationText = header['navigation-text'];
+    this.buttonText = header['button-text'];
+    this.title = header['title'];
+    // TODO (Milen)
+  }
 };
 </script>
 
