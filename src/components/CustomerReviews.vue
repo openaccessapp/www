@@ -1,36 +1,46 @@
 <template>
   <div class="container">
-      <div class="row">
-          <div class="col-12">
-              <h2>Customer Reviews</h2>
-          </div>
+    <div class="row">
+      <div class="col-12">
+        <h2>{{title}}</h2>
       </div>
-      <div class="row content">
-          <div class="col-12">
-              <img src="../assets/logo.png" />
-              <p class="bold">Jack Collins</p>
-              <p>Amsterdam</p>
-              <h4 class="person-description">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, 
-                  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, 
-                  sed diam voluptua. At vero eos et.H4</h4>
-          </div>
+    </div>
+    <div class="row content">
+      <div class="col-4" v-for="(customer) of reviews" :key="customer">
+        <img :src="customer.avatarLink" />
+        <p class="bold">{{customer.name}}</p>
+        <p>{{customer.place}}</p>
+        <h4 class="person-description">{{customer.review}}</h4>
       </div>
+    </div>
   </div>
 </template>
 
 <script>
+import customerReviews from "js-yaml-loader!../../content-manager/customer-reviews.yaml";
 export default {
-  name: "CustomerReviews"
+  name: "CustomerReviews",
+  data() {
+    return {
+      title: "",
+      reviews: [],
+      revies: ""
+    };
+  },
+  mounted() {
+    this.title = customerReviews.title;
+    this.reviews = customerReviews.reviews;
+  }
 };
 </script>
 
 <style scoped lang="scss">
-@import '../assets/main.scss';
+@import "../assets/main.scss";
 .bold {
-    font-weight: bold;
+  font-weight: bold;
 }
 .person-description {
-    width: 50%;
-    margin: auto;
+  width: 50%;
+  margin: auto;
 }
 </style>

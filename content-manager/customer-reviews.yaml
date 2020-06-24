@@ -1,14 +1,14 @@
-- title: Customer Reviews
-- reviews:
-  - avatar-link: https://...
+title: Customer Reviews
+reviews:
+  - avatar-link: ../assets/logo.png"
     name: John
     place: Amsterdam
     review: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et.H4
-  - avatar-link: https://...
+  - avatar-link: ../assets/logo.png"
     name: Kate
     place: NY
     review: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et.H4
-  - avatar-link: https://...
+  - avatar-link: ../assets/logo.png"
     name: Alex
     place: Madrid
     review: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et.H4
