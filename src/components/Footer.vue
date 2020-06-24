@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <div class="row"></div>
-    <img src="../assets/logo-text.png" />
+    <img src="assets/logo-text.png" />
   </div>
 </template>
 
@@ -15,7 +15,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../assets/main.scss";
+@import "../../public/assets/main.scss";
 
 .container-fluid {
   display: flex;

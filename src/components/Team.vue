@@ -8,9 +8,9 @@
     <!-- V-for for team members TODO (Milen) -->
     <div class="row content">
       <div class="col-4" v-for="(person) of people" :key="person.name">
-        <img :src="person['avatar-link']" />
+        <img :src="person['avatar-link']" class="person-avatar" />
         <h3>{{person.name}}</h3>
-        <p>
+        <p class="person-description">
           {{person.description}}
         </p>
       </div>
@@ -29,7 +29,6 @@ export default {
     }
   },
   mounted() {
-    console.log(team)
     this.title = team.title;
     this.people = team.people
   }
@@ -37,6 +36,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../assets/main.scss";
-
+.person-description {
+  width: 75%;
+  margin: 0 auto;
+}
 </style>

@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row nav">
       <div class="col-6">
-        <img src="../assets/logo.png" />
+        <img src="assets/logo.png" />
       </div>
       <div class="col-6">
         <div>
@@ -18,16 +18,16 @@
         <div class="butler">{{title}}</div>
         <div class>{{description}}</div>
         <a :href="googlePlayLink">
-          <img src="../assets/google-play.png" />
+          <img src="assets/google-play.png" />
         </a>
         <a :href="appStoreLink">
-          <img src="../assets/app-store.png" />
+          <img src="assets/app-store.png" />
         </a>
       </div>
       <div class="col-6">
         <div class="images">
-          <img class="people-image" src="../assets/people.png" />
-          <img class="position blurred-image" src="../assets/blur-effect.png" />
+          <img class="people-image" src="assets/people.png" />
+          <img class="position blurred-image" src="assets/blur-effect.png" />
         </div>
       </div>
     </div>

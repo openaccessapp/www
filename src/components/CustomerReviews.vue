@@ -5,21 +5,26 @@
         <h2>{{title}}</h2>
       </div>
     </div>
-    <div class="row content">
-      <div class="col-4" v-for="(customer) of reviews" :key="customer">
-        <img :src="customer.avatarLink" />
+    <carousel perPage="1" class="content">
+      <slide v-for="(customer) of reviews" :key="customer">
+        <img :src="customer['avatar-link']" class="person-avatar" />
         <p class="bold">{{customer.name}}</p>
         <p>{{customer.place}}</p>
         <h4 class="person-description">{{customer.review}}</h4>
-      </div>
-    </div>
+      </slide>
+    </carousel>
   </div>
 </template>
 
 <script>
 import customerReviews from "js-yaml-loader!../../content-manager/customer-reviews.yaml";
+import { Carousel, Slide } from 'vue-carousel';
 export default {
   name: "CustomerReviews",
+  components: {
+    Carousel,
+    Slide
+  },
   data() {
     return {
       title: "",
@@ -35,7 +40,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../assets/main.scss";
+@import "../../public/assets/main.scss";
 .bold {
   font-weight: bold;
 }
