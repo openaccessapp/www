@@ -13,8 +13,12 @@
 </template>
 
 <script>
+import info from "js-yaml-loader!../../HowToUse.yaml";
 export default {
-  name: "CustomerReviews"
+  name: "CustomerReviews",
+  mounted() {
+    console.log(info);
+  }
 };
 </script>
 
@@ -22,9 +26,9 @@ export default {
 @import "../assets/main.scss";
 
 .container-fluid {
-    display: flex;
-    width: 100%;
-    padding: 0;
+  display: flex;
+  width: 100%;
+  padding: 0;
 }
 
 .mock-image {
@@ -33,14 +37,14 @@ export default {
   background-color: $color__main;
 }
 .usage-description {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-    p {
-        width: 50%;
-    }
+  p {
+    width: 50%;
+  }
 }
 </style>
