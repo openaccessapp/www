@@ -2,46 +2,43 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h2>How it works</h2>
+        <h2>{{title}}</h2>
       </div>
     </div>
     <div class="row content">
       <div class="col-4 text-section">
         <div class="section">
-          <h3 v-for="title in sections" :key="title">{{title}}</h3>
+          <h3>{{sections[0].title}}</h3>
           <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-            ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et.H4
+            {{sections[0].text}}
           </p>
         </div>
         <div class="section mt-5">
-          <h3>2. find</h3>
+          <h3>{{sections[1].title}}</h3>
           <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-            ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et.H4
+            {{sections[1].text}}
           </p>
         </div>
       </div>
       <div class="col-4">
         <div class="mock-image">
-          <iframe
+          <!-- <iframe
             width="862"
             height="485"
             src="https://www.youtube.com/embed/JlJPe5qryDQ"
             frameborder="0"
             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             allowfullscreen
-          ></iframe>
+          ></iframe> -->
           <!-- <iframe width="862" height="485" :src="urlToVideo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
           <!-- TODO (Milen) -->
         </div>
       </div>
       <div class="col-4 text-section">
         <div class="section">
-          <h3>3. Plan</h3>
+          <h3>{{sections[2].title}}</h3>
           <p>
-            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
-            ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et.H4
+            {{sections[2].text}}
           </p>
         </div>
       </div>
@@ -50,9 +47,9 @@
 </template>
 
 <script>
+import howItWorks from "js-yaml-loader!../../content-manager/how-it-works.yaml";
 export default {
   name: "HowItWorks",
-  mounted() {},
   data() {
     return {
       sections: "",
@@ -60,6 +57,10 @@ export default {
       text: "",
       videoLink: ""
     };
+  },
+  mounted() {
+    this.sections = howItWorks.sections;
+    // TODO (Milen)
   }
 };
 </script>
