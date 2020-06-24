@@ -7,31 +7,11 @@
     </div>
     <!-- V-for for team members TODO (Milen) -->
     <div class="row content">
-      <div class="col-4">
-        <img src="../assets/logo.png" />
-        <h3>Name</h3>
+      <div class="col-4" v-for="(person) of people" :key="person.name">
+        <img :src="person['avatar-link']" />
+        <h3>{{person.name}}</h3>
         <p>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-          tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-          At vero eos et.H4
-        </p>
-      </div>
-      <div class="col-4">
-        <img src="../assets/logo.png" />
-        <h3>Name</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-          tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-          At vero eos et.H4
-        </p>
-      </div>
-      <div class="col-4">
-        <img src="../assets/logo.png" />
-        <h3>Name</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
-          tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-          At vero eos et.H4
+          {{person.description}}
         </p>
       </div>
     </div>
@@ -39,8 +19,20 @@
 </template>
 
 <script>
+import team from "js-yaml-loader!../../content-manager/team.yaml";
 export default {
-  name: "CustomerReviews"
+  name: "CustomerReviews",
+  data() {
+    return {
+      title: '',
+      people: []
+    }
+  },
+  mounted() {
+    console.log(team)
+    this.title = team.title;
+    this.people = team.people
+  }
 };
 </script>
 
