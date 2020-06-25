@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import howToUse from "js-yaml-loader!../../content-manager/how-to-use.yaml";
+import SafeAndHealthy from "js-yaml-loader!../../content-manager/safe-and-healthy.yaml";
 export default {
-  name: "CustomerReviews",
+  name: "SafeAndHealthy",
   data() {
     return {
       title: "",
@@ -22,9 +22,9 @@ export default {
     };
   },
   mounted() {
-    this.title = howToUse.title;
-    this.description = howToUse.description;
-    this.imageLink = howToUse["image-link"];
+    this.title = SafeAndHealthy.title;
+    this.description = SafeAndHealthy.description;
+    this.imageLink = SafeAndHealthy["image-link"];
   }
 };
 </script>
@@ -41,7 +41,6 @@ export default {
 .mock-image {
   width: 50%;
   height: 600px;
-  background-color: $color__main;
 }
 .usage-description {
   width: 50%;
@@ -49,9 +48,18 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  h3 {
+    font-family: $family__fonts;
+    font-size: 40px;
+    color: #1e2f67;
+    margin-bottom: 55px;
+  }
 
   p {
     width: 50%;
+    font-family: $descriptions__fonts;
+    font-size: 18px;
+    color: #474a67;
   }
 }
 </style>

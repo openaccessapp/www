@@ -3,7 +3,7 @@
     <Header></Header>
     <HowItWorks></HowItWorks>
     <CustomerReviews></CustomerReviews>
-    <HowToUse></HowToUse>
+    <SafeAndHealthy></SafeAndHealthy>
     <Team></Team>
     <Footer></Footer>
   </div>
@@ -13,7 +13,7 @@
 import Header from "./components/Header";
 import HowItWorks from "./components/HowItWorks";
 import CustomerReviews from "./components/CustomerReviews";
-import HowToUse from "./components/HowToUse";
+import SafeAndHealthy from "./components/SafeAndHealthy";
 import Team from "./components/Team";
 import Footer from "./components/Footer";
 
@@ -22,7 +22,7 @@ export default {
     Header,
     HowItWorks,
     CustomerReviews,
-    HowToUse,
+    SafeAndHealthy,
     Team,
     Footer
   }
