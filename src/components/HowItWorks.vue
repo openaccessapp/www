@@ -77,8 +77,7 @@ h3.title {
 }
 
 .howItWorksImage {
-  width: 430px;
-  height: 740px;
+  width: 350px;
 }
 
 .text {
@@ -90,7 +89,6 @@ h3.title {
 .mock-image {
   width: 100%;
   height: 600px;
-  background-color: $color__main;
 }
 
 .text-section {
