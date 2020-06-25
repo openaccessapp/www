@@ -30,6 +30,9 @@
           <a :href="OSI">
             <img src="assets/open-source-logo.png" />
           </a>
+          <a :href="github">
+            <img class="github-logo" src="assets/github-logo.png" />
+          </a>
         </div>
         <div class="col-6">
           <div class="images">
@@ -56,7 +59,8 @@ export default {
       appStoreLink: "",
       mobileApp: "",
       infoText: "",
-      OSI: ""
+      OSI: "",
+      github: ""
       // END: Expected data from .yaml
     };
   },
@@ -70,6 +74,7 @@ export default {
     this.mobileApp = header["mobile-app"];
     this.infoText = header["info-text"];
     this.OSI = header.OSI;
+    this.github = header.github;
   }
 };
 </script>
@@ -141,6 +146,12 @@ img.position {
     width: 360px;
     height: 770px;
   }
+}
+
+img.github-logo {
+  width: 73px;
+  height: 74px;
+  margin-left: 50px;
 }
 
 .nav {
