@@ -2,31 +2,30 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h2>{{title}}</h2>
+        <h2 class="title titleSize">{{title}}</h2>
       </div>
     </div>
     <div class="row content">
       <div class="col-4 text-section">
         <div class="section">
-          <h3>{{sections[0].title}}</h3>
-          <p>{{sections[0].text}}</p>
+          <h3 class="title titleName">{{sections[0].title}}</h3>
+          <p class="text">{{sections[0].text}}</p>
         </div>
         <div class="section mt-5">
-          <h3>{{sections[1].title}}</h3>
-          <p>{{sections[1].text}}</p>
+          <h3 class="title titleName">{{sections[1].title}}</h3>
+          <p class="text">{{sections[1].text}}</p>
         </div>
       </div>
       <div class="col-4">
         <div class="mock-image">
-          <iframe width="370" height="600" :src="videoLink" frameborder="0">{{videoLink}}</iframe>
-          <!-- <iframe width="862" height="485" :src="urlToVideo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-          <!-- TODO (Milen) -->
+          <!-- <iframe width="370" height="600" :src="videoLink" frameborder="0">{{videoLink}}</iframe> -->
+          <img class="howItWorksImage" src="assets/how-it-works.png" />
         </div>
       </div>
       <div class="col-4 text-section">
         <div class="section">
-          <h3>{{sections[2].title}}</h3>
-          <p>{{sections[2].text}}</p>
+          <h3 class="title titleName">{{sections[2].title}}</h3>
+          <p class="text">{{sections[2].text}}</p>
         </div>
       </div>
     </div>
@@ -61,6 +60,31 @@ export default {
   h3 {
     text-align: left;
   }
+}
+h2,
+h3.title {
+  font-family: $family__fonts;
+}
+
+.titleSize {
+  font-size: 40px;
+  color: #1e2f67;
+}
+
+.titleName {
+  font-size: 25px;
+  color: #385fe2;
+}
+
+.howItWorksImage {
+  width: 430px;
+  height: 740px;
+}
+
+.text {
+  font-family: $descriptions__fonts;
+  font-size: 18px;
+  color: #474a67;
 }
 
 .mock-image {
