@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <div class="mock-image">
-      <img :src="imageLink" />
+      <img class="position" :src="imageLink" />
     </div>
     <div class="usage-description">
       <h3>{{title}}</h3>
@@ -61,5 +61,8 @@ export default {
     font-size: 18px;
     color: #474a67;
   }
+}
+img.position {
+  width: 100%;
 }
 </style>

@@ -47,7 +47,7 @@ export default {
 }
 
 .container {
-  margin-top: 450px;
+  margin-top: 230px;
 }
 .col-12 {
   font-family: $family__fonts;
