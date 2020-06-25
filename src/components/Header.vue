@@ -40,6 +40,14 @@
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-12">
+          <p class="scroll-design">Scroll</p>
+          <div class="lines"></div>
+          <div class="lines2"></div>
+          <img class="image-design" src="assets/angle-down.png" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -80,6 +88,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap");
 @import "../../public/assets/main.scss";
 
 .background-color {
@@ -152,6 +161,34 @@ img.github-logo {
   width: 73px;
   height: 74px;
   margin-left: 50px;
+}
+
+.scroll-design {
+  font-family: "Rubik", sans-serif;
+  font-size: 18px;
+  color: #1e2f67;
+  margin-bottom: 0px;
+}
+
+.lines {
+  width: 3px;
+  height: 5px;
+  border-bottom: 30px solid #1e2f67;
+  border-radius: 10px;
+  margin: 0 auto;
+}
+
+.lines2 {
+  width: 3px;
+  height: 5px;
+  border-bottom: 30px solid #1e2f67;
+  border-radius: 10px;
+  margin: 5px auto;
+}
+
+.image-design {
+  width: 25px;
+  height: 15px;
 }
 
 .nav {
