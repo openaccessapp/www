@@ -1,12 +1,20 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap");
+
 $color__button: #00CE9E;
 $color__main: #F7F7FA;
+$family__fonts: "Josefin Sans",
+sans-serif;
+$descriptions__fonts: "Rubik",
+sans-serif;
 
 
 .content {
     margin-top: 75px;
 }
 
-.container, .container-fluid {
+.container,
+.container-fluid {
     margin-top: 150px;
 }
 
@@ -17,4 +25,4 @@ $color__main: #F7F7FA;
 .person-avatar {
     width: 80px;
     max-height: 80px;
-  }
+}

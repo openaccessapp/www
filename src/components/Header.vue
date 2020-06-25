@@ -15,7 +15,7 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-6">
+        <div class="col-6 positionLeft">
           <div class="title">{{title}}</div>
           <div class="description">{{description}}</div>
           <div class="googleAndApplePosition">
@@ -26,6 +26,10 @@
               <img src="assets/app-store.png" />
             </a>
           </div>
+          <p class="infoText">{{infoText}}</p>
+          <a :href="OSI">
+            <img src="assets/open-source-logo.png" />
+          </a>
         </div>
         <div class="col-6">
           <div class="images">
@@ -50,7 +54,9 @@ export default {
       description: "",
       googlePlayLink: "",
       appStoreLink: "",
-      mobileApp: ""
+      mobileApp: "",
+      infoText: "",
+      OSI: ""
       // END: Expected data from .yaml
     };
   },
@@ -62,43 +68,55 @@ export default {
     this.googlePlayLink = header["google-play-link"];
     this.appStoreLink = header["app-store-link"];
     this.mobileApp = header["mobile-app"];
+    this.infoText = header["info-text"];
+    this.OSI = header.OSI;
   }
 };
 </script>
 
 <style scoped lang="scss">
+@import "../../public/assets/main.scss";
+
 .background-color {
   background-color: #ddfff7;
 }
+.positionLeft {
+  text-align: left;
+}
 .logoPosition {
   margin-top: 30px;
+  text-align: left;
 }
 .buttonDesign {
   margin-top: 40px;
+  font-family: $descriptions__fonts;
 }
 .title {
   margin-top: 200px;
-  text-align: left;
-  font-family: Josefin Sans;
-  font-weight: bold;
+  font-family: $family__fonts;
   font-size: 60px;
   color: #1e2f67;
 }
 .description {
   margin-top: 10px;
   margin-bottom: 60px;
-  text-align: left;
-  font-family: Rubik;
+  font-family: $descriptions__fonts;
   font-size: 30px;
   color: #474a67;
 }
 .googleAndApplePosition {
-  text-align: left;
+  margin-bottom: 30px;
   img.googlePosition {
     width: 209px;
     height: 62px;
     margin-right: 30px;
   }
+}
+.infoText {
+  font-family: "Rubik";
+  font-size: 14px;
+  color: #474a67;
+  margin-bottom: 60px;
 }
 
 button.btn {
@@ -107,6 +125,7 @@ button.btn {
   color: white;
   box-shadow: 0px 5px 10px #385fe240;
   margin-left: 30px;
+  padding: 10px 35px;
 }
 .images {
   position: relative;
