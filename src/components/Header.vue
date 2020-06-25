@@ -1,33 +1,36 @@
 <template>
-  <div class="container">
-    <div class="row nav">
-      <div class="col-6">
-        <img src="assets/logo.png" />
-      </div>
-      <div class="col-6">
-        <div>
-          {{navigationText}}
-          <a :href="mobileApp">
-            <button class="btn">{{buttonText}}</button>
-          </a>
+  <div class="background-color">
+    <div class="container">
+      <div class="row nav">
+        <div class="col-6 logoPosition">
+          <img src="assets/logo.png" />
+        </div>
+        <div class="col-6 buttonDesign">
+          <div>
+            {{navigationText}}
+            <a :href="mobileApp">
+              <button class="btn">{{buttonText}}</button>
+            </a>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-6">
-        <div class="butler">{{title}}</div>
-        <div class>{{description}}</div>
-        <a :href="googlePlayLink">
-          <img src="assets/google-play.png" />
-        </a>
-        <a :href="appStoreLink">
-          <img src="assets/app-store.png" />
-        </a>
-      </div>
-      <div class="col-6">
-        <div class="images">
-          <img class="people-image" src="assets/people.png" />
-          <img class="position blurred-image" src="assets/blur-effect.png" />
+      <div class="row">
+        <div class="col-6">
+          <div class="title">{{title}}</div>
+          <div class="description">{{description}}</div>
+          <div class="googleAndApplePosition">
+            <a :href="googlePlayLink">
+              <img class="googlePosition" src="assets/google-play-header.png" />
+            </a>
+            <a :href="appStoreLink">
+              <img src="assets/app-store.png" />
+            </a>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="images">
+            <img class="people-image" src="assets/phone-app.png" />
+          </div>
         </div>
       </div>
     </div>
@@ -64,16 +67,46 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.butler {
-  font-family: Butler;
-  font-weight: black;
-  font-size: 50px;
-  color: #000000;
+.background-color {
+  background-color: #ddfff7;
 }
+.logoPosition {
+  margin-top: 30px;
+}
+.buttonDesign {
+  margin-top: 40px;
+}
+.title {
+  margin-top: 200px;
+  text-align: left;
+  font-family: Josefin Sans;
+  font-weight: bold;
+  font-size: 60px;
+  color: #1e2f67;
+}
+.description {
+  margin-top: 10px;
+  margin-bottom: 60px;
+  text-align: left;
+  font-family: Rubik;
+  font-size: 30px;
+  color: #474a67;
+}
+.googleAndApplePosition {
+  text-align: left;
+  img.googlePosition {
+    width: 209px;
+    height: 62px;
+    margin-right: 30px;
+  }
+}
+
 button.btn {
   border: 10px;
-  background: #00ce9e;
+  background: #385fe2;
   color: white;
+  box-shadow: 0px 5px 10px #385fe240;
+  margin-left: 30px;
 }
 .images {
   position: relative;
@@ -85,9 +118,9 @@ img.position {
 }
 
 .images {
-  .people-image,
-  .blurred-image {
-    width: 100%;
+  .people-image {
+    width: 360px;
+    height: 770px;
   }
 }
 
