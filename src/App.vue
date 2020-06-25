@@ -5,6 +5,7 @@
     <CustomerReviews></CustomerReviews>
     <SafeAndHealthy></SafeAndHealthy>
     <Team></Team>
+    <DownloadApp></DownloadApp>
     <Footer></Footer>
   </div>
 </template>
@@ -15,6 +16,7 @@ import HowItWorks from "./components/HowItWorks";
 import CustomerReviews from "./components/CustomerReviews";
 import SafeAndHealthy from "./components/SafeAndHealthy";
 import Team from "./components/Team";
+import DownloadApp from "./components/DownloadApp";
 import Footer from "./components/Footer";
 
 export default {
@@ -24,6 +26,7 @@ export default {
     CustomerReviews,
     SafeAndHealthy,
     Team,
+    DownloadApp,
     Footer
   }
 };
