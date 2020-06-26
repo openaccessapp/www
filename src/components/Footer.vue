@@ -3,16 +3,44 @@
     <figure-circle color="#385FE2" :zIndex="0" :right="-380" :isFilled="false" :bottom="-250"></figure-circle>
     <div class="row container-links">
       <div class="col-3">
-        <router-link to="/terms">Terms and Conditions</router-link>
+        <router-link to="/terms">
+          <p>Terms and Conditions</p>
+        </router-link>
       </div>
       <div class="col-3">
-        <a :href="page1">Page Name</a>
+        <a :href="page1">
+          <p>Page Name</p>
+        </a>
       </div>
       <div class="col-3">
-        <a :href="page1">Page Name</a>
+        <a :href="page1">
+          <p>Page Name</p>
+        </a>
       </div>
       <div class="col-3">
-        <a :href="page1">Page Name</a>
+        <a :href="page1">
+          <p>Page Name</p>
+        </a>
+      </div>
+      <div class="col-3">
+        <router-link to="/terms">
+          <p>Terms and Conditions</p>
+        </router-link>
+      </div>
+      <div class="col-3">
+        <a :href="page1">
+          <p>Page Name</p>
+        </a>
+      </div>
+      <div class="col-3">
+        <a :href="page1">
+          <p>Page Name</p>
+        </a>
+      </div>
+      <div class="col-3">
+        <a :href="page1">
+          <p>Page Name</p>
+        </a>
       </div>
     </div>
     <img src="assets/logo-text.png" />
@@ -53,10 +81,15 @@ export default {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
+  overflow: hidden;
 
   width: 100%;
   padding: 0;
   height: 400px;
   background: none;
+  p {
+    font-size: 16px;
+    color: black;
+  }
 }
 </style>
