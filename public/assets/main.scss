@@ -11,6 +11,9 @@ $font__descriptions: "Rubik", sans-serif;
 $font__sub-title: "Rubik Medium", sans-serif;
 
 
+body {
+    overflow-x: hidden;
+}
 .content {
     margin-top: 75px;
 }
