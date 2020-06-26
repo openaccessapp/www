@@ -21,7 +21,7 @@
 
 <script>
 import terms from "js-yaml-loader!../../content-manager/header.yaml";
-import gdpr from "../../gdpr.md";
+import gdpr from "raw-loader!../../gdpr.md";
 import marked from "marked";
 export default {
   name: "Terms",
