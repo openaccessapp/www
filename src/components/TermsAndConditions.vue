@@ -23,7 +23,8 @@ export default {
     return {
       navigationText: "",
       buttonText: "",
-      mobileApp: ""
+      mobileApp: "",
+      html: ""
     };
   },
   mounted() {

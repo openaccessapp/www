@@ -38,13 +38,13 @@ export default {
   name: "HowItWorks",
   data() {
     return {
-      sections: "",
+      sections: [],
       title: "",
       text: "",
       videoLink: ""
     };
   },
-  mounted() {
+  created() {
     this.title = howItWorks.title;
     this.text = howItWorks.text;
     this.sections = howItWorks.sections;
