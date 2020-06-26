@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <figure-circle color="red" :zIndex="10"></figure-circle>
+    <figure-circle color="red" :zIndex="10" :left="-250"></figure-circle>
     <div class="row">
       <div class="col-12">
         <h2>{{title}}</h2>

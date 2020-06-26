@@ -9,9 +9,11 @@ export default {
   props: {
       color: String,
       zIndex: Number,
-      left: Number,
+      top: Number,
       right: Number,
-      
+      bottom: Number,
+      left: Number,
+      isFilled: Boolean
   },
   data() {
     return {
@@ -21,7 +23,12 @@ export default {
   mounted() {
     this.styling = {
       'border': `10px solid ${this.color}`,
-      'z-index': this.zIndex
+      'z-index': this.zIndex,
+      'top': this.top ? `${this.top}px` : 'unset',
+      'right': this.right ? `${this.right}px` : 'unset',
+      'bottom': this.bottom ? `${this.bottom}px` : 'unset',
+      'left': this.left ? `${this.left}px` : 'unset',
+      'background': this.isFilled ? this.color : 'unset',
     }
   }
 };
@@ -31,8 +38,8 @@ export default {
 @import "../../public/assets/main.scss";
 
 .circle {
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
   border-radius: 50%;
   z-index: 10;
   position: absolute;

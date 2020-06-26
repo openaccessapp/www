@@ -1,51 +1,54 @@
 <template>
-  <div class="background-color">
-    <div class="container">
-      <div class="row nav">
-        <div class="col-6 logo-position">
-          <img src="assets/logo.png" />
-        </div>
-        <div class="col-6 button-design">
-          <div>
-            <p class="medium-font">{{navigationText}}</p>
-            <a :href="mobileApp">
-              <button class="btn">{{buttonText}}</button>
-            </a>
+  <div class="header">
+    <div class="background-color">
+      <div class="container">
+        <figure-circle color="white" :zIndex="0" :left="-200" :isFilled="true" :top="-100"></figure-circle>
+        <div class="row nav">
+          <div class="col-6 logo-position">
+            <img src="assets/logo.png" />
+          </div>
+          <div class="col-6 button-design">
+            <div>
+              <p class="medium-font">{{navigationText}}</p>
+              <a :href="mobileApp">
+                <button class="btn">{{buttonText}}</button>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-6 position-left">
-          <div class="title">{{title}}</div>
-          <div class="description">{{description}}</div>
-          <div class="google-and-apple-position">
-            <a :href="googlePlayLink">
-              <img class="google-position" src="assets/google-play-header.png" />
+        <div class="row">
+          <div class="col-6 position-left">
+            <div class="title">{{title}}</div>
+            <div class="description">{{description}}</div>
+            <div class="google-and-apple-position">
+              <a :href="googlePlayLink">
+                <img class="google-position" src="assets/google-play-header.png" />
+              </a>
+              <a :href="appStoreLink">
+                <img src="assets/app-store.png" />
+              </a>
+            </div>
+            <p class="infoText">{{infoText}}</p>
+            <a :href="OSI">
+              <img src="assets/open-source-logo.png" />
             </a>
-            <a :href="appStoreLink">
-              <img src="assets/app-store.png" />
+            <a :href="github">
+              <img class="github-logo" src="assets/github-logo.png" />
             </a>
           </div>
-          <p class="infoText">{{infoText}}</p>
-          <a :href="OSI">
-            <img src="assets/open-source-logo.png" />
-          </a>
-          <a :href="github">
-            <img class="github-logo" src="assets/github-logo.png" />
-          </a>
-        </div>
-        <div class="col-6">
-          <div class="images">
-            <img class="people-image" src="assets/phone-app.png" />
+          <div class="col-6">
+            <div class="images">
+              <img class="people-image" src="assets/phone-app.png" />
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <p class="scroll-design">Scroll</p>
-          <div class="lines"></div>
-          <div class="lines2"></div>
-          <img class="image-design" src="assets/angle-down.png" />
+        <div class="row">
+          <div class="col-12">
+            <p class="scroll-design">Scroll</p>
+            <div class="lines"></div>
+            <div class="lines2"></div>
+            <img class="image-design" src="assets/angle-down.png" />
+          </div>
         </div>
       </div>
     </div>
@@ -54,8 +57,13 @@
 
 <script>
 import header from "js-yaml-loader!../../content-manager/header.yaml";
+import FigureCircle from '../components/FigureCircle.vue';
+
 export default {
   name: "Header",
+  components: {
+    FigureCircle
+  },
   data() {
     return {
       // START: Expected data from .yaml
@@ -91,8 +99,12 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap");
 @import "../../public/assets/main.scss";
 
+.header {
+  padding-bottom: 50px;
+  background-color: $color__header-background;
+}
 .background-color {
-  background-color: #ddfff7;
+  background-color: $color__header-background;
 }
 .position-left {
   text-align: left;
@@ -104,7 +116,7 @@ export default {
 .button-design {
   margin-top: 40px;
   font-family: $font__descriptions;
-  >div {
+  > div {
     display: flex;
     justify-content: space-evenly;
     align-items: baseline;
