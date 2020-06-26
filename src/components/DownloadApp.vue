@@ -1,5 +1,7 @@
 <template>
   <div class="container">
+    <figure-circle color="#DDFFF7" :zIndex="0" :right="-320" :isFilled="false" :top="-220"></figure-circle>
+    <figure-circle color="#DDFFF7" :zIndex="0" :left="-280" :isFilled="true" :top="0"></figure-circle>
     <div class="row">
       <div class="col-12">
         <h2>Download the App Text HERE</h2>
@@ -18,8 +20,10 @@
 
 <script>
 import DownloadApp from "js-yaml-loader!../../content-manager/header.yaml";
+import FigureCircle from "../components/FigureCircle.vue";
 export default {
   name: "DownloadApp",
+  components: { FigureCircle },
   data() {
     return {
       googlePLay: "",
