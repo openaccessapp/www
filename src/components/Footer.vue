@@ -1,5 +1,6 @@
 <template>
   <div class="footer container-fluid">
+    <figure-circle color="#385FE2" :zIndex="0" :right="-380" :isFilled="false" :bottom="-250"></figure-circle>
     <div class="row container-links">
       <div class="col-3">
         <router-link to="/terms">Terms and Conditions</router-link>
@@ -20,8 +21,10 @@
 
 <script>
 import footer from "js-yaml-loader!../../content-manager/footer.yaml";
+import FigureCircle from "../components/FigureCircle.vue";
 export default {
   name: "CustomerReviews",
+  components: { FigureCircle },
   data() {
     return {
       page1: "",
