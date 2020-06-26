@@ -1,32 +1,35 @@
 <template>
-  <div class="container-fluid">
-    <div class="row container-links">
-      <div class="col-3">
-        <router-link to="/terms">Terms and Conditions</router-link>
-      </div>
-      <div class="col-3">
-        <a :href="page1">Page Name</a>
-      </div>
-      <div class="col-3">
-        <a :href="page1">Page Name</a>
-      </div>
-      <div class="col-3">
-        <a :href="page1">Page Name</a>
-      </div>
-    </div>
-    <div class="row container-links">
-      <div class="col-3">
-        <a :href="page5">Page Name</a>
-      </div>
-    </div>
-    <img src="assets/logo-text.png" />
+  <div>
+    <Header></Header>
+    <HowItWorks></HowItWorks>
+    <CustomerReviews></CustomerReviews>
+    <SafeAndHealthy></SafeAndHealthy>
+    <Team></Team>
+    <DownloadApp></DownloadApp>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
 import footer from "js-yaml-loader!../../content-manager/footer.yaml";
+import Header from "./Header";
+import HowItWorks from "./HowItWorks";
+import CustomerReviews from "./CustomerReviews";
+import SafeAndHealthy from "./SafeAndHealthy";
+import Team from "./Team";
+import DownloadApp from "./DownloadApp";
+import Footer from "./Footer";
 export default {
-  name: "CustomerReviews",
+  name: "Home",
+  components: {
+    Header,
+    HowItWorks,
+    CustomerReviews,
+    SafeAndHealthy,
+    Team,
+    DownloadApp,
+    Footer
+  },
   data() {
     return {
       page1: "",

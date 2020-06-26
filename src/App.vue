@@ -1,34 +1,12 @@
 <template>
   <div id="app">
-    <Header></Header>
-    <HowItWorks></HowItWorks>
-    <CustomerReviews></CustomerReviews>
-    <SafeAndHealthy></SafeAndHealthy>
-    <Team></Team>
-    <DownloadApp></DownloadApp>
-    <Footer></Footer>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Header from "./components/Header";
-import HowItWorks from "./components/HowItWorks";
-import CustomerReviews from "./components/CustomerReviews";
-import SafeAndHealthy from "./components/SafeAndHealthy";
-import Team from "./components/Team";
-import DownloadApp from "./components/DownloadApp";
-import Footer from "./components/Footer";
 
 export default {
-  components: {
-    Header,
-    HowItWorks,
-    CustomerReviews,
-    SafeAndHealthy,
-    Team,
-    DownloadApp,
-    Footer
-  }
 };
 </script>
 

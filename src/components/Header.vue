@@ -3,19 +3,7 @@
     <div class="background-color">
       <div class="container">
         <figure-circle color="white" :zIndex="0" :left="-200" :isFilled="true" :top="-100"></figure-circle>
-        <div class="row nav">
-          <div class="col-6 logo-position">
-            <img src="assets/logo.png" />
-          </div>
-          <div class="col-6 button-design">
-            <div>
-              <p class="medium-font">{{navigationText}}</p>
-              <a :href="mobileApp">
-                <button class="btn">{{buttonText}}</button>
-              </a>
-            </div>
-          </div>
-        </div>
+        <navigation :navigationText="navigationText" :buttonText="buttonText" :mobileApp="mobileApp"></navigation>
         <div class="row">
           <div class="col-6 position-left">
             <div class="title">{{title}}</div>
@@ -58,11 +46,12 @@
 <script>
 import header from "js-yaml-loader!../../content-manager/header.yaml";
 import FigureCircle from '../components/FigureCircle.vue';
+import Navigation from '../components/Navigation.vue';
 
 export default {
   name: "Header",
   components: {
-    FigureCircle
+    FigureCircle, Navigation
   },
   data() {
     return {
@@ -109,19 +98,7 @@ export default {
 .position-left {
   text-align: left;
 }
-.logo-position {
-  margin-top: 30px;
-  text-align: left;
-}
-.button-design {
-  margin-top: 40px;
-  font-family: $font__descriptions;
-  > div {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: baseline;
-  }
-}
+
 .title {
   margin-top: 200px;
   font-family: $font__family;
@@ -148,15 +125,6 @@ export default {
   font-size: 14px;
   color: #474a67;
   margin-bottom: 60px;
-}
-
-button.btn {
-  border: 10px;
-  background: $color__site;
-  color: white;
-  box-shadow: 0px 5px 10px #385fe240;
-  margin-left: 30px;
-  padding: 10px 35px;
 }
 .images {
   position: relative;
@@ -206,9 +174,5 @@ img.github-logo {
 .image-design {
   width: 25px;
   height: 15px;
-}
-
-.nav {
-  padding: 25px 0 50px;
 }
 </style>
