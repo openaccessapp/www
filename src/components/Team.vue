@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="team container">
     <figure-circle color="red" :zIndex="10" :left="-250"></figure-circle>
     <div class="row">
       <div class="col-12">
@@ -51,8 +51,8 @@ export default {
   margin: 0 auto;
 }
 
-.container {
-  margin-top: 230px;
+.team.container {
+  margin-top: 300px;
 }
 .col-12 {
   font-family: $font__family;

@@ -54,12 +54,11 @@ export default {
 
 .container-fluid {
   display: flex;
-  place-items: flex-end;
+  place-items: center;
   justify-content: center;
 
   width: 100%;
   padding: 0;
   height: 400px;
-  background-color: $color__main;
 }
 </style>
