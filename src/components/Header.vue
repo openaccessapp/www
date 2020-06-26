@@ -3,6 +3,8 @@
     <div class="background-color">
       <div class="container">
         <figure-circle color="white" :zIndex="0" :left="-200" :isFilled="true" :top="-100"></figure-circle>
+        <figure-circle color="white" :zIndex="0" :right="-200" :isFilled="true" :top="-100"></figure-circle>
+        <figure-circle color="#385fe2" :zIndex="1" :right="-200" :isFilled="false" :top="200"></figure-circle>
         <navigation :navigationText="navigationText" :buttonText="buttonText" :mobileApp="mobileApp"></navigation>
         <div class="row">
           <div class="col-6 position-left">
@@ -137,8 +139,10 @@ img.position {
 
 .images {
   .people-image {
+    position: relative;
     width: 360px;
     height: 770px;
+    z-index: 2;
   }
 }
 

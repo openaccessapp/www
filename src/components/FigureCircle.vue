@@ -22,7 +22,7 @@ export default {
   },
   mounted() {
     this.styling = {
-      'border': `10px solid ${this.color}`,
+      'border': `6px solid ${this.color}`,
       'z-index': this.zIndex,
       'top': this.top ? `${this.top}px` : 'unset',
       'right': this.right ? `${this.right}px` : 'unset',
