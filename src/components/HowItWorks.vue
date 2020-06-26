@@ -73,7 +73,7 @@ h3.title {
 
 .titleName {
   font-size: 25px;
-  color: #385fe2;
+  color: $color__site;
 }
 
 .howItWorksImage {

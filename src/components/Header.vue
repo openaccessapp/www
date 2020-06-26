@@ -121,7 +121,7 @@ export default {
 
 button.btn {
   border: 10px;
-  background: #385fe2;
+  background: $color__site;
   color: white;
   box-shadow: 0px 5px 10px #385fe240;
   margin-left: 30px;
@@ -144,6 +144,6 @@ img.position {
 }
 
 .nav {
-  margin: 25px 0 50px;
+  padding: 25px 0 50px;
 }
 </style>

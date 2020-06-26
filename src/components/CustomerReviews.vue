@@ -1,13 +1,18 @@
 <template>
-  <div class="background">
+  <div>
+      <!-- <div class="figures">
+        <div class="triangle"></div>  
+        <div class="rect"></div>
+      </div> -->
+
     <div class="container">
       <div class="row">
         <div class="col-12">
           <h2 class="title">{{title}}</h2>
         </div>
       </div>
-      <carousel perPage="1" class="content">
-        <slide v-for="(customer) of reviews" :key="customer">
+      <carousel :perPage="1" class="content">
+        <slide v-for="(customer) of reviews" :key="customer.name">
           <img :src="customer['avatar-link']" class="person-avatar" />
           <p class="bold">{{customer.name}}</p>
           <p class="placeStyle">{{customer.place}}</p>
@@ -44,8 +49,28 @@ export default {
 <style scoped lang="scss">
 @import "../../public/assets/main.scss";
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap");
-.background {
-  background-color: #385fe2;
+
+.figures {
+  position: absolute;
+  .triangle {
+    position: absolute;
+    border-bottom: 1000px solid $color__site;
+    border-left: 100vw solid transparent;
+    position: absolute;
+    width: 0; height: 0;
+  }
+  .rect {
+    position: absolute;
+    width: 100vw;
+    height: 200px;
+    background: $color__site;
+  }
+}
+
+
+
+.container {
+  z-index: 1;
 }
 .title {
   font-family: $family__fonts;
