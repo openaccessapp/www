@@ -2,10 +2,10 @@
   <div class="background-color">
     <div class="container">
       <div class="row nav">
-        <div class="col-6 logoPosition">
+        <div class="col-6 logo-position">
           <img src="assets/logo.png" />
         </div>
-        <div class="col-6 buttonDesign">
+        <div class="col-6 button-design">
           <div>
             {{navigationText}}
             <a :href="mobileApp">
@@ -15,12 +15,12 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-6 positionLeft">
+        <div class="col-6 position-left">
           <div class="title">{{title}}</div>
           <div class="description">{{description}}</div>
-          <div class="googleAndApplePosition">
+          <div class="google-and-apple-position">
             <a :href="googlePlayLink">
-              <img class="googlePosition" src="assets/google-play-header.png" />
+              <img class="google-position" src="assets/google-play-header.png" />
             </a>
             <a :href="appStoreLink">
               <img src="assets/app-store.png" />
@@ -94,14 +94,14 @@ export default {
 .background-color {
   background-color: #ddfff7;
 }
-.positionLeft {
+.position-left {
   text-align: left;
 }
-.logoPosition {
+.logo-position {
   margin-top: 30px;
   text-align: left;
 }
-.buttonDesign {
+.button-design {
   margin-top: 40px;
   font-family: $descriptions__fonts;
 }
@@ -118,9 +118,9 @@ export default {
   font-size: 30px;
   color: #474a67;
 }
-.googleAndApplePosition {
+.google-and-apple-position {
   margin-bottom: 30px;
-  img.googlePosition {
+  img.google-position {
     width: 209px;
     height: 62px;
     margin-right: 30px;
