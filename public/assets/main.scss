@@ -1,15 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;0,500;1,900&display=swap');
 
 $color__button: #00CE9E;
 $color__main: #F7F7FA;
-$family__fonts: "Josefin Sans",
-sans-serif;
-$descriptions__fonts: "Rubik",
-sans-serif;
-
 $color__background: #FCFDFF;
 $color__site: #385fe2;
+$font__family: "Josefin Sans", sans-serif;
+$font__descriptions: "Rubik", sans-serif;
+$font__sub-title: "Rubik Medium", sans-serif;
 
 
 .content {
@@ -28,4 +26,8 @@ $color__site: #385fe2;
 .person-avatar {
     width: 80px;
     max-height: 80px;
+}
+
+.medium-font {
+    font-family: "Black" 16px/57px Rubik;
 }

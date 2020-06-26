@@ -7,7 +7,7 @@
         </div>
         <div class="col-6 button-design">
           <div>
-            {{navigationText}}
+            <p class="medium-font">{{navigationText}}</p>
             <a :href="mobileApp">
               <button class="btn">{{buttonText}}</button>
             </a>
@@ -103,18 +103,23 @@ export default {
 }
 .button-design {
   margin-top: 40px;
-  font-family: $descriptions__fonts;
+  font-family: $font__descriptions;
+  >div {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+  }
 }
 .title {
   margin-top: 200px;
-  font-family: $family__fonts;
+  font-family: $font__family;
   font-size: 60px;
   color: #1e2f67;
 }
 .description {
   margin-top: 10px;
   margin-bottom: 60px;
-  font-family: $descriptions__fonts;
+  font-family: $font__descriptions;
   font-size: 30px;
   color: #474a67;
 }

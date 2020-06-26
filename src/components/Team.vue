@@ -44,7 +44,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap");
 @import "../../public/assets/main.scss";
 .person-description {
-  font-family: $descriptions__fonts;
+  font-family: $font__descriptions;
   font-size: 18px;
   color: #474a67;
   width: 75%;
@@ -55,12 +55,12 @@ export default {
   margin-top: 230px;
 }
 .col-12 {
-  font-family: $family__fonts;
+  font-family: $font__family;
   font-size: 40px;
   color: #1e2f67;
 }
 .person-name {
-  font-family: $family__fonts;
+  font-family: $font__family;
   font-size: 25px;
   color: #1e2f67;
   margin-top: 60px;

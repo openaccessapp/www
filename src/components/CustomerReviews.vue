@@ -48,7 +48,6 @@ export default {
 
 <style scoped lang="scss">
 @import "../../public/assets/main.scss";
-@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap");
 
 .figures {
   position: absolute;
@@ -73,18 +72,18 @@ export default {
   z-index: 1;
 }
 .title {
-  font-family: $family__fonts;
+  font-family: $font__family;
   font-size: 40px;
   margin-top: 360px;
   color: #f7f7fa;
 }
 .placeStyle {
-  font-family: $descriptions__fonts;
+  font-family: $font__descriptions;
   font-size: 16px;
   color: #f7f7fa;
 }
 .person-description-style {
-  font-family: $descriptions__fonts;
+  font-family: $font__descriptions;
   font-size: 20px;
   color: #f7f7fa;
   width: 50%;
