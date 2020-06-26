@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="footer container-fluid">
     <div class="row container-links">
       <div class="col-3">
         <router-link to="/terms">Terms and Conditions</router-link>
@@ -12,11 +12,6 @@
       </div>
       <div class="col-3">
         <a :href="page1">Page Name</a>
-      </div>
-    </div>
-    <div class="row container-links">
-      <div class="col-3">
-        <a :href="page5">Page Name</a>
       </div>
     </div>
     <img src="assets/logo-text.png" />
@@ -49,14 +44,16 @@ export default {
 <style scoped lang="scss">
 @import "../../public/assets/main.scss";
 
-.container-fluid {
+.footer.container-fluid {
+  width: 55%;
   display: flex;
-  place-items: flex-end;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 
   width: 100%;
   padding: 0;
   height: 400px;
-  background-color: $color__main;
+  background: none;
 }
 </style>
