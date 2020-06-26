@@ -2,29 +2,29 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        <h2 class="title titleSize">{{title}}</h2>
+        <h2 class="title title-size">{{title}}</h2>
       </div>
     </div>
     <div class="row content">
       <div class="col-4 text-section">
         <div class="section">
-          <h3 class="title titleName">{{sections[0].title}}</h3>
+          <h3 class="title title-name">{{sections[0].title}}</h3>
           <p class="text">{{sections[0].text}}</p>
         </div>
         <div class="section mt-5">
-          <h3 class="title titleName">{{sections[1].title}}</h3>
+          <h3 class="title title-name">{{sections[1].title}}</h3>
           <p class="text">{{sections[1].text}}</p>
         </div>
       </div>
       <div class="col-4">
         <div class="mock-image">
           <!-- <iframe width="370" height="600" :src="videoLink" frameborder="0">{{videoLink}}</iframe> -->
-          <img class="howItWorksImage" src="assets/how-it-works.png" />
+          <img class="how-it-works-image" src="assets/how-it-works.png" />
         </div>
       </div>
       <div class="col-4 text-section">
         <div class="section">
-          <h3 class="title titleName">{{sections[2].title}}</h3>
+          <h3 class="title title-name">{{sections[2].title}}</h3>
           <p class="text">{{sections[2].text}}</p>
         </div>
       </div>
@@ -38,13 +38,13 @@ export default {
   name: "HowItWorks",
   data() {
     return {
-      sections: [],
+      sections: "",
       title: "",
       text: "",
       videoLink: ""
     };
   },
-  created() {
+  mounted() {
     this.title = howItWorks.title;
     this.text = howItWorks.text;
     this.sections = howItWorks.sections;
@@ -66,17 +66,17 @@ h3.title {
   font-family: $font__family;
 }
 
-.titleSize {
+.title-size {
   font-size: 40px;
   color: #1e2f67;
 }
 
-.titleName {
+.title-name {
   font-size: 25px;
   color: $color__site;
 }
 
-.howItWorksImage {
+.how-it-works-image {
   width: 350px;
 }
 

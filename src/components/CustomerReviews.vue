@@ -17,7 +17,7 @@
         <slide v-for="(customer) of reviews" :key="customer.name">
           <img :src="customer['avatar-link']" class="person-avatar" />
           <p class="bold">{{customer.name}}</p>
-          <p class="placeStyle">{{customer.place}}</p>
+          <p class="place-style">{{customer.place}}</p>
           <h4 class="person-description-style">{{customer.review}}</h4>
         </slide>
       </carousel>
@@ -80,7 +80,7 @@ export default {
   margin-top: 360px;
   color: #f7f7fa;
 }
-.placeStyle {
+.place-style {
   font-family: $font__descriptions;
   font-size: 16px;
   color: #f7f7fa;
