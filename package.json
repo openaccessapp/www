@@ -12,6 +12,7 @@
     "bootstrap-vue": "^2.15.0",
     "core-js": "^3.6.5",
     "js-yaml-loader": "^1.2.2",
+    "marked": "^1.1.0",
     "raw-loader": "^4.0.1",
     "vue": "^2.6.11",
     "vue-carousel": "^0.18.0",
