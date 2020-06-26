@@ -1,15 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:black,light,medium&display=swap');
 
 $color__button: #00CE9E;
 $color__main: #F7F7FA;
-$family__fonts: "Josefin Sans",
-sans-serif;
-$descriptions__fonts: "Rubik",
-sans-serif;
-
 $color__background: #FCFDFF;
+$color__header-background: #DDFFF7;
 $color__site: #385fe2;
+$font__family: "Josefin Sans", sans-serif;
+$font__descriptions: "Rubik", sans-serif;
+$font__sub-title: "Rubik Medium", sans-serif;
 
 
 .content {
@@ -19,10 +18,14 @@ $color__site: #385fe2;
 .container,
 .container-fluid {
     margin-top: 150px;
+    position: relative;
 }
 
-#app .container:first-child {
-    margin-top: 0;
+#app {
+    background-color: $color__background;
+    .container:first-child {
+        margin-top: 0;
+    }
 }
 
 .person-avatar {

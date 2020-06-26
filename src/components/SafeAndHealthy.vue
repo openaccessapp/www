@@ -49,7 +49,7 @@ export default {
   justify-content: center;
   align-items: center;
   h3 {
-    font-family: $family__fonts;
+    font-family: $font__family;
     font-size: 40px;
     color: #1e2f67;
     margin-bottom: 55px;
@@ -57,7 +57,7 @@ export default {
 
   p {
     width: 50%;
-    font-family: $descriptions__fonts;
+    font-family: $font__descriptions;
     font-size: 18px;
     color: #474a67;
   }

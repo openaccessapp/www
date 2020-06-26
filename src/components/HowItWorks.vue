@@ -63,7 +63,7 @@ export default {
 }
 h2,
 h3.title {
-  font-family: $family__fonts;
+  font-family: $font__family;
 }
 
 .titleSize {
@@ -81,7 +81,7 @@ h3.title {
 }
 
 .text {
-  font-family: $descriptions__fonts;
+  font-family: $font__descriptions;
   font-size: 18px;
   color: #474a67;
 }

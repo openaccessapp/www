@@ -36,7 +36,7 @@ export default {
 <style scoped lang="scss">
 @import "../../public/assets/main.scss";
 h2 {
-  font-family: $family__fonts;
+  font-family: $font__family;
   font-size: 40px;
   color: #1e2f67;
 }
