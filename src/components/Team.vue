@@ -1,6 +1,6 @@
 <template>
   <div class="team container">
-    <figure-circle color="red" :zIndex="10" :left="-250"></figure-circle>
+    <figure-circle color="#F7F7FA" :zIndex="0" :left="-400" :isFilled="false" :bottom="0"></figure-circle>
     <div class="row">
       <div class="col-12">
         <h2>{{title}}</h2>
@@ -19,7 +19,7 @@
 
 <script>
 import team from "js-yaml-loader!../../content-manager/team.yaml";
-import FigureCircle from '../components/FigureCircle.vue';
+import FigureCircle from "../components/FigureCircle.vue";
 export default {
   name: "CustomerReviews",
   components: {

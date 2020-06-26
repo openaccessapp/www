@@ -1,11 +1,13 @@
 <template>
   <div>
-      <!-- <div class="figures">
+    <!-- <div class="figures">
         <div class="triangle"></div>  
         <div class="rect"></div>
-      </div> -->
+    </div>-->
 
     <div class="container">
+      <figure-circle color="#F7F7FA" :zIndex="0" :left="-400" :isFilled="false" :top="250"></figure-circle>
+      <figure-circle color="#F7F7FA" :zIndex="0" :right="-300" :isFilled="false" :top="500"></figure-circle>
       <div class="row">
         <div class="col-12">
           <h2 class="title">{{title}}</h2>
@@ -26,11 +28,13 @@
 <script>
 import customerReviews from "js-yaml-loader!../../content-manager/customer-reviews.yaml";
 import { Carousel, Slide } from "vue-carousel";
+import FigureCircle from "../components/FigureCircle.vue";
 export default {
   name: "CustomerReviews",
   components: {
     Carousel,
-    Slide
+    Slide,
+    FigureCircle
   },
   data() {
     return {
@@ -56,7 +60,8 @@ export default {
     border-bottom: 1000px solid $color__site;
     border-left: 100vw solid transparent;
     position: absolute;
-    width: 0; height: 0;
+    width: 0;
+    height: 0;
   }
   .rect {
     position: absolute;
@@ -65,8 +70,6 @@ export default {
     background: $color__site;
   }
 }
-
-
 
 .container {
   z-index: 1;
