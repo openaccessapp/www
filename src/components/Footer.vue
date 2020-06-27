@@ -1,6 +1,8 @@
 <template>
   <div class="footer container-fluid">
-    <figure-circle color="#385FE2" :zIndex="0" :right="-380" :isFilled="false" :bottom="-250"></figure-circle>
+    <figure-circle color="#385FE2" :zIndex="0" :right="-270" :isFilled="false" :bottom="0" customClass="custom-circle"></figure-circle>
+    <figure-circle color="#DDFFF7" :zIndex="0" :left="-280" :isFilled="true" :bottom="0"></figure-circle>
+
     <div class="row container-links">
       <div class="col-3">
         <router-link to="/terms">
@@ -90,6 +92,22 @@ export default {
   p {
     font-size: 16px;
     color: black;
+  }
+
+  .custom-circle {
+    border: 6px solid rgb(56, 95, 226);
+    z-index: 0;
+    top: unset;
+    right: -290px;
+    bottom: 0 !important;
+    left: unset;
+    background: unset;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 500px;
+    border-top-right-radius: 500px;
+    height: 200px;
+    border-bottom: 0 !important;
   }
 }
 </style>

@@ -1,9 +1,5 @@
 <template>
-  <div>
-    <!-- <div class="figures">
-        <div class="triangle"></div>  
-        <div class="rect"></div>
-    </div>-->
+  <div class="customer-reviews">
 
     <div class="container">
       <figure-circle color="#F7F7FA" :zIndex="0" :left="-400" :isFilled="false" :top="250"></figure-circle>
@@ -53,6 +49,10 @@ export default {
 <style scoped lang="scss">
 @import "../../public/assets/main.scss";
 
+.customer-reviews {
+  background-color: $color__site;
+  position: relative;
+}
 .figures {
   position: absolute;
   .triangle {

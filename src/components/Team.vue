@@ -1,17 +1,19 @@
 <template>
-  <div class="team container">
-    <figure-circle color="#F7F7FA" :zIndex="0" :left="-400" :isFilled="false" :bottom="0"></figure-circle>
-    <div class="row">
-      <div class="col-12">
-        <h2>{{title}}</h2>
+  <div class="team">
+    <figure-circle color="#F7F7FA" :zIndex="0" :left="-200" :isFilled="false" :bottom="0"></figure-circle>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <h2>{{title}}</h2>
+        </div>
       </div>
-    </div>
-    <div class="row content">
-      <div class="col-4" v-for="(person) of people" :key="person.name">
-        <img :src="person['avatar-link']" class="person-avatar" />
-        <h3 class="person-name">{{person.name}}</h3>
-        <p class="person-place">{{person.place}}</p>
-        <p class="person-description">{{person.description}}</p>
+      <div class="row content">
+        <div class="col-xl-4 col-md-4 col-xs-4 col-12" v-for="(person) of people" :key="person.name">
+          <img :src="person['avatar-link']" class="person-avatar" />
+          <h3 class="person-name">{{person.name}}</h3>
+          <p class="person-place">{{person.place}}</p>
+          <p class="person-description">{{person.description}}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -51,8 +53,11 @@ export default {
   margin: 0 auto;
 }
 
-.team.container {
-  margin-top: 300px;
+.team {
+  position: relative;
+  .container {
+    margin-top: 100px;
+  }
 }
 .col-12 {
   font-family: $font__family;
@@ -70,4 +75,13 @@ export default {
   font-size: 16px;
   color: #9597ac;
 }
+
+@media only screen and (max-width: 768px) {
+    .person-avatar {
+      margin-top: 50px;
+    }
+    .content {
+      margin-top: 0;
+    }
+  }
 </style>

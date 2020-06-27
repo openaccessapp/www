@@ -1,47 +1,49 @@
 <template>
   <div class="header">
-    <div class="background-color">
-      <div class="container">
-        <figure-circle color="white" :zIndex="0" :left="-200" :isFilled="true" :top="-100"></figure-circle>
-        <figure-circle color="white" :zIndex="0" :right="-200" :isFilled="true" :top="-100"></figure-circle>
-        <figure-circle color="#385fe2" :zIndex="1" :right="-200" :isFilled="false" :top="200"></figure-circle>
-        <navigation :navigationText="navigationText" :buttonText="buttonText" :mobileApp="mobileApp"></navigation>
-        <div class="row">
-          <div class="col-6 position-left">
-            <div class="title">{{title}}</div>
-            <div class="description">{{description}}</div>
-            <div class="google-and-apple-position">
-              <a :href="googlePlayLink">
-                <img class="google-position" src="assets/google-play-header.png" />
-              </a>
-              <a :href="appStoreLink">
-                <img src="assets/app-store.png" />
-              </a>
-            </div>
-            <p class="infoText">{{infoText}}</p>
-            <a :href="OSI">
-              <img src="assets/open-source-logo.png" />
+    <div class="container">
+      <figure-circle color="white" :zIndex="0" :left="-200" :isFilled="true" :top="-100"></figure-circle>
+      <figure-circle color="white" :zIndex="0" :right="-200" :isFilled="true" :top="-100"></figure-circle>
+      <figure-circle color="#385fe2" :zIndex="1" :right="-200" :isFilled="false" :top="200"></figure-circle>
+      <navigation :navigationText="navigationText" :buttonText="buttonText" :mobileApp="mobileApp"></navigation>
+      <div class="row">
+        <div class="col-6 position-left">
+          <div class="title">{{title}}</div>
+          <div class="description">{{description}}</div>
+          <div class="google-and-apple-position">
+            <a :href="googlePlayLink">
+              <img class="google-position" src="assets/google-play-header.png" />
             </a>
-            <a :href="github">
-              <img class="github-logo" src="assets/github-logo.png" />
+            <a :href="appStoreLink">
+              <img class="apple-position" src="assets/app-store.png" />
             </a>
           </div>
-          <div class="col-6">
-            <div class="images">
-              <img class="people-image" src="assets/phone-app.png" />
-            </div>
-          </div>
+          <p class="infoText">{{infoText}}</p>
+          <a :href="OSI">
+            <img src="assets/open-source-logo.png" />
+          </a>
+          <a :href="github">
+            <img class="github-logo" src="assets/github-logo.png" />
+          </a>
         </div>
-        <div class="row">
-          <div class="col-12">
-            <p class="scroll-design">Scroll</p>
-            <div class="lines"></div>
-            <div class="lines2"></div>
-            <img class="image-design" src="assets/angle-down.png" />
+        <div class="col-6">
+          <div class="images">
+            <img class="people-image" src="assets/phone-app.png" />
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-12">
+          <p class="scroll-design">Scroll</p>
+          <div class="lines"></div>
+          <div class="lines2"></div>
+          <img class="image-design" src="assets/angle-down.png" />
+        </div>
+      </div>
     </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <polygon fill="white" points="0,100 100,0 100,100"/>
+    </svg>
   </div>
 </template>
 
@@ -91,18 +93,26 @@ export default {
 @import "../../public/assets/main.scss";
 
 .header {
-  padding-bottom: 50px;
+  position: relative;
   background-color: $color__header-background;
-}
-.background-color {
-  background-color: $color__header-background;
+  height: 110vh;
+  .container {
+    margin-top: 0;
+  }
+  svg {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 10vw;
+    left: 0;
+    /* set height to pixels if you want angle to change with screen width */
+  }
 }
 .position-left {
   text-align: left;
 }
 
 .title {
-  margin-top: 200px;
   font-family: $font__family;
   font-size: 60px;
   color: #1e2f67;
@@ -178,5 +188,29 @@ img.github-logo {
 .image-design {
   width: 25px;
   height: 15px;
+}
+
+@media only screen and (max-width: 1440px) {
+  .header {
+    height: 130vh;
+  }
+  .title {
+    font-size: 40px;
+  }
+  .description {
+    font-size: 25px;
+  }
+  .google-and-apple-position {
+    img.google-position, img.apple-position {
+      width: 165px;
+      height: auto;
+    }
+  }
+  .images {
+    .people-image {
+      height: auto;
+      width: 250px
+    }
+  }
 }
 </style>

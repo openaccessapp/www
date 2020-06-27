@@ -1,7 +1,6 @@
 <template>
   <div class="container">
-    <figure-circle color="#DDFFF7" :zIndex="0" :right="-320" :isFilled="false" :top="-220"></figure-circle>
-    <figure-circle color="#DDFFF7" :zIndex="0" :left="-280" :isFilled="true" :top="0"></figure-circle>
+    <figure-circle color="#DDFFF7" :zIndex="0" :right="-320" :isFilled="false"></figure-circle>
     <div class="row">
       <div class="col-12">
         <h2>Download the App Text HERE</h2>

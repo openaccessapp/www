@@ -1,11 +1,19 @@
 <template>
-  <div class="container-fluid">
-    <div class="mock-image">
-      <img class="position" :src="imageLink" />
-    </div>
-    <div class="usage-description">
-      <h3>{{title}}</h3>
-      <p>{{description}}</p>
+  <div class="safe-healthy">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-6 col-md-6 col-xs-6 col-12">
+          <div class="mock-image">
+            <img class="position" :src="imageLink" />
+          </div>
+        </div>
+        <div class="col-xl-6 col-md-6 col-xs-6 col-12">
+          <div class="usage-description">
+            <h3>{{title}}</h3>
+            <p>{{description}}</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -32,37 +40,43 @@ export default {
 <style scoped lang="scss">
 @import "../../public/assets/main.scss";
 
-.container-fluid {
-  display: flex;
-  width: 100%;
-  padding: 0;
-}
+.safe-healthy {
+  .container-fluid {
+    display: flex;
+    width: 100%;
+    padding: 0;
+    height: auto;
+  }
+  .row {
+    align-items: center;
+  }
+  .usage-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h3 {
+      font-family: $font__family;
+      font-size: 40px;
+      color: #1e2f67;
+      margin-bottom: 55px;
+    }
 
-.mock-image {
-  width: 50%;
-  height: 600px;
-}
-.usage-description {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  h3 {
-    font-family: $font__family;
-    font-size: 40px;
-    color: #1e2f67;
-    margin-bottom: 55px;
+    p {
+      width: 90%;
+      font-family: $font__descriptions;
+      font-size: 18px;
+      color: #474a67;
+    }
+  }
+  img.position {
+    width: 100%;
   }
 
-  p {
-    width: 50%;
-    font-family: $font__descriptions;
-    font-size: 18px;
-    color: #474a67;
+  @media only screen and (max-width: 768px) {
+    .usage-description {
+      margin-top: 50px;
+    }
   }
-}
-img.position {
-  width: 100%;
 }
 </style>

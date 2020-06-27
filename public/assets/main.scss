@@ -13,6 +13,7 @@ $font__sub-title: "Rubik Medium", sans-serif;
 
 body {
     overflow-x: hidden;
+    position: relative;
 }
 .content {
     margin-top: 75px;
@@ -21,7 +22,7 @@ body {
 .container,
 .container-fluid {
     margin-top: 150px;
-    position: relative;
+    // position: relative;
 }
 
 #app {
