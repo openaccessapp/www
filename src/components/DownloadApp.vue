@@ -6,12 +6,18 @@
         <h2>Download the App Text HERE</h2>
       </div>
       <div class="col-12 links-position">
-        <a :href="googlePLay">
-          <img class="google-play-design" src="assets/google-play-header.png" />
-        </a>
-        <a :href="appStore">
-          <img src="assets/app-store.png" />
-        </a>
+        <div class="row justify-content-center">
+          <div class="col-xl-6 col-md-6 col-xs-6 col-12 column-inner-first">
+            <a :href="googlePLay">
+              <img class="google-play-design" src="assets/google-play-header.png" />
+            </a>
+          </div>
+          <div class="col-xl-6 col-md-6 col-xs-6 col-12 column-inner-last">
+            <a :href="appStore">
+              <img src="assets/app-store.png" />
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -49,6 +55,18 @@ h2 {
 .google-play-design {
   width: 210px;
   height: 62px;
-  margin-right: 30px;
+}
+@media only screen and (min-width: 768px) {
+  .row {
+    .column-inner-first, .column-inner-last {
+      display: flex;
+    }
+    .column-inner-first {
+      place-content: flex-end;
+    }
+    .column-inner-lest {
+      place-content: flex-start;
+    }
+  }
 }
 </style>

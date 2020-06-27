@@ -1,45 +1,45 @@
 <template>
-  <div class="footer container-fluid">
+  <div class="footer container">
     <figure-circle color="#385FE2" :zIndex="0" :right="-270" :isFilled="false" :bottom="0" customClass="custom-circle"></figure-circle>
     <figure-circle color="#DDFFF7" :zIndex="0" :left="-280" :isFilled="true" :bottom="0"></figure-circle>
 
     <div class="row container-links">
-      <div class="col-3">
+      <div class="col-xl-3 col-md-3 col-sm-3 col-6">
         <router-link to="/terms">
           <p>Terms and Conditions</p>
         </router-link>
       </div>
-      <div class="col-3">
+      <div class="col-xl-3 col-md-3 col-sm-3 col-6">
         <a :href="page1">
           <p>Page Name</p>
         </a>
       </div>
-      <div class="col-3">
+      <div class="col-xl-3 col-md-3 col-sm-3 col-6">
         <a :href="page1">
           <p>Page Name</p>
         </a>
       </div>
-      <div class="col-3">
+      <div class="col-xl-3 col-md-3 col-sm-3 col-6">
         <a :href="page1">
           <p>Page Name</p>
         </a>
       </div>
-      <div class="col-3">
+      <div class="col-xl-3 col-md-3 col-sm-3 col-6">
         <router-link to="/terms">
           <p>Terms and Conditions</p>
         </router-link>
       </div>
-      <div class="col-3">
+      <div class="col-xl-3 col-md-3 col-sm-3 col-6">
         <a :href="page1">
           <p>Page Name</p>
         </a>
       </div>
-      <div class="col-3">
+      <div class="col-xl-3 col-md-3 col-sm-3 col-6">
         <a :href="page1">
           <p>Page Name</p>
         </a>
       </div>
-      <div class="col-3">
+      <div class="col-xl-3 col-md-3 col-sm-3 col-6">
         <a :href="page1">
           <p>Page Name</p>
         </a>
@@ -77,7 +77,7 @@ export default {
 <style scoped lang="scss">
 @import "../../public/assets/main.scss";
 
-.footer.container-fluid {
+.footer.container {
   width: 55%;
   display: flex;
   flex-direction: column;

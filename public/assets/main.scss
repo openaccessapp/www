@@ -36,3 +36,16 @@ body {
     width: 140px;
     max-height: 140px;
 }
+
+@media only screen and (max-width: 768px) {
+    .person-avatar {
+      margin-top: 50px;
+    }
+    .content {
+      margin-top: 0;
+    }
+
+    .circle {
+        display: none
+    }
+  }

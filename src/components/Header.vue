@@ -6,7 +6,7 @@
       <figure-circle color="#385fe2" :zIndex="1" :right="-200" :isFilled="false" :top="200"></figure-circle>
       <navigation :navigationText="navigationText" :buttonText="buttonText" :mobileApp="mobileApp"></navigation>
       <div class="row">
-        <div class="col-6 position-left">
+        <div class="col-xl-6 col-md-6 col-xs-6 col-12 position-left">
           <div class="title">{{title}}</div>
           <div class="description">{{description}}</div>
           <div class="google-and-apple-position">
@@ -25,7 +25,7 @@
             <img class="github-logo" src="assets/github-logo.png" />
           </a>
         </div>
-        <div class="col-6">
+        <div class="col-xl-6 col-md-6 col-xs-6 col-12 phone">
           <div class="images">
             <img class="people-image" src="assets/phone-app.png" />
           </div>
@@ -211,6 +211,12 @@ img.github-logo {
       height: auto;
       width: 250px
     }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .phone {
+    display: none;
   }
 }
 </style>

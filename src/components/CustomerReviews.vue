@@ -1,6 +1,8 @@
 <template>
   <div class="customer-reviews">
-
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+      <polygon fill="white" points="0,0 0,100 100,0"/>
+    </svg>
     <div class="container">
       <figure-circle color="#F7F7FA" :zIndex="0" :left="-400" :isFilled="false" :top="250"></figure-circle>
       <figure-circle color="#F7F7FA" :zIndex="0" :right="-300" :isFilled="false" :top="500"></figure-circle>
@@ -52,6 +54,17 @@ export default {
 .customer-reviews {
   background-color: $color__site;
   position: relative;
+  padding: 50px 0;
+  height: auto;
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10vw;
+    /* set height to pixels if you want angle to change with screen width */
+  }
 }
 .figures {
   position: absolute;
@@ -77,7 +90,6 @@ export default {
 .title {
   font-family: $font__family;
   font-size: 40px;
-  margin-top: 360px;
   color: #f7f7fa;
 }
 .place-style {
