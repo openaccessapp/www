@@ -80,7 +80,7 @@ export default {
     .person-avatar {
       margin-top: 50px;
     }
-    .content {
+    .team .content {
       margin-top: 0;
     }
   }

@@ -41,7 +41,7 @@ body {
     .person-avatar {
       margin-top: 50px;
     }
-    .content {
+    .content:not(.how-it-works .content) {
       margin-top: 0;
     }
 
