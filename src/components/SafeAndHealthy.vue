@@ -72,11 +72,19 @@ export default {
   img.position {
     width: 100%;
   }
+}
 
-  @media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
     .usage-description {
       margin-top: 50px;
     }
+    .safe-healthy {
+      .container-fluid {
+        display: block;
+        width: auto;
+        padding: 0 15px 0 0;
+        height: auto;
+      }
+    }
   }
-}
 </style>
