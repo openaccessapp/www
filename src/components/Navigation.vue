@@ -1,9 +1,9 @@
 <template>
-  <div class="row nav">
-    <div class="col-6 logo-position">
+  <div class="row nav justify-content-center">
+    <div class="col-xl-6 col-md-6 col-xs-6 col-12 logo-position">
       <img src="assets/logo.png" />
     </div>
-    <div class="col-6 nav-text-button">
+    <div class="col-xl-6 col-md-6 col-xs-6 col-12 nav-text-button">
       <div>
         <p class="medium-font">{{navigationText}}</p>
         <a :href="mobileApp">
@@ -52,5 +52,25 @@ export default {
       padding: 10px 35px;
     }
   }
+}
+
+@media only screen and (max-width: 768px) {
+  .nav {
+    .logo-position {
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-text-button {
+      >div {
+        flex-direction: column;
+        align-items: center;
+
+        button.btn {
+          margin-left: 0;
+        }
+      }
+    }
+  } 
 }
 </style>

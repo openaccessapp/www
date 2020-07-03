@@ -109,4 +109,10 @@ export default {
   font-size: 18px;
   color: #f7f7fa;
 }
+
+@media only screen and (max-width: 768px) {
+  .person-description-style {
+    width: 90%;
+  }
+}
 </style>
