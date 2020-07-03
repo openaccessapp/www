@@ -1,0 +1,15 @@
+title: The Team
+people:
+  - avatar-link: assets/logo.png
+    name: Max
+    place: Amsterdam
+    description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et.H4
+  - avatar-link: assets/logo.png
+    name: Sarah
+    place: NY
+    description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et.H4
+  - avatar-link: assets/logo.png
+    name: Martin
+    place: Madrid
+    description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et.H4
+    
