@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import SafeAndHealthy from "js-yaml-loader!../../content-manager/safe-and-healthy.yaml";
+import SafeAndHealthy from "js-yaml-loader!../../content/safe-and-healthy.yaml";
 export default {
   name: "SafeAndHealthy",
   data() {
@@ -75,16 +75,16 @@ export default {
 }
 
 @media only screen and (max-width: 768px) {
-    .usage-description {
-      margin-top: 50px;
-    }
-    .safe-healthy {
-      .container-fluid {
-        display: block;
-        width: auto;
-        padding: 0 15px 0 0;
-        height: auto;
-      }
+  .usage-description {
+    margin-top: 50px;
+  }
+  .safe-healthy {
+    .container-fluid {
+      display: block;
+      width: auto;
+      padding: 0 15px 0 0;
+      height: auto;
     }
   }
+}
 </style>

@@ -8,7 +8,11 @@
         </div>
       </div>
       <div class="row content">
-        <div class="col-xl-4 col-md-4 col-xs-4 col-12" v-for="(person) of people" :key="person.name">
+        <div
+          class="col-xl-4 col-md-4 col-xs-4 col-12"
+          v-for="(person) of people"
+          :key="person.name"
+        >
           <img :src="person['avatar-link']" class="person-avatar" />
           <h3 class="person-name">{{person.name}}</h3>
           <p class="person-place">{{person.place}}</p>
@@ -20,7 +24,7 @@
 </template>
 
 <script>
-import team from "js-yaml-loader!../../content-manager/team.yaml";
+import team from "js-yaml-loader!../../content/team.yaml";
 import FigureCircle from "../components/FigureCircle.vue";
 export default {
   name: "CustomerReviews",
@@ -77,11 +81,11 @@ export default {
 }
 
 @media only screen and (max-width: 768px) {
-    .person-avatar {
-      margin-top: 50px;
-    }
-    .team .content {
-      margin-top: 0;
-    }
+  .person-avatar {
+    margin-top: 50px;
   }
+  .team .content {
+    margin-top: 0;
+  }
+}
 </style>

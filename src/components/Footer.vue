@@ -1,6 +1,13 @@
 <template>
   <div class="footer container">
-    <figure-circle color="#385FE2" :zIndex="0" :right="-270" :isFilled="false" :bottom="0" customClass="custom-circle"></figure-circle>
+    <figure-circle
+      color="#385FE2"
+      :zIndex="0"
+      :right="-270"
+      :isFilled="false"
+      :bottom="0"
+      customClass="custom-circle"
+    ></figure-circle>
     <figure-circle color="#DDFFF7" :zIndex="0" :left="-280" :isFilled="true" :bottom="0"></figure-circle>
 
     <div class="row container-links">
@@ -50,7 +57,7 @@
 </template>
 
 <script>
-import footer from "js-yaml-loader!../../content-manager/footer.yaml";
+import footer from "js-yaml-loader!../../content/footer.yaml";
 import FigureCircle from "../components/FigureCircle.vue";
 export default {
   name: "CustomerReviews",

@@ -1,7 +1,7 @@
 <template>
   <div class="customer-reviews">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-      <polygon fill="white" points="0,0 0,100 100,0"/>
+      <polygon fill="white" points="0,0 0,100 100,0" />
     </svg>
     <div class="container">
       <figure-circle color="#F7F7FA" :zIndex="0" :left="-400" :isFilled="false" :top="250"></figure-circle>
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import customerReviews from "js-yaml-loader!../../content-manager/customer-reviews.yaml";
+import customerReviews from "js-yaml-loader!../../content/customer-reviews.yaml";
 import { Carousel, Slide } from "vue-carousel";
 import FigureCircle from "../components/FigureCircle.vue";
 export default {

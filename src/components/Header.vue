@@ -44,20 +44,21 @@
     </div>
 
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-      <polygon fill="white" points="0,100 100,0 100,100"/>
+      <polygon fill="white" points="0,100 100,0 100,100" />
     </svg>
   </div>
 </template>
 
 <script>
-import header from "js-yaml-loader!../../content-manager/header.yaml";
-import FigureCircle from '../components/FigureCircle.vue';
-import Navigation from '../components/Navigation.vue';
+import header from "js-yaml-loader!../../content/header.yaml";
+import FigureCircle from "../components/FigureCircle.vue";
+import Navigation from "../components/Navigation.vue";
 
 export default {
   name: "Header",
   components: {
-    FigureCircle, Navigation
+    FigureCircle,
+    Navigation
   },
   data() {
     return {
@@ -203,7 +204,8 @@ img.github-logo {
     font-size: 25px;
   }
   .google-and-apple-position {
-    img.google-position, img.apple-position {
+    img.google-position,
+    img.apple-position {
       width: 165px;
       height: auto;
     }
@@ -211,7 +213,7 @@ img.github-logo {
   .images {
     .people-image {
       height: auto;
-      width: 250px
+      width: 250px;
     }
   }
 }

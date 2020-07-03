@@ -35,7 +35,7 @@
 </template>
 
 <script>
-import howItWorks from "js-yaml-loader!../../content-manager/how-it-works.yaml";
+import howItWorks from "js-yaml-loader!../../content/how-it-works.yaml";
 export default {
   name: "HowItWorks",
   data() {

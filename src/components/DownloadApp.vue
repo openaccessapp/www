@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import DownloadApp from "js-yaml-loader!../../content-manager/header.yaml";
+import DownloadApp from "js-yaml-loader!../../content/header.yaml";
 import FigureCircle from "../components/FigureCircle.vue";
 export default {
   name: "DownloadApp",
@@ -58,7 +58,8 @@ h2 {
 }
 @media only screen and (min-width: 768px) {
   .row {
-    .column-inner-first, .column-inner-last {
+    .column-inner-first,
+    .column-inner-last {
       display: flex;
     }
     .column-inner-first {

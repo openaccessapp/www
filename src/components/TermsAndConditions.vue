@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import header from "js-yaml-loader!../../content-manager/header.yaml";
+import header from "js-yaml-loader!../../content/header.yaml";
 import gdpr from "raw-loader!../../gdpr.md";
 import marked from "marked";
 
