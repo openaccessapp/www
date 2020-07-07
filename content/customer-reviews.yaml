@@ -2,14 +2,14 @@ title: Customer Reviews
 reviews:
   - avatar-link: assets/logo.png
     name: John
-    place: Amsterdam
-    review: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et.H4
+    place: London
+    review: A perfect app to explore safe activities happening around me
   - avatar-link: assets/logo.png
     name: Kate
-    place: NY
-    review: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et.H4
+    place: Manchester
+    review: This app is badly needed by the shielding community - thank you!
   - avatar-link: assets/logo.png
     name: Alex
-    place: Madrid
-    review: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et.H4
+    place: Hertford
+    review: My local shop has started using this app and now I can start going there once again.
   
