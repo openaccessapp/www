@@ -12,10 +12,6 @@
             <h3 class="title title-name">{{sections[0].title}}</h3>
             <p class="text">{{sections[0].text}}</p>
           </div>
-          <div class="section mt-5" v-if="sections[1]">
-            <h3 class="title title-name">{{sections[1].title}}</h3>
-            <p class="text">{{sections[1].text}}</p>
-          </div>
         </div>
         <div class="col-md-4 col-xl-4 col-sm-12 col-12">
           <div class="mock-image">
@@ -24,9 +20,9 @@
           </div>
         </div>
         <div class="col-md-4 col-xl-4 col-sm-12 col-12 text-section">
-          <div class="section" v-if="sections[2]">
-            <h3 class="title title-name">{{sections[2].title}}</h3>
-            <p class="text">{{sections[2].text}}</p>
+          <div class="section" v-if="sections[1]">
+            <h3 class="title title-name">{{sections[1].title}}</h3>
+            <p class="text">{{sections[1].text}}</p>
           </div>
         </div>
       </div>
