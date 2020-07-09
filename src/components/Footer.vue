@@ -11,6 +11,36 @@
     <figure-circle color="#DDFFF7" :zIndex="0" :left="-280" :isFilled="true" :bottom="0"></figure-circle>
 
     <div class="row container-links">
+      <div class="col-xl-3 col-md-4 col-sm-6 info">
+        <router-link to="/terms">
+          <p class="row terms">Terms and Conditions</p>
+        </router-link>
+        <p class="row">Contacts</p>
+        <div class="row mail">
+          <img src="assets/envelope-footer.png" />
+          <p>t.e.shaw@auxnederlandbv.nl</p>
+        </div>
+      </div>
+      <img class="col-xl-4 col-4" src="assets/access-logo-footer.png" />
+      <p class="col-sm-6 col-xl-4 paragraph">
+        AccessApp is open source and not for profit. A reference implementation is run in an open
+        books mode by Aux Nederland B. V. Keizersgracht 241-2, 1016 EA Amsterdam, Niederlande
+      </p>
+      <!-- <div class="col-xl-3 col-md-3 col-sm-3 col-6">
+        <a :href="page1">
+          <p>Page Name</p>
+        </a>
+      </div>
+      <div class="col-xl-3 col-md-3 col-sm-3 col-6">
+        <a :href="page1">
+          <p>Page Name</p>
+        </a>
+      </div>
+      <div class="col-xl-3 col-md-3 col-sm-3 col-6">
+        <a :href="page1">
+          <p>Page Name</p>
+        </a>
+      </div>
       <div class="col-xl-3 col-md-3 col-sm-3 col-6">
         <router-link to="/terms">
           <p>Terms and Conditions</p>
@@ -30,29 +60,8 @@
         <a :href="page1">
           <p>Page Name</p>
         </a>
-      </div>
-      <div class="col-xl-3 col-md-3 col-sm-3 col-6">
-        <router-link to="/terms">
-          <p>Terms and Conditions</p>
-        </router-link>
-      </div>
-      <div class="col-xl-3 col-md-3 col-sm-3 col-6">
-        <a :href="page1">
-          <p>Page Name</p>
-        </a>
-      </div>
-      <div class="col-xl-3 col-md-3 col-sm-3 col-6">
-        <a :href="page1">
-          <p>Page Name</p>
-        </a>
-      </div>
-      <div class="col-xl-3 col-md-3 col-sm-3 col-6">
-        <a :href="page1">
-          <p>Page Name</p>
-        </a>
-      </div>
+      </div>-->
     </div>
-    <img src="assets/logo-text.png" />
   </div>
 </template>
 
@@ -94,7 +103,7 @@ export default {
 
   width: 100%;
   padding: 0;
-  height: 400px;
+  height: 200px;
   background: none;
   p {
     font-size: 16px;
@@ -115,6 +124,58 @@ export default {
     border-top-right-radius: 500px;
     height: 200px;
     border-bottom: 0 !important;
+  }
+  .container-links {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 50px;
+    align-items: center;
+    padding: 0 100px;
+    img {
+      max-width: 125px;
+      max-height: 95px;
+      padding: 0;
+    }
+    .paragraph {
+      text-align: left;
+      font-family: $font__descriptions;
+      font-weight: 400;
+      font-size: 14px;
+      color: #1e2f67;
+
+      line-height: 25px;
+    }
+    .info {
+      img {
+        max-width: 20px;
+        max-height: 16px;
+      }
+      .terms {
+        margin-bottom: 20px;
+        font-size: 16px;
+        color: #1e2f67;
+        font-family: $font__descriptions;
+        font-weight: 500;
+      }
+      p {
+        margin-bottom: 10px;
+        font-size: 16px;
+        color: #1e2f67;
+        font-family: $font__descriptions;
+        font-weight: 500;
+      }
+      .mail {
+        align-items: center;
+        p {
+          margin-left: 10px;
+          font-size: 14px;
+          font-family: $font__descriptions;
+          font-weight: 400;
+          color: #1e2f67;
+          margin-bottom: 0;
+        }
+      }
+    }
   }
 }
 </style>

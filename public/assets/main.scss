@@ -1,20 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@700&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Rubik:black,light,medium&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap');
 
 $color__button: #00CE9E;
 $color__main: #F7F7FA;
 $color__background: #FCFDFF;
 $color__header-background: #DDFFF7;
 $color__site: #385fe2;
-$font__family: "Josefin Sans", sans-serif;
-$font__descriptions: "Rubik", sans-serif;
-$font__sub-title: "Rubik Medium", sans-serif;
+$font__family: "Josefin Sans",
+sans-serif;
+$font__descriptions: "Rubik",
+sans-serif;
+$font__sub-title: "Rubik Medium",
+sans-serif;
 
 
 body {
     overflow-x: hidden;
     position: relative;
 }
+
 .content {
     margin-top: 75px;
 }
@@ -27,6 +31,7 @@ body {
 
 #app {
     background-color: $color__background;
+
     .container:first-child {
         margin-top: 0;
     }
@@ -39,13 +44,14 @@ body {
 
 @media only screen and (max-width: 768px) {
     .person-avatar {
-      margin-top: 50px;
+        margin-top: 50px;
     }
+
     .content:not(.how-it-works .content) {
-      margin-top: 0;
+        margin-top: 0;
     }
 
     .circle {
         display: none
     }
-  }
+}
