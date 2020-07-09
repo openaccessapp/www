@@ -13,7 +13,7 @@
             <a :href="googlePlayLink">
               <img class="google-position" src="assets/google-play-header.png" />
             </a>
-            <a :href="appStoreLink">
+            <a style="opacity: 0.3; cursor: default">
               <img class="apple-position" src="assets/app-store.png" />
             </a>
           </div>
