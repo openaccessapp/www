@@ -55,6 +55,7 @@ export default {
   color: #474a67;
   width: 75%;
   margin: 0 auto;
+  margin-bottom: 60px;
 }
 
 .team {
@@ -83,6 +84,8 @@ export default {
 @media only screen and (max-width: 768px) {
   .person-avatar {
     margin-top: 50px;
+    max-width: 140px;
+    max-height: 140px;
   }
   .team .content {
     margin-top: 0;
