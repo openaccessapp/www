@@ -1,6 +1,7 @@
 <template>
   <div>
     <Header></Header>
+    <University></University>
     <HowItWorks></HowItWorks>
     <CustomerReviews></CustomerReviews>
     <SafeAndHealthy></SafeAndHealthy>
@@ -13,6 +14,7 @@
 <script>
 import footer from "js-yaml-loader!../../content/footer.yaml";
 import Header from "./Header";
+import University from "./University";
 import HowItWorks from "./HowItWorks";
 import CustomerReviews from "./CustomerReviews";
 import SafeAndHealthy from "./SafeAndHealthy";
@@ -23,6 +25,7 @@ export default {
   name: "Home",
   components: {
     Header,
+    University,
     HowItWorks,
     CustomerReviews,
     SafeAndHealthy,
