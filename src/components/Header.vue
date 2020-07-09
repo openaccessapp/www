@@ -19,6 +19,9 @@
           </div>
           <p class="infoText">{{infoText}}</p>
           <div>
+            <a :href="university">
+              <img class="university-logo" src="assets/City-University.png" />
+            </a>
             <a :href="OSI">
               <img src="assets/open-source-logo.png" />
             </a>
@@ -191,6 +194,11 @@ img.github-logo {
 .image-design {
   width: 25px;
   height: 15px;
+}
+
+img.university-logo {
+  width: 95px;
+  height: 130px;
 }
 
 @media only screen and (max-width: 1440px) {
