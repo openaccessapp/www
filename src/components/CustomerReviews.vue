@@ -15,7 +15,7 @@
         <slide v-for="(customer) of reviews" :key="customer.name">
           <img :src="customer['avatar-link']" class="person-avatar" />
           <p class="bold">{{customer.name}}</p>
-          <p class="place-style">{{customer.place}}</p>
+          <p class="position-style">{{customer.position}}</p>
           <h4 class="person-description-style">{{customer.review}}</h4>
         </slide>
       </carousel>
@@ -92,22 +92,28 @@ export default {
   font-size: 40px;
   color: #f7f7fa;
 }
-.place-style {
+.position-style {
   font-family: $font__descriptions;
+  font-weight: 500;
   font-size: 16px;
   color: #f7f7fa;
+  margin-bottom: 25px;
 }
 .person-description-style {
   font-family: $font__descriptions;
+  font-weight: 500;
   font-size: 20px;
   color: #f7f7fa;
   width: 50%;
   margin: auto;
 }
 .bold {
+  margin-top: 25px;
   font-family: "Rubik", sans-serif;
+  font-weight: bold;
   font-size: 18px;
   color: #f7f7fa;
+  margin-bottom: 8px;
 }
 
 @media only screen and (max-width: 768px) {
