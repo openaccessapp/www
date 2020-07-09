@@ -3,7 +3,7 @@
     <figure-circle color="#DDFFF7" :zIndex="0" :right="-320" :isFilled="false"></figure-circle>
     <div class="row">
       <div class="col-12">
-        <h2>Download the App Text HERE</h2>
+        <h2>{{appsText}}</h2>
       </div>
       <div class="col-12 links-position">
         <div class="row justify-content-center">
@@ -32,12 +32,14 @@ export default {
   data() {
     return {
       googlePLay: "",
-      appStore: ""
+      appStore: "",
+      appsText: ""
     };
   },
   mounted() {
     this.googlePLay = DownloadApp["google-play-link"];
     this.appStore = DownloadApp["app-store-link"];
+    this.appsText = DownloadApp["apps-text"]
   }
 };
 </script>
