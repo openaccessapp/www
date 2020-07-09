@@ -44,7 +44,7 @@ p {
   text-align: left;
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 414px) {
   p {
     width: 100% !important;
     padding: 0 15px !important;
