@@ -43,4 +43,24 @@ p {
   max-width: 450px;
   text-align: left;
 }
+
+@media only screen and (max-width: 375px) {
+  p {
+    width: 100% !important;
+    padding: 0 15px !important;
+    margin-left: 0;
+    margin-top: 50px;
+  }
+}
+@media only screen and (max-width: 320px) {
+  img {
+    margin-top: 200px;
+  }
+  p {
+    width: 100% !important;
+    padding: 0 15px !important;
+    margin-left: 0;
+    margin-top: 50px;
+  }
+}
 </style>
