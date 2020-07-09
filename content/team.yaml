@@ -3,11 +3,11 @@ people:
   - avatar-link: assets/Alice-Mesnard.png
     name: Alice Mesnard
     place: City University London
-    description: Alice Mesnard is a development economist and Reader of Economics at City. Among her contributions to this field, she has studied the links between migration and health risks. This has led her to investigate with Paul Seabright unexpected effects of quarantine measures as observed following the outbreaks of SARS, Ebola and Covid-19 and to conceive an app to help people move about safely during pandemics.
+    description: Alice Mesnard is a development economist and Reader of Economics at City. Among her contributions to this field, she has studied the links between migration and health risks. 
   - avatar-link: assets/Paul.png
     name: Paul Seabright
     place: Toulouse School of Economics
-    description: Paul Seabright is Professor of Economics at the Toulouse School of Economics and Director, Institute for Advanced Study in Toulouse. He works on a range of questions in behavioral economics and the economics of institutions".
+    description: Paul Seabright is Professor of Economics at the Toulouse School of Economics and Director, Institute for Advanced Study in Toulouse. He works on a range of questions in behavioral economics and the economics of institutions
   - avatar-link: assets/Thomas.png
     name: T. E. Shaw
     place: Dahoum
