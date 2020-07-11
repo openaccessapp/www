@@ -11,56 +11,21 @@
     <figure-circle color="#DDFFF7" :zIndex="0" :left="-280" :isFilled="true" :bottom="0"></figure-circle>
 
     <div class="row container-links">
-      <div class="col-xl-3 col-md-4 col-sm-6 info">
+      <div class="col-xl-3 col-6 col-md-4 col-xs-6 info">
         <router-link to="/terms">
           <p class="row terms">Terms and Conditions</p>
         </router-link>
-        <p class="row">Contacts</p>
+        <p class="row contacts">Contacts</p>
         <div class="row mail">
           <img src="assets/envelope-footer.png" />
           <p>t.e.shaw@auxnederlandbv.nl</p>
         </div>
       </div>
       <img class="col-xl-4 col-4" src="assets/access-logo-footer.png" />
-      <p class="col-sm-6 col-xl-4 paragraph">
+      <p class="col-xs-6 col-6 col-xl-4 paragraph">
         AccessApp is open source and not for profit. A reference implementation is run in an open
         books mode by Aux Nederland B. V. Keizersgracht 241-2, 1016 EA Amsterdam, Niederlande
       </p>
-      <!-- <div class="col-xl-3 col-md-3 col-sm-3 col-6">
-        <a :href="page1">
-          <p>Page Name</p>
-        </a>
-      </div>
-      <div class="col-xl-3 col-md-3 col-sm-3 col-6">
-        <a :href="page1">
-          <p>Page Name</p>
-        </a>
-      </div>
-      <div class="col-xl-3 col-md-3 col-sm-3 col-6">
-        <a :href="page1">
-          <p>Page Name</p>
-        </a>
-      </div>
-      <div class="col-xl-3 col-md-3 col-sm-3 col-6">
-        <router-link to="/terms">
-          <p>Terms and Conditions</p>
-        </router-link>
-      </div>
-      <div class="col-xl-3 col-md-3 col-sm-3 col-6">
-        <a :href="page1">
-          <p>Page Name</p>
-        </a>
-      </div>
-      <div class="col-xl-3 col-md-3 col-sm-3 col-6">
-        <a :href="page1">
-          <p>Page Name</p>
-        </a>
-      </div>
-      <div class="col-xl-3 col-md-3 col-sm-3 col-6">
-        <a :href="page1">
-          <p>Page Name</p>
-        </a>
-      </div>-->
     </div>
   </div>
 </template>
@@ -174,6 +139,49 @@ export default {
           color: #1e2f67;
           margin-bottom: 0;
         }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 414px) {
+  img {
+    display: none;
+  }
+  .container-links {
+    display: flex !important;
+    align-items: flex-start !important;
+    padding: 0 !important;
+    margin-left: 5px !important;
+    .paragraph {
+      font-size: 12px !important;
+    }
+    .mail {
+      p {
+        margin: 0 !important;
+      }
+    }
+    .info {
+      .terms,
+      .contacts {
+        font-size: 14px !important;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .container-links {
+    display: flex !important;
+    align-items: flex-start !important;
+    padding: 0 !important;
+    margin-left: 5px !important;
+    .paragraph {
+      font-size: 10px !important;
+    }
+    .mail {
+      p {
+        font-size: 10px !important;
+        margin: 0 !important;
       }
     }
   }
