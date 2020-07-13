@@ -15,6 +15,9 @@
         <router-link to="/terms">
           <p class="row terms">Terms and Conditions</p>
         </router-link>
+        <router-link to="/privacy">
+          <p class="row terms">Privacy Policy</p>
+        </router-link>
         <p class="row contacts">Contacts</p>
         <div class="row mail">
           <img src="assets/envelope-footer.png" />
