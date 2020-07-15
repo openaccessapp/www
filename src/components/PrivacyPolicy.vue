@@ -13,7 +13,7 @@
 
 <script>
 import header from "js-yaml-loader!../../content/header.yaml";
-import privacy from "raw-loader!../../privacy.md";
+import privacy from "raw-loader!../../content/privacy.md";
 import marked from "marked";
 
 import Navigation from "./Navigation";

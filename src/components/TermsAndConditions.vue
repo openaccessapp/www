@@ -13,7 +13,7 @@
 
 <script>
 import header from "js-yaml-loader!../../content/header.yaml";
-import gdpr from "raw-loader!../../gdpr.md";
+import gdpr from "raw-loader!../../content/gdpr.md";
 import marked from "marked";
 
 import Navigation from "./Navigation";
