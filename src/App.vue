@@ -5,9 +5,7 @@
 </template>
 
 <script>
-
-export default {
-};
+export default {};
 </script>
 
 <style lang="scss">
@@ -23,5 +21,10 @@ export default {
 }
 .example-var {
   color: $color__button;
+}
+@media only screen and (max-width: 1365px) {
+  #app {
+    overflow-x: hidden;
+  }
 }
 </style>

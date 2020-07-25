@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <figure-circle color="#DDFFF7" :zIndex="0" :right="-320" :isFilled="false"></figure-circle>
+  <div class="container download-links">
+    <figure-circle class="circle" color="#DDFFF7" :zIndex="0" :right="-320" :isFilled="false"></figure-circle>
     <div class="row">
       <div class="col-12">
         <h2>{{appsText}}</h2>
@@ -33,14 +33,14 @@ export default {
     return {
       googlePLay: "",
       appStore: "",
-      appsText: ""
+      appsText: "",
     };
   },
   mounted() {
     this.googlePLay = DownloadApp["google-play-link"];
     this.appStore = DownloadApp["app-store-link"];
-    this.appsText = DownloadApp["apps-text"]
-  }
+    this.appsText = DownloadApp["apps-text"];
+  },
 };
 </script>
 
@@ -77,6 +77,14 @@ h2 {
   .row {
     .column-inner-first {
       margin-bottom: 10px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1365px) {
+  .download-links {
+    .circle {
+      display: none;
     }
   }
 }

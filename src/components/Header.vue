@@ -58,7 +58,7 @@ export default {
   name: "Header",
   components: {
     FigureCircle,
-    Navigation
+    Navigation,
   },
   data() {
     return {
@@ -72,7 +72,7 @@ export default {
       mobileApp: "",
       infoText: "",
       OSI: "",
-      github: ""
+      github: "",
       // END: Expected data from .yaml
     };
   },
@@ -87,7 +87,7 @@ export default {
     this.infoText = header["info-text"];
     this.OSI = header.OSI;
     this.github = header.github;
-  }
+  },
 };
 </script>
 
@@ -195,7 +195,8 @@ img.github-logo {
 
 @media only screen and (max-width: 1440px) {
   .header {
-    height: 130vh;
+    height: 1000px;
+    overflow-x: hidden;
   }
   .title {
     font-size: 40px;

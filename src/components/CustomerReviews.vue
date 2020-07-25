@@ -32,19 +32,19 @@ export default {
   components: {
     Carousel,
     Slide,
-    FigureCircle
+    FigureCircle,
   },
   data() {
     return {
       title: "",
       reviews: [],
-      revies: ""
+      revies: "",
     };
   },
   mounted() {
     this.title = customerReviews.title;
     this.reviews = customerReviews.reviews;
-  }
+  },
 };
 </script>
 
@@ -119,6 +119,12 @@ export default {
 @media only screen and (max-width: 768px) {
   .person-description-style {
     width: 90%;
+  }
+}
+
+@media only screen and (max-width: 1365px) {
+  .customer-reviews {
+    overflow: hidden;
   }
 }
 </style>

@@ -1,6 +1,7 @@
 <template>
   <div class="footer container">
     <figure-circle
+      class="circle"
       color="#385FE2"
       :zIndex="0"
       :right="-270"
@@ -11,7 +12,7 @@
     <figure-circle color="#DDFFF7" :zIndex="0" :left="-280" :isFilled="true" :bottom="0"></figure-circle>
 
     <div class="row container-links">
-      <div class="col-xl-3 col-6 col-md-4 col-xs-6 info">
+      <div class="col-xl-3 col-sm-4 col-6 col-md-4 col-xs-6 info">
         <router-link to="/terms">
           <p class="row terms">Terms and Conditions</p>
         </router-link>
@@ -24,8 +25,8 @@
           <p>t.e.shaw@auxnederlandbv.nl</p>
         </div>
       </div>
-      <img class="col-xl-4 col-4" src="assets/access-logo-footer.png" />
-      <p class="col-xs-6 col-6 col-xl-4 paragraph">
+      <img class="col-xl-4 col-sm-4 col-md-4 col-4" src="assets/access-logo-footer.png" />
+      <p class="col-xs-6 col-sm-4 col-md-4 col-6 col-xl-4 paragraph">
         AccessApp is open source and not for profit. A reference implementation is run in an open
         books mode by Aux Nederland B. V. Keizersgracht 241-2, 1016 EA Amsterdam, Niederlande
       </p>
@@ -45,7 +46,7 @@ export default {
       page2: "",
       page3: "",
       page4: "",
-      page5: ""
+      page5: "",
     };
   },
   mounted() {
@@ -54,7 +55,7 @@ export default {
     this.page3 = footer["page-3"];
     this.page4 = footer["page-4"];
     this.page5 = footer["page-5"];
-  }
+  },
 };
 </script>
 
@@ -62,16 +63,14 @@ export default {
 @import "../../public/assets/main.scss";
 
 .footer.container {
-  width: 55%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   overflow: hidden;
-
-  width: 100%;
+  max-width: unset;
   padding: 0;
-  height: 200px;
+  height: auto;
   background: none;
   p {
     font-size: 16px;
@@ -98,7 +97,7 @@ export default {
     justify-content: space-between;
     margin-left: 50px;
     align-items: center;
-    padding: 0 100px;
+    padding: 50px 200px;
     img {
       max-width: 125px;
       max-height: 95px;
@@ -186,6 +185,32 @@ export default {
         font-size: 10px !important;
         margin: 0 !important;
       }
+    }
+  }
+}
+@media only screen and (min-width: 415px) and (max-width: 1025px) {
+  .footer {
+    .row.container-links {
+      margin-right: 50px;
+      padding: 0;
+      padding-bottom: 50px;
+      .info {
+        .terms {
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1365px) {
+  .footer {
+    width: 100% !important;
+    height: auto !important;
+    margin-left: 0;
+    margin-right: 0;
+    .circle {
+      display: none;
     }
   }
 }
