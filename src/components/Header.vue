@@ -22,9 +22,6 @@
             <a :href="OSI">
               <img src="assets/open-source-logo.png" />
             </a>
-            <!-- <a :href="github">
-              <img class="github-logo" src="assets/github-logo.png" />
-            </a>-->
           </div>
         </div>
         <div class="col-xl-6 col-md-6 col-xs-6 col-12 phone">
