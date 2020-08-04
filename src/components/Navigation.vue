@@ -4,11 +4,13 @@
       <img src="assets/logo.png" />
     </div>
     <div class="col-xl-6 col-md-6 col-xs-6 col-12 nav-text-button">
-      <div>
+      <div class="row">
         <p class="medium-font">{{navigationText}}</p>
         <a :href="mobileApp">
           <button class="btn">{{buttonText}}</button>
         </a>
+        <button class="language">EN</button>
+        <button class="language">DE</button>
       </div>
     </div>
   </div>
@@ -20,8 +22,8 @@ export default {
   props: {
     buttonText: String,
     navigationText: String,
-    mobileApp: String
-  }
+    mobileApp: String,
+  },
 };
 </script>
 
@@ -40,8 +42,16 @@ export default {
     font-family: $font__descriptions;
     > div {
       display: flex;
-      justify-content: space-evenly;
       align-items: baseline;
+      .language {
+        background: none;
+        border: none;
+        color: #474a67;
+        font: bold 15px $font__descriptions;
+        outline: none;
+        padding-right: 10px;
+        padding-left: 0;
+      }
     }
     button.btn {
       border: 10px;
@@ -49,6 +59,7 @@ export default {
       color: white;
       box-shadow: 0px 5px 10px #385fe240;
       margin-left: 30px;
+      margin-right: 24px;
       padding: 10px 35px;
     }
   }
@@ -62,7 +73,7 @@ export default {
     }
 
     .nav-text-button {
-      >div {
+      > div {
         flex-direction: column;
         align-items: center;
 
@@ -71,6 +82,6 @@ export default {
         }
       }
     }
-  } 
+  }
 }
 </style>

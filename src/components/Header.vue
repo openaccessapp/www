@@ -22,9 +22,6 @@
             <a :href="OSI">
               <img src="assets/open-source-logo.png" />
             </a>
-            <a :href="github">
-              <img class="github-logo" src="assets/github-logo.png" />
-            </a>
           </div>
         </div>
         <div class="col-xl-6 col-md-6 col-xs-6 col-12 phone">
@@ -44,7 +41,7 @@
     </div>
 
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-      <polygon fill="white" points="0,100 100,0 100,100" />
+      <polygon fill="#FCFDFF" points="0,100 100,0 100,100" />
     </svg>
   </div>
 </template>
@@ -193,7 +190,7 @@ img.github-logo {
   height: 15px;
 }
 
-@media only screen and (max-width: 1440px) {
+@media only screen and (max-width: 1536px) {
   .header {
     height: 1000px;
     overflow-x: hidden;
