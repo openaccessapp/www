@@ -24,7 +24,8 @@
 </template>
 
 <script>
-import DownloadApp from "js-yaml-loader!../../content/header.yaml";
+import DownloadApp from "js-yaml-loader!../../content/EN/header.yaml";
+import DownloadAppDe from "js-yaml-loader!../../content/DE/header.yaml";
 import FigureCircle from "../components/FigureCircle.vue";
 export default {
   name: "DownloadApp",
@@ -36,10 +37,24 @@ export default {
       appsText: "",
     };
   },
+  watch: {
+    $route() {
+      this.init();
+    },
+  },
   mounted() {
-    this.googlePLay = DownloadApp["google-play-link"];
-    this.appStore = DownloadApp["app-store-link"];
-    this.appsText = DownloadApp["apps-text"];
+    this.init();
+  },
+  methods: {
+    init() {
+      const data =
+        this.$router.history.current.params.lang == "en"
+          ? DownloadApp
+          : DownloadAppDe;
+      this.googlePLay = data["google-play-link"];
+      this.appStore = data["app-store-link"];
+      this.appsText = data["apps-text"];
+    },
   },
 };
 </script>

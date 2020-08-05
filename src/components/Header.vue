@@ -47,7 +47,8 @@
 </template>
 
 <script>
-import header from "js-yaml-loader!../../content/header.yaml";
+import header from "js-yaml-loader!../../content/EN/header.yaml";
+import headerDe from "js-yaml-loader!../../content/DE/header.yaml";
 import FigureCircle from "../components/FigureCircle.vue";
 import Navigation from "../components/Navigation.vue";
 
@@ -56,6 +57,11 @@ export default {
   components: {
     FigureCircle,
     Navigation,
+  },
+  watch: {
+    $route() {
+      this.init();
+    },
   },
   data() {
     return {
@@ -74,16 +80,25 @@ export default {
     };
   },
   mounted() {
-    this.navigationText = header["navigation-text"];
-    this.buttonText = header["button-text"];
-    this.title = header["title"];
-    this.description = header["description"];
-    this.googlePlayLink = header["google-play-link"];
-    this.appStoreLink = header["app-store-link"];
-    this.mobileApp = header["mobile-app"];
-    this.infoText = header["info-text"];
-    this.OSI = header.OSI;
-    this.github = header.github;
+    this.init();
+  },
+  methods: {
+    init() {
+      const data =
+        this.$router.history.current.params.lang == "en" ? header : headerDe;
+
+      console.log(data);
+      this.navigationText = data["navigation-text"];
+      this.buttonText = data["button-text"];
+      this.title = data["title"];
+      this.description = data["description"];
+      this.googlePlayLink = data["google-play-link"];
+      this.appStoreLink = data["app-store-link"];
+      this.mobileApp = data["mobile-app"];
+      this.infoText = data["info-text"];
+      this.OSI = data.OSI;
+      this.github = data.github;
+    },
   },
 };
 </script>

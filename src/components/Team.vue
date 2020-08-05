@@ -24,25 +24,38 @@
 </template>
 
 <script>
-import team from "js-yaml-loader!../../content/team.yaml";
+import team from "js-yaml-loader!../../content/EN/team.yaml";
+import teamDe from "js-yaml-loader!../../content/DE/team.yaml";
 import FigureCircle from "../components/FigureCircle.vue";
 export default {
   name: "CustomerReviews",
   components: {
-    FigureCircle
+    FigureCircle,
   },
   data() {
     return {
       title: "",
       people: [],
-      place: ""
+      place: "",
     };
   },
+  watch: {
+    $route() {
+      this.init();
+    },
+  },
   mounted() {
-    this.title = team.title;
-    this.people = team.people;
-    this.place = team.place;
-  }
+    this.init();
+  },
+  methods: {
+    init() {
+      const data =
+        this.$router.history.current.params.lang == "en" ? team : teamDe;
+      this.title = data.title;
+      this.people = data.people;
+      this.place = data.place;
+    },
+  },
 };
 </script>
 

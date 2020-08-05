@@ -13,48 +13,58 @@
 
     <div class="row container-links">
       <div class="col-xl-3 col-sm-4 col-6 col-md-4 col-xs-6 info">
-        <router-link to="/terms">
-          <p class="row terms">Terms and Conditions</p>
+        <router-link :to="`/${$router.history.current.params.lang}/terms`">
+          <p class="row terms">{{firstTitle}}</p>
         </router-link>
-        <router-link to="/privacy">
-          <p class="row terms">Privacy Policy</p>
+        <router-link :to="`/${$router.history.current.params.lang}/privacy`">
+          <p class="row terms">{{secondTitle}}</p>
         </router-link>
-        <p class="row contacts">Contacts</p>
+        <p class="row contacts">{{thirdTitle}}</p>
         <div class="row mail">
-          <img src="assets/envelope-footer.png" />
-          <p>t.e.shaw@auxnederlandbv.nl</p>
+          <img src="/assets/envelope-footer.png" />
+          <p>{{email}}</p>
         </div>
       </div>
-      <img class="col-xl-4 col-sm-4 col-md-4 col-4" src="assets/access-logo-footer.png" />
-      <p class="col-xs-6 col-sm-4 col-md-4 col-6 col-xl-4 paragraph">
-        AccessApp is open source and not for profit. A reference implementation is run in an open
-        books mode by Aux Nederland B. V. Keizersgracht 241-2, 1016 EA Amsterdam, Niederlande
-      </p>
+      <img class="col-xl-4 col-sm-4 col-md-4 col-4" src="/assets/access-logo-footer.png" />
+      <p class="col-xs-6 col-sm-4 col-md-4 col-6 col-xl-4 paragraph">{{description}}</p>
     </div>
   </div>
 </template>
 
 <script>
-import footer from "js-yaml-loader!../../content/footer.yaml";
+import footer from "js-yaml-loader!../../content/EN/footer.yaml";
+import footerDe from "js-yaml-loader!../../content/DE/footer.yaml";
 import FigureCircle from "../components/FigureCircle.vue";
 export default {
   name: "CustomerReviews",
   components: { FigureCircle },
   data() {
     return {
-      page1: "",
-      page2: "",
-      page3: "",
-      page4: "",
-      page5: "",
+      firstTitle: "",
+      secondTitle: "",
+      thirdTitle: "",
+      email: "",
+      description: "",
     };
   },
+  watch: {
+    $route() {
+      this.init();
+    },
+  },
   mounted() {
-    this.page1 = footer["page-1"];
-    this.page2 = footer["page-2"];
-    this.page3 = footer["page-3"];
-    this.page4 = footer["page-4"];
-    this.page5 = footer["page-5"];
+    this.init();
+  },
+  methods: {
+    init() {
+      const data =
+        this.$router.history.current.params.lang == "en" ? footer : footerDe;
+      this.firstTitle = data.firstTitle;
+      this.secondTitle = data.secondTitle;
+      this.thirdTitle = data.thirdTitle;
+      this.email = data.email;
+      this.description = data.description;
+    },
   },
 };
 </script>

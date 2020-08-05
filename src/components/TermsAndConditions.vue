@@ -7,13 +7,16 @@
       </div>
       <div class="md-position" v-html="html"></div>
     </div>
+
     <Footer></Footer>
   </div>
 </template>
 
 <script>
-import header from "js-yaml-loader!../../content/header.yaml";
-import gdpr from "raw-loader!../../content/gdpr.md";
+import header from "js-yaml-loader!../../content/EN/header.yaml";
+import headerDe from "js-yaml-loader!../../content/DE/header.yaml";
+import gdpr from "raw-loader!../../content/EN/gdpr.md";
+import gdprDe from "raw-loader!../../content/DE/gdpr.md";
 import marked from "marked";
 
 import Navigation from "./Navigation";
@@ -22,23 +25,37 @@ export default {
   name: "Terms",
   components: {
     Navigation,
-    Footer
+    Footer,
   },
   data() {
     return {
       navigationText: "",
       buttonText: "",
       mobileApp: "",
-      html: ""
+      html: "",
     };
   },
+  watch: {
+    $route() {
+      this.init();
+    },
+  },
   mounted() {
-    this.navigationText = header["navigation-text"];
-    this.buttonText = header["button-text"];
-    this.mobileApp = header["mobile-app"];
+    this.init();
+  },
+  methods: {
+    init() {
+      let data =
+        this.$router.history.current.params.lang == "en" ? gdpr : gdprDe;
+      let data2 =
+        this.$router.history.current.params.lang == "en" ? header : headerDe;
+      this.navigationText = data2["navigation-text"];
+      this.buttonText = data2["button-text"];
+      this.mobileApp = data["mobile-app"];
 
-    this.html = marked(gdpr);
-  }
+      this.html = marked(data);
+    },
+  },
 };
 </script>
 

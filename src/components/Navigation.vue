@@ -1,7 +1,7 @@
 <template>
   <div class="row nav justify-content-center">
     <div class="col-xl-6 col-md-6 col-xs-6 col-12 logo-position">
-      <img src="assets/logo.png" />
+      <img src="/assets/logo.png" />
     </div>
     <div class="col-xl-6 col-md-6 col-xs-6 col-12 nav-text-button">
       <div class="row">
@@ -9,8 +9,14 @@
         <a :href="mobileApp">
           <button class="btn">{{buttonText}}</button>
         </a>
-        <button class="language">EN</button>
-        <button class="language">DE</button>
+        <div class="row-languages">
+          <router-link :to="getURL('de')">
+            <button class="language">EN</button>
+          </router-link>
+          <router-link :to="getURL('en')">
+            <button class="language">DE</button>
+          </router-link>
+        </div>
       </div>
     </div>
   </div>
@@ -19,6 +25,19 @@
 <script>
 export default {
   name: "Navigation",
+  computed: {
+    currentPage() {
+      return this.$route.path;
+    },
+  },
+  methods: {
+    getURL(prevLanguage) {
+      return this.currentPage.replace(
+        prevLanguage,
+        prevLanguage == "en" ? "de" : "en"
+      );
+    },
+  },
   props: {
     buttonText: String,
     navigationText: String,
@@ -43,6 +62,7 @@ export default {
     > div {
       display: flex;
       align-items: baseline;
+      justify-content: flex-end;
       .language {
         background: none;
         border: none;
@@ -65,7 +85,7 @@ export default {
   }
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 769px) {
   .nav {
     .logo-position {
       display: flex;
@@ -80,6 +100,11 @@ export default {
         button.btn {
           margin-left: 0;
         }
+      }
+      .row-languages {
+        position: absolute;
+        top: -75px;
+        right: 25px;
       }
     }
   }

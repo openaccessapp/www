@@ -24,7 +24,8 @@
 </template>
 
 <script>
-import customerReviews from "js-yaml-loader!../../content/customer-reviews.yaml";
+import customerReviews from "js-yaml-loader!../../content/EN/customer-reviews.yaml";
+import customerReviewsDe from "js-yaml-loader!../../content/DE/customer-reviews.yaml";
 import { Carousel, Slide } from "vue-carousel";
 import FigureCircle from "../components/FigureCircle.vue";
 export default {
@@ -41,9 +42,23 @@ export default {
       revies: "",
     };
   },
+  watch: {
+    $route() {
+      this.init();
+    },
+  },
   mounted() {
-    this.title = customerReviews.title;
-    this.reviews = customerReviews.reviews;
+    this.init();
+  },
+  methods: {
+    init() {
+      const data =
+        this.$router.history.current.params.lang == "en"
+          ? customerReviews
+          : customerReviewsDe;
+      this.title = data["title"];
+      this.reviews = data["reviews"];
+    },
   },
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header></Header>
+    <Header :lang="lang"></Header>
     <Github></Github>
     <HowItWorks></HowItWorks>
     <CustomerReviews></CustomerReviews>
@@ -8,12 +8,13 @@
     <Team></Team>
     <Partners></Partners>
     <DownloadApp></DownloadApp>
-    <Footer></Footer>
+    <Footer :lang="lang"></Footer>
   </div>
 </template>
 
 <script>
-import footer from "js-yaml-loader!../../content/footer.yaml";
+import footer from "js-yaml-loader!../../content/EN/footer.yaml";
+import footerDe from "js-yaml-loader!../../content/DE/footer.yaml";
 import Header from "./Header";
 import Github from "./Github";
 import HowItWorks from "./HowItWorks";
@@ -43,14 +44,17 @@ export default {
       page3: "",
       page4: "",
       page5: "",
+      lang: "",
     };
   },
   mounted() {
-    this.page1 = footer["page-1"];
-    this.page2 = footer["page-2"];
-    this.page3 = footer["page-3"];
-    this.page4 = footer["page-4"];
-    this.page5 = footer["page-5"];
+    const data =
+      this.$router.history.current.params.lang == "en" ? footer : footerDe;
+    this.page1 = data["page-1"];
+    this.page2 = data["page-2"];
+    this.page3 = data["page-3"];
+    this.page4 = data["page-4"];
+    this.page5 = data["page-5"];
   },
 };
 </script>

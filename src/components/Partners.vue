@@ -17,7 +17,8 @@
   </div>
 </template>
 <script>
-import partners from "js-yaml-loader!../../content/partners.yaml";
+import partners from "js-yaml-loader!../../content/EN/partners.yaml";
+import partnersDe from "js-yaml-loader!../../content/DE/partners.yaml";
 export default {
   name: "Partners",
   data() {
@@ -26,9 +27,23 @@ export default {
       partner: [],
     };
   },
-  created() {
-    this.text = partners.text;
-    this.partner = partners.partner;
+  watch: {
+    $route() {
+      this.init();
+    },
+  },
+  mounted() {
+    this.init();
+  },
+  methods: {
+    init() {
+      const data =
+        this.$router.history.current.params.lang == "en"
+          ? partners
+          : partnersDe;
+      this.text = data["text"];
+      this.partner = data["partner"];
+    },
   },
 };
 </script>
@@ -37,12 +52,12 @@ export default {
 .partners {
   .row {
     align-items: center;
-    justify-content: left;
+    justify-content: center;
     .header {
       font-family: $font__family;
       font-size: 40px;
       color: #1e2f67;
-      text-align: left;
+      text-align: center;
       margin-bottom: 180px;
     }
     .partners-cards {

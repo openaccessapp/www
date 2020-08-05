@@ -5,7 +5,14 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "App",
+  mounted() {
+    if (!this.$router.history.current.params.lang) {
+      this.$router.push("en");
+    }
+  },
+};
 </script>
 
 <style lang="scss">

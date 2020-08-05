@@ -1,17 +1,18 @@
 <template>
   <div class="row git-card">
-    <div class="col-3">
+    <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12 col-12">
       <img class="git-icon" :src="firstImage" />
       <img class="git-text" :src="secondImage" />
     </div>
-    <div class="col-9">
+    <div class="col-xl-9 col-lg-6 col-md-12 col-sm-12 col-12">
       <p>{{text}}</p>
     </div>
   </div>
 </template>
 
 <script>
-import github from "js-yaml-loader!../../content/github.yaml";
+import github from "js-yaml-loader!../../content/EN/github.yaml";
+import githubDe from "js-yaml-loader!../../content/DE/github.yaml";
 export default {
   name: "Github",
   data() {
@@ -21,10 +22,22 @@ export default {
       secondImage: "",
     };
   },
-  created() {
-    this.text = github.text;
-    this.firstImage = github.firstImage;
-    this.secondImage = github.secondImage;
+  watch: {
+    $route() {
+      this.init();
+    },
+  },
+  mounted() {
+    this.init();
+  },
+  methods: {
+    init() {
+      let data =
+        this.$router.history.current.params.lang == "en" ? github : githubDe;
+      this.text = data.text;
+      this.firstImage = data["firstImage"];
+      this.secondImage = data["secondImage"];
+    },
   },
 };
 </script>
