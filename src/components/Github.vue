@@ -35,8 +35,8 @@ export default {
       let data =
         this.$router.history.current.params.lang == "en" ? github : githubDe;
       this.text = data.text;
-      this.firstImage = data["firstImage"];
-      this.secondImage = data["secondImage"];
+      this.firstImage = data["first-image"];
+      this.secondImage = data["second-image"];
     },
   },
 };

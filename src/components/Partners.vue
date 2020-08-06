@@ -6,7 +6,7 @@
     <div class="row">
       <div
         class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 partners-cards"
-        v-for="partners in partner"
+        v-for="partners in partners"
         :key="partners"
       >
         <img :src="partners.image" />
@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       text: "",
-      partner: [],
+      partners: [],
     };
   },
   watch: {
@@ -42,7 +42,7 @@ export default {
           ? partners
           : partnersDe;
       this.text = data["text"];
-      this.partner = data["partner"];
+      this.partners = data["partners"];
     },
   },
 };

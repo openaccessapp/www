@@ -44,14 +44,14 @@ export default {
   },
   methods: {
     init() {
-      const data =
+      const headerData =
         this.$router.history.current.params.lang == "en" ? header : headerDe;
-      this.navigationText = data["navigation-text"];
-      this.buttonText = data["button-text"];
-      this.mobileApp = data["mobile-app"];
-      const data2 =
+      this.navigationText = headerData["navigation-text"];
+      this.buttonText = headerData["button-text"];
+      this.mobileApp = headerData["mobile-app"];
+      const privacyData =
         this.$router.history.current.params.lang == "en" ? privacy : privacyDe;
-      this.html = marked(data2);
+      this.html = marked(privacyData);
     },
   },
 };

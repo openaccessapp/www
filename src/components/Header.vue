@@ -7,7 +7,6 @@
       <navigation :navigationText="navigationText" :buttonText="buttonText" :mobileApp="mobileApp"></navigation>
       <div class="row">
         <div class="col-xl-6 col-md-6 col-xs-6 col-12 position-left">
-          <div class="title">{{title}}</div>
           <div class="description">{{description}}</div>
           <div class="google-and-apple-position">
             <a :href="googlePlayLink">
@@ -87,7 +86,6 @@ export default {
       const data =
         this.$router.history.current.params.lang == "en" ? header : headerDe;
 
-      console.log(data);
       this.navigationText = data["navigation-text"];
       this.buttonText = data["button-text"];
       this.title = data["title"];

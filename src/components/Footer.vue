@@ -59,9 +59,9 @@ export default {
     init() {
       const data =
         this.$router.history.current.params.lang == "en" ? footer : footerDe;
-      this.firstTitle = data.firstTitle;
-      this.secondTitle = data.secondTitle;
-      this.thirdTitle = data.thirdTitle;
+      this.firstTitle = data["first-title"];
+      this.secondTitle = data["second-title"];
+      this.thirdTitle = data["third-title"];
       this.email = data.email;
       this.description = data.description;
     },
