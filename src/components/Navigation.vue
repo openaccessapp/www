@@ -1,7 +1,7 @@
 <template>
   <div class="row nav justify-content-center">
     <div class="col-xl-6 col-md-6 col-xs-6 col-12 logo-position">
-      <img src="/assets/logo-text.svg" />
+      <img :src="image" />
     </div>
     <div class="col-xl-6 col-md-6 col-xs-6 col-12 nav-text-button">
       <div class="row">
@@ -44,6 +44,7 @@ export default {
     buttonText: String,
     navigationText: String,
     mobileApp: String,
+    image: String,
   },
 };
 </script>

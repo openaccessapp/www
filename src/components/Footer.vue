@@ -10,7 +10,6 @@
       customClass="custom-circle"
     ></figure-circle>
     <figure-circle color="#DDFFF7" :zIndex="0" :left="-280" :isFilled="true" :bottom="0"></figure-circle>
-
     <div class="row container-links">
       <div class="col-xl-3 col-sm-4 col-6 col-md-4 col-xs-6 info">
         <router-link :to="`/${$router.history.current.params.lang}/terms`">

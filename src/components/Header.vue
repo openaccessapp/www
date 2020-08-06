@@ -4,7 +4,12 @@
       <figure-circle color="white" :zIndex="0" :left="-200" :isFilled="true" :top="-100"></figure-circle>
       <figure-circle color="white" :zIndex="0" :right="-200" :isFilled="true" :top="-100"></figure-circle>
       <figure-circle color="#385fe2" :zIndex="1" :right="-200" :isFilled="false" :top="200"></figure-circle>
-      <navigation :navigationText="navigationText" :buttonText="buttonText" :mobileApp="mobileApp"></navigation>
+      <navigation
+        :navigationText="navigationText"
+        :buttonText="buttonText"
+        :mobileApp="mobileApp"
+        :image="image"
+      ></navigation>
       <div class="row">
         <div class="col-xl-6 col-md-6 col-xs-6 col-12 position-left">
           <div class="description">{{description}}</div>
@@ -75,6 +80,7 @@ export default {
       infoText: "",
       OSI: "",
       github: "",
+      image: "",
       // END: Expected data from .yaml
     };
   },
@@ -96,6 +102,7 @@ export default {
       this.infoText = data["info-text"];
       this.OSI = data.OSI;
       this.github = data.github;
+      this.image = data["image"];
     },
   },
 };
