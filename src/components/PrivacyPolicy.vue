@@ -12,8 +12,10 @@
 </template>
 
 <script>
-import header from "js-yaml-loader!../../content/header.yaml";
-import privacy from "raw-loader!../../content/privacy.md";
+import header from "js-yaml-loader!../../content/EN/header.yaml";
+import headerDe from "js-yaml-loader!../../content/DE/header.yaml";
+import privacy from "raw-loader!../../content/EN/privacy.md";
+import privacyDe from "raw-loader!../../content/DE/privacy.md";
 import marked from "marked";
 
 import Navigation from "./Navigation";
@@ -22,23 +24,36 @@ export default {
   name: "Terms",
   components: {
     Navigation,
-    Footer
+    Footer,
   },
   data() {
     return {
       navigationText: "",
       buttonText: "",
       mobileApp: "",
-      html: ""
+      html: "",
     };
   },
+  watch: {
+    $route() {
+      this.init();
+    },
+  },
   mounted() {
-    this.navigationText = header["navigation-text"];
-    this.buttonText = header["button-text"];
-    this.mobileApp = header["mobile-app"];
-
-    this.html = marked(privacy);
-  }
+    this.init();
+  },
+  methods: {
+    init() {
+      const headerData =
+        this.$router.history.current.params.lang == "en" ? header : headerDe;
+      this.navigationText = headerData["navigation-text"];
+      this.buttonText = headerData["button-text"];
+      this.mobileApp = headerData["mobile-app"];
+      const privacyData =
+        this.$router.history.current.params.lang == "en" ? privacy : privacyDe;
+      this.html = marked(privacyData);
+    },
+  },
 };
 </script>
 

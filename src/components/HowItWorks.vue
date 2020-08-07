@@ -34,7 +34,8 @@
 </template>
 
 <script>
-import howItWorks from "js-yaml-loader!../../content/how-it-works.yaml";
+import howItWorks from "js-yaml-loader!../../content/EN/how-it-works.yaml";
+import howItWorksDe from "js-yaml-loader!../../content/DE/how-it-works.yaml";
 export default {
   name: "HowItWorks",
   data() {
@@ -45,11 +46,25 @@ export default {
       videoLink: "",
     };
   },
-  created() {
-    this.title = howItWorks.title;
-    this.text = howItWorks.text;
-    this.sections = howItWorks.sections;
-    this.videoLink = howItWorks["video-link"];
+  watch: {
+    $route() {
+      this.init();
+    },
+  },
+  mounted() {
+    this.init();
+  },
+  methods: {
+    init() {
+      const data =
+        this.$router.history.current.params.lang == "en"
+          ? howItWorks
+          : howItWorksDe;
+      this.title = data["title"];
+      this.text = data["text"];
+      this.sections = data["sections"];
+      this.videoLink = data["video-link"];
+    },
   },
 };
 </script>

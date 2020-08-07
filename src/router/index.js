@@ -6,18 +6,17 @@ import Home from '../components/Home.vue'
 
 Vue.use(VueRouter)
 
-const routes = [
-  {
-    path: '/',
+const routes = [{
+    path: '/:lang',
     name: 'Home',
     component: Home
   },
   {
-    path: '/terms',
+    path: '/:lang/terms',
     component: TermsAndConditions
   },
   {
-    path: '/privacy',
+    path: '/:lang/privacy',
     component: PrivacyPolicy
   }
 ]

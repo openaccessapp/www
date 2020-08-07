@@ -4,10 +4,14 @@
       <figure-circle color="white" :zIndex="0" :left="-200" :isFilled="true" :top="-100"></figure-circle>
       <figure-circle color="white" :zIndex="0" :right="-200" :isFilled="true" :top="-100"></figure-circle>
       <figure-circle color="#385fe2" :zIndex="1" :right="-200" :isFilled="false" :top="200"></figure-circle>
-      <navigation :navigationText="navigationText" :buttonText="buttonText" :mobileApp="mobileApp"></navigation>
+      <navigation
+        :navigationText="navigationText"
+        :buttonText="buttonText"
+        :mobileApp="mobileApp"
+        :image="image"
+      ></navigation>
       <div class="row">
         <div class="col-xl-6 col-md-6 col-xs-6 col-12 position-left">
-          <div class="title">{{title}}</div>
           <div class="description">{{description}}</div>
           <div class="google-and-apple-position">
             <a :href="googlePlayLink">
@@ -47,7 +51,8 @@
 </template>
 
 <script>
-import header from "js-yaml-loader!../../content/header.yaml";
+import header from "js-yaml-loader!../../content/EN/header.yaml";
+import headerDe from "js-yaml-loader!../../content/DE/header.yaml";
 import FigureCircle from "../components/FigureCircle.vue";
 import Navigation from "../components/Navigation.vue";
 
@@ -56,6 +61,11 @@ export default {
   components: {
     FigureCircle,
     Navigation,
+  },
+  watch: {
+    $route() {
+      this.init();
+    },
   },
   data() {
     return {
@@ -70,20 +80,30 @@ export default {
       infoText: "",
       OSI: "",
       github: "",
+      image: "",
       // END: Expected data from .yaml
     };
   },
   mounted() {
-    this.navigationText = header["navigation-text"];
-    this.buttonText = header["button-text"];
-    this.title = header["title"];
-    this.description = header["description"];
-    this.googlePlayLink = header["google-play-link"];
-    this.appStoreLink = header["app-store-link"];
-    this.mobileApp = header["mobile-app"];
-    this.infoText = header["info-text"];
-    this.OSI = header.OSI;
-    this.github = header.github;
+    this.init();
+  },
+  methods: {
+    init() {
+      const data =
+        this.$router.history.current.params.lang == "en" ? header : headerDe;
+
+      this.navigationText = data["navigation-text"];
+      this.buttonText = data["button-text"];
+      this.title = data["title"];
+      this.description = data["description"];
+      this.googlePlayLink = data["google-play-link"];
+      this.appStoreLink = data["app-store-link"];
+      this.mobileApp = data["mobile-app"];
+      this.infoText = data["info-text"];
+      this.OSI = data.OSI;
+      this.github = data.github;
+      this.image = data["image"];
+    },
   },
 };
 </script>

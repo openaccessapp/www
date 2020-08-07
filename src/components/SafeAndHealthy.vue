@@ -19,21 +19,36 @@
 </template>
 
 <script>
-import SafeAndHealthy from "js-yaml-loader!../../content/safe-and-healthy.yaml";
+import SafeAndHealthy from "js-yaml-loader!../../content/EN/safe-and-healthy.yaml";
+import SafeAndHealthyDe from "js-yaml-loader!../../content/DE/safe-and-healthy.yaml";
 export default {
   name: "SafeAndHealthy",
   data() {
     return {
       title: "",
       imageLink: "",
-      description: ""
+      description: "",
     };
   },
+  watch: {
+    $route() {
+      this.init();
+    },
+  },
   mounted() {
-    this.title = SafeAndHealthy.title;
-    this.description = SafeAndHealthy.description;
-    this.imageLink = SafeAndHealthy["image-link"];
-  }
+    this.init();
+  },
+  methods: {
+    init() {
+      const data =
+        this.$router.history.current.params.lang == "en"
+          ? SafeAndHealthy
+          : SafeAndHealthyDe;
+      this.title = data.title;
+      this.description = data.description;
+      this.imageLink = data["image-link"];
+    },
+  },
 };
 </script>
 
