@@ -19,6 +19,31 @@
           <p class="person-description">{{person.description}}</p>
         </div>
       </div>
+      <div class="row content">
+        <div
+          class="col-xl-4 col-md-4 col-xs-4 col-12"
+          v-for="(person) of people"
+          :key="person.name"
+        >
+          <div class="lines" />
+          <div class="contacts">
+            <div class="center">
+              <div class="row">
+                <img :src="person['email-image']" />
+                <p>{{person.email}}</p>
+              </div>
+              <div class="row">
+                <img :src="person['number-image']" />
+                <p>{{person.number}}</p>
+              </div>
+              <div class="row">
+                <img :src="person['twitter-image']" />
+                <p>{{person.twitter}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -68,7 +93,7 @@ export default {
   color: #474a67;
   width: 75%;
   margin: 0 auto;
-  margin-bottom: 60px;
+  margin-bottom: 0px;
 }
 
 .team {
@@ -92,8 +117,32 @@ export default {
   font-family: "Rubik", sans-serif;
   font-size: 16px;
   color: #9597ac;
+  padding-bottom: 0px;
 }
-
+.lines {
+  width: 175px;
+  border-bottom: 1px solid #dbddeb;
+  margin: 0 auto;
+}
+.contacts {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  .center {
+    margin: 0 auto;
+    .row {
+      justify-content: flex-start;
+      align-items: end;
+    }
+    p {
+      font-size: 12px;
+      color: #1e2f67;
+    }
+    img {
+      margin-right: 10px;
+    }
+  }
+}
 @media only screen and (max-width: 768px) {
   .person-avatar {
     margin-top: 50px;

@@ -78,10 +78,10 @@ export default {
     }
 
     p {
-      width: 90%;
+      width: 445px;
       font-family: $font__descriptions;
       font-size: 18px;
-      color: #474a67;
+      color: #9597ac;
     }
   }
   img.position {

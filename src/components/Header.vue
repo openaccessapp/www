@@ -12,19 +12,14 @@
       ></navigation>
       <div class="row">
         <div class="col-xl-6 col-md-6 col-xs-6 col-12 position-left">
-          <div class="description">{{description}}</div>
+          <p class="description">{{description}}</p>
+          <p class="infoText">{{infoText}}</p>
           <div class="google-and-apple-position">
             <a :href="googlePlayLink">
               <img class="google-position" src="assets/google-play-header.png" />
             </a>
             <a style="opacity: 0.3; cursor: default">
               <img class="apple-position" src="assets/app-store.png" />
-            </a>
-          </div>
-          <p class="infoText">{{infoText}}</p>
-          <div>
-            <a :href="OSI">
-              <img src="assets/open-source-logo.png" />
             </a>
           </div>
         </div>
@@ -78,7 +73,7 @@ export default {
       appStoreLink: "",
       mobileApp: "",
       infoText: "",
-      OSI: "",
+      // OSI: "",
       github: "",
       image: "",
       // END: Expected data from .yaml
@@ -100,7 +95,7 @@ export default {
       this.appStoreLink = data["app-store-link"];
       this.mobileApp = data["mobile-app"];
       this.infoText = data["info-text"];
-      this.OSI = data.OSI;
+      // this.OSI = data.OSI;
       this.github = data.github;
       this.image = data["image"];
     },
@@ -131,18 +126,24 @@ export default {
 .position-left {
   text-align: left;
 }
-
-.title {
-  font-family: $font__family;
-  font-size: 60px;
-  color: #1e2f67;
-}
 .description {
-  margin-top: 10px;
-  margin-bottom: 60px;
-  font-family: $font__descriptions;
+  margin-top: 150px;
+  margin-bottom: 30px;
+  font-family: $font__family;
   font-size: 30px;
-  color: #474a67;
+  font-size: 40px;
+  color: #1e2f67;
+  font-weight: 700;
+  width: 450px;
+}
+.infoText {
+  font-family: "Rubik";
+  font-size: 25px;
+  color: #6e7795;
+  margin-bottom: 30px;
+  text-align: justify;
+  width: 800px;
+  height: 65px;
 }
 .google-and-apple-position {
   margin-bottom: 30px;
@@ -151,12 +152,6 @@ export default {
     height: 62px;
     margin-right: 30px;
   }
-}
-.infoText {
-  font-family: "Rubik";
-  font-size: 14px;
-  color: #474a67;
-  margin-bottom: 60px;
 }
 .images {
   position: relative;
@@ -173,13 +168,9 @@ img.position {
     width: 360px;
     height: 770px;
     z-index: 2;
+    margin-left: 300px;
+    margin-top: 80px;
   }
-}
-
-img.github-logo {
-  width: 73px;
-  height: 74px;
-  margin-left: 50px;
 }
 
 .scroll-design {
@@ -214,12 +205,6 @@ img.github-logo {
   .header {
     height: 1000px;
     overflow-x: hidden;
-  }
-  .title {
-    font-size: 40px;
-  }
-  .description {
-    font-size: 25px;
   }
   .google-and-apple-position {
     img.google-position,

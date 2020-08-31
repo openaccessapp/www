@@ -1,7 +1,17 @@
 <template>
   <div class="row nav justify-content-center">
     <div class="col-xl-6 col-md-6 col-xs-6 col-12 logo-position">
-      <img :src="image" />
+      <div class="row">
+        <img :src="image" />
+        <router-link :to="getURL('de')">
+          <button class="language">English</button>
+          <div v-if="currentPage ==='/en'" class="blue-line"></div>
+        </router-link>
+        <router-link :to="getURL('en')">
+          <button class="language">Deutsch</button>
+          <div v-if="currentPage ==='/de'" class="blue-line"></div>
+        </router-link>
+      </div>
     </div>
     <div class="col-xl-6 col-md-6 col-xs-6 col-12 nav-text-button">
       <div class="row">
@@ -9,16 +19,6 @@
         <a :href="mobileApp">
           <button class="btn">{{buttonText}}</button>
         </a>
-        <div class="row languages">
-          <router-link :to="getURL('de')">
-            <button class="language">EN</button>
-            <div v-if="currentPage ==='/en'" class="blue-line"></div>
-          </router-link>
-          <router-link :to="getURL('en')">
-            <button class="language">DE</button>
-            <div v-if="currentPage ==='/de'" class="blue-line"></div>
-          </router-link>
-        </div>
       </div>
     </div>
   </div>
@@ -54,13 +54,26 @@ export default {
 @import "../../public/assets/main.scss";
 .nav {
   padding: 25px 0 50px;
-
   .logo-position {
     margin-top: 30px;
     text-align: left;
-    img {
-      width: 264px;
-      height: 70px;
+    .row {
+      // align-items: center;
+      img {
+        width: 264px;
+        height: 70px;
+        margin-right: 30px;
+      }
+      .language {
+        background: none;
+        border: none;
+        color: #474a67;
+        font: bold 15px $font__descriptions;
+        outline: none;
+        padding-right: 5px;
+        padding-left: 5px;
+        margin-top: 35px;
+      }
     }
   }
   .nav-text-button {
@@ -70,15 +83,6 @@ export default {
       display: flex;
       align-items: baseline;
       justify-content: flex-end;
-      .language {
-        background: none;
-        border: none;
-        color: #474a67;
-        font: bold 15px $font__descriptions;
-        outline: none;
-        padding-right: 5px;
-        padding-left: 5px;
-      }
     }
     button.btn {
       border: 10px;
@@ -92,11 +96,10 @@ export default {
   }
 }
 .blue-line {
-  width: 23px;
+  width: 60px;
   height: 1px;
   border: 2px solid #385fe2;
   border-radius: 10px;
-  margin-top: 2.5px;
   margin-left: 4px;
 }
 
@@ -106,20 +109,18 @@ export default {
       display: flex;
       justify-content: center;
     }
-
+    .languages {
+      position: absolute;
+      top: -75px;
+      right: 25px;
+    }
     .nav-text-button {
       > div {
         flex-direction: column;
         align-items: center;
-
         button.btn {
           margin-left: 0;
         }
-      }
-      .languages {
-        position: absolute;
-        top: -75px;
-        right: 25px;
       }
     }
   }
