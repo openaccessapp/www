@@ -1,7 +1,6 @@
 <template>
   <div>
     <Header :lang="lang"></Header>
-    <Github></Github>
     <HowItWorks></HowItWorks>
     <CustomerReviews></CustomerReviews>
     <SafeAndHealthy></SafeAndHealthy>
@@ -16,7 +15,6 @@
 import footer from "js-yaml-loader!../../content/EN/footer.yaml";
 import footerDe from "js-yaml-loader!../../content/DE/footer.yaml";
 import Header from "./Header";
-import Github from "./Github";
 import HowItWorks from "./HowItWorks";
 import CustomerReviews from "./CustomerReviews";
 import SafeAndHealthy from "./SafeAndHealthy";
@@ -28,7 +26,6 @@ export default {
   name: "Home",
   components: {
     Header,
-    Github,
     HowItWorks,
     CustomerReviews,
     SafeAndHealthy,

@@ -1,17 +1,37 @@
 <template>
   <div class="container partners">
-    <div class="row">
+    <div class="row title">
       <p class="header">{{text}}</p>
     </div>
-    <div class="row">
+    <div class="row information">
       <div
         class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 partners-cards"
         v-for="partners in partners"
         :key="partners"
       >
-        <img :src="partners.image" />
-        <p class="title">{{partners.title}}</p>
-        <p class="description">{{partners.description}}</p>
+        <div class="partners-content">
+          <img class="logo" :src="partners.image" />
+          <p class="title">{{partners.title}}</p>
+          <p class="description">{{partners.description}}</p>
+          <div class="lines" />
+          <div class="contacts">
+            <div class="center">
+              <p class="name">{{partners.name}}</p>
+              <div class="row">
+                <img :src="partners['email-image']" />
+                <p>{{partners.email}}</p>
+              </div>
+              <div class="row">
+                <img :src="partners['number-image']" />
+                <p>{{partners.number}}</p>
+              </div>
+              <div class="row">
+                <img :src="partners['twitter-image']" />
+                <p>{{partners.twitter}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -50,19 +70,31 @@ export default {
 <style lang="scss">
 @import "../../public/assets/main.scss";
 .partners {
-  .row {
+  &.container {
+    margin-top: 0 !important;
+  }
+  .header {
+    font-family: $font__family;
+    font-size: 40px;
+    color: #1e2f67;
+    text-align: center;
+    margin: 280px auto 85px;
     align-items: center;
+  }
+
+  .row.information {
+    align-items: center;
+    // align-items: baseline;
     justify-content: center;
-    .header {
-      font-family: $font__family;
-      font-size: 40px;
-      color: #1e2f67;
-      text-align: center;
-      margin-bottom: 180px;
-    }
+    height: 890px;
+
     .partners-cards {
-      margin-bottom: 80px;
-      img {
+      height: 445px;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+
+      .logo {
         width: 135px;
       }
       .title {
@@ -81,18 +113,62 @@ export default {
         font-size: 15px;
         text-align: center;
       }
+      .contacts {
+        display: none;
+      }
     }
     .partners-cards:hover {
-      padding: 20px 10px 80px;
+      padding: 0 10px 20px;
       box-shadow: 6px 10px 35px #1e2f671a;
       border-radius: 30px;
+      margin-bottom: 0px;
+      div.partners-content {
+        height: 100%;
+      }
       .description,
       .title {
         display: flex;
-        justify-content: center;
         max-height: 70px;
         overflow: hidden;
       }
+      .lines {
+        width: 175px;
+        border-bottom: 1px solid #dbddeb;
+        margin: 0 auto;
+      }
+      .logo {
+        width: 105px;
+        height: 145px;
+        padding-top: 0;
+      }
+      .contacts {
+        display: flex;
+        flex-direction: column;
+        .center {
+          margin: 0 auto;
+          .name {
+            color: #385fe2;
+            font-size: 12px;
+            font-weight: 700;
+            margin-top: 10px;
+          }
+          .row {
+            justify-content: flex-start;
+            align-items: flex-start;
+            img {
+              margin-right: 10px;
+            }
+            p {
+              font-size: 12px;
+              color: #1e2f67;
+              font-family: $font__descriptions;
+            }
+          }
+        }
+      }
+    }
+    &.title {
+      height: auto;
     }
   }
 }

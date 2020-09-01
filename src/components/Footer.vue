@@ -11,6 +11,7 @@
     ></figure-circle>
     <figure-circle color="#DDFFF7" :zIndex="0" :left="-280" :isFilled="true" :bottom="0"></figure-circle>
     <div class="row container-links">
+      <img class="col-xl-4 col-sm-4 col-md-4 col-4" src="/assets/logo-footer.svg" />
       <div class="col-xl-3 col-sm-4 col-6 col-md-4 col-xs-6 info">
         <router-link :to="`/${$router.history.current.params.lang}/terms`">
           <p class="row terms">{{firstTitle}}</p>
@@ -24,8 +25,18 @@
           <p>{{email}}</p>
         </div>
       </div>
-      <img class="col-xl-4 col-sm-4 col-md-4 col-4" src="/assets/access-logo-footer.png" />
-      <p class="col-xs-6 col-sm-4 col-md-4 col-6 col-xl-4 paragraph">{{description}}</p>
+      <div class="line" />
+      <div class="col-xs-6 col-sm-4 col-md-4 col-6 col-xl-4 sites">
+        <div class="row github">
+          <img :src="github" />
+          <p>{{githubText}}</p>
+        </div>
+        <div class="row OS">
+          <img :src="OS" />
+          <p>{{OStext}}</p>
+        </div>
+      </div>
+      <p class="description">{{description}}</p>
     </div>
   </div>
 </template>
@@ -44,6 +55,10 @@ export default {
       thirdTitle: "",
       email: "",
       description: "",
+      github: "",
+      githubText: "",
+      OS: "",
+      OStext: "",
     };
   },
   watch: {
@@ -63,6 +78,10 @@ export default {
       this.thirdTitle = data["third-title"];
       this.email = data.email;
       this.description = data.description;
+      this.github = data["github"];
+      this.githubText = data["github-text"];
+      this.OS = data["open-source"];
+      this.OStext = data["open-source-text"];
     },
   },
 };
@@ -78,14 +97,43 @@ export default {
   align-items: center;
   overflow: hidden;
   max-width: unset;
-  padding: 0;
-  height: auto;
-  background: none;
+  // padding: 0;
+  // height: auto;
+  // background: none;
   p {
     font-size: 16px;
     color: black;
   }
-
+  .line {
+    width: 1px;
+    height: 163px;
+    border-bottom: 186px solid #dbddeb;
+  }
+  .sites {
+    margin-left: 65px;
+    p {
+      color: #1e2f67;
+      font-size: 14px;
+      font-family: $font__descriptions;
+      text-align: left;
+      margin-left: 30px;
+    }
+    .github {
+      flex-wrap: unset;
+      img {
+        width: 70px;
+        height: 70px;
+        margin-bottom: 50px;
+      }
+    }
+    .OS {
+      flex-wrap: unset;
+      img {
+        width: 70px;
+        height: 90px;
+      }
+    }
+  }
   .custom-circle {
     border: 6px solid rgb(56, 95, 226);
     z-index: 0;
@@ -103,25 +151,21 @@ export default {
   }
   .container-links {
     display: flex;
-    justify-content: space-between;
-    margin-left: 50px;
+    // justify-content: space-between;
     align-items: center;
-    padding: 50px 200px;
+    padding: 50px 190px;
     img {
-      max-width: 125px;
-      max-height: 95px;
+      max-width: 205px;
+      max-height: 155px;
       padding: 0;
     }
-    .paragraph {
-      text-align: left;
-      font-family: $font__descriptions;
-      font-weight: 400;
-      font-size: 14px;
-      color: #1e2f67;
-
-      line-height: 25px;
+    .description {
+      width: 900px;
+      text-align: center;
+      margin: 40px auto;
     }
     .info {
+      margin-left: 135px;
       img {
         max-width: 20px;
         max-height: 16px;
