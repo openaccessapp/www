@@ -22,6 +22,7 @@
               <img class="apple-position" src="assets/app-store.png" />
             </a>
           </div>
+          <p>This is not a tracing app. Nothing is stored on server. All the information is secured.</p>
         </div>
         <div class="col-xl-6 col-md-6 col-xs-6 col-12 phone">
           <div class="images">
@@ -123,6 +124,11 @@ export default {
     /* set height to pixels if you want angle to change with screen width */
   }
 }
+p {
+  font-size: 14px;
+  color: #1e2f67;
+  font-family: $font__descriptions;
+}
 .position-left {
   text-align: left;
 }
@@ -147,9 +153,10 @@ export default {
 }
 .google-and-apple-position {
   margin-bottom: 30px;
+  margin-top: 90px;
   img.google-position {
-    width: 209px;
-    height: 62px;
+    width: 245px;
+    height: 72px;
     margin-right: 30px;
   }
 }
@@ -209,7 +216,7 @@ img.position {
   .google-and-apple-position {
     img.google-position,
     img.apple-position {
-      width: 165px;
+      width: 245px;
       height: auto;
     }
   }

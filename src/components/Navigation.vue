@@ -93,6 +93,11 @@ export default {
       margin-right: 24px;
       padding: 10px 35px;
     }
+    .medium-font {
+      color: #1e2f67;
+      font-size: 16px;
+      font-family: $font__descriptions;
+    }
   }
 }
 .blue-line {

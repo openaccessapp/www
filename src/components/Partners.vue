@@ -32,6 +32,35 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div
+        class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 partners-cards"
+        v-for="partners in partners"
+        :key="partners"
+      >
+        <img class="logo" :src="partners.image" />
+        <p class="title">{{partners.title}}</p>
+        <p class="description">{{partners.description}}</p>
+        <div class="lines" />
+        <div class="contacts">
+          <div class="center">
+            <p class="name">{{partners.name}}</p>
+            <div class="row">
+              <img :src="partners['email-image']" />
+              <p>{{partners.email}}</p>
+            </div>
+            <div class="row">
+              <img :src="partners['number-image']" />
+              <p>{{partners.number}}</p>
+            </div>
+            <div class="row">
+              <img :src="partners['twitter-image']" />
+              <p>{{partners.twitter}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -69,9 +98,10 @@ export default {
 @import "../../public/assets/main.scss";
 .partners {
   .row {
-    // align-items: center;
-    align-items: baseline;
+    align-items: center;
+    // align-items: baseline;
     justify-content: center;
+    display: flex;
     .header {
       font-family: $font__family;
       font-size: 40px;
@@ -80,7 +110,7 @@ export default {
       margin-bottom: 180px;
     }
     .partners-cards {
-      margin-bottom: 80px;
+      margin-bottom: 300px;
       .logo {
         width: 135px;
       }
@@ -108,10 +138,10 @@ export default {
       padding: 20px 10px 20px;
       box-shadow: 6px 10px 35px #1e2f671a;
       border-radius: 30px;
+      margin-bottom: 0px;
       .description,
       .title {
         display: flex;
-        justify-content: center;
         max-height: 70px;
         overflow: hidden;
       }
