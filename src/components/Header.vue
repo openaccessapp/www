@@ -13,7 +13,7 @@
       <div class="row">
         <div class="col-xl-6 col-md-6 col-xs-6 col-12 position-left">
           <p class="description">{{description}}</p>
-          <p class="infoText">{{infoText}}</p>
+          <p class="info-text">{{infoText}}</p>
           <div class="google-and-apple-position">
             <a :href="googlePlayLink">
               <img class="google-position" src="assets/google-play-header.png" />
@@ -136,13 +136,12 @@ p {
   margin-top: 150px;
   margin-bottom: 30px;
   font-family: $font__family;
-  font-size: 30px;
   font-size: 40px;
   color: #1e2f67;
   font-weight: 700;
   width: 450px;
 }
-.infoText {
+.info-text {
   font-family: "Rubik";
   font-size: 25px;
   color: #6e7795;

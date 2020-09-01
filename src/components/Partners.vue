@@ -34,37 +34,6 @@
         </div>
       </div>
     </div>
-    <div class="row information">
-      <div
-        class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 partners-cards"
-        v-for="partners in partners"
-        :key="partners"
-      >
-        <div class="partners-content">
-          <img class="logo" :src="partners.image" />
-          <p class="title">{{partners.title}}</p>
-          <p class="description">{{partners.description}}</p>
-          <div class="lines" />
-          <div class="contacts">
-            <div class="center">
-              <p class="name">{{partners.name}}</p>
-              <div class="row">
-                <img :src="partners['email-image']" />
-                <p>{{partners.email}}</p>
-              </div>
-              <div class="row">
-                <img :src="partners['number-image']" />
-                <p>{{partners.number}}</p>
-              </div>
-              <div class="row">
-                <img :src="partners['twitter-image']" />
-                <p>{{partners.twitter}}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
 </template>
 <script>
@@ -117,10 +86,10 @@ export default {
     align-items: center;
     // align-items: baseline;
     justify-content: center;
-    height: 445px;
+    height: 890px;
 
     .partners-cards {
-      height: 100%;
+      height: 445px;
       justify-content: center;
       display: flex;
       flex-direction: column;
