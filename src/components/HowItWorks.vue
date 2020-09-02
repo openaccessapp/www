@@ -29,6 +29,20 @@
           </div>
         </div>
       </div>
+      <!-- <div class="vertical"></div>
+      <div class="vertical"></div>
+      <div class="vertical"></div>
+
+      <div class="row lines">
+        <div class="horizontal"></div>
+        <div class="horizontal"></div>
+        <div class="horizontal"></div>
+        <div class="horizontal"></div>
+        <div class="horizontal"></div>
+        <div class="horizontal"></div>
+        <div class="horizontal"></div>
+        <div class="horizontal"></div>
+      </div>-->
     </div>
   </div>
 </template>
@@ -36,6 +50,7 @@
 <script>
 import howItWorks from "js-yaml-loader!../../content/EN/how-it-works.yaml";
 import howItWorksDe from "js-yaml-loader!../../content/DE/how-it-works.yaml";
+import "../../public/assets/lines.scss";
 export default {
   name: "HowItWorks",
   data() {
@@ -73,6 +88,9 @@ export default {
 @import "../../public/assets/main.scss";
 .how-it-works {
   margin-top: 50px;
+  .lines {
+    margin-left: 175px;
+  }
 }
 .section {
   p,
