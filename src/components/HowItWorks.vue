@@ -8,7 +8,7 @@
       </div>
       <div class="row content">
         <div class="col-md-12 col-lg-4 col-xl-4 col-sm-12 col-12 text-section">
-          <div class="section" v-if="sections[0]">
+          <div class="section find" v-if="sections[0]">
             <h3 class="title title-name">{{sections[0].title}}</h3>
             <p class="text">{{sections[0].text}}</p>
           </div>
@@ -17,32 +17,21 @@
             <p class="text">{{sections[1].text}}</p>
           </div>
         </div>
-        <div class="col-md-12 col-lg-4 col-xl-4 col-sm-12 col-12">
+        <div class="col-md-12 col-lg-4 col-xl-4 col-sm-12 col-12 plan">
           <div class="mock-image">
+            <img class="first" src="/assets/Step1.svg" />
             <img class="how-it-works-image" src="assets/how-it-works.png" />
+            <img class="second" src="/assets/Step2.svg" />
+            <img class="third" src="/assets/Step2.svg" />
           </div>
         </div>
-        <div class="col-md-12 col-lg-4 col-xl-4 col-sm-12 col-12 text-section">
+        <div class="col-md-12 col-lg-4 col-xl-4 col-sm-12 col-12 text-section download">
           <div class="section" v-if="sections[2]">
             <h3 class="title title-name">{{sections[2].title}}</h3>
             <p class="text">{{sections[2].text}}</p>
           </div>
         </div>
       </div>
-      <!-- <div class="vertical"></div>
-      <div class="vertical"></div>
-      <div class="vertical"></div>
-
-      <div class="row lines">
-        <div class="horizontal"></div>
-        <div class="horizontal"></div>
-        <div class="horizontal"></div>
-        <div class="horizontal"></div>
-        <div class="horizontal"></div>
-        <div class="horizontal"></div>
-        <div class="horizontal"></div>
-        <div class="horizontal"></div>
-      </div>-->
     </div>
   </div>
 </template>
@@ -50,7 +39,6 @@
 <script>
 import howItWorks from "js-yaml-loader!../../content/EN/how-it-works.yaml";
 import howItWorksDe from "js-yaml-loader!../../content/DE/how-it-works.yaml";
-import "../../public/assets/lines.scss";
 export default {
   name: "HowItWorks",
   data() {
@@ -88,9 +76,6 @@ export default {
 @import "../../public/assets/main.scss";
 .how-it-works {
   margin-top: 50px;
-  .lines {
-    margin-left: 175px;
-  }
 }
 .section {
   p,
@@ -115,6 +100,7 @@ h3.title {
 
 .how-it-works-image {
   width: 350px;
+  margin-top: 30px;
 }
 
 .text {
@@ -122,15 +108,35 @@ h3.title {
   font-size: 18px;
   color: #474a67;
 }
-
 .mock-image {
   width: 100%;
   height: 600px;
+  position: relative;
 }
-
+.first {
+  position: absolute;
+  top: 260px;
+  right: 315px;
+}
+.second {
+  position: absolute;
+  right: 174px;
+  top: 586px;
+}
+.third {
+  position: absolute;
+  top: 516px;
+  left: 170px;
+}
 .text-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+.download {
+  margin-top: 160px;
+}
+.find {
+  margin-bottom: 70px;
 }
 </style>

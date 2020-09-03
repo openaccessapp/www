@@ -73,7 +73,7 @@ export default {
   position: relative;
   padding: 50px 0;
   height: auto;
-
+  margin-top: 400px;
   svg {
     position: absolute;
     top: 0;

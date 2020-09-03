@@ -53,7 +53,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap");
 @import "../../public/assets/main.scss";
 .nav {
-  padding: 25px 0 50px;
+  padding: 0 0 50px;
   .logo-position {
     margin-top: 30px;
     text-align: left;
@@ -103,7 +103,7 @@ export default {
 .blue-line {
   width: 60px;
   height: 1px;
-  border: 2px solid #385fe2;
+  border-bottom: 5px solid #385fe2;
   border-radius: 10px;
   margin-left: 4px;
 }
