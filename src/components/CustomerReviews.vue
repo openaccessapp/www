@@ -17,7 +17,7 @@
             <img :src="customer['avatar-link']" class="person-avatar" />
             <p class="bold">{{customer.name}}</p>
             <p class="position-style">{{customer.position}}</p>
-            <h4 class="person-description-style">{{customer.review}}</h4>
+            <h4 class="person-description-style">"{{customer.review}}"</h4>
           </slide>
         </carousel>
       </div>
@@ -73,7 +73,7 @@ export default {
   position: relative;
   padding: 50px 0;
   height: auto;
-  margin-top: 400px;
+  margin-top: 250px;
   svg {
     position: absolute;
     top: 0;

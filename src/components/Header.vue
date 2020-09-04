@@ -1,7 +1,9 @@
 <template>
   <div class="header">
     <div class="container">
-      <figure-circle color="white" :zIndex="0" :left="-200" :isFilled="true" :top="-100"></figure-circle>
+      <div class="left-sircle">
+        <figure-circle color="white" :zIndex="0" :left="-360" :isFilled="true" :top="-80"></figure-circle>
+      </div>
       <figure-circle color="white" :zIndex="0" :right="-200" :isFilled="true" :top="-100"></figure-circle>
       <figure-circle color="#385fe2" :zIndex="1" :right="-200" :isFilled="false" :top="200"></figure-circle>
       <navigation
@@ -114,6 +116,10 @@ export default {
   height: 110vh;
   .container {
     margin-top: 0;
+    .left-circle {
+      width: 777px;
+      height: 777px;
+    }
   }
   svg {
     position: absolute;
@@ -136,23 +142,23 @@ p {
   margin-top: 150px;
   margin-bottom: 30px;
   font-family: $font__family;
-  font-size: 40px;
+  font-size: 60px;
   color: #1e2f67;
   font-weight: 700;
-  width: 450px;
+  width: 564px;
 }
 .info-text {
-  font-family: "Rubik";
-  font-size: 25px;
-  color: #6e7795;
+  font-family: $font__descriptions;
+  font-size: 18px;
+  color: #1e2f67;
   margin-bottom: 30px;
-  text-align: justify;
-  width: 800px;
+  text-align: left;
+  width: 678px;
   height: 65px;
 }
 .google-and-apple-position {
   margin-bottom: 30px;
-  margin-top: 90px;
+  margin-top: 60px;
   img.google-position {
     width: 245px;
     height: 72px;
@@ -215,8 +221,8 @@ img.position {
   .google-and-apple-position {
     img.google-position,
     img.apple-position {
-      width: 245px;
-      height: auto;
+      width: 207px;
+      height: 61px;
     }
   }
   .images {

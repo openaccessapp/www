@@ -107,7 +107,6 @@ export default {
   border-radius: 10px;
   margin-left: 4px;
 }
-
 @media only screen and (max-width: 769px) {
   .nav {
     .logo-position {
@@ -119,6 +118,7 @@ export default {
       top: -75px;
       right: 25px;
     }
+
     .nav-text-button {
       > div {
         flex-direction: column;

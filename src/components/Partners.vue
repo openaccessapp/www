@@ -151,6 +151,7 @@ export default {
             font-weight: 700;
             margin-top: 10px;
             margin-bottom: 10px;
+            font-family: $font__descriptions;
           }
           .row {
             justify-content: flex-start;
