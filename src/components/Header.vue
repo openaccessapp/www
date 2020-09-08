@@ -1,9 +1,15 @@
 <template>
   <div class="header">
     <div class="container">
-      <div class="left-sircle">
-        <figure-circle color="white" :zIndex="0" :left="-360" :isFilled="true" :top="-80"></figure-circle>
-      </div>
+      <figure-circle
+        class="left-circle"
+        color="white"
+        :zIndex="0"
+        :left="-360"
+        :isFilled="true"
+        :top="-80"
+      ></figure-circle>
+
       <figure-circle color="white" :zIndex="0" :right="-200" :isFilled="true" :top="-100"></figure-circle>
       <figure-circle color="#385fe2" :zIndex="1" :right="-200" :isFilled="false" :top="200"></figure-circle>
       <navigation
