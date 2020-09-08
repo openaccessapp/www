@@ -4,11 +4,11 @@
       <div class="row">
         <img :src="image" />
         <router-link :to="getURL('de')">
-          <button class="language">English</button>
+          <button class="language" :class="{'opacity' : currentPage ==='/en'}">English</button>
           <div v-if="currentPage ==='/en'" class="blue-line"></div>
         </router-link>
         <router-link :to="getURL('en')">
-          <button class="language">Deutsch</button>
+          <button class="language" :class="{'opacity' : currentPage ==='/de'}">Deutsch</button>
           <div v-if="currentPage ==='/de'" class="blue-line"></div>
         </router-link>
       </div>
@@ -73,6 +73,10 @@ export default {
         padding-right: 5px;
         padding-left: 5px;
         margin-top: 35px;
+        opacity: 60%;
+      }
+      .opacity {
+        opacity: 100%;
       }
     }
   }
@@ -107,6 +111,7 @@ export default {
   border-radius: 10px;
   margin-left: 4px;
 }
+
 @media only screen and (max-width: 769px) {
   .nav {
     .logo-position {
