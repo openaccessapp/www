@@ -57,7 +57,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../../public/assets/main.scss";
+@import "../../public/assets/scss/main.scss";
 
 .container-fluid {
   display: flex;

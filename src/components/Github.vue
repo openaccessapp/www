@@ -43,7 +43,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../../public/assets/main.scss";
+@import "../../public/assets/scss/main.scss";
 
 .git-card {
   margin: 20px auto 200px;

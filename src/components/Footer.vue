@@ -88,7 +88,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../../public/assets/main.scss";
+@import "../../public/assets/scss/main.scss";
 
 .footer.container {
   display: flex;

@@ -68,7 +68,7 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "../../public/assets/main.scss";
+@import "../../public/assets/scss/main.scss";
 .partners {
   width: 1300px;
   margin: 0 auto;

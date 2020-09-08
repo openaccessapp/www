@@ -114,7 +114,7 @@ export default {
 
 <style scoped lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap");
-@import "../../public/assets/main.scss";
+@import "../../public/assets/scss/main.scss";
 
 .header {
   position: relative;

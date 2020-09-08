@@ -86,7 +86,7 @@ export default {
 
 <style scoped lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap");
-@import "../../public/assets/main.scss";
+@import "../../public/assets/scss/main.scss";
 .person-description {
   font-family: $font__descriptions;
   font-size: 18px;
