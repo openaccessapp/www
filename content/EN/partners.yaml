@@ -1,13 +1,13 @@
 text: Partners
 partners:
   - image: "/assets/Auxcode-logo.svg"
-    title: City University Of London
-    description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem.
-    name: Alice Mesnard
+    title: Aux Nederland B.V.
+    description: Aux Nederland B.V. is a digital product developer and investor.
+    name: T. E. Shaw
     email-image: assets/team-email.svg
-    email: email.emai@mail.com
+    email: t.e.shaw@auxnederlandbv.nl
     number-image: assets/team-number.svg
-    number: 098 987 8767
+    number: +49 161 6 111 26 31
     twitter-image:  assets/team-twitter.svg
     twitter: Name.name  
   - image: "/assets/City-University.png"
