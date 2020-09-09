@@ -5,11 +5,11 @@
         <img :src="image" />
         <router-link :to="getURL('de')">
           <button class="language" :class="{'opacity' : currentPage ==='/en'}">English</button>
-          <div v-if="currentPage ==='/en'" class="blue-line"></div>
+          <div v-if="currentPage ==='/en'" class="blue-line-en"></div>
         </router-link>
         <router-link :to="getURL('en')">
           <button class="language" :class="{'opacity' : currentPage ==='/de'}">Deutsch</button>
-          <div v-if="currentPage ==='/de'" class="blue-line"></div>
+          <div v-if="currentPage ==='/de'" class="blue-line-de"></div>
         </router-link>
       </div>
     </div>
@@ -70,8 +70,8 @@ export default {
         color: #474a67;
         font: bold 15px $font__descriptions;
         outline: none;
-        padding-right: 5px;
-        padding-left: 5px;
+        padding-right: 9px;
+        padding-left: 9px;
         margin-top: 35px;
         opacity: 0.6 !important;
       }
@@ -104,12 +104,19 @@ export default {
     }
   }
 }
-.blue-line {
+.blue-line-en {
   width: 60px;
   height: 1px;
   border-bottom: 5px solid #385fe2;
   border-radius: 10px;
-  margin-left: 4px;
+  margin-left: 6px;
+}
+.blue-line-de {
+  width: 70px;
+  height: 1px;
+  border-bottom: 5px solid #385fe2;
+  border-radius: 10px;
+  margin-left: 5px;
 }
 
 @media only screen and (max-width: 769px) {
