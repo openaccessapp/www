@@ -73,10 +73,10 @@ export default {
         padding-right: 5px;
         padding-left: 5px;
         margin-top: 35px;
-        opacity: 60%;
+        opacity: 0.6 !important;
       }
       .opacity {
-        opacity: 100%;
+        opacity: 1 !important;
       }
     }
   }
