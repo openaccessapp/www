@@ -111,11 +111,11 @@ export default {
       .text {
         font-family: $font__descriptions;
         font-size: 18px;
-        color: #474a67;
+        color: #9597ac;
       }
       p,
       h3 {
-        text-align: left;
+        text-align: center;
       }
     }
     h2,
