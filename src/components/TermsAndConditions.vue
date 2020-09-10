@@ -1,7 +1,12 @@
 <template>
   <div class="background-color">
     <div class="container">
-      <navigation :navigationText="navigationText" :buttonText="buttonText" :mobileApp="mobileApp"></navigation>
+      <navigation
+        :navigationText="navigationText"
+        :buttonText="buttonText"
+        :mobileApp="mobileApp"
+        :image="image"
+      ></navigation>
       <div class="position">
         <p>Terms and Conditions</p>
       </div>
@@ -33,6 +38,7 @@ export default {
       buttonText: "",
       mobileApp: "",
       html: "",
+      image: "",
     };
   },
   watch: {
@@ -47,12 +53,12 @@ export default {
     init() {
       let data =
         this.$router.history.current.params.lang == "en" ? gdpr : gdprDe;
-      let data2 =
+      let dataHeader =
         this.$router.history.current.params.lang == "en" ? header : headerDe;
-      this.navigationText = data2["navigation-text"];
-      this.buttonText = data2["button-text"];
+      this.navigationText = dataHeader["navigation-text"];
+      this.buttonText = dataHeader["button-text"];
       this.mobileApp = data["mobile-app"];
-
+      this.image = dataHeader["image"];
       this.html = marked(data);
     },
   },

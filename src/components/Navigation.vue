@@ -4,12 +4,24 @@
       <div class="row">
         <img :src="image" />
         <router-link :to="getURL('de')">
-          <button class="language" :class="{'opacity' : currentPage ==='/en'}">English</button>
-          <div v-if="currentPage ==='/en'" class="blue-line-en"></div>
+          <button
+            class="language"
+            :class="{'opacity' : currentPage ==='/en'|| currentPage ==='/en/terms' || currentPage ==='/en/privacy'}"
+          >English</button>
+          <div
+            v-if="currentPage ==='/en' || currentPage ==='/en/terms' || currentPage ==='/en/privacy'"
+            class="blue-line-en"
+          ></div>
         </router-link>
         <router-link :to="getURL('en')">
-          <button class="language" :class="{'opacity' : currentPage ==='/de'}">Deutsch</button>
-          <div v-if="currentPage ==='/de'" class="blue-line-de"></div>
+          <button
+            class="language"
+            :class="{'opacity' : currentPage ==='/de'|| currentPage ==='/de/terms' || currentPage ==='/de/privacy' }"
+          >Deutsch</button>
+          <div
+            v-if="currentPage ==='/de' || currentPage ==='/de/terms' || currentPage ==='/de/privacy' "
+            class="blue-line-de"
+          ></div>
         </router-link>
       </div>
     </div>
