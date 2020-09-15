@@ -1,5 +1,5 @@
 <template>
-  <div class="container partners">
+  <div class="partners">
     <div class="row title">
       <p class="header">{{text}}</p>
     </div>
@@ -68,11 +68,11 @@ export default {
 };
 </script>
 <style lang="scss">
-@import "../../public/assets/main.scss";
+@import "../../public/assets/scss/main.scss";
 .partners {
-  &.container {
-    margin-top: 0 !important;
-  }
+  width: 1300px;
+  margin: 0 auto;
+
   .header {
     font-family: $font__family;
     font-size: 40px;
@@ -102,12 +102,11 @@ export default {
         color: #385fe2;
         font-family: $font__family;
         font-size: 20px;
-        margin-top: 20px;
-        margin-bottom: 5px;
+        justify-content: center;
       }
       .description {
         display: none;
-        color: #474a67;
+        color: #9597ac;
         font-family: $font__descriptions;
         font-weight: 400px;
         font-size: 15px;
@@ -118,7 +117,7 @@ export default {
       }
     }
     .partners-cards:hover {
-      padding: 0 10px 20px;
+      padding: 25px 30px 30px;
       box-shadow: 6px 10px 35px #1e2f671a;
       border-radius: 30px;
       margin-bottom: 0px;
@@ -151,6 +150,8 @@ export default {
             font-size: 12px;
             font-weight: 700;
             margin-top: 10px;
+            margin-bottom: 10px;
+            font-family: $font__descriptions;
           }
           .row {
             justify-content: flex-start;

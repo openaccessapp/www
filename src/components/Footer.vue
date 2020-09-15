@@ -9,7 +9,7 @@
       :bottom="0"
       customClass="custom-circle"
     ></figure-circle>
-    <figure-circle color="#DDFFF7" :zIndex="0" :left="-280" :isFilled="true" :bottom="0"></figure-circle>
+    <figure-circle color="#DDFFF7" :zIndex="0" :left="-320" :isFilled="true" :bottom="0"></figure-circle>
     <div class="row container-links">
       <img class="col-xl-4 col-sm-4 col-md-4 col-4" src="/assets/logo-footer.svg" />
       <div class="col-xl-3 col-sm-4 col-6 col-md-4 col-xs-6 info">
@@ -88,7 +88,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../../public/assets/main.scss";
+@import "../../public/assets/scss/main.scss";
 
 .footer.container {
   display: flex;
@@ -163,6 +163,9 @@ export default {
       width: 900px;
       text-align: center;
       margin: 40px auto;
+      font-family: $font__descriptions;
+      color: #1e2f67;
+      font-size: 14px;
     }
     .info {
       margin-left: 135px;

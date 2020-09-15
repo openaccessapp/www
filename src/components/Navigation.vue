@@ -2,14 +2,28 @@
   <div class="row nav justify-content-center">
     <div class="col-xl-6 col-md-6 col-xs-6 col-12 logo-position">
       <div class="row">
-        <img :src="image" />
+        <router-link :to="`/${$router.history.current.params.lang}`">
+          <img :src="image" />
+        </router-link>
         <router-link :to="getURL('de')">
-          <button class="language">English</button>
-          <div v-if="currentPage ==='/en'" class="blue-line"></div>
+          <button
+            class="language"
+            :class="{'opacity' : currentPage ==='/en'|| currentPage ==='/en/terms' || currentPage ==='/en/privacy'}"
+          >English</button>
+          <div
+            v-if="currentPage ==='/en' || currentPage ==='/en/terms' || currentPage ==='/en/privacy'"
+            class="blue-line-en"
+          ></div>
         </router-link>
         <router-link :to="getURL('en')">
-          <button class="language">Deutsch</button>
-          <div v-if="currentPage ==='/de'" class="blue-line"></div>
+          <button
+            class="language"
+            :class="{'opacity' : currentPage ==='/de'|| currentPage ==='/de/terms' || currentPage ==='/de/privacy' }"
+          >Deutsch</button>
+          <div
+            v-if="currentPage ==='/de' || currentPage ==='/de/terms' || currentPage ==='/de/privacy' "
+            class="blue-line-de"
+          ></div>
         </router-link>
       </div>
     </div>
@@ -51,9 +65,9 @@ export default {
 
 <style scoped lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap");
-@import "../../public/assets/main.scss";
+@import "../../public/assets/scss/main.scss";
 .nav {
-  padding: 25px 0 50px;
+  padding: 0 0 50px;
   .logo-position {
     margin-top: 30px;
     text-align: left;
@@ -70,9 +84,13 @@ export default {
         color: #474a67;
         font: bold 15px $font__descriptions;
         outline: none;
-        padding-right: 5px;
-        padding-left: 5px;
+        padding-right: 9px;
+        padding-left: 9px;
         margin-top: 35px;
+        opacity: 0.6 !important;
+      }
+      .opacity {
+        opacity: 1 !important;
       }
     }
   }
@@ -100,12 +118,19 @@ export default {
     }
   }
 }
-.blue-line {
+.blue-line-en {
   width: 60px;
   height: 1px;
-  border: 2px solid #385fe2;
+  border-bottom: 5px solid #385fe2;
   border-radius: 10px;
-  margin-left: 4px;
+  margin-left: 6px;
+}
+.blue-line-de {
+  width: 70px;
+  height: 1px;
+  border-bottom: 5px solid #385fe2;
+  border-radius: 10px;
+  margin-left: 5px;
 }
 
 @media only screen and (max-width: 769px) {
@@ -119,6 +144,7 @@ export default {
       top: -75px;
       right: 25px;
     }
+
     .nav-text-button {
       > div {
         flex-direction: column;

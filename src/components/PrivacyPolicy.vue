@@ -1,7 +1,12 @@
 <template>
   <div class="background-color">
     <div class="container">
-      <navigation :navigationText="navigationText" :buttonText="buttonText" :mobileApp="mobileApp"></navigation>
+      <navigation
+        :navigationText="navigationText"
+        :buttonText="buttonText"
+        :mobileApp="mobileApp"
+        :image="image"
+      ></navigation>
       <div class="position">
         <p>Privacy Policy</p>
       </div>
@@ -32,6 +37,7 @@ export default {
       buttonText: "",
       mobileApp: "",
       html: "",
+      image: "",
     };
   },
   watch: {
@@ -49,6 +55,7 @@ export default {
       this.navigationText = headerData["navigation-text"];
       this.buttonText = headerData["button-text"];
       this.mobileApp = headerData["mobile-app"];
+      this.image = headerData["image"];
       const privacyData =
         this.$router.history.current.params.lang == "en" ? privacy : privacyDe;
       this.html = marked(privacyData);
@@ -58,7 +65,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../../public/assets/main.scss";
+@import "../../public/assets/scss/main.scss";
 .position {
   font-family: $font__family;
   font-size: 60px;

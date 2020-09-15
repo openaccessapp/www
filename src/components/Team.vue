@@ -86,11 +86,11 @@ export default {
 
 <style scoped lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap");
-@import "../../public/assets/main.scss";
+@import "../../public/assets/scss/main.scss";
 .person-description {
   font-family: $font__descriptions;
   font-size: 18px;
-  color: #474a67;
+  color: #9597ac;
   width: 75%;
   margin: 0 auto;
   margin-bottom: 0px;
@@ -110,7 +110,7 @@ export default {
 .person-name {
   font-family: $font__family;
   font-size: 25px;
-  color: #1e2f67;
+  color: #385fe2;
   margin-top: 60px;
 }
 .person-place {
@@ -118,11 +118,15 @@ export default {
   font-size: 16px;
   color: #9597ac;
   padding-bottom: 0px;
+  font-weight: 500;
 }
 .lines {
   width: 175px;
   border-bottom: 1px solid #dbddeb;
   margin: 0 auto;
+}
+.content {
+  margin-top: 35px;
 }
 .contacts {
   margin-top: 20px;
@@ -137,6 +141,7 @@ export default {
     p {
       font-size: 12px;
       color: #1e2f67;
+      font-weight: 400;
     }
     img {
       margin-right: 10px;

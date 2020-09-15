@@ -10,11 +10,17 @@
         <div class="col-md-12 col-lg-4 col-xl-4 col-sm-12 col-12 text-section">
           <div class="section" v-if="sections[0]">
             <h3 class="title title-name">{{sections[0].title}}</h3>
-            <p class="text">{{sections[0].text}}</p>
+            <div class="find">
+              <p class="text">{{sections[0].text}}</p>
+              <img class="first-step" src="/assets/Step1.svg" />
+            </div>
           </div>
           <div class="section mt-5" v-if="sections[1]">
             <h3 class="title title-name">{{sections[1].title}}</h3>
-            <p class="text">{{sections[1].text}}</p>
+            <div class="plan">
+              <p class="text">{{sections[1].text}}</p>
+              <img class="second-step" src="/assets/Step2.svg" />
+            </div>
           </div>
         </div>
         <div class="col-md-12 col-lg-4 col-xl-4 col-sm-12 col-12">
@@ -22,10 +28,13 @@
             <img class="how-it-works-image" src="assets/how-it-works.png" />
           </div>
         </div>
-        <div class="col-md-12 col-lg-4 col-xl-4 col-sm-12 col-12 text-section">
+        <div class="col-md-12 col-lg-4 col-xl-4 col-sm-12 col-12 text-section download-position">
           <div class="section" v-if="sections[2]">
             <h3 class="title title-name">{{sections[2].title}}</h3>
-            <p class="text">{{sections[2].text}}</p>
+            <div class="download">
+              <p class="text">{{sections[2].text}}</p>
+              <img class="third-step" src="/assets/Step2.svg" />
+            </div>
           </div>
         </div>
       </div>
@@ -70,49 +79,88 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../../public/assets/main.scss";
+@import "../../public/assets/scss/main.scss";
 .how-it-works {
   margin-top: 50px;
-}
-.section {
-  p,
-  h3 {
-    text-align: left;
+  .mock-image {
+    width: 100%;
+    height: 600px;
+    .how-it-works-image {
+      width: 350px;
+      margin-top: 30px;
+    }
   }
-}
-h2,
-h3.title {
-  font-family: $font__family;
-}
+  .title-size {
+    font-size: 60px;
+    color: #1e2f67;
+    font-weight: 700;
+  }
+  .download-position {
+    margin-top: 175px;
+  }
+  .text-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .section {
+      .title-name {
+        font-size: 25px;
+        color: $color__site;
+      }
 
-.title-size {
-  font-size: 40px;
-  color: #1e2f67;
-}
+      .text {
+        font-family: $font__descriptions;
+        font-size: 18px;
+        color: #9597ac;
+      }
+      p,
+      h3 {
+        text-align: center;
+      }
+    }
+    h2,
+    h3.title {
+      font-family: $font__family;
+    }
+    img {
+      display: none;
+      position: absolute;
+    }
+    .find {
+      margin-bottom: 100px;
 
-.title-name {
-  font-size: 25px;
-  color: $color__site;
-}
-
-.how-it-works-image {
-  width: 350px;
-}
-
-.text {
-  font-family: $font__descriptions;
-  font-size: 18px;
-  color: #474a67;
-}
-
-.mock-image {
-  width: 100%;
-  height: 600px;
-}
-
-.text-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+      .first-step {
+        top: 270px;
+        left: 145px;
+      }
+      &:hover {
+        .first-step {
+          display: block;
+        }
+      }
+    }
+    .plan {
+      .second-step {
+        left: 155px;
+        top: 603px;
+      }
+      &:hover {
+        .second-step {
+          display: block;
+        }
+      }
+    }
+    .download {
+      .third-step {
+        top: 358px;
+        right: 154px;
+      }
+      &:hover {
+        .third-step {
+          display: block;
+        }
+      }
+    }
+  }
 }
 </style>

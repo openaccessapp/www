@@ -3,22 +3,24 @@
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
       <polygon fill="white" points="0,0 0,100 100,0" />
     </svg>
-    <div class="container">
-      <figure-circle color="#F7F7FA" :zIndex="0" :left="-400" :isFilled="false" :top="250"></figure-circle>
-      <figure-circle color="#F7F7FA" :zIndex="0" :right="-300" :isFilled="false" :top="500"></figure-circle>
+    <div class="center">
       <div class="row">
         <div class="col-12">
           <h2 class="title">{{title}}</h2>
         </div>
       </div>
-      <carousel :perPage="1" class="content">
-        <slide v-for="(customer) of reviews" :key="customer.name">
-          <img :src="customer['avatar-link']" class="person-avatar" />
-          <p class="bold">{{customer.name}}</p>
-          <p class="position-style">{{customer.position}}</p>
-          <h4 class="person-description-style">{{customer.review}}</h4>
-        </slide>
-      </carousel>
+      <div class="container">
+        <figure-circle color="#F7F7FA" :zIndex="0" :left="-400" :isFilled="false" :top="250"></figure-circle>
+        <figure-circle color="#F7F7FA" :zIndex="0" :right="-300" :isFilled="false" :top="500"></figure-circle>
+        <carousel :perPage="1">
+          <slide v-for="(customer) of reviews" :key="customer.name">
+            <img :src="customer['avatar-link']" class="person-avatar" />
+            <p class="bold">{{customer.name}}</p>
+            <p class="position-style">{{customer.position}}</p>
+            <h4 class="person-description-style">"{{customer.review}}"</h4>
+          </slide>
+        </carousel>
+      </div>
     </div>
   </div>
 </template>
@@ -64,20 +66,20 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "../../public/assets/main.scss";
+@import "../../public/assets/scss/main.scss";
 
 .customer-reviews {
   background-color: $color__site;
   position: relative;
   padding: 50px 0;
   height: auto;
-
+  margin-top: 250px;
   svg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 10vw;
+    height: 30vw;
     /* set height to pixels if you want angle to change with screen width */
   }
 }
@@ -98,27 +100,36 @@ export default {
     background: $color__site;
   }
 }
-
+.center {
+  margin-top: 300px;
+}
 .container {
   z-index: 1;
+  background-color: white;
+  border-radius: 25px;
+  width: 55%;
+  padding-top: 40px;
+  padding-bottom: 35px;
+  margin-top: 0;
 }
 .title {
   font-family: $font__family;
   font-size: 40px;
   color: #f7f7fa;
+  // margin-top: 150px;
 }
 .position-style {
   font-family: $font__descriptions;
   font-weight: 500;
   font-size: 16px;
-  color: #f7f7fa;
+  color: #9597ac;
   margin-bottom: 25px;
 }
 .person-description-style {
   font-family: $font__descriptions;
   font-weight: 500;
   font-size: 20px;
-  color: #f7f7fa;
+  color: #9597ac;
   width: 50%;
   margin: auto;
 }
@@ -127,7 +138,7 @@ export default {
   font-family: "Rubik", sans-serif;
   font-weight: bold;
   font-size: 18px;
-  color: #f7f7fa;
+  color: #385fe2;
   margin-bottom: 8px;
 }
 
