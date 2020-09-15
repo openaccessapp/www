@@ -2,7 +2,9 @@
   <div class="row nav justify-content-center">
     <div class="col-xl-6 col-md-6 col-xs-6 col-12 logo-position">
       <div class="row">
-        <img :src="image" />
+        <router-link :to="`/${$router.history.current.params.lang}`">
+          <img :src="image" />
+        </router-link>
         <router-link :to="getURL('de')">
           <button
             class="language"
