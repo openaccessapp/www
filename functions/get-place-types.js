@@ -1,9 +1,14 @@
-// exports.getPlaceTypes = async (req, res) => {
-//   let places = (await PlaceType.find()).map(place => ({ id: place._id, name: place.name }))
-//   return res.status(200).send({ placeTypes: places })
-// }
 const q = require('faunadb').query
 
+/**
+ * GET /api/get-place-types
+ * Description: Returns all place types ids and names
+ * Response:
+ *  [{
+ *    "id": string
+ *    "name": string,
+ *  }]
+ */
 exports.handler = async () => {
   console.log('Function `getPlaceTypes` invoked')
   //todo authorisation

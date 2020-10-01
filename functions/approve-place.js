@@ -1,15 +1,13 @@
-// exports.approve = async (req, res) => {
-//   if (!req.params.placeId ||
-//     !req.params.approvedStatus)
-//     return res.status(400).send({ message: 'Missing parameter!' })
-//
-//   await Place.updateOne({ _id: req.params.placeId }, { $set: { approved: req.params.approvedStatus } })
-//
-//   return res.status(201).send()
-// }
 const q = require('faunadb').query
 const returnMessage = require('./utils/return-message')
 
+/**
+ * POST /api/approve-place
+ * Description: Marks the place as approved/disapproved
+ * Body:
+ *  string placeId: the id of the place
+ *  boolean approvedStatus: the new status of the place
+ */
 exports.handler = async (event) => {
   console.log('Function `approvePlace` invoked')
   //todo authorisation
@@ -22,6 +20,7 @@ exports.handler = async (event) => {
 
   const client = require('./utils/instantiate-database')()
 
+  //find the place
   let place = await client.query(q.Get(q.Ref(`classes/places/${data.placeId}`)))
     .then((response) => {
       return response.data
@@ -32,10 +31,11 @@ exports.handler = async (event) => {
 
   place.approved = data.approvedStatus
 
+  //update and set it as approved
   return client.query(q.Update(q.Ref(`classes/places/${data.placeId}`), { data: place }))
     .then(() => {
       return { statusCode: 201 }
     }).catch(() => {
-      return returnMessage(500, 'Could not save place!')
+      return returnMessage(500, 'Could not update place!')
     })
 }

@@ -1,5 +1,8 @@
+const q = require('faunadb').query
+
 /**
  * POST /api/get-places
+ * Description: Returns all places by a given criteria
  * Body:
  *  string typeId: the id of the place type
  *  string name: a filter for the name, checks if the name of the place contains it
@@ -7,6 +10,9 @@
  *  string own: if the visitor is the place's creator, possible values are true/false
  *  string visitorId: the id of the visitor
  *  string onlyFavourites: should it return only favourite places, possible values are true/false
+ *  todo the next two body parameters may change, due to how faunadb pagination works
+ *  int skip: the amount of places to skip to get to the current page
+ *  int load: the amount of places to load in a page
  *
  * Returns:
  *  Array of object:
@@ -22,8 +28,6 @@
  *       "approved": boolean
  *   }]
  */
-const q = require('faunadb').query
-
 exports.handler = async (event) => {
   console.log('Function `getPlaces` invoked')
   //todo authorisation
@@ -32,7 +36,8 @@ exports.handler = async (event) => {
 
   const data = JSON.parse(event.body)
   const client = require('./utils/instantiate-database')()
-  //get the user's favourites
+
+  //get the user's favourite places
   if (data.visitorId) {
     let visitor = client.query(q.Get(q.Ref(`classes/visitors/${data.visitorId}`)))
       .then((response) => {
@@ -46,6 +51,7 @@ exports.handler = async (event) => {
   let skip = data.skip ? Number.parseInt(data.skip) : 0
   let load = data.load ? Number.parseInt(data.load) : 5
 
+  //get all place types and map them as {id: name}
   let placeTypes = new Map()
   let types = await client.query(q.Paginate(q.Match(q.Ref('indexes/all_place_types'))))
     .then((response) => {
@@ -59,7 +65,6 @@ exports.handler = async (event) => {
     }).catch(() => {
       return []
     })
-
   types.map(place => placeTypes.set(place.id, place.name))
 
   //if the name is not included we check if it contains empty string
@@ -93,6 +98,7 @@ exports.handler = async (event) => {
     return client.query(response.data)
       .then((ret) => {
         let places = ret.map((place) => {
+          //map the place's data
           return {
             id: place[0].id,
             name: place[1],

@@ -1,20 +1,13 @@
-// exports.generateUserId = (req, res) => {
-//   let id = nanoid.nanoid()
-//
-//   new Visitor({
-//     _id: id,
-//     priorityId: 0,
-//     favourites: []
-//   }).save()
-//     .then(() => {
-//       return res.status(200).send({ id })
-//     })
-//     .catch(err => {
-//       return res.status(500).send({ message: 'Could not save user!' })
-//     })
-// }
 const q = require('faunadb').query
 
+/**
+ * GET /api/generate-user-id
+ * Description: Creates a new user and returns it's id
+ * Response:
+ *  {
+ *    "id": string
+ *  }
+ */
 exports.handler = async () => {
   console.log('Function `generateUserId` invoked')
   const client = require('./utils/instantiate-database')()

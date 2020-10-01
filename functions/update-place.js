@@ -1,37 +1,19 @@
-// exports.editPlace = async (req, res) => {
-//   if (
-//     !req.params.userId ||
-//     !req.params.placeId) {
-//     return res.status(400).send({ message: 'Missing parameter!' })
-//   }
-//
-//   let place = await Place.findById(req.params.placeId)
-//
-//   if (!place) return res.status(404).send({ message: 'Place not found' })
-//
-//   if (req.params.userId !== place.creatorId) return res.status(401).send({ message: 'User not creator' })
-//
-//   let img
-//   if (req.body.image) {
-//     img = new Buffer.from(req.body.image, 'base64')
-//     if (!img) return res.status(400).send({ message: 'Failed to upload image!' })
-//   }
-//
-//   if (req.body.name) place.name = req.body.name
-//   if (req.body.description) place.description = req.body.description
-//   if (req.body.typeId) place.placeTypeId = req.body.typeId
-//   if (img) place.imageData = img
-//   if (req.body.www) place.url = req.body.www
-//   if (req.body.address) place.address = req.body.address
-//   if (req.body.location) place.coordinates = req.body.location
-//
-//   await place.save()
-//
-//   return res.status(200).send()
-// }
 const q = require('faunadb').query
 const returnMessage = require('./utils/return-message')
 
+/**
+ * POST /api/update-place
+ * Description: Updates the place's data
+ * Body:
+ *  string userId: the id of the user who is editing the place
+ *  string placeId: the id of the place
+ *  string name: the new name of the place
+ *  string description: the description of the place
+ *  string typeId: the id of the place type
+ *  string image: base64 of the image
+ *  string www: the website of the place
+ *  string location: the location of the place todo this may be changed to an object
+ */
 exports.handler = async (event) => {
   console.log('Function `updatePlace` invoked')
   //todo authorisation
@@ -43,6 +25,7 @@ exports.handler = async (event) => {
   }
 
   const client = require('./utils/instantiate-database')()
+  //gets the place of it's id
   let place = client.query(q.Get(q.Ref(`classes/places/${data.placeId}`)))
     .then((response) => {
       return response.data
@@ -52,6 +35,7 @@ exports.handler = async (event) => {
   if (place)
     return returnMessage(404, 'Place not found!')
 
+  //replace the data with the new one
   if (data.name) place.name = data.name
   if (data.description) place.description = data.description
   if (data.typeId) place.placeTypeId = data.typeId
@@ -60,6 +44,7 @@ exports.handler = async (event) => {
   if (data.address) place.address = data.address
   if (data.location) place.coordinates = data.location
 
+  //update the place in the db
   return client.query(q.Update(q.Ref('classes/places/' + data.placeId), { data: place }))
     .then(() => {
       return { statusCode: 201 }

@@ -1,6 +1,13 @@
 const q = require('faunadb').query
 const returnMessage = require('./utils/return-message')
 
+/**
+ * POST /api/change-favourite
+ * Description: Toggles the place as a user's favourite
+ * Body:
+ *  string placeId: the id of the place
+ *  string visitorId: the id of the user
+ */
 exports.handler = async (event) => {
   console.log('Function `changeFavourites` invoked')
   //todo authorisation
@@ -9,7 +16,6 @@ exports.handler = async (event) => {
   //check if the body is valid
   if (!data.visitorId)
     return returnMessage(400, 'Invalid User ID')
-
   if (!data.placeId)
     return returnMessage(400, 'Invalid Place ID')
 
@@ -22,7 +28,7 @@ exports.handler = async (event) => {
       return undefined
     })
   if (!visitor)
-    return returnMessage(404, 'Place not found!')
+    return returnMessage(404, 'Visitor not found!')
 
   //add or remove the placeId from the favourites
   if (visitor.favourites.includes(data.placeId)) {

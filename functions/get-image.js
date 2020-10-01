@@ -1,15 +1,12 @@
-// exports.getImage = async (req, res) => {
-//   if (!req.params.placeId) {
-//     return res.status(400).send({ message: 'Invalid place id' })
-//   }
-//   let place = await Place.findById(req.params.placeId)
-//   if (place) {
-//     res.contentType('image/png')
-//     res.status(200).send(place.imageData)
-//   }
-// }
 const q = require('faunadb').query
 
+/**
+ * GET /api/get-place-types/{placeId}
+ * Description: Returns the image of a place by it's id
+ * Path params:
+ *  string placeId: the id of the place
+ * Response: the image as an image/png
+ */
 exports.handler = async (event) => {
   console.log('Function `getImage` invoked')
   //todo authorisation
@@ -17,6 +14,7 @@ exports.handler = async (event) => {
   let placeId = require('./utils/extract-last-parameter')(event.path)
 
   const client = require('./utils/instantiate-database')()
+  //gets the place with the specified id
   return client.query(q.Get(q.Ref(`classes/places/${placeId}`)))
     .then((response) => {
       return {

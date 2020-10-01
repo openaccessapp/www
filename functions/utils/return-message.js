@@ -1,3 +1,4 @@
+//easily returns a code with a message
 module.exports = function returnMessage(code, message) {
   return {
     statusCode: code,
