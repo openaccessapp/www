@@ -13,8 +13,8 @@ const DATE_TIME_FORMAT = `${DATE_FORMAT} ${TIME_FORMAT}`
  *  string userId: the id of the user who is creating the place
  *  string placeId: the id of the place
  *  string type: the type of the slot
- *  string from: the starting time of the slot
- *  string to: the end time of the slot
+ *  string from: the starting time of the slot (DD.MM.YYYY HH:mm)
+ *  string to: the end time of the slot (DD.MM.YYYY HH:mm)
  *  integer maxSlots: the maximum people for this slot
  */
 exports.handler = async (event) => {
@@ -48,8 +48,8 @@ exports.handler = async (event) => {
   let slotData = {
     placeId: data.placeId,
     typeId: require('./utils/slot-types').findByName(data.type).id,
-    starts: moment(`${data.from}`, DATE_TIME_FORMAT).toDate(),
-    ends: moment(`${data.to}`, DATE_TIME_FORMAT).toDate(),
+    starts: moment(`${data.from}`, DATE_TIME_FORMAT).valueOf(),
+    ends: moment(`${data.to}`, DATE_TIME_FORMAT).valueOf(),
     occupiedSlots: 0,
     maxVisitors: data.maxSlots
   }

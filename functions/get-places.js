@@ -68,46 +68,49 @@ exports.handler = async (event) => {
   types.map(place => placeTypes.set(place.id, place.name))
 
   //if the name is not included we check if it contains empty string
-  let search = { placeTypeId: null, name: '', approved: null, creatorId: null }
+  let intersections = []
 
-  if (data.typeId) search.placeTypeId = data.typeId
-  if (data.name) search.name = data.name.toLowerCase()
-  if (data.approved !== undefined) search.approved = data.approved === 'true'
-  if (data.own === 'true') search.creatorId = data.visitorId
+  if (data.typeId) intersections.push(q.Match(q.Index('places_search_placeTypeId'), data.typeId))
+
+  if (data.approved !== undefined) q.Match(q.Index('places_search_approved'), data.approved === 'true')
+  if (data.own === 'true') q.Match(q.Index('places_search_creatorId'), data.visitorId)
+
+  if (intersections.length === 0 ) intersections.push(q.Match(q.Index('all_places')))
+
+  let paginate =
+    q.Intersection(intersections)
+
+  let query
+  if (data.name) query = q.Filter(
+    q.Paginate(
+      paginate, { size: 10000 }
+    ),
+    q.Lambda(['name', 'ref', 'placeTypeId', 'description', 'url', 'address', 'coordinates', 'approved'],
+      q.ContainsStr(q.LowerCase(q.Var('name')), data.name.toLowerCase()))
+  )
+  else
+    query = q.Paginate(paginate, { size: load })
 
   //todo figure out pagination
   //Makes matches for placeTypeId, approved and creatorId if they are included in the request
   //and then filters out the matching names
   //this could be slow, should be tested with a lot of data and improved
   return await client.query(
-    q.Filter(
-      q.Paginate(
-        q.Intersection(
-          q.If(q.IsNull(q.Let({ 'x': search.placeTypeId }, q.Var('x'))),
-            q.Match(q.Index('all_places')), q.Match(q.Index('places_search_placeTypeId'), search.placeTypeId)),
-          q.If(q.IsNull(q.Let({ 'x': search.approved }, q.Var('x'))),
-            q.Match(q.Index('all_places')), q.Match(q.Index('places_search_approved'), search.approved)),
-          q.If(q.IsNull(q.Let({ 'x': search.creatorId }, q.Var('x'))),
-            q.Match(q.Index('all_places')), q.Match(q.Index('places_search_creatorId'), search.creatorId)),
-        ), { size: 10000 }
-      ),
-      q.Lambda(['ref', 'name', 'placeTypeId', 'description', 'url', 'address', 'coordinates', 'approved'],
-        q.ContainsStr(q.LowerCase(q.Var('name')), search.name))
-    )
+    query
   ).then((response) => {
     return client.query(response.data)
       .then((ret) => {
         let places = ret.map((place) => {
           //map the place's data
           return {
-            id: place[0].id,
-            name: place[1],
+            id: place[1].id,
+            name: place[0],
             type: placeTypes.get(place[2]),
             description: place[3],
             www: place[4],
             address: place[5],
             location: place[6],
-            isFavourite: favourites.includes(place[0].id),
+            isFavourite: favourites.includes(place[1].id),
             approved: place[7]
           }
         })
