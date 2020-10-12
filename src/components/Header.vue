@@ -30,7 +30,7 @@
               <img class="apple-position" src="assets/app-store.png" />
             </a>
           </div>
-          <p>This is not a tracing app. Nothing is stored on server. All the information is secured.</p>
+          <p>{{information}}</p>
         </div>
         <div class="col-xl-6 col-md-6 col-xs-6 col-12 phone">
           <div class="images">
@@ -80,6 +80,7 @@ export default {
       description: "",
       googlePlayLink: "",
       appStoreLink: "",
+      information: "",
       mobileApp: "",
       infoText: "",
       // OSI: "",
@@ -102,6 +103,7 @@ export default {
       this.description = data["description"];
       this.googlePlayLink = data["google-play-link"];
       this.appStoreLink = data["app-store-link"];
+      this.information = data["information"];
       this.mobileApp = data["mobile-app"];
       this.infoText = data["info-text"];
       // this.OSI = data.OSI;
