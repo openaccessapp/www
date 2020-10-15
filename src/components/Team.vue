@@ -1,44 +1,50 @@
 <template>
   <div class="team">
-    <figure-circle color="#F7F7FA" :zIndex="0" :left="-200" :isFilled="false" :bottom="0"></figure-circle>
+    <figure-circle
+      color="#F7F7FA"
+      :zIndex="0"
+      :left="-200"
+      :isFilled="false"
+      :bottom="0"
+    ></figure-circle>
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h2>{{title}}</h2>
+          <h2>{{ title }}</h2>
         </div>
       </div>
       <div class="row content">
         <div
           class="col-xl-4 col-md-4 col-xs-4 col-12"
-          v-for="(person) of people"
+          v-for="person of people"
           :key="person.name"
         >
           <img :src="person['avatar-link']" class="person-avatar" />
-          <h3 class="person-name">{{person.name}}</h3>
-          <p class="person-place">{{person.place}}</p>
-          <p class="person-description">{{person.description}}</p>
+          <h3 class="person-name">{{ person.name }}</h3>
+          <p class="person-place">{{ person.place }}</p>
+          <p class="person-description">{{ person.description }}</p>
         </div>
       </div>
       <div class="row content">
         <div
           class="col-xl-4 col-md-4 col-xs-4 col-12"
-          v-for="(person) of people"
+          v-for="person of people"
           :key="person.name"
         >
-          <div class="lines" />
+          <div v-if="person.email || person.number || person.twiter" class="lines" />
           <div class="contacts">
             <div class="center">
               <div class="row">
-                <img :src="person['email-image']" />
-                <p>{{person.email}}</p>
+                <img v-if="person.email" :src="emailImage" />
+                <p>{{ person.email }}</p>
               </div>
               <div class="row">
-                <img :src="person['number-image']" />
-                <p>{{person.number}}</p>
+                <img v-if="person.number" :src="numberImage" />
+                <p>{{ person.number }}</p>
               </div>
               <div class="row">
-                <img :src="person['twitter-image']" />
-                <p>{{person.twitter}}</p>
+                <img v-if="person.twitter" :src="twitterImage" />
+                <p>{{ person.twitter }}</p>
               </div>
             </div>
           </div>
@@ -62,6 +68,9 @@ export default {
       title: "",
       people: [],
       place: "",
+      emailImage: "",
+      numberImage: "",
+      twitterImage: "",
     };
   },
   watch: {
@@ -79,6 +88,9 @@ export default {
       this.title = data.title;
       this.people = data.people;
       this.place = data.place;
+      this.emailImage = data.emailImage;
+      this.numberImage = data.numberImage;
+      this.twitterImage = data.twitterImage;
     },
   },
 };
