@@ -13,7 +13,7 @@
             </a>
           </div>
           <div class="col-xl-6 col-md-6 col-xs-6 col-12 column-inner-last">
-            <a style="opacity: 0.3; cursor: default">
+            <a :href="appStore">
               <img src="assets/app-store.png" />
             </a>
           </div>

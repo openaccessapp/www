@@ -10,8 +10,20 @@
         :top="-80"
       ></figure-circle>
 
-      <figure-circle color="white" :zIndex="0" :right="-200" :isFilled="true" :top="-100"></figure-circle>
-      <figure-circle color="#385fe2" :zIndex="1" :right="-200" :isFilled="false" :top="200"></figure-circle>
+      <figure-circle
+        color="white"
+        :zIndex="0"
+        :right="-200"
+        :isFilled="true"
+        :top="-100"
+      ></figure-circle>
+      <figure-circle
+        color="#385fe2"
+        :zIndex="1"
+        :right="-200"
+        :isFilled="false"
+        :top="200"
+      ></figure-circle>
       <navigation
         :navigationText="navigationText"
         :buttonText="buttonText"
@@ -20,17 +32,20 @@
       ></navigation>
       <div class="row">
         <div class="col-xl-6 col-md-6 col-xs-6 col-12 position-left">
-          <p class="description">{{description}}</p>
-          <p class="info-text">{{infoText}}</p>
+          <p class="description">{{ description }}</p>
+          <p class="info-text">{{ infoText }}</p>
           <div class="google-and-apple-position">
             <a :href="googlePlayLink">
-              <img class="google-position" src="assets/google-play-header.png" />
+              <img
+                class="google-position"
+                src="assets/google-play-header.png"
+              />
             </a>
-            <a style="opacity: 0.3; cursor: default">
+            <a :href="appStoreLink" >
               <img class="apple-position" src="assets/app-store.png" />
             </a>
           </div>
-          <p>{{information}}</p>
+          <p>{{ information }}</p>
         </div>
         <div class="col-xl-6 col-md-6 col-xs-6 col-12 phone">
           <div class="images">
@@ -48,7 +63,11 @@
       </div>
     </div>
 
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+    >
       <polygon fill="#FCFDFF" points="0,100 100,0 100,100" />
     </svg>
   </div>
