@@ -40,7 +40,7 @@
               <div class="row">
                 <img v-if="person.email" src="/assets/team-email.svg" />
                 <p>
-                  <a href="mailto:https://twitter.com/teshawofdahoum ">{{ person.email }}</a>
+                  <a href="mailto:t.e.shaw@lfph.io ">{{ person.email }}</a>
                 </p>
               </div>
               <div class="row">
