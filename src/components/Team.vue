@@ -31,7 +31,10 @@
           v-for="person of people"
           :key="person.name"
         >
-          <div v-if="person.email || person.number || person.twiter" class="lines" />
+          <div
+            v-if="person.email || person.number || person.twiter"
+            class="lines"
+          />
           <div class="contacts">
             <div class="center">
               <div class="row">
@@ -44,7 +47,9 @@
               </div>
               <div class="row">
                 <img v-if="person.twitter" :src="twitterImage" />
-                <p>{{ person.twitter }}</p>
+                <a :href="person.twitter" target="_blank"
+                  ><p>{{ person.twitter }}</p></a
+                >
               </div>
             </div>
           </div>
