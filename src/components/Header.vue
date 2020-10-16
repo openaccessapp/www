@@ -27,7 +27,7 @@
       <navigation
         :navigationText="navigationText"
         :buttonText="buttonText"
-        :mobileApp="mobileApp"
+        :places="places"
         :image="image"
       ></navigation>
       <div class="row">
@@ -100,7 +100,7 @@ export default {
       googlePlayLink: "",
       appStoreLink: "",
       information: "",
-      mobileApp: "",
+      places: "",
       infoText: "",
       // OSI: "",
       github: "",
@@ -123,7 +123,7 @@ export default {
       this.googlePlayLink = data["google-play-link"];
       this.appStoreLink = data["app-store-link"];
       this.information = data["information"];
-      this.mobileApp = data["mobile-app"];
+      this.places = data["places"];
       this.infoText = data["info-text"];
       // this.OSI = data.OSI;
       this.github = data.github;
