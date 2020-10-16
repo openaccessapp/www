@@ -38,15 +38,17 @@
           <div class="contacts">
             <div class="center">
               <div class="row">
-                <img v-if="person.email" :src="emailImage" />
-                <p>{{ person.email }}</p>
+                <img v-if="person.email" src="/assets/team-email.svg" />
+                <p>
+                  <a href="mailto:https://twitter.com/teshawofdahoum ">{{ person.email }}</a>
+                </p>
               </div>
               <div class="row">
-                <img v-if="person.number" :src="numberImage" />
+                <img v-if="person.number" src="/assets/team-number.svg" />
                 <p>{{ person.number }}</p>
               </div>
               <div class="row">
-                <img v-if="person.twitter" :src="twitterImage" />
+                <img v-if="person.twitter" src="/assets/team-twitter.svg" />
                 <a :href="person.twitter" target="_blank"
                   ><p>{{ person.twitter }}</p></a
                 >
@@ -73,9 +75,6 @@ export default {
       title: "",
       people: [],
       place: "",
-      emailImage: "",
-      numberImage: "",
-      twitterImage: "",
     };
   },
   watch: {
@@ -93,9 +92,6 @@ export default {
       this.title = data.title;
       this.people = data.people;
       this.place = data.place;
-      this.emailImage = data.emailImage;
-      this.numberImage = data.numberImage;
-      this.twitterImage = data.twitterImage;
     },
   },
 };
