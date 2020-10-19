@@ -40,7 +40,7 @@
               <div class="row">
                 <img v-if="person.email" src="/assets/team-email.svg" />
                 <p>
-                  <a href="mailto:t.e.shaw@lfph.io ">{{ person.email }}</a>
+                  <a :href="`mailto:${person.email} `">{{ person.email }}</a>
                 </p>
               </div>
               <div class="row">
@@ -51,6 +51,12 @@
                 <img v-if="person.twitter" src="/assets/team-twitter.svg" />
                 <a :href="person.twitter" target="_blank"
                   ><p>{{ person.twitter }}</p></a
+                >
+              </div>
+               <div class="row">
+                <img v-if="person.linkedin" src="/assets/team-linkedin.svg" />
+                <a :href="person.linkedin" target="_blank"
+                  ><p>{{ person.linkedin }}</p></a
                 >
               </div>
             </div>
