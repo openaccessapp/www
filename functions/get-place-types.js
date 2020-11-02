@@ -1,3 +1,4 @@
+
 /**
  * GET /api/get-place-types
  * Description: Returns all place types ids and names
@@ -9,7 +10,7 @@
  */
 exports.handler = async (event) => {
   console.log('Function `getPlaceTypes` invoked')
-  if (!require('./utils/check-tokens')(event.headers, false)) return returnMessage(401, 'Unauthorised')
+  if (!require('./utils/check-tokens')(event.headers, false)) return require('./utils/return-message')(401, 'Unauthorised')
 
   await require('./utils/instantiate-database')()
   const PlaceType = require('./models/place.type.model')

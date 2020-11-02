@@ -1,11 +1,10 @@
 const returnMessage = require('./utils/return-message')
 
 /**
- * POST /api/update-place
+ * POST /api/update-place/{placeId}
  * Description: Updates the place's data
  * Body:
  *  string userId: the id of the user who is editing the place
- *  string placeId: the id of the place
  *  string name: the new name of the place
  *  string description: the description of the place
  *  string typeId: the id of the place type
@@ -17,17 +16,18 @@ exports.handler = async (event) => {
   console.log('Function `updatePlace` invoked')
   if (!event.body) return returnMessage(405, "Unsupported media type")
   if (!require('./utils/check-tokens')(event.headers, false)) return returnMessage(401, 'Unauthorised')
-  //todo authorisation
+
+  let placeId = require('./utils/extract-last-parameter')(event.path)
 
   const data = JSON.parse(event.body)
   if (!data.userId ||
-    !data.placeId) {
+    !placeId) {
     return returnMessage(400, 'Missing body parameter')
   }
 
   await require('./utils/instantiate-database')()
   const Place = require('./models/place.model')
-  let place = await Place.findById(data.placeId)
+  let place = await Place.findById(placeId)
   if (!place) return returnMessage(404, 'Place not found')
 
   if (data.userId !== place.creatorId) return returnMessage(401, 'User not creator')

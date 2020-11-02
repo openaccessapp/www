@@ -1,3 +1,4 @@
+const returnMessage = require('./utils/return-message')
 /**
  * GET /api/get-place-types/{placeId}
  * Description: Returns the image of a place by it's id
@@ -10,12 +11,13 @@ exports.handler = async (event) => {
   if (!require('./utils/check-tokens')(event.headers, false)) return returnMessage(401, 'Unauthorised')
 
   let placeId = require('./utils/extract-last-parameter')(event.path)
+  if (!placeId) return returnMessage(400, 'Missing palce id')
 
   await require('./utils/instantiate-database')()
   const Place = require('./models/place.model')
   let place = await Place.findById(placeId)
 
-  if (!place) return require('./utils/return-message')(400, 'Place not found')
+  if (!place) return returnMessage(404, 'Place not found')
 
   return require('./utils/return-image')(place.imageData)
 }

@@ -1,7 +1,7 @@
 const returnMessage = require('./utils/return-message')
 
 /**
- * POST /api/change-favourite
+ * GET /api/change-favourite/{visitorId}/{placeId}
  * Description: Toggles the place as a user's favourite
  * Body:
  *  string placeId: the id of the place
@@ -9,10 +9,13 @@ const returnMessage = require('./utils/return-message')
  */
 exports.handler = async (event) => {
   console.log('Function `changeFavourites` invoked')
-  if (!event.body) return returnMessage(405, "Unsupported media type")
+
   if (!require('./utils/check-tokens')(event.headers, false)) return returnMessage(401, 'Unauthorised')
 
-  const data = JSON.parse(event.body)
+  let params = require('./utils/extract-params')(event.path)
+  let data = {}
+  data.placeId = params[params.length - 1]
+  data.visitorId = params[params.length - 2]
   //check if the body is valid
   if (!data.visitorId)
     return returnMessage(400, 'Invalid User ID')

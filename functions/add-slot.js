@@ -6,7 +6,7 @@ const TIME_FORMAT = 'HH:mm'
 const DATE_TIME_FORMAT = `${DATE_FORMAT} ${TIME_FORMAT}`
 
 /**
- * POST /api/add-slot
+ * POST /api/add-slot/{placeId}
  * Description: Creates a new slot for a place
  * Body:
  *  string userId: the id of the user who is creating the place
@@ -21,11 +21,13 @@ exports.handler = async (event) => {
   if (!event.body) return returnMessage(405, "Unsupported media type")
   if (!require('./utils/check-tokens')(event.headers, false)) return returnMessage(401, 'Unauthorised')
 
+  let placeId = require('./utils/extract-last-parameter')(event.path)
+
   const data = JSON.parse(event.body)
   //check if the body is correct
   if (
     !data.type ||
-    !data.placeId ||
+    !placeId ||
     !data.userId ||
     !data.from ||
     !data.to ||

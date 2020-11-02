@@ -1,7 +1,7 @@
 const returnMessage = require('./utils/return-message')
 
 /**
- * POST /api/delete-booking
+ * POST /api/delete-booking/{visitorId}/{slotId}
  * Description: Deletes a booking of a user
  * Path params:
  *  string visitorId: the id of the user
@@ -9,15 +9,17 @@ const returnMessage = require('./utils/return-message')
  */
 exports.handler = async (event) => {
   console.log('Function `deleteBooking` invoked')
-  if (!event.body) return returnMessage(405, 'Unsupported media type')
   if (!require('./utils/check-tokens')(event.headers, false)) return returnMessage(401, 'Unauthorised')
 
-  const data = JSON.parse(event.body)
+  let params = require('./utils/extract-params')(event.path)
+  let data = {}
+  data.slotId = params[params.length - 1]
+  data.visitorId = params[params.length - 2]
   //check if the body is correct
   if (
     !data.slotId ||
     !data.visitorId) {
-    return returnMessage(400, 'Missing body parameter')
+    return returnMessage(400, 'Missing parameters')
   }
 
   await require('./utils/instantiate-database')()

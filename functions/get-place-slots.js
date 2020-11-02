@@ -5,7 +5,7 @@ const DATE_FORMAT = 'DD.MM.YYYY'
 const TIME_FORMAT = 'HH:mm'
 
 /**
- * POST /api/get-place-slots
+ * GET /api/get-place-slots/{visitorId}/{slotId}
  * Description: Returns the slots of a place
  * Body:
  *  string visitorId: the id of the user
@@ -26,10 +26,12 @@ const TIME_FORMAT = 'HH:mm'
  */
 exports.handler = async (event) => {
   console.log('Function `getPlaceSlots` invoked')
-  if (!event.body) return returnMessage(405, "Unsupported media type")
   if (!require('./utils/check-tokens')(event.headers, false)) return returnMessage(401, 'Unauthorised')
 
-  const data = JSON.parse(event.body)
+  let params = require('./utils/extract-params')(event.path)
+  let data = {}
+  data.placeId = params[params.length - 1]
+  data.visitorId = params[params.length - 2]
   //check if the body is correct
   if (
     !data.visitorId ||

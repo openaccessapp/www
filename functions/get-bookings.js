@@ -2,7 +2,7 @@ const returnMessage = require('./utils/return-message')
 const moment = require('moment')
 
 /**
- * POST /api/get-bookings
+ * GET /api/get-bookings/{visitorId}
  * Description: Lists the bookings of the visitor
  * Body:
  *  string visitorId: the id of the visitor
@@ -12,10 +12,15 @@ const moment = require('moment')
 
 exports.handler = async (event) => {
   console.log('Function `getBookings` invoked')
-  if (!event.body) return returnMessage(405, 'Unsupported media type')
   if (!require('./utils/check-tokens')(event.headers, false)) return returnMessage(401, 'Unauthorised')
 
-  const data = JSON.parse(event.body)
+  let params = require('./utils/extract-params')(event.path)
+  let data = {}
+  data.visitorId = params[params.length - 1]
+  //todo get skip/load from query?
+  // data.skip = params[params.length - 2]
+  // data.load = params[params.length - 1]
+
   if (!data.visitorId) {
     return returnMessage(400, 'Invalid User ID')
   }
