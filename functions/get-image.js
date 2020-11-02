@@ -12,10 +12,10 @@ exports.handler = async (event) => {
   let placeId = require('./utils/extract-last-parameter')(event.path)
 
   await require('./utils/instantiate-database')()
-  const Place = require('../models/place.model')
+  const Place = require('./models/place.model')
   let place = await Place.findById(placeId)
 
   if (!place) return require('./utils/return-message')(400, 'Place not found')
 
-  return require('../utils/return-image')(place.imageData)
+  return require('./utils/return-image')(place.imageData)
 }

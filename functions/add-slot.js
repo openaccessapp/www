@@ -35,13 +35,13 @@ exports.handler = async (event) => {
 
   await require('./utils/instantiate-database')()
 
-  const Place = require('../models/place.model')
+  const Place = require('./models/place.model')
   let place = await Place.findById(data.placeId)
   if (!place) return returnMessage(404, 'Place not found')
   else if (place.creatorId !== data.userId) return returnMessage(401, 'User not creator')
 
-  const Slot = require('../models/slot.model')
-  const slotTypes = require('../utils/slot-types')
+  const Slot = require('./models/slot.model')
+  const slotTypes = require('./utils/slot-types')
   await new Slot({
     placeId: data.placeId,
     typeId: slotTypes.findByName(data.type).id,

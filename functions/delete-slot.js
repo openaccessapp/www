@@ -21,7 +21,7 @@ exports.handler = async (event) => {
   }
 
   await require('./utils/instantiate-database')()
-  const Slot = require('../models/slot.model')
+  const Slot = require('./models/slot.model')
 
   let slot = await Slot.findOne({ _id: data.slotId }).populate({
     path: 'placeId'
@@ -32,7 +32,7 @@ exports.handler = async (event) => {
   if (slot.placeId.creatorId !== data.userId)
     return returnMessage(401, 'User is not the creator')
 
-  const Booking = require('../models/booking.model')
+  const Booking = require('./models/booking.model')
   await Booking.deleteMany({ slotId: data.slotId })
   await slot.delete()
 

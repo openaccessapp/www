@@ -22,7 +22,7 @@ exports.handler = async (event) => {
   //get the visitor
   await require('./utils/instantiate-database')()
 
-  const Visitor = require('../models/visitor.model')
+  const Visitor = require('./models/visitor.model')
   let visitor = await Visitor.findById(data.visitorId)
 
   if (!visitor) return returnMessage(400, 'Invalid User ID')

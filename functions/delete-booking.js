@@ -21,11 +21,11 @@ exports.handler = async (event) => {
   }
 
   await require('./utils/instantiate-database')()
-  const Booking = require('../models/booking.model')
+  const Booking = require('./models/booking.model')
   let found = await Booking.findOneAndDelete({ visitorId: data.visitorId, slotId: data.slotId })
 
   if (found) {
-    const Slot = require('../models/slot.model')
+    const Slot = require('./models/slot.model')
     await Slot.findByIdAndUpdate(data.slotId,
       { $inc: { occupiedSlots: (found.friendsNumber * (-1)) } })
   } else {

@@ -20,7 +20,7 @@ exports.handler = async (event) => {
 
   await require('./utils/instantiate-database')()
 
-  const Place = require('../models/place.model')
+  const Place = require('./models/place.model')
   await Place.updateOne({ _id: data.placeId }, { $set: { approved: data.approvedStatus } })
 
   return require('./utils/return-message')(undefined)

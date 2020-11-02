@@ -11,7 +11,7 @@ exports.handler = async (event) => {
   let placeId = require('./utils/extract-last-parameter')(event.path)
 
   await require('./utils/instantiate-database')()
-  const Place = require('../models/place.model')
+  const Place = require('./models/place.model')
 
   await Place.deleteOne({ _id: placeId })
 
