@@ -7,9 +7,9 @@
  *    "name": string,
  *  }]
  */
-exports.handler = async () => {
+exports.handler = async (event) => {
   console.log('Function `getPlaceTypes` invoked')
-  //todo authorisation
+  if (!require('./utils/check-tokens')(event.headers, false)) return returnMessage(401, 'Unauthorised')
 
   await require('./utils/instantiate-database')()
   const PlaceType = require('./models/place.type.model')

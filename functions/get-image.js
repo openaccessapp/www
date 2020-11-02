@@ -7,7 +7,7 @@
  */
 exports.handler = async (event) => {
   console.log('Function `getImage` invoked')
-  //todo authorisation
+  if (!require('./utils/check-tokens')(event.headers, false)) return returnMessage(401, 'Unauthorised')
 
   let placeId = require('./utils/extract-last-parameter')(event.path)
 

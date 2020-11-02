@@ -27,7 +27,7 @@ const TIME_FORMAT = 'HH:mm'
 exports.handler = async (event) => {
   console.log('Function `getPlaceSlots` invoked')
   if (!event.body) return returnMessage(405, "Unsupported media type")
-  //todo authorisation
+  if (!require('./utils/check-tokens')(event.headers, false)) return returnMessage(401, 'Unauthorised')
 
   const data = JSON.parse(event.body)
   //check if the body is correct

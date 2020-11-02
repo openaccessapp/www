@@ -7,7 +7,7 @@ module.exports = async function instantiateDatabase () {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false
-  }).then(async () => {
+  }).then(() => {
     console.log('Successfully connected to the database')
   }).catch(err => {
     console.log('Could not connect to the database. Exiting now...', err)

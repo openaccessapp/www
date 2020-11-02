@@ -19,7 +19,7 @@ const DATE_TIME_FORMAT = `${DATE_FORMAT} ${TIME_FORMAT}`
 exports.handler = async (event) => {
   console.log('Function `addSlot` invoked')
   if (!event.body) return returnMessage(405, "Unsupported media type")
-  //todo authorisation
+  if (!require('./utils/check-tokens')(event.headers, false)) return returnMessage(401, 'Unauthorised')
 
   const data = JSON.parse(event.body)
   //check if the body is correct

@@ -22,7 +22,8 @@
     "netlify-cli": "^2.64.1",
     "netlify-lambda": "^2.0.1",
     "moment": "^2.29.0",
-    "mongoose": "^5.10.11"
+    "mongoose": "^5.10.11",
+    "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.4.0",

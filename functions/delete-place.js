@@ -1,4 +1,4 @@
-
+const returnMessage = require('./utils/return-message')
 /**
  * GET /api/delete-place/{placeId}
  * Description: Deletes a place by it's id
@@ -7,7 +7,7 @@
  */
 exports.handler = async (event) => {
   console.log('Function `deletePlace` invoked')
-  //todo authorisation
+  if (!require('./utils/check-tokens')(event.headers, true)) return returnMessage(401, 'Unauthorised')
   let placeId = require('./utils/extract-last-parameter')(event.path)
 
   await require('./utils/instantiate-database')()
@@ -15,5 +15,5 @@ exports.handler = async (event) => {
 
   await Place.deleteOne({ _id: placeId })
 
-  return require('./utils/return-message')(undefined)
+  return returnMessage(undefined)
 }

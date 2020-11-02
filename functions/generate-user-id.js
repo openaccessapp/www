@@ -1,3 +1,4 @@
+const returnMessage = require('./utils/return-message')
 /**
  * GET /api/generate-user-id
  * Description: Creates a new user and returns it's id
@@ -8,7 +9,7 @@
  */
 exports.handler = async () => {
   console.log('Function `generateUserId` invoked')
-  //todo authorisation
+  if (!require('./utils/check-tokens')(event.headers, false)) return returnMessage(401, 'Unauthorised')
 
   await require('./utils/instantiate-database')()
   const Visitor = require('./models/visitor.model')
@@ -22,6 +23,6 @@ exports.handler = async () => {
     })
     .catch(err => {
       console.log("Err:",err)
-      return require('./utils/return-message')(500, 'Could not save user!')
+      return returnMessage(500, 'Could not save user!')
     })
 }
