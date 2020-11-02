@@ -36,7 +36,7 @@ exports.handler = async (event) => {
 
   let placeTypeId = data.typeId ? data.typeId : 0
 
-  const Place = require('../models/place.model')
+  const Place = require('./models/place.model')
   await new Place({
     creatorId: data.userId,
     name: data.name,
