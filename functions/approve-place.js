@@ -1,4 +1,3 @@
-const q = require('faunadb').query
 const returnMessage = require('./utils/return-message')
 
 /**
@@ -10,6 +9,7 @@ const returnMessage = require('./utils/return-message')
  */
 exports.handler = async (event) => {
   console.log('Function `approvePlace` invoked')
+  if (!event.body) return returnMessage(405, "Unsupported media type")
   //todo authorisation
 
   const data = JSON.parse(event.body)
@@ -18,24 +18,10 @@ exports.handler = async (event) => {
     return returnMessage(400, 'Missing body parameter')
   }
 
-  const client = require('./utils/instantiate-database')()
+  await require('./utils/instantiate-database')()
 
-  //find the place
-  let place = await client.query(q.Get(q.Ref(`classes/places/${data.placeId}`)))
-    .then((response) => {
-      return response.data
-    }).catch(() => {
-      return undefined
-    })
-  if (!place) return returnMessage(404, 'Place not found!')
+  const Place = require('../models/place.model')
+  await Place.updateOne({ _id: data.placeId }, { $set: { approved: data.approvedStatus } })
 
-  place.approved = data.approvedStatus
-
-  //update and set it as approved
-  return client.query(q.Update(q.Ref(`classes/places/${data.placeId}`), { data: place }))
-    .then(() => {
-      return { statusCode: 201 }
-    }).catch(() => {
-      return returnMessage(500, 'Could not update place!')
-    })
+  return require('./utils/return-message')(undefined)
 }

@@ -1,4 +1,3 @@
-const q = require('faunadb').query
 const returnMessage = require('./utils/return-message')
 
 /**
@@ -10,6 +9,7 @@ const returnMessage = require('./utils/return-message')
  */
 exports.handler = async (event) => {
   console.log('Function `changeFavourites` invoked')
+  if (!event.body) return returnMessage(405, "Unsupported media type")
   //todo authorisation
 
   const data = JSON.parse(event.body)
@@ -20,17 +20,13 @@ exports.handler = async (event) => {
     return returnMessage(400, 'Invalid Place ID')
 
   //get the visitor
-  const client = require('./utils/instantiate-database')()
-  let visitor = client.query(q.Get(q.Ref(`classes/visitors/${data.visitorId}`)))
-    .then((response) => {
-      return response.data
-    }).catch(() => {
-      return undefined
-    })
-  if (!visitor)
-    return returnMessage(404, 'Visitor not found!')
+  await require('./utils/instantiate-database')()
 
-  //add or remove the placeId from the favourites
+  const Visitor = require('../models/visitor.model')
+  let visitor = await Visitor.findById(data.visitorId)
+
+  if (!visitor) return returnMessage(400, 'Invalid User ID')
+
   if (visitor.favourites.includes(data.placeId)) {
     for (let i = 0; i < visitor.favourites.length; i++) {
       if (visitor.favourites[i] === data.placeId) {
@@ -40,12 +36,8 @@ exports.handler = async (event) => {
     }
   } else visitor.favourites.push(data.placeId)
 
-  //update the favourites and return the response
-  return client.query(q.Update(q.Ref(`classes/visitors/${data.visitorId}`), { data: visitor }))
-    .then(() => {
-      return { statusCode: 201 }
-    }).catch(() => {
-      return returnMessage(500, 'Could not update favourites!')
-    })
+  await visitor.save()
+
+  return require('./utils/return-message')(undefined)
 
 }

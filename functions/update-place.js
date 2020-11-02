@@ -1,4 +1,3 @@
-const q = require('faunadb').query
 const returnMessage = require('./utils/return-message')
 
 /**
@@ -16,6 +15,7 @@ const returnMessage = require('./utils/return-message')
  */
 exports.handler = async (event) => {
   console.log('Function `updatePlace` invoked')
+  if (!event.body) return returnMessage(405, "Unsupported media type")
   //todo authorisation
 
   const data = JSON.parse(event.body)
@@ -24,32 +24,29 @@ exports.handler = async (event) => {
     return returnMessage(400, 'Missing body parameter')
   }
 
-  const client = require('./utils/instantiate-database')()
-  //gets the place of it's id
-  let place = client.query(q.Get(q.Ref(`classes/places/${data.placeId}`)))
-    .then((response) => {
-      return response.data
-    }).catch(() => {
-      return undefined
-    })
-  if (place)
-    return returnMessage(404, 'Place not found!')
+  await require('./utils/instantiate-database')()
+  const Place = require('./models/place.model')
+  let place = await Place.findById(data.placeId)
+  if (!place) return returnMessage(404, 'Place not found')
 
-  //replace the data with the new one
+  if (data.userId !== place.creatorId) return returnMessage(401, 'User not creator')
+
+  let img
+  if (data.image) {
+    img = new Buffer.from(data.image, 'base64')
+    if (!img) return returnMessage(400, 'Failed to upload image!')
+  }
+
   if (data.name) place.name = data.name
   if (data.description) place.description = data.description
   if (data.typeId) place.placeTypeId = data.typeId
-  if (data.image) place.imageData = data.image
+  if (img) place.imageData = img
   if (data.www) place.url = data.www
   if (data.address) place.address = data.address
   if (data.location) place.coordinates = data.location
 
-  //update the place in the db
-  return client.query(q.Update(q.Ref('classes/places/' + data.placeId), { data: place }))
-    .then(() => {
-      return { statusCode: 201 }
-    }).catch(() => {
-      return returnMessage(500, 'Could not save place!')
-    })
+  await place.save()
+
+  return returnMessage(200, "Place updated")
 
 }

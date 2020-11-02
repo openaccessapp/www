@@ -1,4 +1,3 @@
-const q = require('faunadb').query
 
 /**
  * GET /api/delete-place/{placeId}
@@ -11,12 +10,10 @@ exports.handler = async (event) => {
   //todo authorisation
   let placeId = require('./utils/extract-last-parameter')(event.path)
 
-  return require('./utils/instantiate-database')()
-    //a simple delete query
-    .query(q.Delete(q.Ref(`classes/places/${placeId}`)))
-    .then(() => {
-      return { statusCode: 201 }
-    }).catch(() => {
-      return require('./utils/return-message')(404, 'Place not found!')
-    })
+  await require('./utils/instantiate-database')()
+  const Place = require('../models/place.model')
+
+  await Place.deleteOne({ _id: placeId })
+
+  return require('./utils/return-message')(undefined)
 }

@@ -1,4 +1,3 @@
-const q = require('faunadb').query
 const returnMessage = require('./utils/return-message')
 
 /**
@@ -16,6 +15,7 @@ const returnMessage = require('./utils/return-message')
  */
 exports.handler = async (event) => {
   console.log('Function `addPlace` invoked')
+  if (!event.body) return returnMessage(405, "Unsupported media type")
   //todo authorisation
 
   const data = JSON.parse(event.body)
@@ -26,17 +26,28 @@ exports.handler = async (event) => {
     return returnMessage(400, 'Missing body parameter')
   }
 
-  const client = require('./utils/instantiate-database')()
-  //map the data into an object
-  let placeData = {
-    creatorId: data.userId, name: data.name, placeTypeId: data.typeId ? data.typeId : "278075754694050311", imageData: data.image,
-    description: data.description, url: data.www, address: data.address, coordinates: data.location, approved: false
+  await require('./utils/instantiate-database')()
+
+  let img
+  if (data.image) {
+    img = new Buffer.from(data.image, 'base64')
+    if (!img) return returnMessage(400, 'Failed to upload image!')
   }
-  //save it in the database
-  return client.query(q.Create(q.Ref('classes/places'), {data: placeData}))
-    .then(() => {
-      return { statusCode: 201 }
-    }).catch(() => {
-      return returnMessage(500, 'Could not save place!')
-    })
+
+  let placeTypeId = data.typeId ? data.typeId : 0
+
+  const Place = require('../models/place.model')
+  await new Place({
+    creatorId: data.userId,
+    name: data.name,
+    placeTypeId: placeTypeId,
+    imageData: img,
+    description: data.description,
+    url: data.www,
+    address: data.address,
+    coordinates: data.location,
+    approved: false
+  }).save()
+
+  return require('./utils/return-message')(undefined, 201)
 }

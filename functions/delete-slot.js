@@ -1,4 +1,3 @@
-const q = require('faunadb').query
 const returnMessage = require('./utils/return-message')
 
 /**
@@ -10,6 +9,7 @@ const returnMessage = require('./utils/return-message')
  */
 exports.handler = async (event) => {
   console.log('Function `deleteSlot` invoked')
+  if (!event.body) return returnMessage(405, "Unsupported media type")
   //todo authorisation
 
   const data = JSON.parse(event.body)
@@ -20,24 +20,21 @@ exports.handler = async (event) => {
     return returnMessage(400, 'Missing body parameter')
   }
 
-  const client = require('./utils/instantiate-database')()
+  await require('./utils/instantiate-database')()
+  const Slot = require('../models/slot.model')
 
-  //check if the place exists
-  let slot = await client.query(q.Get(q.Ref(`classes/slots/${data.slotId}`)))
-    .then((response) => { return response.data})
-    .catch(() => {return undefined})
+  let slot = await Slot.findOne({ _id: data.slotId }).populate({
+    path: 'placeId'
+  })
 
   if (!slot) return returnMessage(404, 'Slot not found')
 
-  //todo check if the user is the creator
+  if (slot.placeId.creatorId !== data.userId)
+    return returnMessage(401, 'User is not the creator')
 
-  //todo delete bookings on this slot
+  const Booking = require('../models/booking.model')
+  await Booking.deleteMany({ slotId: data.slotId })
+  await slot.delete()
 
-  //delete the slot from the database
-  return client.query(q.Delete(q.Ref(`classes/slots/${data.slotId}`)))
-    .then(() => {
-      return { statusCode: 201 }
-    }).catch(() => {
-      return returnMessage(500, 'Could not delete!')
-    })
+  return require('./utils/return-message')(undefined)
 }

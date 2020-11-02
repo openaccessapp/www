@@ -1,5 +1,3 @@
-const q = require('faunadb').query
-
 /**
  * GET /api/get-place-types/{placeId}
  * Description: Returns the image of a place by it's id
@@ -13,17 +11,11 @@ exports.handler = async (event) => {
 
   let placeId = require('./utils/extract-last-parameter')(event.path)
 
-  const client = require('./utils/instantiate-database')()
-  //gets the place with the specified id
-  return client.query(q.Get(q.Ref(`classes/places/${placeId}`)))
-    .then((response) => {
-      return {
-        statusCode: 200,
-        headers: { 'Content-Type': 'image/png' },
-        body: response.data.imageData,
-        isBase64Encoded: true,
-      }
-    }).catch(() => {
-      return require('./utils/return-message')(404, 'Image not found')
-    })
+  await require('./utils/instantiate-database')()
+  const Place = require('../models/place.model')
+  let place = await Place.findById(placeId)
+
+  if (!place) return require('./utils/return-message')(400, 'Place not found')
+
+  return require('../utils/return-image')(place.imageData)
 }
