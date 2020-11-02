@@ -7,7 +7,7 @@ const returnMessage = require('./utils/return-message')
  *    "id": string
  *  }
  */
-exports.handler = async () => {
+exports.handler = async (event) => {
   console.log('Function `generateUserId` invoked')
   if (!require('./utils/check-tokens')(event.headers, false)) return returnMessage(401, 'Unauthorised')
 
