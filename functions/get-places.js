@@ -72,6 +72,6 @@ exports.handler = async (event) => {
     approved: place.approved
   }))
 
-  if (data.onlyFavourites === 'true') output = output.filter(place => place.isFavourite)
+  if (data.onlyFavourites === 'true' || data.onlyFavourites === true) output = output.filter(place => place.isFavourite)
   return require('./utils/return-object')({ places: output })
 }
