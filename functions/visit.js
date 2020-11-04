@@ -5,7 +5,7 @@ const moment = require('moment')
  * POST /api/visit
  * Description: Creates a booking for a place in a slot
  * Body:
- *  string visitorId: the id of the user who is creating the place
+ *  string userId: the id of the user who is creating the place
  *  string slotId: the id of the place
  *  int visitors: how many people are going to visit
  */
@@ -17,7 +17,7 @@ exports.handler = async (event) => {
 
   const data = JSON.parse(event.body)
   //check if the body is correct
-  if (!data.visitorId || !data.slotId || !data.visitors) {
+  if (!data.userId || !data.slotId || !data.visitors) {
     return returnMessage(400, 'Invalid body')
   }
 
@@ -33,7 +33,7 @@ exports.handler = async (event) => {
   let people = data.visitors
 
   const Booking = require('./models/booking.model')
-  let booking = await Booking.findOne({ slotId: data.slotId, visitorId: data.visitorId })
+  let booking = await Booking.findOne({ slotId: data.slotId, visitorId: data.userId })
 
   if (booking) {
     people -= booking.friendsNumber
@@ -49,7 +49,7 @@ exports.handler = async (event) => {
     if (slot.occupiedSlots + people > slot.maxVisitors)
       return returnMessage(400, 'Not enough place on this slot!')
 
-    let bookings = await Booking.find({ visitorId: data.visitorId }).populate({
+    let bookings = await Booking.find({ visitorId: data.userId }).populate({
       path: 'slotId',
       match: {
         $or:
@@ -81,7 +81,7 @@ exports.handler = async (event) => {
 
     new Booking({
       slotId: data.slotId,
-      visitorId: data.visitorId,
+      visitorId: data.userId,
       friendsNumber: people
     }).save()
   }
