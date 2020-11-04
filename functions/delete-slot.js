@@ -24,6 +24,7 @@ exports.handler = async (event) => {
 
   await require('./utils/instantiate-database')()
   const Slot = require('./models/slot.model')
+  require('./models/place.model')
 
   let slot = await Slot.findOne({ _id: data.slotId }).populate({
     path: 'placeId'
