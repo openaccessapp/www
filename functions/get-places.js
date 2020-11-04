@@ -54,7 +54,7 @@ exports.handler = async (event) => {
 
   if (data.typeId) search.placeTypeId = data.typeId
   if (data.name) search.name = new RegExp(`.*${data.name}.*`, 'i')
-  if (data.approved !== undefined) search.approved = data.approved === 'true'
+  if (data.approved !== undefined) search.approved = data.approved === 'true' || data.approved === true
   if (data.own === 'true') search.creatorId = data.visitorId
 
   const Place = require('./models/place.model')
