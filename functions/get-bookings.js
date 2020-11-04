@@ -59,5 +59,5 @@ exports.handler = async (event) => {
     else output[moment(booking.slotId.starts).format(DATE_FORMAT)] = [obj]
   }
 
-  return require('./utils/return-object')({ ...output })
+  return require('./utils/return-object')({ visits: { ...output } })
 }

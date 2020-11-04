@@ -57,9 +57,10 @@ exports.handler = async (event) => {
 
   let output = []
 
-  slots.forEach(slot => {
+  for (const slot of slots) {
     let o = output[moment(slot.starts).format(DATE_FORMAT)]
-    let booking = bookings.find(booking => booking.slotId === slot._id && booking.visitorId === data.visitorId)
+    console.log(bookings.visitorId + " " + slot._id.toString())
+    let booking = bookings.find(b => b.slotId === slot._id.toString() && b.visitorId === data.visitorId)
     let obj = {
       id: slot.id,
       type: require('./utils/slot-types').findById(slot.typeId).name,
@@ -73,7 +74,7 @@ exports.handler = async (event) => {
     if (o) o.push(obj)
     else
       output[moment(slot.starts).format(DATE_FORMAT)] = [obj]
-  })
+  }
 
   return require('./utils/return-object')({ slots: { ...output } })
 
