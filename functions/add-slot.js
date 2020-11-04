@@ -24,10 +24,11 @@ exports.handler = async (event) => {
   let placeId = require('./utils/extract-last-parameter')(event.path)
 
   const data = JSON.parse(event.body)
+  data.placeId = placeId;
   //check if the body is correct
   if (
     !data.type ||
-    !placeId ||
+    !data.placeId ||
     !data.userId ||
     !data.from ||
     !data.to ||
