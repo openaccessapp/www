@@ -38,5 +38,5 @@ exports.handler = async (event) => {
   await Booking.deleteMany({ slotId: data.slotId })
   await slot.delete()
 
-  return require('./utils/return-message')(undefined)
+  return require('./utils/return-object')(undefined)
 }

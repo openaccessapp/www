@@ -41,6 +41,6 @@ exports.handler = async (event) => {
 
   await visitor.save()
 
-  return require('./utils/return-message')(undefined)
+  return require('./utils/return-object')(undefined)
 
 }

@@ -53,5 +53,5 @@ exports.handler = async (event) => {
     maxVisitors: data.maxSlots
   }).save()
 
-  return require('./utils/return-message')(undefined, 201)
+  return require('./utils/return-object')(undefined)
 }

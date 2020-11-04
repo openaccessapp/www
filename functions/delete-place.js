@@ -15,5 +15,5 @@ exports.handler = async (event) => {
 
   await Place.deleteOne({ _id: placeId })
 
-  return returnMessage(undefined)
+  return require('./utils/return-object')(undefined)
 }

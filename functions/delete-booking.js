@@ -34,5 +34,5 @@ exports.handler = async (event) => {
     return returnMessage(404, 'Booking not found')
   }
 
-  return require('./utils/return-message')(undefined)
+  return require('./utils/return-object')(undefined)
 }

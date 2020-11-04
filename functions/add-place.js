@@ -49,5 +49,5 @@ exports.handler = async (event) => {
     approved: false
   }).save()
 
-  return require('./utils/return-message')(undefined, 201)
+  return require('./utils/return-object')(undefined)
 }

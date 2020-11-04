@@ -1,13 +1,12 @@
 const returnMessage = require('./utils/return-message')
 /**
- * POST /api/get-places
+ * POST /api/get-places/{visitorId}
  * Description: Returns all places by a given criteria
  * Body:
  *  string typeId: the id of the place type
  *  string name: a filter for the name, checks if the name of the place contains it
  *  string approved: if the place is approved or not, possible values are true/false
  *  string own: if the visitor is the place's creator, possible values are true/false
- *  string visitorId: the id of the visitor
  *  string onlyFavourites: should it return only favourite places, possible values are true/false
  *  int skip: the amount of places to skip to get to the current page
  *  int load: the amount of places to load in a page
@@ -34,6 +33,8 @@ exports.handler = async (event) => {
   let favourites = []
 
   const data = JSON.parse(event.body)
+  data.visitorId = require('./utils/extract-last-parameter')(event.path)
+
   await require('./utils/instantiate-database')()
 
   if (data.visitorId) {
@@ -54,8 +55,8 @@ exports.handler = async (event) => {
 
   if (data.typeId) search.placeTypeId = data.typeId
   if (data.name) search.name = new RegExp(`.*${data.name}.*`, 'i')
-  if (data.approved !== undefined) search.approved = data.approved === 'true' || data.approved === true
-  if (data.own === 'true') search.creatorId = data.visitorId
+  if (data.approved !== undefined) search.approved = data.approved === true || data.approved === 'true'
+  if (data.own === true || data.own === 'true') search.creatorId = data.visitorId
 
   const Place = require('./models/place.model')
   let places = await Place.find(search).sort({ name: 1 }).skip(skip).limit(load)
@@ -72,6 +73,6 @@ exports.handler = async (event) => {
     approved: place.approved
   }))
 
-  if (data.onlyFavourites === 'true' || data.onlyFavourites === true) output = output.filter(place => place.isFavourite)
+  if (data.onlyFavourites === true || data.onlyFavourites === 'true') output = output.filter(place => place.isFavourite)
   return require('./utils/return-object')({ places: output })
 }
