@@ -31,6 +31,7 @@ exports.handler = async (event) => {
   await require('./utils/instantiate-database')()
   const Booking = require('./models/booking.model')
   require('./models/slot.model')
+  require('./models/place.model')
   let bookings = await Booking.find({ visitorId: data.visitorId }).skip(skip).limit(load).populate({
     path: 'slotId',
     populate: { path: 'placeId' }
