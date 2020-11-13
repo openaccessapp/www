@@ -6,7 +6,5 @@ google-play-link: https://play.google.com/store/apps/details?id=app.downloadacce
 app-store-link: https://apps.apple.com/us/app/accessapp-visitor/id1526696697
 information: This is not a tracing app. No personally identfiable information is stored on server. The visits are deleted after happening.
 places: https://downloadplaces.app/
-OSI: https://opensource.org/
-github: https://github.com/AccessApp/
 apps-text: Download the App
 image: "/assets/logo-text.svg"

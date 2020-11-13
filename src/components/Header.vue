@@ -103,7 +103,7 @@ export default {
       places: "",
       infoText: "",
       // OSI: "",
-      github: "",
+      // github: "",
       image: "",
       // END: Expected data from .yaml
     };
@@ -126,7 +126,7 @@ export default {
       this.places = data["places"];
       this.infoText = data["info-text"];
       // this.OSI = data.OSI;
-      this.github = data.github;
+      // this.github = data.github;
       this.image = data["image"];
     },
   },
