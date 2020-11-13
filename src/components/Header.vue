@@ -55,8 +55,8 @@
 </template>
 
 <script>
-import header from "js-yaml-loader!../../content/EN/header.yaml";
-import headerDe from "js-yaml-loader!../../content/DE/header.yaml";
+import header from "@content/EN/header.yaml";
+import headerDe from "@content/DE/header.yaml";
 import FigureCircle from "../components/FigureCircle.vue";
 import Navigation from "../components/Navigation.vue";
 

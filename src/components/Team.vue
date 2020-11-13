@@ -49,8 +49,8 @@
 </template>
 
 <script>
-import team from "js-yaml-loader!../../content/EN/team.yaml";
-import teamDe from "js-yaml-loader!../../content/DE/team.yaml";
+import team from "../../content/access/EN/team.yaml";
+import teamDe from "../../content/access/DE/team.yaml";
 import FigureCircle from "../components/FigureCircle.vue";
 export default {
   name: "CustomerReviews",

@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import footer from "js-yaml-loader!../../content/EN/footer.yaml";
-import footerDe from "js-yaml-loader!../../content/DE/footer.yaml";
+import footer from "../../content/access/EN/footer.yaml";
+import footerDe from "../../content/access/DE/footer.yaml";
 import Header from "./Header";
 import HowItWorks from "./HowItWorks";
 import CustomerReviews from "./CustomerReviews";
