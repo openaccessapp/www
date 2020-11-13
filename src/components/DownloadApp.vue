@@ -1,20 +1,29 @@
 <template>
   <div class="container download-links">
-    <figure-circle class="circle" color="#DDFFF7" :zIndex="0" :right="-320" :isFilled="false"></figure-circle>
+    <figure-circle
+      class="circle"
+      color="#DDFFF7"
+      :zIndex="0"
+      :right="-320"
+      :isFilled="false"
+    ></figure-circle>
     <div class="row">
       <div class="col-12">
-        <h2>{{appsText}}</h2>
+        <h2>{{ appsText }}</h2>
       </div>
       <div class="col-12 links-position">
         <div class="row justify-content-center">
           <div class="col-xl-6 col-md-6 col-xs-6 col-12 column-inner-first">
             <a :href="googlePLay">
-              <img class="google-play-design" src="assets/google-play-header.png" />
+              <img
+                class="google-play-design"
+                src="assets/google-play-header.png"
+              />
             </a>
           </div>
           <div class="col-xl-6 col-md-6 col-xs-6 col-12 column-inner-last">
             <a :href="appStore">
-              <img src="assets/app-store.png" />
+              <img class="app-store-design" src="assets/app-store.png" />
             </a>
           </div>
         </div>
@@ -69,7 +78,8 @@ h2 {
 .links-position {
   margin-top: 50px;
 }
-.google-play-design {
+.google-play-design,
+.app-store-design {
   width: 210px;
   height: 62px;
 }
