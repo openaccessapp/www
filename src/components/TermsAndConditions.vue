@@ -18,10 +18,10 @@
 </template>
 
 <script>
-import header from "js-yaml-loader!../../content/EN/header.yaml";
-import headerDe from "js-yaml-loader!../../content/DE/header.yaml";
-import gdpr from "raw-loader!../../content/EN/gdpr.md";
-import gdprDe from "raw-loader!../../content/DE/gdpr.md";
+import header from "../../content/access/EN/header.yaml";
+import headerDe from "../../content/access/DE/header.yaml";
+import gdpr from "raw-loader!../../content/access/EN/gdpr.md";
+import gdprDe from "raw-loader!../../content/access/DE/gdpr.md";
 import marked from "marked";
 
 import Navigation from "./Navigation";

@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import github from "js-yaml-loader!../../content/EN/github.yaml";
-import githubDe from "js-yaml-loader!../../content/DE/github.yaml";
+import github from "../../content/access/EN/github.yaml";
+import githubDe from "../../content/access/DE/github.yaml";
 export default {
   name: "Github",
   data() {

@@ -37,8 +37,8 @@
   </div>
 </template>
 <script>
-import partners from "js-yaml-loader!../../content/EN/partners.yaml";
-import partnersDe from "js-yaml-loader!../../content/DE/partners.yaml";
+import partners from "../../content/access/EN/partners.yaml";
+import partnersDe from "../../content/access/DE/partners.yaml";
 export default {
   name: "Partners",
   data() {
