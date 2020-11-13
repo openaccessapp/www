@@ -10,27 +10,42 @@
         :top="-80"
       ></figure-circle>
 
-      <figure-circle color="white" :zIndex="0" :right="-200" :isFilled="true" :top="-100"></figure-circle>
-      <figure-circle color="#385fe2" :zIndex="1" :right="-200" :isFilled="false" :top="200"></figure-circle>
+      <figure-circle
+        color="white"
+        :zIndex="0"
+        :right="-200"
+        :isFilled="true"
+        :top="-100"
+      ></figure-circle>
+      <figure-circle
+        color="#385fe2"
+        :zIndex="1"
+        :right="-200"
+        :isFilled="false"
+        :top="200"
+      ></figure-circle>
       <navigation
         :navigationText="navigationText"
         :buttonText="buttonText"
-        :mobileApp="mobileApp"
+        :places="places"
         :image="image"
       ></navigation>
       <div class="row">
         <div class="col-xl-6 col-md-6 col-xs-6 col-12 position-left">
-          <p class="description">{{description}}</p>
-          <p class="info-text">{{infoText}}</p>
+          <p class="description">{{ description }}</p>
+          <p class="info-text">{{ infoText }}</p>
           <div class="google-and-apple-position">
             <a :href="googlePlayLink">
-              <img class="google-position" src="assets/google-play-header.png" />
+              <img
+                class="google-position"
+                src="assets/google-play-header.png"
+              />
             </a>
-            <a style="opacity: 0.3; cursor: default">
+            <a :href="appStoreLink" >
               <img class="apple-position" src="assets/app-store.png" />
             </a>
           </div>
-          <p>This is not a tracing app. Nothing is stored on server. All the information is secured.</p>
+          <p>{{ information }}</p>
         </div>
         <div class="col-xl-6 col-md-6 col-xs-6 col-12 phone">
           <div class="images">
@@ -48,7 +63,11 @@
       </div>
     </div>
 
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+    >
       <polygon fill="#FCFDFF" points="0,100 100,0 100,100" />
     </svg>
   </div>
@@ -80,10 +99,11 @@ export default {
       description: "",
       googlePlayLink: "",
       appStoreLink: "",
-      mobileApp: "",
+      information: "",
+      places: "",
       infoText: "",
       // OSI: "",
-      github: "",
+      // github: "",
       image: "",
       // END: Expected data from .yaml
     };
@@ -102,10 +122,11 @@ export default {
       this.description = data["description"];
       this.googlePlayLink = data["google-play-link"];
       this.appStoreLink = data["app-store-link"];
-      this.mobileApp = data["mobile-app"];
+      this.information = data["information"];
+      this.places = data["places"];
       this.infoText = data["info-text"];
       // this.OSI = data.OSI;
-      this.github = data.github;
+      // this.github = data.github;
       this.image = data["image"];
     },
   },

@@ -9,34 +9,43 @@
       :bottom="0"
       customClass="custom-circle"
     ></figure-circle>
-    <figure-circle color="#DDFFF7" :zIndex="0" :left="-320" :isFilled="true" :bottom="0"></figure-circle>
+    <figure-circle
+      color="#DDFFF7"
+      :zIndex="0"
+      :left="-320"
+      :isFilled="true"
+      :bottom="0"
+    ></figure-circle>
     <div class="row container-links">
-      <img class="col-xl-4 col-sm-4 col-md-4 col-4" src="/assets/logo-footer.svg" />
+      <img
+        class="col-xl-4 col-sm-4 col-md-4 col-4"
+        src="/assets/logo-footer.svg"
+      />
       <div class="col-xl-3 col-sm-4 col-6 col-md-4 col-xs-6 info">
         <router-link :to="`/${$router.history.current.params.lang}/terms`">
-          <p class="row terms">{{firstTitle}}</p>
+          <p class="row terms">{{ firstTitle }}</p>
         </router-link>
         <router-link :to="`/${$router.history.current.params.lang}/privacy`">
-          <p class="row terms">{{secondTitle}}</p>
+          <p class="row terms">{{ secondTitle }}</p>
         </router-link>
-        <p class="row contacts">{{thirdTitle}}</p>
+        <p class="row contacts">{{ thirdTitle }}</p>
         <div class="row mail">
           <img src="/assets/envelope-footer.png" />
-          <p>{{email}}</p>
+          <p>{{ email }}</p>
         </div>
       </div>
       <div class="line" />
       <div class="col-xs-6 col-sm-4 col-md-4 col-6 col-xl-4 sites">
         <div class="row github">
-          <img :src="github" />
-          <p>{{githubText}}</p>
+          <a :href="linkGithub" target="_blank"> <img :src="github" /></a>
+          <p>{{ githubText }}</p>
         </div>
         <div class="row OS">
-          <img :src="OS" />
-          <p>{{OStext}}</p>
+          <a :href="linkOSI" target="_blank"> <img :src="OS" /></a>
+          <p>{{ OStext }}</p>
         </div>
       </div>
-      <p class="description">{{description}}</p>
+      <p class="description">{{ description }}</p>
     </div>
   </div>
 </template>
@@ -82,6 +91,8 @@ export default {
       this.githubText = data["github-text"];
       this.OS = data["open-source"];
       this.OStext = data["open-source-text"];
+      this.linkOSI = data["linkOSI"];
+      this.linkGithub = data["linkGithub"];
     },
   },
 };

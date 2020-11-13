@@ -5,7 +5,7 @@
         <router-link :to="`/${$router.history.current.params.lang}`">
           <img :src="image" />
         </router-link>
-        <router-link :to="getURL('de')">
+        <!-- <router-link :to="getURL('de')">
           <button
             class="language"
             :class="{'opacity' : currentPage ==='/en'|| currentPage ==='/en/terms' || currentPage ==='/en/privacy'}"
@@ -24,14 +24,14 @@
             v-if="currentPage ==='/de' || currentPage ==='/de/terms' || currentPage ==='/de/privacy' "
             class="blue-line-de"
           ></div>
-        </router-link>
+        </router-link> -->
       </div>
     </div>
     <div class="col-xl-6 col-md-6 col-xs-6 col-12 nav-text-button">
       <div class="row">
-        <p class="medium-font">{{navigationText}}</p>
-        <a :href="mobileApp">
-          <button class="btn">{{buttonText}}</button>
+        <p class="medium-font">{{ navigationText }}</p>
+        <a :href="places">
+          <button class="btn">{{ buttonText }}</button>
         </a>
       </div>
     </div>
@@ -59,6 +59,7 @@ export default {
     navigationText: String,
     mobileApp: String,
     image: String,
+    places: String,
   },
 };
 </script>

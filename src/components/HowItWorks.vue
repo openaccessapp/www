@@ -12,14 +12,14 @@
             <h3 class="title title-name">{{sections[0].title}}</h3>
             <div class="find">
               <p class="text">{{sections[0].text}}</p>
-              <img class="first-step" src="/assets/Step1.svg" />
+              <img class="first-step" src="/assets/step1.svg" />
             </div>
           </div>
           <div class="section mt-5" v-if="sections[1]">
             <h3 class="title title-name">{{sections[1].title}}</h3>
             <div class="plan">
               <p class="text">{{sections[1].text}}</p>
-              <img class="second-step" src="/assets/Step2.svg" />
+              <img class="second-step" src="/assets/step2.svg" />
             </div>
           </div>
         </div>
@@ -33,7 +33,7 @@
             <h3 class="title title-name">{{sections[2].title}}</h3>
             <div class="download">
               <p class="text">{{sections[2].text}}</p>
-              <img class="third-step" src="/assets/Step2.svg" />
+              <img class="third-step" src="/assets/step2.svg" />
             </div>
           </div>
         </div>
