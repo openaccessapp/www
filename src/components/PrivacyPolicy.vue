@@ -17,10 +17,10 @@
 </template>
 
 <script>
-import header from "../../content/access/EN/header.yaml";
-import headerDe from "../../content/access/DE/header.yaml";
-import privacy from "raw-loader!../../content/access/EN/privacy.md";
-import privacyDe from "raw-loader!../../content/access/DE/privacy.md";
+import header from "@content/EN/header.yaml";
+import headerDe from "@content/DE/header.yaml";
+import privacy from "raw-loader!@content/EN/privacy.md";
+import privacyDe from "raw-loader!@content/DE/privacy.md";
 import marked from "marked";
 
 import Navigation from "./Navigation";

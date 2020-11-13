@@ -26,8 +26,8 @@
 </template>
 
 <script>
-import customerReviews from "../../content/access/EN/customer-reviews.yaml";
-import customerReviewsDe from "../../content/access/DE/customer-reviews.yaml";
+import customerReviews from "@content/EN/customer-reviews.yaml";
+import customerReviewsDe from "@content/DE/customer-reviews.yaml";
 import { Carousel, Slide } from "vue-carousel";
 import FigureCircle from "../components/FigureCircle.vue";
 export default {

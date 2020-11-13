@@ -43,8 +43,8 @@
 </template>
 
 <script>
-import howItWorks from "../../content/access/EN/how-it-works.yaml";
-import howItWorksDe from "../../content/access/DE/how-it-works.yaml";
+import howItWorks from "@content/EN/how-it-works.yaml";
+import howItWorksDe from "@content/DE/how-it-works.yaml";
 export default {
   name: "HowItWorks",
   data() {

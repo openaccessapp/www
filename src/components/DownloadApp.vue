@@ -33,8 +33,8 @@
 </template>
 
 <script>
-import DownloadApp from "../../content/access/EN/header.yaml";
-import DownloadAppDe from "../../content/access/DE/header.yaml";
+import DownloadApp from "@content/EN/header.yaml";
+import DownloadAppDe from "@content/DE/header.yaml";
 import FigureCircle from "../components/FigureCircle.vue";
 export default {
   name: "DownloadApp",

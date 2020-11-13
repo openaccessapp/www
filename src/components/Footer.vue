@@ -51,8 +51,8 @@
 </template>
 
 <script>
-import footer from "../../content/access/EN/footer.yaml";
-import footerDe from "../../content/access/DE/footer.yaml";
+import footer from "@content/EN/footer.yaml";
+import footerDe from "@content/DE/footer.yaml";
 import FigureCircle from "../components/FigureCircle.vue";
 export default {
   name: "CustomerReviews",
@@ -64,10 +64,12 @@ export default {
       thirdTitle: "",
       email: "",
       description: "",
+      linkGithub: "",
       github: "",
       githubText: "",
       OS: "",
       OStext: "",
+      linkOSI: ""
     };
   },
   watch: {

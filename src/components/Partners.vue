@@ -7,7 +7,7 @@
       <div
         class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 partners-cards"
         v-for="partners in partners"
-        :key="partners"
+        :key="partners.title"
       >
         <div class="partners-content">
           <img class="logo" :src="partners.image" />
@@ -37,8 +37,8 @@
   </div>
 </template>
 <script>
-import partners from "../../content/access/EN/partners.yaml";
-import partnersDe from "../../content/access/DE/partners.yaml";
+import partners from "@content/EN/partners.yaml";
+import partnersDe from "@content/DE/partners.yaml";
 export default {
   name: "Partners",
   data() {
