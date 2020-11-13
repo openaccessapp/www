@@ -1,11 +1,12 @@
-navigation-text: Venue managers download the
-button-text: AccessApp
-description: Plan visits safely and easily.
-info-text: AccessApp has been created to give you the freedom to access your local spaces, shops and services in an safer crowd free environment
-google-play-link: https://play.google.com/store/apps/details?id=app.downloadaccess.visitor
-app-store-link: https://www.apple.com/ios/app-store/
-mobile-app: https://en.wikipedia.org/wiki/Mobile_app
-OSI: https://opensource.org/
-github: https://github.com/AccessApp/
+navigation-text: Are you a Visitor? Download the
+button-text: Visitor App
+# link to the AccessApp Visitor website
+# TODO Rename to "visitor:"
+mobile-app: https://downloadaccess.app/
+description: Enable safe and easy visits.
+info-text: Places allows you to offer your visitors safe and easy visits. Download, enter your place or places, configure slots and you are ready to go. If you need help, check the contact section below and let us know.
+google-play-link: https://play.google.com/store/apps/details?id=app.downloadaccess.places
+app-store-link: https://apps.apple.com/us/app/accessapp-places/id1534039482
+information: This is not a tracing app. Nothing is stored on server. All the information is secured.
 apps-text: Download the App
 image: "/assets/logo-text.svg"

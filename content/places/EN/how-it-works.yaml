@@ -1,9 +1,10 @@
-title: How it works
+title: How does it work?
 sections:
-  - title: 1. Find
-    text: Discover available time slots for shielding and vulnerable visitors in your local area and beyond. Designed to help you navigate your favourite places safely and also help you discover new ones with a mix of venues, spaces and businesses allowing you greater freedom to access local services and activities.
-  - title: 2. Plan
-    text: Open the app and go through the initial start up process then it will open up the search page. You will find a search box and you can start typing the name of the venue you are looking for and it will appear in the results below, providing they have registered with us. There are also tabs so you can quickly browse through to find your local amenities.
-  - title: 3. Download
-    text: Open the Play store if you have an Android device, or the App Store if you have an iPhone or iPad. In the search bar, type in 'AccessApp'. Make sure it has our logo as there could be apps with similar names and click 'Install' on an Android or 'Get' on an Apple device.
+  - title: 1. Enter your Place or Places
+    text: Download the Places app from the link above or below and enter your Place or Places.
+  - title: 2. Enter slots
+    text: Enter slots for your visitors, indicating the maximum visitor numbers and safety measures. You can mark slots as "priority", indicating that they are intended for a specific group of visitors.
+  - title: 3. Welcome your visitors
+    text: Welcome your visitors and allow them to "checkin" by scanning the barcode on your Places app.
+# TODO There is no vido, is there?
 video-link: "https://www.youtube.com/embed/BWwDfLNz4Cc"
