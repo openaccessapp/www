@@ -41,7 +41,7 @@
                 src="assets/google-play-header.png"
               />
             </a>
-            <a :href="appStoreLink" >
+            <a :href="appStoreLink">
               <img class="apple-position" src="assets/app-store.png" />
             </a>
           </div>
@@ -243,7 +243,6 @@ img.position {
 @media only screen and (max-width: 1536px) {
   .header {
     height: 1000px;
-    overflow-x: hidden;
   }
   .google-and-apple-position {
     img.google-position,
@@ -261,6 +260,10 @@ img.position {
 }
 
 @media only screen and (max-width: 768px) {
+  .header {
+    height: 1125px;
+    overflow: hidden;
+  }
   .phone {
     display: none;
   }
