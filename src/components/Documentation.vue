@@ -118,14 +118,13 @@ export default {
     },
     isDocumentActive() {
       if (this.page.opened == false || this.sub.opened == false) {
-        return false;
+        this.doc.opened = false;
       }
     },
     updateContent(link) {
       this.content = link;
       this.html = marked(
-        require(`@content/documentation/${this.content}.md`)
-          .default
+        require(`@content/documentation/${this.content}.md`).default
       );
     },
   },
