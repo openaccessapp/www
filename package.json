@@ -25,7 +25,8 @@
     "string-replace-loader": "^3.0.1",
     "vue": "^2.6.11",
     "vue-carousel": "^0.18.0",
-    "vue-router": "^3.2.0"
+    "vue-router": "^3.2.0",
+    "vue-tree-navigation": "^4.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.4.0",

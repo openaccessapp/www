@@ -1,0 +1,7 @@
+ mainPage: 
+  - name: Documentation page
+  - subPage: 
+      - name: Documentation Sub-Page
+      - page:
+        - document:
+

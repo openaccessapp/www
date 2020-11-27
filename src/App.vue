@@ -12,18 +12,6 @@ export default {
       this.$router.push("en");
     }
   },
-  methods: {
-    setFavicon() {
-      const favicon = document.getElementById("favicon");
-      if (process.env.VUE_APP_SITE === "access") {
-        favicon.href = "favicons/access/favicon.svg";
-        return favicon;
-      } else if (process.env.VUE_APP_SITE === "places") {
-        favicon.href = "favicons/places/favicon.svg";
-        return favicon;
-      }
-    },
-  },
 };
 </script>
 

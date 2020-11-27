@@ -15,6 +15,13 @@ module.exports = {
             .use('js-yaml-loader')
             .loader('js-yaml-loader')
             .end()
+            
+        config.module
+            .rule('md')
+            .test(/\.md$/)
+            .use('raw-loader')
+            .loader('raw-loader')
+            .end()
 
         config
             .plugin('html')
