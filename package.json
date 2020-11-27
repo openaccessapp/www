@@ -22,6 +22,7 @@
     "netlify-lambda": "^2.0.1",
     "path": "^0.12.7",
     "raw-loader": "^4.0.1",
+    "string-replace-loader": "^3.0.1",
     "vue": "^2.6.11",
     "vue-carousel": "^0.18.0",
     "vue-router": "^3.2.0",

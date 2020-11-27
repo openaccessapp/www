@@ -22,5 +22,13 @@ module.exports = {
             .use('raw-loader')
             .loader('raw-loader')
             .end()
+
+        config
+            .plugin('html')
+            .tap(args => {
+                args[0].favicon_name = process.env.VUE_APP_SITE === 'places' ? 'favicons/places/favicon.svg' : 'favicons/access/favicon.svg';
+                args[0].favicon_safari_name = process.env.VUE_APP_SITE === 'places' ? 'favicons/places/safari-pinned-tabs.svg' : 'favicons/access/safari-pinned-tabs.svg';
+                return args;
+            });
     }
 }
