@@ -16,3 +16,7 @@ mainPage:
          link: privacy
        - document: page two
          link: gdpr
+question: Still need help?
+paragraphs:
+      - Contact us
+      - for more information.

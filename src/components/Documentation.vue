@@ -51,8 +51,17 @@
       </div>
     </div>
 
-    <div class="col-8">
+    <div class="center col-8">
       <div class="md-position" v-html="html"></div>
+    </div>
+    <div class="help">
+      <hr class="line" />
+      <p class="question">{{ question }}</p>
+      <div class="row paragraphs">
+        <div v-for="(row, index) in paragraphs" :key="index.paragraph">
+          <p :class="{ first: index == 0 }">{{ row }}</p>
+        </div>
+      </div>
     </div>
     <Footer></Footer>
   </div>
@@ -81,6 +90,8 @@ export default {
       html: "",
       link: "",
       content: "",
+      question: "",
+      paragraphs: [],
     };
   },
   watch: {
@@ -97,8 +108,10 @@ export default {
       this.logo = documentation.logo;
       this.logoText = documentation.logoText;
       this.getStarted = documentation.getStarted;
-
       this.link = documentation.link;
+      this.question = documentation.question;
+      this.paragraphs = documentation.paragraphs;
+
       this.addOpenedProperty();
       // this.isDocumentActive();
     },
@@ -143,7 +156,7 @@ export default {
   }
   .node {
     text-align: left;
-    width: 320px;
+    max-width: 320px;
     height: 1062px;
     box-shadow: 0px 6px 30px 0 #1d226f0d;
 
@@ -198,9 +211,37 @@ export default {
       }
     }
   }
-  .md-position {
-    text-align: justify;
-    margin-left: 70px;
+  .center {
+    .md-position {
+      text-align: justify;
+      margin-left: 70px;
+      max-width: 560px;
+      margin-left: 330px;
+      margin-top: 135px;
+    }
+  }
+  .help {
+    margin-top: 100px;
+    margin-left: 200px;
+    .line {
+      width: 1035px;
+      color: #dbddeb;
+    }
+    .question {
+      color: #474a67;
+      font-size: 25px;
+      font-weight: 700;
+      text-align: left;
+      margin-top: 45px;
+      margin-bottom: 20px;
+    }
+    .paragraphs {
+      margin-left: 0;
+    }
+    .first {
+      color: #385fe2;
+      margin-right: 10px;
+    }
   }
 }
 </style>
