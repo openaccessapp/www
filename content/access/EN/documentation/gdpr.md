@@ -1,6 +1,6 @@
 last updated on 4 August 2020
 
-# /We take your privacy seriously
+# We take your privacy seriously
 
 AccessApp ("AccessApp," "we," "us," and "our") is committed to protecting the privacy of all its users. We understand and value the importance of keeping the visitor's experience with AccessApp safe and secure. If you have any additional privacy or security questions after reading this information, please contact us. This Privacy Policy governs how we collect and use your information when you use our website, mobile apps, and related services ("Services").
 
