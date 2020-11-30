@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import SafeAndHealthy from "@content/EN/safe-and-healthy.yaml";
-import SafeAndHealthyDe from "@content/DE/safe-and-healthy.yaml";
+import SafeAndHealthy from "@content/en/safe-and-healthy.yaml";
+import SafeAndHealthyDe from "@content/de/safe-and-healthy.yaml";
 export default {
   name: "SafeAndHealthy",
   data() {

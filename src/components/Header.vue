@@ -46,6 +46,12 @@
             </a>
           </div>
           <p>{{ information }}</p>
+          <div class="row documentation">
+            <router-link to="/en/documentation">
+              <p>{{ documentation }}</p></router-link
+            >
+            <img src="/assets/documentation_link_image.svg" />
+          </div>
         </div>
         <div class="col-xl-6 col-md-6 col-xs-6 col-12 phone">
           <div class="images">
@@ -74,8 +80,8 @@
 </template>
 
 <script>
-import header from "@content/EN/header.yaml";
-import headerDe from "@content/DE/header.yaml";
+import header from "@content/en/header.yaml";
+import headerDe from "@content/de/header.yaml";
 import FigureCircle from "../components/FigureCircle.vue";
 import Navigation from "../components/Navigation.vue";
 
@@ -100,6 +106,7 @@ export default {
       googlePlayLink: "",
       appStoreLink: "",
       information: "",
+      documentation: "",
       places: "",
       infoText: "",
       // OSI: "",
@@ -123,6 +130,7 @@ export default {
       this.googlePlayLink = data["google-play-link"];
       this.appStoreLink = data["app-store-link"];
       this.information = data["information"];
+      this.documentation = data["documentation"];
       this.places = data["places"];
       this.infoText = data["info-text"];
       // this.OSI = data.OSI;
@@ -161,6 +169,7 @@ p {
   font-size: 14px;
   color: #1e2f67;
   font-family: $font__descriptions;
+  margin-bottom: 0;
 }
 .position-left {
   text-align: left;
@@ -190,6 +199,16 @@ p {
     width: 245px;
     height: 72px;
     margin-right: 30px;
+  }
+}
+.documentation {
+  margin-left: 0;
+  margin-top: 20px;
+  align-items: flex-end;
+  p {
+    margin-right: 10px;
+    color: #385fe2;
+    font-size: 12px;
   }
 }
 .images {
