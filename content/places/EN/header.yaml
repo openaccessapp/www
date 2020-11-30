@@ -1,12 +1,11 @@
 navigation-text: Are you a Visitor? Download the
 button-text: Visitor App
-# link to the AccessApp Visitor website
-# TODO Rename to "visitor:"
 mobile-app: https://downloadaccess.app/
 description: Enable safe and easy visits.
 info-text: Places allows you to offer your visitors safe and easy visits. Download, enter your place or places, configure slots and you are ready to go. If you need help, check the contact section below and let us know.
 google-play-link: https://play.google.com/store/apps/details?id=app.downloadaccess.places
 app-store-link: https://apps.apple.com/us/app/accessapp-places/id1534039482
 information: This is not a tracing app. Nothing is stored on server. All the information is secured.
+documentation: Read the documentation in AccessAppDocs
 apps-text: Download the App
 image: "/assets/logo-text.svg"

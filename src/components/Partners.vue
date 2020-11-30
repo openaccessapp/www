@@ -37,8 +37,8 @@
   </div>
 </template>
 <script>
-import partners from "@content/EN/partners.yaml";
-import partnersDe from "@content/DE/partners.yaml";
+import partners from "@content/en/partners.yaml";
+import partnersDe from "@content/de/partners.yaml";
 export default {
   name: "Partners",
   data() {

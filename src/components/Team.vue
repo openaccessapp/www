@@ -68,8 +68,8 @@
 </template>
 
 <script>
-import team from "@content/EN/team.yaml";
-import teamDe from "@content/DE/team.yaml";
+import team from "@content/en/team.yaml";
+import teamDe from "@content/de/team.yaml";
 import FigureCircle from "../components/FigureCircle.vue";
 export default {
   name: "CustomerReviews",

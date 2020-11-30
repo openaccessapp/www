@@ -27,14 +27,20 @@
             </a>
           </div>
         </div>
+        <div class="row documentation">
+          <router-link to="/en/documentation">
+            <p>{{ documentation }}</p></router-link
+          >
+          <img src="/assets/documentation_link_image.svg" />
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import DownloadApp from "@content/EN/header.yaml";
-import DownloadAppDe from "@content/DE/header.yaml";
+import DownloadApp from "@content/en/header.yaml";
+import DownloadAppDe from "@content/de/header.yaml";
 import FigureCircle from "../components/FigureCircle.vue";
 export default {
   name: "DownloadApp",
@@ -44,6 +50,7 @@ export default {
       googlePLay: "",
       appStore: "",
       appsText: "",
+      documentation: "",
     };
   },
   watch: {
@@ -63,6 +70,7 @@ export default {
       this.googlePLay = data["google-play-link"];
       this.appStore = data["app-store-link"];
       this.appsText = data["apps-text"];
+      this.documentation = data["documentation"];
     },
   },
 };
@@ -82,6 +90,18 @@ h2 {
 .app-store-design {
   width: 210px;
   height: 62px;
+}
+.documentation {
+  margin: 50px 0 0 0;
+  justify-content: center;
+  align-items: flex-end;
+  p {
+    margin-right: 10px;
+    color: #385fe2;
+    margin-bottom: 0;
+    font-size: 12px;
+    font-weight: 400;
+  }
 }
 @media only screen and (min-width: 768px) {
   .row {

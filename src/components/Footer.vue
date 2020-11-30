@@ -51,8 +51,8 @@
 </template>
 
 <script>
-import footer from "@content/EN/footer.yaml";
-import footerDe from "@content/DE/footer.yaml";
+import footer from "@content/en/footer.yaml";
+import footerDe from "@content/de/footer.yaml";
 import FigureCircle from "../components/FigureCircle.vue";
 export default {
   name: "CustomerReviews",
