@@ -25,7 +25,7 @@
           <p class="person-description">{{ person.description }}</p>
         </div>
       </div>
-      <div class="row content">
+      <div class="row content info-contacts">
         <div
           class="col-xl-4 col-md-4 col-xs-4 col-12"
           v-for="person of people"
@@ -53,7 +53,7 @@
                   ><p>{{ person.twitter }}</p></a
                 >
               </div>
-               <div class="row">
+              <div class="row">
                 <img v-if="person.linkedin" src="/assets/team-linkedin.svg" />
                 <a :href="person.linkedin" target="_blank"
                   ><p>{{ person.linkedin }}</p></a
@@ -175,6 +175,14 @@ export default {
   }
   .team .content {
     margin-top: 0;
+  }
+}
+@media only screen and (max-width: 578px) {
+  .info-contacts {
+    flex-direction: column-reverse;
+    .lines {
+      margin-top: 25px;
+    }
   }
 }
 </style>

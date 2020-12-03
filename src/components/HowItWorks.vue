@@ -3,22 +3,22 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <h2 class="title title-size">{{title}}</h2>
+          <h2 class="title title-size">{{ title }}</h2>
         </div>
       </div>
       <div class="row content">
         <div class="col-md-12 col-lg-4 col-xl-4 col-sm-12 col-12 text-section">
           <div class="section" v-if="sections[0]">
-            <h3 class="title title-name">{{sections[0].title}}</h3>
+            <h3 class="title title-name">{{ sections[0].title }}</h3>
             <div class="find">
-              <p class="text">{{sections[0].text}}</p>
+              <p class="text">{{ sections[0].text }}</p>
               <img class="first-step" src="/assets/step1.svg" />
             </div>
           </div>
           <div class="section mt-5" v-if="sections[1]">
-            <h3 class="title title-name">{{sections[1].title}}</h3>
+            <h3 class="title title-name">{{ sections[1].title }}</h3>
             <div class="plan">
-              <p class="text">{{sections[1].text}}</p>
+              <p class="text">{{ sections[1].text }}</p>
               <img class="second-step" src="/assets/step2.svg" />
             </div>
           </div>
@@ -28,11 +28,13 @@
             <img class="how-it-works-image" src="assets/how-it-works.png" />
           </div>
         </div>
-        <div class="col-md-12 col-lg-4 col-xl-4 col-sm-12 col-12 text-section download-position">
+        <div
+          class="col-md-12 col-lg-4 col-xl-4 col-sm-12 col-12 text-section download-position"
+        >
           <div class="section" v-if="sections[2]">
-            <h3 class="title title-name">{{sections[2].title}}</h3>
+            <h3 class="title title-name">{{ sections[2].title }}</h3>
             <div class="download">
-              <p class="text">{{sections[2].text}}</p>
+              <p class="text">{{ sections[2].text }}</p>
               <img class="third-step" src="/assets/step2.svg" />
             </div>
           </div>
@@ -158,6 +160,36 @@ export default {
       &:hover {
         .third-step {
           display: block;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 578px) {
+  .how-it-works {
+    .mock-image {
+      display: none;
+    }
+    .text-section {
+      .find {
+        &:hover {
+          .first-step {
+            display: none;
+          }
+        }
+      }
+      .plan {
+        &:hover {
+          .second-step {
+            display: none;
+          }
+        }
+      }
+      .download {
+        &:hover {
+          .third-step {
+            display: none;
+          }
         }
       }
     }
