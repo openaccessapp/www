@@ -68,8 +68,8 @@
 </template>
  
 <script>
-import documentation from "@content/en/documentation/documentation.yaml";
-import marked from "marked";
+import documentation from "@content/en/documentation.yaml";
+// import marked from "marked";
 import Footer from "./Footer";
 export default {
   name: "Documentation",
@@ -136,9 +136,9 @@ export default {
     },
     updateContent(link) {
       this.content = link;
-      this.html = marked(
-        require(`@content/en/documentation/${this.content}.md`).default
-      );
+      // this.html = marked(
+      //   require(`@content/en/${this.content}.md`).default
+      // );
     },
   },
 };
