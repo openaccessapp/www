@@ -29,7 +29,7 @@
 </template>
  
 <script>
-import documentation from "@content/en/documentation/documentation.yaml";
+import documentation from "@content/en/documentation.yaml";
 // import marked from "marked";
 import Footer from "./Footer";
 export default {
@@ -66,31 +66,31 @@ export default {
       // this.addOpenedProperty();
       // this.isDocumentActive();
     },
-    // addOpenedProperty() {
-    //   this.mainPage = this.mainPage.map((page) => ({
-    //     ...page,
-    //     opened: false,
-    //     subPage: (page.subPage || []).map((sub) => ({
-    //       ...sub,
-    //       opened: false,
-    //       documents: (sub.documents || []).map((doc) => ({
-    //         ...doc,
-    //         opened: false,
-    //       })),
-    //     })),
-    //   }));
-    // },
-    // isDocumentActive() {
-    //   if (this.page.opened == false || this.sub.opened == false) {
-    //     this.doc.opened = false;
-    //   }
-    // },
-    // updateContent(link) {
-    //   this.content = link;
-    //   this.html = marked(
-    //     require(`@content/en/documentation/${this.content}.md`).default
-    //   );
-    // },
+    addOpenedProperty() {
+      this.mainPage = this.mainPage.map((page) => ({
+        ...page,
+        opened: false,
+        subPage: (page.subPage || []).map((sub) => ({
+          ...sub,
+          opened: false,
+          documents: (sub.documents || []).map((doc) => ({
+            ...doc,
+            opened: false,
+          })),
+        })),
+      }));
+    },
+    isDocumentActive() {
+      if (this.page.opened == false || this.sub.opened == false) {
+        this.doc.opened = false;
+      }
+    },
+    updateContent(link) {
+      this.content = link;
+      // this.html = marked(
+      //   require(`@content/en/${this.content}.md`).default
+      // );
+    },
   },
 };
 </script> 

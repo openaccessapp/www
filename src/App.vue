@@ -5,13 +5,27 @@
 </template>
 
 <script>
+import contentTree from './_content.json'
 export default {
   name: "App",
   mounted() {
     if (!this.$router.history.current.params.lang) {
       this.$router.push("en");
     }
-  },
+    let lang = 'en';
+    let docContent = contentTree.children.find(c => c.name === lang)
+    docContent.children.forEach(page => {
+      
+      import(`@content/en/${page.path}.md`)
+        .then(body => {
+          console.log('The page object can be used to generate routes, build navigations, and more...')
+          console.log(page)
+          console.log('The body string can be rendered when needed...')
+          console.log(body)
+        })
+        .catch(error => console.error(error))
+    })
+  }
 };
 </script>
 
