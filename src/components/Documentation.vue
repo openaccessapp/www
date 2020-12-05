@@ -9,7 +9,7 @@
       <p class="start">
         {{ getStarted }}
       </p>
-    
+      <div>{{ document }}</div>
     </div>
 
     <div class="center col-8">
@@ -30,8 +30,9 @@
  
 <script>
 import documentation from "@content/en/documentation.yaml";
-// import marked from "marked";
+import marked from "marked";
 import Footer from "./Footer";
+import contentTree from "../_content.json";
 export default {
   name: "Documentation",
   components: {
@@ -45,6 +46,9 @@ export default {
       // html: "",
       question: "",
       paragraphs: [],
+      content: {},
+      document: "",
+      path: "",
     };
   },
   watch: {
@@ -54,6 +58,23 @@ export default {
   },
   mounted() {
     this.init();
+    if (!this.$router.history.current.params.lang) {
+      this.$router.push("en");
+    }
+    let lang = "en";
+    let docContent = contentTree.children.find((c) => c.name === lang);
+    docContent.children.forEach((page) => {
+      import(`@content/en/${page.path}.md`)
+        .then((body) => {
+          console.log(
+            "The page object can be used to generate routes, build navigations, and more..."
+          );
+          console.log(page);
+          console.log("The body string can be rendered when needed...");
+          console.log(body);
+        })
+        .catch((error) => console.error(error));
+    });
   },
   methods: {
     init() {
@@ -62,34 +83,16 @@ export default {
       this.getStarted = documentation.getStarted;
       this.question = documentation.question;
       this.paragraphs = documentation.paragraphs;
-
-      // this.addOpenedProperty();
-      // this.isDocumentActive();
+      this.content = contentTree;
+      this.path = contentTree.path;
+      this.renderContent();
     },
-    addOpenedProperty() {
-      this.mainPage = this.mainPage.map((page) => ({
-        ...page,
-        opened: false,
-        subPage: (page.subPage || []).map((sub) => ({
-          ...sub,
-          opened: false,
-          documents: (sub.documents || []).map((doc) => ({
-            ...doc,
-            opened: false,
-          })),
-        })),
-      }));
-    },
-    isDocumentActive() {
-      if (this.page.opened == false || this.sub.opened == false) {
-        this.doc.opened = false;
+    renderContent(content, path) {
+      if (!this.children) {
+        this.document = marked(require(`${path}/README.md`));
+        return;
       }
-    },
-    updateContent(link) {
-      this.content = link;
-      // this.html = marked(
-      //   require(`@content/en/${this.content}.md`).default
-      // );
+      this.renderContent();
     },
   },
 };
