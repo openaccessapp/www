@@ -12,6 +12,7 @@
 
       <figure-circle
         color="white"
+        class="right-circle"
         :zIndex="0"
         :right="-200"
         :isFilled="true"
@@ -19,6 +20,7 @@
       ></figure-circle>
       <figure-circle
         color="#385fe2"
+        class="blue-circle"
         :zIndex="1"
         :right="-200"
         :isFilled="false"
@@ -34,6 +36,11 @@
         <div class="col-xl-6 col-md-6 col-xs-6 col-12 position-left">
           <p class="description">{{ description }}</p>
           <p class="info-text">{{ infoText }}</p>
+          <div class="phone-mobile-only">
+            <div class="images">
+              <img class="people-image" src="assets/phone-app.png" />
+            </div>
+          </div>
           <div class="google-and-apple-position">
             <a :href="googlePlayLink">
               <img
@@ -45,7 +52,7 @@
               <img class="apple-position" src="assets/app-store.png" />
             </a>
           </div>
-          <p>{{ information }}</p>
+          <p class="information">{{ information }}</p>
           <div class="row documentation">
             <router-link to="/en/documentation">
               <p>{{ documentation }}</p></router-link
@@ -59,7 +66,14 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 100 100"
+        preserveAspectRatio="none"
+      >
+        <polygon fill="#FCFDFF" points="0,100 100,0 100,100" />
+      </svg>
+      <div class="row scroll">
         <div class="col-12">
           <p class="scroll-design">Scroll</p>
           <div class="lines"></div>
@@ -68,14 +82,6 @@
         </div>
       </div>
     </div>
-
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 100 100"
-      preserveAspectRatio="none"
-    >
-      <polygon fill="#FCFDFF" points="0,100 100,0 100,100" />
-    </svg>
   </div>
 </template>
 
@@ -148,7 +154,7 @@ export default {
 .header {
   position: relative;
   background-color: $color__header-background;
-  height: 110vh;
+  height: 1030px;
   .container {
     margin-top: 0;
     .left-circle {
@@ -165,7 +171,7 @@ export default {
     /* set height to pixels if you want angle to change with screen width */
   }
 }
-p {
+.information {
   font-size: 14px;
   color: #1e2f67;
   font-family: $font__descriptions;
@@ -192,12 +198,16 @@ p {
   width: 678px;
   height: 65px;
 }
+.phone-mobile-only {
+  display: none;
+}
 .google-and-apple-position {
   margin-bottom: 30px;
   margin-top: 60px;
-  img.google-position {
-    width: 245px;
-    height: 72px;
+  img.google-position,
+  img.apple-position {
+    width: 207px;
+    height: 61px;
     margin-right: 30px;
   }
 }
@@ -209,6 +219,7 @@ p {
     margin-right: 10px;
     color: #385fe2;
     font-size: 12px;
+    margin-bottom: 0;
   }
 }
 .images {
@@ -223,67 +234,140 @@ img.position {
 .images {
   .people-image {
     position: relative;
-    width: 360px;
-    height: 770px;
     z-index: 2;
     margin-left: 300px;
     margin-top: 80px;
+    height: auto;
+    width: 250px;
   }
 }
+.scroll {
+  .scroll-design {
+    font-family: "Rubik", sans-serif;
+    font-size: 18px;
+    color: #1e2f67;
+    margin-bottom: 0px;
+  }
 
-.scroll-design {
-  font-family: "Rubik", sans-serif;
-  font-size: 18px;
-  color: #1e2f67;
-  margin-bottom: 0px;
-}
+  .lines {
+    width: 3px;
+    height: 5px;
+    border-bottom: 30px solid #1e2f67;
+    border-radius: 10px;
+    margin: 0 auto;
+  }
 
-.lines {
-  width: 3px;
-  height: 5px;
-  border-bottom: 30px solid #1e2f67;
-  border-radius: 10px;
-  margin: 0 auto;
-}
-
-.lines2 {
-  width: 3px;
-  height: 5px;
-  border-bottom: 30px solid #1e2f67;
-  border-radius: 10px;
-  margin: 5px auto;
+  .lines2 {
+    width: 3px;
+    height: 5px;
+    border-bottom: 30px solid #1e2f67;
+    border-radius: 10px;
+    margin: 5px auto;
+  }
 }
 
 .image-design {
   width: 25px;
   height: 15px;
 }
-
-@media only screen and (max-width: 1536px) {
+@media only screen and (max-width: 415px) {
   .header {
-    height: 1000px;
-  }
-  .google-and-apple-position {
-    img.google-position,
-    img.apple-position {
-      width: 207px;
-      height: 61px;
-    }
-  }
-  .images {
-    .people-image {
-      height: auto;
-      width: 250px;
+    background-size: calc(100% - 100px);
+    .container {
+      .left-circle {
+        top: -99px !important ;
+        left: -183px !important ;
+        width: 299px;
+        height: 299px;
+      }
+      .right-circle {
+        top: 79px !important;
+        left: 209px !important;
+        width: 452px;
+        height: 452px;
+      }
+      .blue-circle {
+        top: 227px !important;
+        left: 222px !important;
+        width: 447px;
+        height: 447px;
+      }
+      .documentation {
+        margin-right: 0;
+      }
     }
   }
 }
-
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 769px) {
   .header {
-    height: 1125px;
-    overflow: hidden;
+    height: auto;
+    overflow-x: hidden;
+    .container {
+      max-width: 768px;
+      .left-circle {
+        top: -99px !important ;
+        left: -183px !important ;
+        width: 299px;
+        height: 299px;
+      }
+      .right-circle {
+        top: 79px !important;
+        left: 209px !important;
+        width: 452px;
+        height: 452px;
+      }
+      .blue-circle {
+        top: 227px !important;
+        left: 222px !important;
+        width: 447px;
+        height: 447px;
+      }
+      .position-left {
+        text-align: unset;
+        margin: 0 auto;
+        height: 1200px;
+        .description {
+          font-size: 30px;
+          width: 280px;
+          margin: 65px auto 20px;
+        }
+        .google-and-apple-position {
+          max-width: 210px;
+          margin: 35px auto 0;
+          img {
+            margin-bottom: 25px;
+          }
+        }
+        .info-text {
+          font-size: 16px;
+          width: 280px;
+          height: auto;
+          margin: 0 auto;
+        }
+        .information {
+          width: 275px;
+          margin: 0 auto;
+          text-align: left;
+        }
+        .documentation {
+          justify-content: center;
+          p {
+            margin-bottom: 0;
+          }
+        }
+      }
+      .phone-mobile-only {
+        display: block;
+        img {
+          margin: 25px auto 0px;
+        }
+      }
+      .phone {
+        display: none;
+      }
+    }
   }
-  .phone {
+  .scroll {
     display: none;
   }
 }

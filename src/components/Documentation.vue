@@ -9,50 +9,11 @@
       <p class="start">
         {{ getStarted }}
       </p>
-      <div
-        v-for="(page, index) in mainPage"
-        :key="index.name"
-        class="parent"
-        :class="{ active: page.opened == true }"
-      >
-        <p
-          v-if="page.name"
-          class="mainPage"
-          @click="page.opened = !page.opened"
-        >
-          {{ page.name }}
-        </p>
-        <div v-if="page && page.opened">
-          <div
-            v-for="(sub, index) in page.subPage"
-            :key="index.name"
-            class="child"
-          >
-            <p
-              v-if="sub.name"
-              @click="sub.opened = !sub.opened"
-              class="childPage"
-            >
-              {{ sub.name }}
-            </p>
-            <div v-if="sub.opened">
-              <div
-                v-for="(doc, index) in sub.documents"
-                :key="index.name"
-                class="grandChild"
-              >
-                <p @click="(doc.opened = !doc.opened), updateContent(doc.link)">
-                  {{ doc.document }}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    
     </div>
 
     <div class="center col-8">
-      <div class="md-position" v-html="html"></div>
+      <!-- <div class="md-position" v-html="html"></div> -->
     </div>
     <div class="help">
       <hr class="line" />
@@ -69,7 +30,7 @@
  
 <script>
 import documentation from "@content/en/documentation/documentation.yaml";
-import marked from "marked";
+// import marked from "marked";
 import Footer from "./Footer";
 export default {
   name: "Documentation",
@@ -78,18 +39,10 @@ export default {
   },
   data() {
     return {
-      data: {},
-      mainPage: [
-        {
-          subPage: [],
-        },
-      ],
       logo: "",
       logoText: "",
       getStarted: "",
-      html: "",
-      link: "",
-      content: "",
+      // html: "",
       question: "",
       paragraphs: [],
     };
@@ -104,42 +57,40 @@ export default {
   },
   methods: {
     init() {
-      this.mainPage = documentation.mainPage;
       this.logo = documentation.logo;
       this.logoText = documentation.logoText;
       this.getStarted = documentation.getStarted;
-      this.link = documentation.link;
       this.question = documentation.question;
       this.paragraphs = documentation.paragraphs;
 
-      this.addOpenedProperty();
+      // this.addOpenedProperty();
       // this.isDocumentActive();
     },
-    addOpenedProperty() {
-      this.mainPage = this.mainPage.map((page) => ({
-        ...page,
-        opened: false,
-        subPage: (page.subPage || []).map((sub) => ({
-          ...sub,
-          opened: false,
-          documents: (sub.documents || []).map((doc) => ({
-            ...doc,
-            opened: false,
-          })),
-        })),
-      }));
-    },
-    isDocumentActive() {
-      if (this.page.opened == false || this.sub.opened == false) {
-        this.doc.opened = false;
-      }
-    },
-    updateContent(link) {
-      this.content = link;
-      this.html = marked(
-        require(`@content/en/documentation/${this.content}.md`).default
-      );
-    },
+    // addOpenedProperty() {
+    //   this.mainPage = this.mainPage.map((page) => ({
+    //     ...page,
+    //     opened: false,
+    //     subPage: (page.subPage || []).map((sub) => ({
+    //       ...sub,
+    //       opened: false,
+    //       documents: (sub.documents || []).map((doc) => ({
+    //         ...doc,
+    //         opened: false,
+    //       })),
+    //     })),
+    //   }));
+    // },
+    // isDocumentActive() {
+    //   if (this.page.opened == false || this.sub.opened == false) {
+    //     this.doc.opened = false;
+    //   }
+    // },
+    // updateContent(link) {
+    //   this.content = link;
+    //   this.html = marked(
+    //     require(`@content/en/documentation/${this.content}.md`).default
+    //   );
+    // },
   },
 };
 </script> 

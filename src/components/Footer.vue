@@ -11,6 +11,7 @@
     ></figure-circle>
     <figure-circle
       color="#DDFFF7"
+      class="green"
       :zIndex="0"
       :left="-320"
       :isFilled="true"
@@ -219,6 +220,25 @@ export default {
     }
   }
 }
+@media only screen and (max-width: 415px) {
+  .footer.container {
+    .container-links {
+      .info {
+        margin: 0 auto 60px !important;
+      }
+    }
+    .custom-circle {
+      display: none;
+    }
+    .green {
+      top: 6451px !important;
+      left: 249px !important;
+      width: 777px;
+      height: 777px;
+      z-index: 0;
+    }
+  }
+}
 @media only screen and (max-width: 769px) {
   .footer.container {
     overflow-x: hidden;
@@ -233,6 +253,7 @@ export default {
         p {
           margin: 0 auto 60px;
           text-align: left;
+          width: 320px;
         }
         img {
           margin-bottom: 20px;
@@ -243,6 +264,7 @@ export default {
         p {
           text-align: left;
           margin: 0 auto;
+          width: 320px;
         }
         img {
           margin-bottom: 20px;

@@ -23,14 +23,7 @@
           <h3 class="person-name">{{ person.name }}</h3>
           <p class="person-place">{{ person.place }}</p>
           <p class="person-description">{{ person.description }}</p>
-        </div>
-      </div>
-      <div class="row content info-contacts">
-        <div
-          class="col-xl-4 col-md-4 col-xs-4 col-12"
-          v-for="person of people"
-          :key="person.name"
-        >
+
           <div
             v-if="person.email || person.number || person.twiter"
             class="lines"
@@ -142,7 +135,7 @@ export default {
 .lines {
   width: 175px;
   border-bottom: 1px solid #dbddeb;
-  margin: 0 auto;
+  margin: 35px auto 0;
 }
 .content {
   margin-top: 35px;

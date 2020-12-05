@@ -1,21 +1,6 @@
 logo: logo-documentation.svg
 logoText: AccessApp Docs
 getStarted: Get started
-mainPage: 
- - name: Documentation page
-   subPage: 
-     - name: Documentation Sub-Page
-       documents:
-       - document: page one
-         link: privacy
-       - document: page two
-         link: gdpr
-     - name: Documentation Sub-Page
-       documents: 
-       - document: page one
-         link: privacy
-       - document: page two
-         link: gdpr
 question: Still need help?
 paragraphs:
       - Contact us
