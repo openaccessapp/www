@@ -69,15 +69,19 @@ export default {
 </script>
 <style lang="scss">
 @import "../../public/assets/scss/main.scss";
+.container {
+  margin-top: 0;
+}
 .partners {
   width: 1300px;
   margin: 0 auto;
+
   .header {
     font-family: $font__family;
     font-size: 40px;
     color: #1e2f67;
     text-align: center;
-    margin: 280px auto 85px;
+    margin: 250px auto 0px;
     align-items: center;
   }
 
@@ -171,6 +175,7 @@ export default {
     }
   }
 }
+
 @media only screen and (max-width: 415px) {
   .partners.container {
     width: auto;

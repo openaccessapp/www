@@ -222,20 +222,20 @@ export default {
 }
 @media only screen and (max-width: 415px) {
   .footer.container {
-    .container-links {
-      .info {
-        margin: 0 auto 60px !important;
-      }
-    }
     .custom-circle {
       display: none;
     }
+    .container-links {
+      .info {
+        margin-left: 135px !important;
+      }
+    }
     .green {
-      top: 6451px !important;
+      top: 6736px !important;
       left: 249px !important;
       width: 777px;
       height: 777px;
-      z-index: 0;
+      z-index: 0 !important;
     }
   }
 }
@@ -256,6 +256,7 @@ export default {
           width: 320px;
         }
         img {
+          margin-top: 60px; 
           margin-bottom: 20px;
         }
       }
@@ -275,7 +276,7 @@ export default {
       flex-direction: column;
       .info {
         -webkit-order: 1;
-        margin: 0 auto 60px !important;
+        // margin: 0 auto 60px ;
       }
       .text {
         -webkit-order: 4;

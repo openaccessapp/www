@@ -311,14 +311,14 @@ img.position {
         height: 299px;
       }
       .right-circle {
-        top: 79px !important;
-        left: 209px !important;
+        top: 160px !important;
+        right: -209px !important;
         width: 452px;
         height: 452px;
       }
       .blue-circle {
-        top: 227px !important;
-        left: 222px !important;
+        top: 330px !important;
+        right: -222px !important;
         width: 447px;
         height: 447px;
       }

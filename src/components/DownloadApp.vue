@@ -102,6 +102,9 @@ h2 {
     font-size: 12px;
     font-weight: 400;
   }
+  img {
+    z-index: 1;
+  }
 }
 @media only screen and (min-width: 768px) {
   .row {

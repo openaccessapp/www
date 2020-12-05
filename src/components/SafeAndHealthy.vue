@@ -56,6 +56,8 @@ export default {
 @import "../../public/assets/scss/main.scss";
 
 .safe-healthy {
+  margin-bottom: 245px;
+  margin-top: 260px;
   .container-fluid {
     display: flex;
     width: 100%;
@@ -105,6 +107,8 @@ export default {
     margin-top: 50px;
   }
   .safe-healthy {
+    margin-top: 150px;
+    margin-bottom: 80px;
     .container-fluid {
       display: block;
       width: auto;
