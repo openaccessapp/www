@@ -1,23 +1,39 @@
 <template>
   <div class="customer-reviews">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 100 100"
+      preserveAspectRatio="none"
+    >
       <polygon fill="white" points="0,0 0,100 100,0" />
     </svg>
     <div class="center">
       <div class="row">
         <div class="col-12">
-          <h2 class="title">{{title}}</h2>
+          <h2 class="title">{{ title }}</h2>
         </div>
       </div>
       <div class="container">
-        <figure-circle color="#F7F7FA" :zIndex="0" :left="-400" :isFilled="false" :top="250"></figure-circle>
-        <figure-circle color="#F7F7FA" :zIndex="0" :right="-300" :isFilled="false" :top="500"></figure-circle>
+        <figure-circle
+          color="#F7F7FA"
+          :zIndex="0"
+          :left="-400"
+          :isFilled="false"
+          :top="250"
+        ></figure-circle>
+        <figure-circle
+          color="#F7F7FA"
+          :zIndex="0"
+          :right="-300"
+          :isFilled="false"
+          :top="500"
+        ></figure-circle>
         <carousel :perPage="1">
-          <slide v-for="(customer) of reviews" :key="customer.name">
+          <slide v-for="customer of reviews" :key="customer.name">
             <img :src="customer['avatar-link']" class="person-avatar" />
-            <p class="bold">{{customer.name}}</p>
-            <p class="position-style">{{customer.position}}</p>
-            <h4 class="person-description-style">"{{customer.review}}"</h4>
+            <p class="bold">{{ customer.name }}</p>
+            <p class="position-style">{{ customer.position }}</p>
+            <h4 class="person-description-style">"{{ customer.review }}"</h4>
           </slide>
         </carousel>
       </div>
@@ -141,7 +157,35 @@ export default {
   color: #385fe2;
   margin-bottom: 8px;
 }
-
+@media only screen and (max-width: 415px) {
+  .customer-reviews {
+    margin-top: 20px;
+    .container {
+      padding-top: 0;
+      height: 315px;
+    }
+    svg {
+      height: 50vw;
+    }
+    .center {
+      margin-top: 115px;
+      .title {
+        font-size: 25px;
+      }
+    }
+    .person-avatar {
+      width: 60px;
+      height: 60px;
+      margin-top: 30px;
+    }
+    .position-style {
+      font-size: 14px;
+    }
+    .person-description-style {
+      font-size: 16px;
+    }
+  }
+}
 @media only screen and (max-width: 768px) {
   .person-description-style {
     width: 90%;

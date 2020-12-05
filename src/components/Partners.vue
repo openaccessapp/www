@@ -1,7 +1,7 @@
 <template>
-  <div class="partners">
+  <div class="partners container">
     <div class="row title">
-      <p class="header">{{text}}</p>
+      <p class="header">{{ text }}</p>
     </div>
     <div class="row information">
       <div
@@ -11,23 +11,23 @@
       >
         <div class="partners-content">
           <img class="logo" :src="partners.image" />
-          <p class="title">{{partners.title}}</p>
-          <p class="description">{{partners.description}}</p>
+          <p class="title">{{ partners.title }}</p>
+          <p class="description">{{ partners.description }}</p>
           <div class="lines" />
           <div class="contacts">
             <div class="center">
-              <p class="name">{{partners.name}}</p>
+              <p class="name">{{ partners.name }}</p>
               <div class="row">
                 <img :src="partners['email-image']" />
-                <p>{{partners.email}}</p>
+                <p>{{ partners.email }}</p>
               </div>
               <div class="row">
                 <img :src="partners['number-image']" />
-                <p>{{partners.number}}</p>
+                <p>{{ partners.number }}</p>
               </div>
               <div class="row">
                 <img :src="partners['twitter-image']" />
-                <p>{{partners.twitter}}</p>
+                <p>{{ partners.twitter }}</p>
               </div>
             </div>
           </div>
@@ -69,6 +69,9 @@ export default {
 </script>
 <style lang="scss">
 @import "../../public/assets/scss/main.scss";
+.container {
+  margin-top: 0;
+}
 .partners {
   width: 1300px;
   margin: 0 auto;
@@ -78,7 +81,7 @@ export default {
     font-size: 40px;
     color: #1e2f67;
     text-align: center;
-    margin: 280px auto 85px;
+    margin: 250px auto 0px;
     align-items: center;
   }
 
@@ -89,7 +92,6 @@ export default {
     height: 890px;
 
     .partners-cards {
-      height: 445px;
       justify-content: center;
       display: flex;
       flex-direction: column;
@@ -171,6 +173,32 @@ export default {
     &.title {
       height: auto;
     }
+  }
+}
+
+@media only screen and (max-width: 415px) {
+  .partners.container {
+    width: auto;
+    margin-top: 0 !important;
+  }
+}
+
+@media only screen and (max-width: 769px) {
+  .partners {
+    .title {
+      .header {
+        margin-top: 85px;
+        margin-bottom: 0px;
+      }
+    }
+    .row.information {
+      .partners-cards {
+        max-width: 320px;
+      }
+    }
+  }
+  .container {
+    margin-top: 0px;
   }
 }
 </style>

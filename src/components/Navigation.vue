@@ -133,13 +133,22 @@ export default {
   border-radius: 10px;
   margin-left: 5px;
 }
-
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 415px) {
   .nav {
     .logo-position {
-      display: flex;
-      justify-content: center;
+      .row {
+        img {
+          width: 105px;
+          height: 30px;
+          margin-right: 40px;
+          margin-left: 40px;
+        }
+      }
     }
+  }
+}
+@media only screen and (max-width: 769px) {
+  .nav {
     .languages {
       position: absolute;
       top: -75px;
@@ -147,6 +156,7 @@ export default {
     }
 
     .nav-text-button {
+      display: none;
       > div {
         flex-direction: column;
         align-items: center;

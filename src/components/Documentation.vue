@@ -9,50 +9,11 @@
       <p class="start">
         {{ getStarted }}
       </p>
-      <div
-        v-for="(page, index) in mainPage"
-        :key="index.name"
-        class="parent"
-        :class="{ active: page.opened == true }"
-      >
-        <p
-          v-if="page.name"
-          class="mainPage"
-          @click="page.opened = !page.opened"
-        >
-          {{ page.name }}
-        </p>
-        <div v-if="page && page.opened">
-          <div
-            v-for="(sub, index) in page.subPage"
-            :key="index.name"
-            class="child"
-          >
-            <p
-              v-if="sub.name"
-              @click="sub.opened = !sub.opened"
-              class="childPage"
-            >
-              {{ sub.name }}
-            </p>
-            <div v-if="sub.opened">
-              <div
-                v-for="(doc, index) in sub.documents"
-                :key="index.name"
-                class="grandChild"
-              >
-                <p @click="(doc.opened = !doc.opened), updateContent(doc.link)">
-                  {{ doc.document }}
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div>{{ document }}</div>
     </div>
 
     <div class="center col-8">
-      <div class="md-position" v-html="html"></div>
+      <!-- <div class="md-position" v-html="html"></div> -->
     </div>
     <div class="help">
       <hr class="line" />
@@ -68,9 +29,10 @@
 </template>
  
 <script>
-import documentation from "@content/en/documentation/documentation.yaml";
+import documentation from "@content/en/documentation.yaml";
 import marked from "marked";
 import Footer from "./Footer";
+import contentTree from "../_content.json";
 export default {
   name: "Documentation",
   components: {
@@ -78,20 +40,15 @@ export default {
   },
   data() {
     return {
-      data: {},
-      mainPage: [
-        {
-          subPage: [],
-        },
-      ],
       logo: "",
       logoText: "",
       getStarted: "",
-      html: "",
-      link: "",
-      content: "",
+      // html: "",
       question: "",
       paragraphs: [],
+      content: {},
+      document: "",
+      path: "",
     };
   },
   watch: {
@@ -101,44 +58,41 @@ export default {
   },
   mounted() {
     this.init();
+    if (!this.$router.history.current.params.lang) {
+      this.$router.push("en");
+    }
+    let lang = "en";
+    let docContent = contentTree.children.find((c) => c.name === lang);
+    docContent.children.forEach((page) => {
+      import(`@content/en/${page.path}.md`)
+        .then((body) => {
+          console.log(
+            "The page object can be used to generate routes, build navigations, and more..."
+          );
+          console.log(page);
+          console.log("The body string can be rendered when needed...");
+          console.log(body);
+        })
+        .catch((error) => console.error(error));
+    });
   },
   methods: {
     init() {
-      this.mainPage = documentation.mainPage;
       this.logo = documentation.logo;
       this.logoText = documentation.logoText;
       this.getStarted = documentation.getStarted;
-      this.link = documentation.link;
       this.question = documentation.question;
       this.paragraphs = documentation.paragraphs;
-
-      this.addOpenedProperty();
-      // this.isDocumentActive();
+      this.content = contentTree;
+      this.path = contentTree.path;
+      this.renderContent();
     },
-    addOpenedProperty() {
-      this.mainPage = this.mainPage.map((page) => ({
-        ...page,
-        opened: false,
-        subPage: (page.subPage || []).map((sub) => ({
-          ...sub,
-          opened: false,
-          documents: (sub.documents || []).map((doc) => ({
-            ...doc,
-            opened: false,
-          })),
-        })),
-      }));
-    },
-    isDocumentActive() {
-      if (this.page.opened == false || this.sub.opened == false) {
-        this.doc.opened = false;
+    renderContent(content, path) {
+      if (!this.children) {
+        this.document = marked(require(`${path}/README.md`));
+        return;
       }
-    },
-    updateContent(link) {
-      this.content = link;
-      this.html = marked(
-        require(`@content/en/documentation/${this.content}.md`).default
-      );
+      this.renderContent();
     },
   },
 };

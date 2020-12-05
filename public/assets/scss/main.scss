@@ -27,11 +27,7 @@ body {
     margin-top: 75px;
 }
 
-.container,
-.container-fluid {
-    margin-top: 150px;
-    // position: relative;
-}
+
 
 #app {
     background-color: $color__background;
@@ -46,6 +42,12 @@ body {
     max-height: 140px;
 }
 
+@media only screen and (max-width: 415px) {
+    .container {
+        margin-top: 0px;
+    }
+}
+
 @media only screen and (max-width: 768px) {
     .person-avatar {
         margin-top: 50px;
@@ -55,7 +57,5 @@ body {
         margin-top: 0;
     }
 
-    .circle {
-        display: none
-    }
+
 }

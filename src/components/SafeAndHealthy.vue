@@ -9,8 +9,8 @@
         </div>
         <div class="col-xl-6 col-md-6 col-xs-6 col-12">
           <div class="usage-description">
-            <h3>{{title}}</h3>
-            <p>{{description}}</p>
+            <h3>{{ title }}</h3>
+            <p>{{ description }}</p>
           </div>
         </div>
       </div>
@@ -56,6 +56,8 @@ export default {
 @import "../../public/assets/scss/main.scss";
 
 .safe-healthy {
+  margin-bottom: 245px;
+  margin-top: 260px;
   .container-fluid {
     display: flex;
     width: 100%;
@@ -89,11 +91,24 @@ export default {
   }
 }
 
+@media only screen and (max-width: 415px) {
+  .safe-healthy {
+    .usage-description h3 {
+      font-size: 25px;
+    }
+    p {
+      font-size: 16px;
+      max-width: 280px;
+    }
+  }
+}
 @media only screen and (max-width: 768px) {
   .usage-description {
     margin-top: 50px;
   }
   .safe-healthy {
+    margin-top: 150px;
+    margin-bottom: 80px;
     .container-fluid {
       display: block;
       width: auto;

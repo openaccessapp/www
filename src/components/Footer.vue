@@ -11,6 +11,7 @@
     ></figure-circle>
     <figure-circle
       color="#DDFFF7"
+      class="green"
       :zIndex="0"
       :left="-320"
       :isFilled="true"
@@ -18,7 +19,7 @@
     ></figure-circle>
     <div class="row container-links">
       <img
-        class="col-xl-4 col-sm-4 col-md-4 col-4"
+        class="col-xl-4 col-sm-4 col-md-4 col-4 logo"
         src="/assets/logo-footer.svg"
       />
       <div class="col-xl-3 col-sm-4 col-6 col-md-4 col-xs-6 info">
@@ -45,7 +46,9 @@
           <p>{{ OStext }}</p>
         </div>
       </div>
-      <p class="description">{{ description }}</p>
+      <div class="text">
+        <p class="description">{{ description }}</p>
+      </div>
     </div>
   </div>
 </template>
@@ -69,7 +72,7 @@ export default {
       githubText: "",
       OS: "",
       OStext: "",
-      linkOSI: ""
+      linkOSI: "",
     };
   },
   watch: {
@@ -167,18 +170,21 @@ export default {
     // justify-content: space-between;
     align-items: center;
     padding: 50px 190px;
-    img {
+    .logo {
       max-width: 205px;
       max-height: 155px;
       padding: 0;
     }
-    .description {
+    .text {
       width: 900px;
-      text-align: center;
-      margin: 40px auto;
-      font-family: $font__descriptions;
-      color: #1e2f67;
-      font-size: 14px;
+      margin: 0 auto;
+      .description {
+        text-align: center;
+        margin: 40px auto;
+        font-family: $font__descriptions;
+        color: #1e2f67;
+        font-size: 14px;
+      }
     }
     .info {
       margin-left: 135px;
@@ -214,72 +220,82 @@ export default {
     }
   }
 }
-@media only screen and (max-width: 414px) {
-  img {
-    display: none;
-  }
-  .container-links {
-    display: flex !important;
-    align-items: flex-start !important;
-    padding: 0 !important;
-    margin-left: 5px !important;
-    .paragraph {
-      font-size: 12px !important;
+@media only screen and (max-width: 415px) {
+  .footer.container {
+    .custom-circle {
+      display: none;
     }
-    .mail {
-      p {
-        margin: 0 !important;
-      }
-    }
-    .info {
-      .terms,
-      .contacts {
-        font-size: 14px !important;
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 320px) {
-  .container-links {
-    display: flex !important;
-    align-items: flex-start !important;
-    padding: 0 !important;
-    margin-left: 5px !important;
-    .paragraph {
-      font-size: 10px !important;
-    }
-    .mail {
-      p {
-        font-size: 10px !important;
-        margin: 0 !important;
-      }
-    }
-  }
-}
-@media only screen and (min-width: 415px) and (max-width: 1025px) {
-  .footer {
-    .row.container-links {
-      margin-right: 50px;
-      padding: 0;
-      padding-bottom: 50px;
+    .container-links {
       .info {
-        .terms {
+        margin-left: 135px !important;
+      }
+    }
+    .green {
+      top: 6736px !important;
+      left: 249px !important;
+      width: 777px;
+      height: 777px;
+      z-index: 0 !important;
+    }
+  }
+}
+@media only screen and (max-width: 769px) {
+  .footer.container {
+    overflow-x: hidden;
+    justify-content: center;
+    padding: 0;
+    width: unset;
+    .sites {
+      -webkit-order: 2;
+      margin: 0 auto;
+      .github {
+        flex-direction: column;
+        p {
+          margin: 0 auto 60px;
           text-align: left;
+          width: 320px;
+        }
+        img {
+          margin-top: 60px; 
+          margin-bottom: 20px;
+        }
+      }
+      .OS {
+        flex-direction: column;
+        p {
+          text-align: left;
+          margin: 0 auto;
+          width: 320px;
+        }
+        img {
+          margin-bottom: 20px;
         }
       }
     }
-  }
-}
-
-@media only screen and (max-width: 1365px) {
-  .footer {
-    width: 100% !important;
-    height: auto !important;
-    margin-left: 0;
-    margin-right: 0;
-    .circle {
-      display: none;
+    .container-links {
+      flex-direction: column;
+      .info {
+        -webkit-order: 1;
+        // margin: 0 auto 60px ;
+      }
+      .text {
+        -webkit-order: 4;
+        .description {
+          margin: 0 auto;
+          font-size: 12px;
+          width: 320px;
+        }
+      }
+      .logo {
+        -webkit-order: 3;
+        margin-bottom: 30px;
+        margin-top: 90px;
+        width: 150px;
+        height: 110px;
+      }
+      .line {
+        display: none;
+      }
     }
   }
 }

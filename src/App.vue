@@ -7,11 +7,7 @@
 <script>
 export default {
   name: "App",
-  mounted() {
-    if (!this.$router.history.current.params.lang) {
-      this.$router.push("en");
-    }
-  },
+  mounted() {},
 };
 </script>
 

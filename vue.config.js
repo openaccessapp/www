@@ -1,11 +1,23 @@
 var path = require('path');
+const DirectoryTreePlugin = require('directory-tree-webpack-plugin')
 
 module.exports = {
     configureWebpack: {
         resolve: {
             alias: {
-                '@content': process.env.VUE_APP_SITE === 'places' ? path.resolve(__dirname, 'content/places') : path.resolve(__dirname, 'content/access')
+                '@content': process.env.VUE_APP_SITE === 'places' ? path.resolve(__dirname, 'content/pages/places') : path.resolve(__dirname, 'content/pages/access')
             }
+        },
+        plugins: [
+            new DirectoryTreePlugin({
+              dir: `./content/documentation/${process.env.VUE_APP_SITE}`,
+              path: './src/_content.json',
+              extensions: /\.md/
+            })
+          ],
+        output: {
+            path: path.resolve(__dirname, 'dist'),
+            filename: 'bundle.js'
         }
     },
     chainWebpack: config => {
