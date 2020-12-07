@@ -9,7 +9,7 @@
       <p class="start">
         {{ getStarted }}
       </p>
-      <div>{{ document }}</div>
+      <div v-html="document"></div>
     </div>
 
     <div class="center col-8">
@@ -30,7 +30,7 @@
  
 <script>
 import documentation from "@content/en/documentation.yaml";
-import marked from "marked";
+// import marked from "marked";
 import Footer from "./Footer";
 import contentTree from "../_content.json";
 export default {
@@ -58,9 +58,7 @@ export default {
   },
   mounted() {
     this.init();
-    if (!this.$router.history.current.params.lang) {
-      this.$router.push("en");
-    }
+
     let lang = "en";
     let docContent = contentTree.children.find((c) => c.name === lang);
     docContent.children.forEach((page) => {
@@ -84,15 +82,19 @@ export default {
       this.question = documentation.question;
       this.paragraphs = documentation.paragraphs;
       this.content = contentTree;
-      this.path = contentTree.path;
-      this.renderContent();
+      // this.path = `${contentTree.path}/${this.$router.history.current.params.lang}/audience`;
+
+      this.renderContent(this.content.children);
     },
-    renderContent(content, path) {
-      if (!this.children) {
-        this.document = marked(require(`${path}/README.md`));
-        return;
-      }
-      this.renderContent();
+    renderContent(content) {
+      console.log(content);
+      console.log(this.content.children);
+      console.log(this.content.path);
+      console.log(this.content.name);
+      // if (this.content.children) {
+      //   // for (let i = 0; i < this.content.size; i++) {}
+      // }
+      // this.renderContent(this.content.children);
     },
   },
 };
