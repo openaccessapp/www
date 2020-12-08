@@ -5,7 +5,8 @@ module.exports = {
     configureWebpack: {
         resolve: {
             alias: {
-                '@content': process.env.VUE_APP_SITE === 'places' ? path.resolve(__dirname, 'content/pages/places') : path.resolve(__dirname, 'content/pages/access')
+                '@content': process.env.VUE_APP_SITE === 'places' ? path.resolve(__dirname, 'content/pages/places') : path.resolve(__dirname, 'content/pages/access'),
+                '@documentation': process.env.VUE_APP_SITE === 'places' ? path.resolve(__dirname, 'content/documentation/places') : path.resolve(__dirname, 'content/documentation/access')
             }
         },
         plugins: [

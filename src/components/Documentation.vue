@@ -9,12 +9,12 @@
       <p class="start">
         {{ getStarted }}
       </p>
-      <div v-html="document"></div>
+      <div>
+      <tree :tree-data="contentTree"></tree>
+    </div>
     </div>
 
-    <div class="center col-8">
-      <!-- <div class="md-position" v-html="html"></div> -->
-    </div>
+    <div class="center col-8" v-html="content"></div>
     <div class="help">
       <hr class="line" />
       <p class="question">{{ question }}</p>
@@ -30,13 +30,15 @@
  
 <script>
 import documentation from "@content/en/documentation.yaml";
-// import marked from "marked";
+import marked from "marked";
 import Footer from "./Footer";
 import contentTree from "../_content.json";
+import Tree from "./documentation/Tree";
+import { EventBus } from '../event-bus';
 export default {
   name: "Documentation",
   components: {
-    Footer,
+    Footer, Tree
   },
   data() {
     return {
@@ -46,9 +48,10 @@ export default {
       // html: "",
       question: "",
       paragraphs: [],
-      content: {},
       document: "",
       path: "",
+      contentTree: {},
+      content: ""
     };
   },
   watch: {
@@ -57,22 +60,12 @@ export default {
     },
   },
   mounted() {
-    this.init();
-
-    let lang = "en";
-    let docContent = contentTree.children.find((c) => c.name === lang);
-    docContent.children.forEach((page) => {
-      import(`@content/en/${page.path}.md`)
-        .then((body) => {
-          console.log(
-            "The page object can be used to generate routes, build navigations, and more..."
-          );
-          console.log(page);
-          console.log("The body string can be rendered when needed...");
-          console.log(body);
-        })
-        .catch((error) => console.error(error));
+    EventBus.$on('open-content', path => {
+      this.content = import(`@documentation/${path}`).then(data => this.content = marked(data.default))
     });
+    let lang = "en";
+    this.contentTree = contentTree.children.find((c) => c.name === lang);
+    this.init();
   },
   methods: {
     init() {
@@ -81,20 +74,6 @@ export default {
       this.getStarted = documentation.getStarted;
       this.question = documentation.question;
       this.paragraphs = documentation.paragraphs;
-      this.content = contentTree;
-      // this.path = `${contentTree.path}/${this.$router.history.current.params.lang}/audience`;
-
-      this.renderContent(this.content.children);
-    },
-    renderContent(content) {
-      console.log(content);
-      console.log(this.content.children);
-      console.log(this.content.path);
-      console.log(this.content.name);
-      // if (this.content.children) {
-      //   // for (let i = 0; i < this.content.size; i++) {}
-      // }
-      // this.renderContent(this.content.children);
     },
   },
 };
