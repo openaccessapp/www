@@ -43,9 +43,10 @@ export default {
   },
   methods: {
       openContent(node) {
-          let path = (node.children.find(e => e.type === 'file'))?.path;
-          path = ((path?.split('/')).slice(3, path?.length)).join('/');
-          EventBus.$emit('open-content', path)
+        let path = (node.children.find(e => e.type === 'file'))?.path;
+        path = ((path?.split('/'))?.slice(3, path?.length))?.join('/');
+        if(path)
+            EventBus.$emit('open-content', path)
       },
       hasChildDirectory(node) {
         return node.children.some(e => e.type === 'directory');
