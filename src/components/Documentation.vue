@@ -14,7 +14,7 @@
     </div>
     </div>
 
-    <div class="center col-8" v-html="content"></div>
+    <div class="center col-8 p-4" v-html="content"></div>
     <div class="help">
       <hr class="line" />
       <p class="question">{{ question }}</p>
@@ -63,7 +63,7 @@ export default {
     EventBus.$on('open-content', path => {
       this.content = import(`@documentation/${path}`).then(data => this.content = marked(data.default))
     });
-    let lang = "en";
+    let lang = this.$router.history.current.params.lang
     this.contentTree = contentTree.children.find((c) => c.name === lang);
     this.init();
   },
