@@ -1,9 +1,19 @@
 <template>
-    <li class="node-tree" v-if="node.type === 'directory'">
+    <ul v-if="level === 0 && node.children && node.children.length && hasChildDirectory(node)" class="tree-list">
+        <node v-for="child in node.children" :key="child.name" :node="child" :level="level+1"></node>
+    </ul>
+    <li class="node-tree" v-else-if="node.type === 'directory' && level === 1">
         <span class="label" @click="openContent(node)">{{ node.name | capitalize }}</span>
 
         <ul v-if="node.children && node.children.length && hasChildDirectory(node)">
-            <node v-for="child in node.children" :key="child.name" :node="child"></node>
+            <node v-for="child in node.children" :key="child.name" :node="child" :level="level+1"></node>
+        </ul>
+    </li>
+    <li class="node-tree" v-else-if="node.type === 'directory' && level > 1">
+        <span class="label" @click="openContent(node)">{{ node.name | capitalize }}</span>
+
+        <ul v-if="node.children && node.children.length && hasChildDirectory(node)">
+            <node v-for="child in node.children" :key="child.name" :node="child" :level="level+1"></node>
         </ul>
     </li>
 </template>
@@ -14,7 +24,8 @@ import { EventBus } from '../../event-bus';
 export default {
   name: "node",
   props: {
-    node: Object
+    node: Object,
+    level: Number
   },
   filters: {
       capitalize(text) {
@@ -32,9 +43,10 @@ export default {
   },
   methods: {
       openContent(node) {
-          let path = (node.children.find(e => e.type === 'file'))?.path;
-          path = ((path?.split('/')).slice(3, path?.length)).join('/');
-          EventBus.$emit('open-content', path)
+        let path = (node.children.find(e => e.type === 'file'))?.path;
+        path = ((path?.split('/'))?.slice(3, path?.length))?.join('/');
+        if(path)
+            EventBus.$emit('open-content', path)
       },
       hasChildDirectory(node) {
         return node.children.some(e => e.type === 'directory');

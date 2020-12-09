@@ -1,13 +1,12 @@
 <template>
   <div class="tree">
-    <ul class="tree-list">
-      <node-tree :node="treeData"></node-tree>
-    </ul>
+    <node-tree :node="treeData" :level="0"></node-tree>
   </div>
 </template>
 
 <script>
 import NodeTree from "./NodeTree";
+import { EventBus } from '../../event-bus';
 
 export default {
   props: {
@@ -15,6 +14,28 @@ export default {
   },
   components: {
     NodeTree
+  },
+  watch: {
+    treeData(newProp){
+      this.openContent(newProp)
+    }
+  },
+  methods: {
+    openContent(node) {
+      let path = (this.findFirstFile(node))?.path;
+      path = ((path?.split('/'))?.slice(3, path?.length))?.join('/');
+      if(path)
+        EventBus.$emit('open-content', path)
+    },
+    findFirstFile(node) {
+      if(node && node.type === 'file'){
+        return node;
+      } else if(node.type === 'directory' && node.children?.length > 0) {
+        for(let child of node.children) {
+          return this.findFirstFile(child);
+        }
+      }
+    }
   }
 };
 </script>
