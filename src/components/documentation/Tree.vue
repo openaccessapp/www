@@ -1,8 +1,6 @@
 <template>
   <div class="tree">
-    <ul class="tree-list">
-      <node-tree :node="treeData"></node-tree>
-    </ul>
+    <node-tree :node="treeData" :level="0"></node-tree>
   </div>
 </template>
 
