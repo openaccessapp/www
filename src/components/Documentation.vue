@@ -14,7 +14,7 @@
     </div>
     </div>
 
-    <div class="center col-8" v-html="content"></div>
+    <div class="center col-8 p-4" v-html="content"></div>
     <div class="help">
       <hr class="line" />
       <p class="question">{{ question }}</p>
