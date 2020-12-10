@@ -1,8 +1,10 @@
 # Audience
 
-The Audience of AccessApp is...
+The audience of AccessApp are Venues and Visitors.
 
 ## Venues
+
+Venues are museums, theathres, ...
 
 ## Visitors
 
