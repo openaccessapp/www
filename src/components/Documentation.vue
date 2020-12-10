@@ -61,7 +61,7 @@ export default {
   },
   mounted() {
     EventBus.$on('open-content', path => {
-      this.content = import(`@documentation/${path}`).then(data => this.content = marked(data.default))
+      import(`@documentation/${path}`).then(data => this.content = marked(data.default))
     });
     let lang = this.$router.history.current.params.lang
     this.contentTree = contentTree.children.find((c) => c.name === lang);
