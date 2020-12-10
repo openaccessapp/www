@@ -14,7 +14,7 @@
     </div>
     </div>
 
-    <div class="center col-8 p-4" v-html="content"></div>
+    <div class="center col-8 p-4 text-align-left" v-html="content"></div>
     <div class="help">
       <hr class="line" />
       <p class="question">{{ question }}</p>
@@ -82,6 +82,9 @@ export default {
 <style scoped lang="scss">
 @import "../../public/assets/scss/main.scss";
 .documentation {
+  .text-align-left {
+    text-align: left;
+  }
   p {
     font-size: 15px;
     font-weight: 500;
