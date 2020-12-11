@@ -20,21 +20,25 @@ export default {
       this.openContent(newProp)
     }
   },
+  created(){
+    EventBus.$on('get-node', node => {
+      this.openContent(node)
+    })
+  },
   methods: {
     openContent(node) {
       let path = (this.findFirstFile(node))?.path;
-      path = ((path?.split('/'))?.slice(3, path?.length))?.join('/');
-      if(path)
+      if(path) {
+        path = ((path.split('/')).slice(3, path.length)).join('/');
         EventBus.$emit('open-content', path)
+      }
     },
     findFirstFile(node) {
-      if(node && node.type === 'file'){
+      if(node && node.type === 'file')
         return node;
-      } else if(node.type === 'directory' && node.children?.length > 0) {
-        for(let child of node.children) {
+      else if(node.type === 'directory' && node.children?.length > 0)
+        for(let child of node.children)
           return this.findFirstFile(child);
-        }
-      }
     }
   }
 };

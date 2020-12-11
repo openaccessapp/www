@@ -2,14 +2,7 @@
     <ul v-if="level === 0 && node.children && node.children.length && hasChildDirectory(node)" class="tree-list">
         <node v-for="child in node.children" :key="child.name" :node="child" :level="level+1"></node>
     </ul>
-    <li class="node-tree" v-else-if="node.type === 'directory' && level === 1">
-        <span class="label" @click="openContent(node)">{{ node.name | capitalize }}</span>
-
-        <ul v-if="node.children && node.children.length && hasChildDirectory(node)">
-            <node v-for="child in node.children" :key="child.name" :node="child" :level="level+1"></node>
-        </ul>
-    </li>
-    <li class="node-tree" v-else-if="node.type === 'directory' && level > 1">
+    <li class="node-tree" v-else-if="level >= 1 && node.type === 'directory'">
         <span class="label" @click="openContent(node)">{{ node.name | capitalize }}</span>
 
         <ul v-if="node.children && node.children.length && hasChildDirectory(node)">
@@ -43,10 +36,7 @@ export default {
   },
   methods: {
       openContent(node) {
-        let path = (node.children.find(e => e.type === 'file'))?.path;
-        path = ((path?.split('/'))?.slice(3, path?.length))?.join('/');
-        if(path)
-            EventBus.$emit('open-content', path)
+        EventBus.$emit('get-node', node)
       },
       hasChildDirectory(node) {
         return node.children.some(e => e.type === 'directory');
