@@ -19,18 +19,28 @@
     class="node-tree"
     v-else-if="level >= 1 && node.type === 'directory'"
     :class="{
-      scroll: expanded == true && level > 1 && level < 3,
-      indicator: expanded == true && level == 3,
+      'scroll-line': expanded == true && level > 1 && level < 3,
+      'top-space': expanded == false && level == 2,
     }"
   >
-    <span
-      class="label"
-      :class="{
-        active: expanded == true && level <= 1,
-      }"
-      @click="openContent(node), (expanded = !expanded)"
-      >{{ node.name | capitalize }}</span
-    >
+    <div class="row">
+      <div
+        :class="{
+          'small-blue-line': expanded == true && level == 3,
+          'big-blue-line': expanded == true && level == 1,
+        }"
+      ></div>
+
+      <span
+        class="label"
+        :class="{
+          active: expanded == true && level <= 1,
+          'span-indicator': level == 3,
+        }"
+        @click="openContent(node), (expanded = !expanded)"
+        >{{ node.name | capitalize }}</span
+      >
+    </div>
 
     <ul
       v-if="
@@ -106,26 +116,41 @@ ul {
     padding: 10px 100px 10px 15px;
   }
   li {
-    margin: 15px 0 25px 15px;
+    margin: 10px 0 0px 15px;
   }
 }
 .active {
   background-color: #385fe20d;
   color: #385fe2;
-  border-left-style: solid;
-  border-radius: 2px;
-  border-width: 4px;
+  border-radius: 5px;
 }
-.scroll {
+.scroll-line {
   border-left-style: solid;
   border-width: 1px;
   border-color: #dbddeb;
 }
-.indicator {
-  border-color: #385fe2;
-  border-left-style: solid;
-  border-width: 4px;
-  margin-left: -2px;
-  padding-left: 13px;
+.small-blue-line {
+  width: 4px;
+  border-bottom: 20px solid #385fe2;
+  border-radius: 2px;
+  position: absolute;
+  left: 44px;
+}
+.big-blue-line {
+  width: 4px;
+  border-bottom: 40px solid #385fe2;
+  border-radius: 2px;
+  position: absolute;
+  left: 28px;
+}
+.span-indicator {
+  padding-top: 0;
+}
+.top-space {
+  margin-top: 0;
+}
+.row {
+  margin-left: 0px;
+  margin-right: 0px;
 }
 </style>
