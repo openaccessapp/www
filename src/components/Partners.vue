@@ -89,7 +89,7 @@ export default {
     align-items: center;
     // align-items: baseline;
     justify-content: center;
-    height: 890px;
+    height: 500px;
 
     .partners-cards {
       justify-content: center;
