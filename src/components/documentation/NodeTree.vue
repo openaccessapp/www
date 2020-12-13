@@ -36,6 +36,7 @@
         :class="{
           active: expanded == true && level <= 1,
           'span-indicator': level == 3,
+          'third-level-color': expanded == false && level == 3,
         }"
         @click="openContent(node), (expanded = !expanded)"
         >{{ node.name | capitalize }}</span
@@ -145,6 +146,9 @@ ul {
 }
 .span-indicator {
   padding-top: 0;
+}
+.third-level-color {
+  color: #9597ac;
 }
 .top-space {
   margin-top: 0;
