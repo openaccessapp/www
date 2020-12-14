@@ -149,6 +149,7 @@ export default {
     .row {
       justify-content: flex-start;
       align-items: end;
+      flex-wrap: unset;
     }
     p {
       font-size: 12px;
