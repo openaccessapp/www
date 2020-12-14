@@ -10,8 +10,8 @@
         {{ getStarted }}
       </p>
       <div>
-      <tree :tree-data="contentTree"></tree>
-    </div>
+        <tree :tree-data="contentTree"></tree>
+      </div>
     </div>
 
     <div class="center col-8 p-4 text-align-left" v-html="content"></div>
@@ -32,13 +32,15 @@
 import documentation from "@content/en/documentation.yaml";
 import marked from "marked";
 import Footer from "./Footer";
-import contentTree from "../_content.json";
 import Tree from "./documentation/Tree";
-import { EventBus } from '../event-bus';
+import contentEN from "../en_content.json";
+import contentDE from "../de_content.json";
+import { EventBus } from "../event-bus";
 export default {
   name: "Documentation",
   components: {
-    Footer, Tree
+    Footer,
+    Tree,
   },
   data() {
     return {
@@ -51,7 +53,7 @@ export default {
       document: "",
       path: "",
       contentTree: {},
-      content: ""
+      content: "",
     };
   },
   watch: {
@@ -60,15 +62,22 @@ export default {
     },
   },
   mounted() {
-    EventBus.$on('open-content', path => {
-      import(`@documentation/${path}`).then(data => this.content = marked(data.default))
-    });
-    let lang = this.$router.history.current.params.lang
-    this.contentTree = contentTree.children.find((c) => c.name === lang);
     this.init();
   },
   methods: {
     init() {
+      let lang = this.$router.history.current.params.lang;
+      if (lang == "en") {
+        this.contentTree = contentEN;
+      } else if (lang == "de") {
+        this.contentTree = contentDE;
+      }
+      EventBus.$on("open-content", (path) => {
+        import(`@content/${lang}/${path}`).then(
+          (data) => (this.content = marked(data.default))
+        );
+      });
+
       this.logo = documentation.logo;
       this.logoText = documentation.logoText;
       this.getStarted = documentation.getStarted;
@@ -83,7 +92,8 @@ export default {
 @import "../../public/assets/scss/main.scss";
 .documentation {
   .text-align-left {
-    text-align: left;
+    text-align: center;
+    margin-top: 135px;
   }
   p {
     font-size: 15px;
@@ -125,28 +135,6 @@ export default {
       color: #dbddeb;
       width: 265px;
       margin: 0 auto;
-    }
-    .parent {
-      .mainPage {
-        padding: 10px 0 10px 15px;
-      }
-      .child {
-        .childPage {
-          color: #474a67;
-        }
-        margin-left: 35px;
-        margin-bottom: 25px;
-        .grandChild {
-          margin-left: 10px;
-          margin-top: 20px;
-        }
-      }
-      &.active {
-        .mainPage {
-          color: #385fe2;
-          background-color: #385fe20d;
-        }
-      }
     }
   }
   .center {
