@@ -81,7 +81,7 @@ export default {
     font-size: 40px;
     color: #1e2f67;
     text-align: center;
-    margin: 250px auto 0px;
+    margin: 130px auto 0px;
     align-items: center;
   }
 
