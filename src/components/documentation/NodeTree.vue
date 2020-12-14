@@ -92,7 +92,6 @@ export default {
   },
   methods: {
     openContent(node) {
-      console.log(node);
       EventBus.$emit("get-node", node);
     },
     hasChildDirectory(node) {

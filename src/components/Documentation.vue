@@ -72,9 +72,7 @@ export default {
       } else if (lang == "de") {
         this.contentTree = contentDE;
       }
-      console.log(this.contentTree);
       EventBus.$on("open-content", (path) => {
-        console.log(path);
         import(`@content/${lang}/${path}`).then(
           (data) => (this.content = marked(data.default))
         );
@@ -94,7 +92,8 @@ export default {
 @import "../../public/assets/scss/main.scss";
 .documentation {
   .text-align-left {
-    text-align: left;
+    text-align: center;
+    margin-top: 135px;
   }
   p {
     font-size: 15px;
