@@ -5,17 +5,22 @@ module.exports = {
     configureWebpack: {
         resolve: {
             alias: {
-                '@content': process.env.VUE_APP_SITE === 'places' ? path.resolve(__dirname, 'content/pages/places') : path.resolve(__dirname, 'content/pages/access'),
-                '@documentation': process.env.VUE_APP_SITE === 'places' ? path.resolve(__dirname, 'content/documentation/places') : path.resolve(__dirname, 'content/documentation/access')
+                '@content': process.env.VUE_APP_SITE === 'places' ? path.resolve(__dirname, 'content/places') : path.resolve(__dirname, 'content/access'),
+               
             }
         },
         plugins: [
             new DirectoryTreePlugin({
-              dir: `./content/documentation/${process.env.VUE_APP_SITE}`,
-              path: './src/_content.json',
-              extensions: /\.md/
+                dir: `./content/${process.env.VUE_APP_SITE}/en/documentation`,
+                path: './src/en_content.json',
+                extensions: /\.md/
+            }),
+            new DirectoryTreePlugin({
+                dir: `./content/${process.env.VUE_APP_SITE}/de/documentation`,
+                path: './src/de_content.json',
+                extensions: /\.md/
             })
-          ],
+        ],
         output: {
             path: path.resolve(__dirname, 'dist'),
             filename: 'bundle.js'
@@ -28,7 +33,7 @@ module.exports = {
             .use('js-yaml-loader')
             .loader('js-yaml-loader')
             .end()
-            
+
         config.module
             .rule('md')
             .test(/\.md$/)

@@ -1,6 +1,7 @@
 <template>
   <ul
     v-if="
+      node &&
       level === 0 &&
       node.children &&
       node.children.length &&
@@ -45,6 +46,7 @@
 
     <ul
       v-if="
+        node &&
         node.children &&
         node.children.length &&
         hasChildDirectory(node) &&
@@ -90,6 +92,7 @@ export default {
   },
   methods: {
     openContent(node) {
+      console.log(node);
       EventBus.$emit("get-node", node);
     },
     hasChildDirectory(node) {

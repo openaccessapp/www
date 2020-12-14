@@ -32,8 +32,9 @@
 import documentation from "@content/en/documentation.yaml";
 import marked from "marked";
 import Footer from "./Footer";
-import contentTree from "../_content.json";
 import Tree from "./documentation/Tree";
+import contentEN from "../en_content.json";
+import contentDE from "../de_content.json";
 import { EventBus } from "../event-bus";
 export default {
   name: "Documentation",
@@ -61,17 +62,24 @@ export default {
     },
   },
   mounted() {
-    EventBus.$on("open-content", (path) => {
-      import(`@documentation/${path}`).then(
-        (data) => (this.content = marked(data.default))
-      );
-    });
-    let lang = this.$router.history.current.params.lang;
-    this.contentTree = contentTree.children.find((c) => c.name === lang);
     this.init();
   },
   methods: {
     init() {
+      let lang = this.$router.history.current.params.lang;
+      if (lang == "en") {
+        this.contentTree = contentEN;
+      } else if (lang == "de") {
+        this.contentTree = contentDE;
+      }
+      console.log(this.contentTree);
+      EventBus.$on("open-content", (path) => {
+        console.log(path);
+        import(`@content/${lang}/${path}`).then(
+          (data) => (this.content = marked(data.default))
+        );
+      });
+
       this.logo = documentation.logo;
       this.logoText = documentation.logoText;
       this.getStarted = documentation.getStarted;

@@ -36,7 +36,7 @@ export default {
     },
     findFirstFile(node) {
       if (node && node.type === "file") return node;
-      else if (node.type === "directory" && node.children?.length > 0)
+      else if (node && node.type === "directory" && node.children?.length > 0)
         for (let child of node.children) return this.findFirstFile(child);
     },
   },
@@ -44,7 +44,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 ul.tree-list {
   padding-left: 0;
 }
