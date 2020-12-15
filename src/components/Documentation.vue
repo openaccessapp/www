@@ -127,8 +127,8 @@ export default {
 @import "../../public/assets/scss/main.scss";
 .documentation {
   .text-align-left {
-    text-align: center;
-    margin-top: 135px;
+    text-align: left;
+    margin-top: 15px;
   }
   p {
     font-size: 15px;
