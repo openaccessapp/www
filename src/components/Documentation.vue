@@ -54,12 +54,27 @@ export default {
       path: "",
       contentTree: {},
       content: "",
+      prelinkedFile: true,
     };
   },
   watch: {
     $route() {
       this.init();
     },
+  },
+  created() {
+    let path = this.$router.history.current.path.slice(
+      1,
+      this.$router.history.current.path.length
+    );
+    import(`@content/${path}/README.md`)
+      .then((data) => {
+        this.content = marked(data.default);
+      })
+      .catch((e) => {
+        console.log(e);
+        this.openContent(this.contentTree);
+      });
   },
   mounted() {
     this.init();
@@ -72,10 +87,8 @@ export default {
       } else if (lang == "de") {
         this.contentTree = contentDE;
       }
-      EventBus.$on("open-content", (path) => {
-        import(`@content/${lang}/${path}`).then(
-          (data) => (this.content = marked(data.default))
-        );
+      EventBus.$on("open-content", (node) => {
+        this.openContent(node);
       });
 
       this.logo = documentation.logo;
@@ -83,6 +96,28 @@ export default {
       this.getStarted = documentation.getStarted;
       this.question = documentation.question;
       this.paragraphs = documentation.paragraphs;
+    },
+    openContent(node) {
+      let lang = this.$router.history.current.params.lang;
+      let path = this.findFirstFile(node)?.path;
+      if (path) {
+        let separated = path.split(this.pickSeparator());
+        let link = separated.slice(3, separated.length - 1).join("/"); // without README.md
+        path = separated.slice(3, separated.length).join("/");
+        import(`@content/${lang}/${path}`).then(
+          (data) => (this.content = marked(data.default))
+        );
+        this.$router.push(`/${lang}/${link}`).catch(() => {});
+      }
+    },
+    pickSeparator() {
+      return process.env.VUE_APP_OS == "windows" ? "\\" : "/";
+    },
+    findFirstFile(node) {
+      if (node && node.children.some((e) => e.type === "file"))
+        return node.children.find((e) => e.type === "file");
+      else if (node && node.type === "directory" && node.children?.length > 0)
+        for (let child of node.children) return this.findFirstFile(child);
     },
   },
 };
