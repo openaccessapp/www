@@ -16,30 +16,15 @@
       :level="level + 1"
     ></node>
   </ul>
-  <li
-    class="node-tree"
-    v-else-if="level >= 1 && node.type === 'directory'"
-    :class="{
-      'scroll-line': expanded == true && level > 1 && level < 3,
-      'top-space': expanded == false && level == 2,
-    }"
-  >
+  <li class="node-tree" v-else-if="level >= 1 && node.type === 'directory'">
     <div class="row">
-      <div
-        :class="{
-          'small-blue-line': expanded == true && level == 3,
-          'big-blue-line': expanded == true && level == 1,
-        }"
-      ></div>
-
+      <div :class="{ 'big-blue-line': active }"></div>
       <span
         class="label"
         :class="{
-          active: expanded == true && level <= 1,
-          'span-indicator': level == 3,
-          'third-level-color': expanded == false && level == 3,
+          active: active,
         }"
-        @click="openContent(node), (expanded = !expanded)"
+        @click="openContent(node)"
         >{{ node.name | capitalize }}</span
       >
     </div>
@@ -78,6 +63,8 @@ export default {
         let parts = text.split("-");
         if (parts.length > 1) {
           let result = "";
+          if (!isNaN(parts[0])) parts[0] = "";
+
           for (let part of parts)
             result += part.charAt(0).toUpperCase() + part.slice(1) + " ";
           return result;
@@ -85,17 +72,53 @@ export default {
       }
     },
   },
+  watch: {
+    $route() {
+      this.expanded = this.isUnderCurrentPage();
+      this.active = this.isCurrentPage();
+    },
+  },
   data() {
     return {
       expanded: false,
+      active: false,
     };
+  },
+  mounted() {
+    this.expanded = this.isUnderCurrentPage();
+    this.active = this.isCurrentPage();
   },
   methods: {
     openContent(node) {
-      EventBus.$emit("get-node", node);
+      EventBus.$emit("get-node", node, this.level);
     },
     hasChildDirectory(node) {
       return node.children.some((e) => e.type === "directory");
+    },
+    isUnderCurrentPage() {
+      return (
+        (this.node.path &&
+          this.node.path.endsWith(this.$router.history.current.path)) ||
+        this.recursiveCheckPage(this.node)
+      );
+    },
+    recursiveCheckPage(node) {
+      if (
+        node.children &&
+        node.children.some((e) =>
+          e.path.endsWith(this.$router.history.current.path)
+        )
+      )
+        return true;
+      else if (node && node.type === "directory" && node.children?.length > 0)
+        for (let child of node.children) return this.recursiveCheckPage(child);
+      else return false;
+    },
+    isCurrentPage() {
+      return (
+        this.node.path &&
+        this.node.path.endsWith(this.$router.history.current.path)
+      );
     },
   },
 };
@@ -104,6 +127,7 @@ export default {
 <style lang="scss" scoped>
 @import "../../../public/assets/scss/main.scss";
 .label {
+  width: 100%;
   cursor: pointer;
   // padding-left: 15px;
   // padding-top: 10px;
@@ -126,11 +150,6 @@ ul {
   background-color: #385fe20d;
   color: #385fe2;
   border-radius: 5px;
-}
-.scroll-line {
-  border-left-style: solid;
-  border-width: 1px;
-  border-color: #dbddeb;
 }
 .small-blue-line {
   width: 4px;

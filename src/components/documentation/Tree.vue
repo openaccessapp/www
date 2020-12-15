@@ -15,11 +15,7 @@ export default {
   components: {
     NodeTree,
   },
-  watch: {
-    treeData(newProp) {
-      this.openContent(newProp);
-    },
-  },
+  watch: {},
   created() {
     EventBus.$on("get-node", (node) => {
       this.openContent(node);
@@ -27,17 +23,7 @@ export default {
   },
   methods: {
     openContent(node) {
-      let path = this.findFirstFile(node)?.path;
-      if (path) {
-        let separator = process.env.VUE_APP_OS == "windows" ? "\\" : "/";
-        path = path.split(separator).slice(3, path.length).join("/");
-        EventBus.$emit("open-content", path);
-      }
-    },
-    findFirstFile(node) {
-      if (node && node.type === "file") return node;
-      else if (node && node.type === "directory" && node.children?.length > 0)
-        for (let child of node.children) return this.findFirstFile(child);
+      EventBus.$emit("open-content", node);
     },
   },
 };

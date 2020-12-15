@@ -19,8 +19,13 @@ const routes = [{
   {
     path: '/:lang/privacy',
     component: PrivacyPolicy
-  }, {
+  }, 
+  {
     path: '/:lang/documentation',
+    component: Documentation
+  },
+  {
+    path: '/:lang/documentation/**',
     component: Documentation
   }
 ]
