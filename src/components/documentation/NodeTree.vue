@@ -16,15 +16,29 @@
       :level="level + 1"
     ></node>
   </ul>
-  <li class="node-tree" v-else-if="level >= 1 && node.type === 'directory'">
+  <li
+    class="node-tree"
+    v-else-if="level >= 1 && node.type === 'directory'"
+    :class="{
+      'scroll-line': expanded == true && level == 2,
+      'top-space': expanded == false && level == 2,
+    }"
+  >
     <div class="row">
-      <div :class="{ 'big-blue-line': active }"></div>
+      <div
+        :class="{
+          'big-blue-line': active && level == 1,
+          'small-blue-line': active && level == 3,
+        }"
+      ></div>
       <span
         class="label"
         :class="{
-          active: active,
+          ' active': active && level == 1,
+          'span-indicator': level == 3,
+          'third-level-color': active == false && level == 3,
         }"
-        @click="openContent(node)"
+        @click="openContent(node), (expanded = !expanded)"
         >{{ node.name | capitalize }}</span
       >
     </div>
@@ -98,7 +112,9 @@ export default {
     isUnderCurrentPage() {
       return (
         (this.node.path &&
-          this.node.path.endsWith(this.$router.history.current.path)) ||
+          this.node.path.endsWith(
+            this.preparePath(this.$router.history.current.path)
+          )) ||
         this.recursiveCheckPage(this.node)
       );
     },
@@ -106,7 +122,7 @@ export default {
       if (
         node.children &&
         node.children.some((e) =>
-          e.path.endsWith(this.$router.history.current.path)
+          e.path.endsWith(this.preparePath(this.$router.history.current.path))
         )
       )
         return true;
@@ -117,8 +133,15 @@ export default {
     isCurrentPage() {
       return (
         this.node.path &&
-        this.node.path.endsWith(this.$router.history.current.path)
+        this.node.path.endsWith(
+          this.preparePath(this.$router.history.current.path)
+        )
       );
+    },
+    preparePath(path) {
+      return process.env.VUE_APP_OS == "windows"
+        ? path.replaceAll("/", "\\")
+        : path.replaceAll("\\", "/");
     },
   },
 };
@@ -177,5 +200,8 @@ ul {
 .row {
   margin-left: 0px;
   margin-right: 0px;
+}
+.scroll-line {
+  border-left: solid 1px #dbddeb;
 }
 </style>
