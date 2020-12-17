@@ -13,8 +13,9 @@
         <tree :tree-data="contentTree"></tree>
       </div>
     </div>
-
-    <div class="center col-8 p-4 text-align-left" v-html="content"></div>
+    <div class="content">
+      <div class="center col-8 p-4 text-align-left" v-html="content"></div>
+    </div>
     <div class="help">
       <hr class="line" />
       <p class="question">{{ question }}</p>
@@ -126,9 +127,12 @@ export default {
 <style scoped lang="scss">
 @import "../../public/assets/scss/main.scss";
 .documentation {
-  .text-align-left {
-    text-align: left;
-    margin-top: 15px;
+  .content {
+    .text-align-left {
+      text-align: left;
+      margin-top: 15px;
+      margin-left: 330px;
+    }
   }
   p {
     font-size: 15px;
@@ -170,15 +174,6 @@ export default {
       color: #dbddeb;
       width: 265px;
       margin: 0 auto;
-    }
-  }
-  .center {
-    .md-position {
-      text-align: justify;
-      margin-left: 70px;
-      max-width: 560px;
-      margin-left: 330px;
-      margin-top: 135px;
     }
   }
   .help {
