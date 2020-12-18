@@ -131,7 +131,9 @@ export default {
     .text-align-left {
       text-align: left;
       margin-top: 15px;
-      margin-left: 330px;
+      margin-left: 21%;
+      max-width: 560px;
+      font-family: "IBM Plex Sans";
     }
   }
   p {
