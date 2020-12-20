@@ -23,12 +23,15 @@ exports.handler = async (event) => {
     return returnMessage(400, 'Invalid Place ID')
 
   //get the visitor
-  await require('./utils/instantiate-database')()
+  let mongo = await require('./utils/instantiate-database')()
 
   const Visitor = require('./models/visitor.model')
   let visitor = await Visitor.findById(data.visitorId)
 
-  if (!visitor) return returnMessage(400, 'Invalid User ID')
+  if (!visitor) {
+    await mongo.disconnect()
+    return returnMessage(400, 'Invalid User ID')
+  }
 
   if (visitor.favourites.includes(data.placeId)) {
     for (let i = 0; i < visitor.favourites.length; i++) {
@@ -41,6 +44,7 @@ exports.handler = async (event) => {
 
   await visitor.save()
 
+  await mongo.disconnect()
   return require('./utils/return-object')(undefined)
 
 }

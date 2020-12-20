@@ -42,7 +42,7 @@ exports.handler = async (event) => {
   let skip = data.skip ? Number.parseInt(data.skip) : 0
   let load = data.load ? Number.parseInt(data.load) : 20
 
-  await require('./utils/instantiate-database')()
+  let mongo = await require('./utils/instantiate-database')()
   const Slot = require('./models/slot.model')
   let slots = await Slot.find({
     placeId: data.placeId,
@@ -76,6 +76,7 @@ exports.handler = async (event) => {
       output[moment(slot.starts).format(DATE_FORMAT)] = [obj]
   }
 
+  await mongo.disconnect()
   return require('./utils/return-object')({ slots: { ...output } })
 
 }

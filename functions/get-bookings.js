@@ -28,7 +28,7 @@ exports.handler = async (event) => {
   let skip = data.skip ? Number.parseInt(data.skip) : 0
   let load = data.load ? Number.parseInt(data.load) : 10
 
-  await require('./utils/instantiate-database')()
+  let mongo = await require('./utils/instantiate-database')()
   const Booking = require('./models/booking.model')
   require('./models/slot.model')
   require('./models/place.model')
@@ -59,5 +59,6 @@ exports.handler = async (event) => {
     else output[moment(booking.slotId.starts).format(DATE_FORMAT)] = [obj]
   }
 
+  await mongo.disconnect()
   return require('./utils/return-object')({ visits: { ...output } })
 }

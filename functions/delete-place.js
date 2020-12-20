@@ -10,10 +10,11 @@ exports.handler = async (event) => {
   if (!require('./utils/check-tokens')(event.headers, true)) return returnMessage(401, 'Unauthorised')
   let placeId = require('./utils/extract-last-parameter')(event.path)
 
-  await require('./utils/instantiate-database')()
+  let mongo = await require('./utils/instantiate-database')()
   const Place = require('./models/place.model')
 
   await Place.deleteOne({ _id: placeId })
 
+  await mongo.disconnect()
   return require('./utils/return-object')(undefined)
 }

@@ -20,10 +20,11 @@ exports.handler = async (event) => {
     return returnMessage(400, 'Missing body parameter')
   }
 
-  await require('./utils/instantiate-database')()
+  let mongo = await require('./utils/instantiate-database')()
 
   const Place = require('./models/place.model')
   await Place.updateOne({ _id: data.placeId }, { $set: { approved: data.approvedStatus } })
 
+  await mongo.disconnect()
   return require('./utils/return-object')(undefined)
 }

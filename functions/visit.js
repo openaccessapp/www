@@ -24,11 +24,14 @@ exports.handler = async (event) => {
   if (data.visitors > 7 || data.visitors < 1)
     return returnMessage(400, 'Visitors must be between 1 and 7')
 
-  await require('./utils/instantiate-database')()
+  let mongo = await require('./utils/instantiate-database')()
   const Slot = require('./models/slot.model')
   let slot = await Slot.findById(data.slotId)
 
-  if (!slot) return returnMessage(404, 'Slot not found')
+  if (!slot){
+    await mongo.disconnect()
+    return returnMessage(404, 'Slot not found')
+  }
 
   let people = data.visitors
 
@@ -38,16 +41,23 @@ exports.handler = async (event) => {
   if (booking) {
     people -= booking.friendsNumber
     if (people !== 0) {
-      if (slot.occupiedSlots + people > slot.maxVisitors)
+      if (slot.occupiedSlots + people > slot.maxVisitors) {
+        await mongo.disconnect()
         return returnMessage(400, 'Not enough place on this slot!')
+      }
 
       booking.friendsNumber = data.visitors
       await booking.save()
-    } else return require('./utils/return-object')(undefined)
+    } else{
+      await mongo.disconnect()
+      return require('./utils/return-object')(undefined)
+    }
 
   } else {
-    if (slot.occupiedSlots + people > slot.maxVisitors)
+    if (slot.occupiedSlots + people > slot.maxVisitors) {
+      await mongo.disconnect()
       return returnMessage(400, 'Not enough place on this slot!')
+    }
 
     let bookings = await Booking.find({ visitorId: data.userId }).populate({
       path: 'slotId',
@@ -75,6 +85,7 @@ exports.handler = async (event) => {
     for (const booking of bookings) {
       const TIME_FORMAT = 'HH:mm'
       if (booking !== null && booking.slotId)
+        await mongo.disconnect()
         return returnMessage(400, `You already have a booking at ${booking.slotId.placeId.name} (${moment(booking.slotId.starts).format(TIME_FORMAT)} - ${moment(booking.slotId.ends).format(TIME_FORMAT)}) that overlaps with this booking!`)
 
     }
@@ -89,6 +100,7 @@ exports.handler = async (event) => {
   slot.occupiedSlots += people
   await slot.save()
 
+  await mongo.disconnect()
   return require('./utils/return-object')(undefined)
 
 }

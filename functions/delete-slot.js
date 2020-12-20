@@ -22,7 +22,7 @@ exports.handler = async (event) => {
     return returnMessage(400, 'Missing parameters')
   }
 
-  await require('./utils/instantiate-database')()
+  let mongo = await require('./utils/instantiate-database')()
   const Slot = require('./models/slot.model')
   require('./models/place.model')
 
@@ -30,14 +30,20 @@ exports.handler = async (event) => {
     path: 'placeId'
   })
 
-  if (!slot) return returnMessage(404, 'Slot not found')
+  if (!slot) {
+    await mongo.disconnect()
+    return returnMessage(404, 'Slot not found')
+  }
 
-  if (slot.placeId.creatorId !== data.userId)
+  if (slot.placeId.creatorId !== data.userId) {
+    await mongo.disconnect()
     return returnMessage(401, 'User is not the creator')
+  }
 
   const Booking = require('./models/booking.model')
   await Booking.deleteMany({ slotId: data.slotId })
   await slot.delete()
 
+  await mongo.disconnect()
   return require('./utils/return-object')(undefined)
 }

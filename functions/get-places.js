@@ -35,7 +35,7 @@ exports.handler = async (event) => {
   const data = JSON.parse(event.body)
   data.visitorId = require('./utils/extract-last-parameter')(event.path)
 
-  await require('./utils/instantiate-database')()
+  let mongo = await require('./utils/instantiate-database')()
 
   if (data.visitorId) {
     const Visitor = require('./models/visitor.model')
@@ -74,5 +74,6 @@ exports.handler = async (event) => {
   }))
 
   if (data.onlyFavourites === true || data.onlyFavourites === 'true') output = output.filter(place => place.isFavourite)
+  await mongo.disconnect()
   return require('./utils/return-object')({ places: output })
 }
