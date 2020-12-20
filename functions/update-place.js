@@ -25,17 +25,23 @@ exports.handler = async (event) => {
     return returnMessage(400, 'Missing body parameter')
   }
 
-  await require('./utils/instantiate-database')()
+  let mongo = await require('./utils/instantiate-database')()
   const Place = require('./models/place.model')
   let place = await Place.findById(placeId)
-  if (!place) return returnMessage(404, 'Place not found')
+  if (!place) {
+    await mongo.disconnect()
+    return returnMessage(404, 'Place not found')
+  }
 
   if (data.userId !== place.creatorId) return returnMessage(401, 'User not creator')
 
   let img
   if (data.image) {
     img = new Buffer.from(data.image, 'base64')
-    if (!img) return returnMessage(400, 'Failed to upload image!')
+    if (!img) {
+      await mongo.disconnect()
+      return returnMessage(400, 'Failed to upload image!')
+    }
   }
 
   if (data.name) place.name = data.name
@@ -48,6 +54,7 @@ exports.handler = async (event) => {
 
   await place.save()
 
+  await mongo.disconnect()
   return returnMessage(200, "Place updated")
 
 }

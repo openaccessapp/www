@@ -13,11 +13,14 @@ exports.handler = async (event) => {
   let placeId = require('./utils/extract-last-parameter')(event.path)
   if (!placeId) return returnMessage(400, 'Missing palce id')
 
-  await require('./utils/instantiate-database')()
+  let mongo = await require('./utils/instantiate-database')()
   const Place = require('./models/place.model')
   let place = await Place.findById(placeId)
 
-  if (!place) return returnMessage(404, 'Place not found')
+  if (!place) {
+    await mongo.disconnect()
+    return returnMessage(404, 'Place not found')
+  }
 
   return require('./utils/return-image')(place.imageData)
 }

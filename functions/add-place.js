@@ -26,12 +26,15 @@ exports.handler = async (event) => {
     return returnMessage(400, 'Missing body parameter')
   }
 
-  await require('./utils/instantiate-database')()
+  let mongo = await require('./utils/instantiate-database')()
 
   let img
   if (data.image) {
     img = new Buffer.from(data.image, 'base64')
-    if (!img) return returnMessage(400, 'Failed to upload image!')
+    if (!img) {
+      await mongo.disconnect()
+      return returnMessage(400, 'Failed to upload image!')
+    }
   }
 
   let placeTypeId = data.typeId ? data.typeId : 0
@@ -49,5 +52,6 @@ exports.handler = async (event) => {
     approved: false
   }).save()
 
+  await mongo.disconnect()
   return require('./utils/return-object')(undefined)
 }

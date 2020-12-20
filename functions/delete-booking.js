@@ -22,7 +22,7 @@ exports.handler = async (event) => {
     return returnMessage(400, 'Missing parameters')
   }
 
-  await require('./utils/instantiate-database')()
+  let mongo = await require('./utils/instantiate-database')()
   const Booking = require('./models/booking.model')
   let found = await Booking.findOneAndDelete({ visitorId: data.visitorId, slotId: data.slotId })
 
@@ -31,8 +31,10 @@ exports.handler = async (event) => {
     await Slot.findByIdAndUpdate(data.slotId,
       { $inc: { occupiedSlots: (found.friendsNumber * (-1)) } })
   } else {
+    await mongo.disconnect()
     return returnMessage(404, 'Booking not found')
   }
 
+  await mongo.disconnect()
   return require('./utils/return-object')(undefined)
 }

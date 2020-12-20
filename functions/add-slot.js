@@ -18,13 +18,13 @@ const DATE_TIME_FORMAT = `${DATE_FORMAT} ${TIME_FORMAT}`
  */
 exports.handler = async (event) => {
   console.log('Function `addSlot` invoked')
-  if (!event.body) return returnMessage(405, "Unsupported media type")
+  if (!event.body) return returnMessage(405, 'Unsupported media type')
   if (!require('./utils/check-tokens')(event.headers, false)) return returnMessage(401, 'Unauthorised')
 
   let placeId = require('./utils/extract-last-parameter')(event.path)
 
   const data = JSON.parse(event.body)
-  data.placeId = placeId;
+  data.placeId = placeId
   //check if the body is correct
   if (
     !data.type ||
@@ -36,12 +36,18 @@ exports.handler = async (event) => {
     return returnMessage(400, 'Missing body parameter')
   }
 
-  await require('./utils/instantiate-database')()
+  let mongo = await require('./utils/instantiate-database')()
 
   const Place = require('./models/place.model')
   let place = await Place.findById(data.placeId)
-  if (!place) return returnMessage(404, 'Place not found')
-  else if (place.creatorId !== data.userId) return returnMessage(401, 'User not creator')
+  if (!place) {
+    await mongo.disconnect()
+    return returnMessage(404, 'Place not found')
+  }
+  if (place.creatorId !== data.userId) {
+    await mongo.disconnect()
+    return returnMessage(401, 'User not creator')
+  }
 
   const Slot = require('./models/slot.model')
   const slotTypes = require('./utils/slot-types')
@@ -54,5 +60,6 @@ exports.handler = async (event) => {
     maxVisitors: data.maxSlots
   }).save()
 
+  await mongo.disconnect()
   return require('./utils/return-object')(undefined)
 }

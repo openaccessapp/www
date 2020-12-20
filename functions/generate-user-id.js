@@ -11,18 +11,20 @@ exports.handler = async (event) => {
   console.log('Function `generateUserId` invoked')
   if (!require('./utils/check-tokens')(event.headers, false)) return returnMessage(401, 'Unauthorised')
 
-  await require('./utils/instantiate-database')()
+  let mongo = await require('./utils/instantiate-database')()
   const Visitor = require('./models/visitor.model')
 
   return await new Visitor({
     priorityId: 0,
     favourites: []
   }).save()
-    .then(res => {
+    .then(async (res) => {
+      await mongo.disconnect()
       return require('./utils/return-object')({ id: res._id }, 201)
     })
-    .catch(err => {
+    .catch(async (err) => {
       console.log("Err:",err)
+      await mongo.disconnect()
       return returnMessage(500, 'Could not save user!')
     })
 }
