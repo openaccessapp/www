@@ -16,7 +16,7 @@
 
     <div class="center col-8 p-4 text-align-left" v-html="content"></div>
     <div class="help">
-      <hr class="line" />
+      <!-- <hr class="line" /> -->
       <p class="question">{{ question }}</p>
       <div class="row paragraphs">
         <div v-for="(row, index) in paragraphs" :key="index.paragraph">
@@ -173,6 +173,7 @@ export default {
     }
   }
   .center {
+    font-size: 16px;
     .md-position {
       text-align: justify;
       margin-left: 70px;
@@ -183,11 +184,16 @@ export default {
   }
   .help {
     margin-top: 100px;
-    margin-left: 200px;
-    .line {
-      width: 1035px;
-      color: #dbddeb;
-    }
+    margin-left: 12%;
+    border-top: 1px solid #dbddeb;
+    width: auto;
+    margin-right: auto;
+    width: 70%;
+    z-index: 1;
+    // .line {
+    //   width: 1035px;
+    //   color: #dbddeb;
+    // }
     .question {
       color: #474a67;
       font-size: 25px;
@@ -202,6 +208,13 @@ export default {
     .first {
       color: #385fe2;
       margin-right: 10px;
+    }
+  }
+}
+@media only screen and (max-width: 1025px) {
+  .documentation{
+    .center {
+    font-size: 19px;
     }
   }
 }
