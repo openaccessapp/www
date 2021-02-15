@@ -173,6 +173,7 @@ export default {
     }
   }
   .center {
+    font-size: 16px;
     .md-position {
       text-align: justify;
       margin-left: 70px;
@@ -188,6 +189,7 @@ export default {
     width: auto;
     margin-right: auto;
     width: 70%;
+    z-index: 1;
     // .line {
     //   width: 1035px;
     //   color: #dbddeb;
@@ -206,6 +208,13 @@ export default {
     .first {
       color: #385fe2;
       margin-right: 10px;
+    }
+  }
+}
+@media only screen and (max-width: 1025px) {
+  .documentation{
+    .center {
+    font-size: 19px;
     }
   }
 }
