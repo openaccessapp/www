@@ -35,7 +35,7 @@
           <p>{{ email }}</p>
         </div>
       </div>
-      <div class="line" />
+      <!-- <div class="line" /> -->
       <div class="col-xs-6 col-sm-4 col-md-4 col-6 col-xl-4 sites">
         <div class="row github">
           <a :href="linkGithub" target="_blank"> <img :src="github" /></a>
@@ -170,6 +170,7 @@ export default {
     // justify-content: space-between;
     align-items: center;
     padding: 50px 190px;
+    z-index: 1;
     .logo {
       max-width: 205px;
       max-height: 155px;
@@ -188,6 +189,8 @@ export default {
     }
     .info {
       margin-left: 135px;
+      border-right: 1px solid #dbddeb;
+      height: 163px;
       img {
         max-width: 20px;
         max-height: 16px;
@@ -220,6 +223,24 @@ export default {
     }
   }
 }
+@media only screen and (max-width: 1352px) and (min-width: 965px){
+  .footer.container {
+    .custom-circle {
+      display: none;
+    }
+    .container-links {
+      padding: 50px 50px;
+      margin-right: auto;
+      margin-left: auto;
+      .info{
+        margin-left: 50px;
+      }
+      .sites{
+        margin-left: 40px;
+      }
+    }
+  }
+}
 @media only screen and (max-width: 415px) {
   .footer.container {
     .custom-circle {
@@ -239,12 +260,15 @@ export default {
     }
   }
 }
-@media only screen and (max-width: 769px) {
+@media only screen and (max-width: 965px) {
   .footer.container {
     overflow-x: hidden;
     justify-content: center;
     padding: 0;
     width: unset;
+    .custom-circle {
+      display: none;
+    }
     .sites {
       -webkit-order: 2;
       margin: 0 auto;
@@ -252,7 +276,7 @@ export default {
         flex-direction: column;
         p {
           margin: 0 auto 60px;
-          text-align: left;
+          text-align: center;
           width: 320px;
         }
         img {
@@ -263,7 +287,7 @@ export default {
       .OS {
         flex-direction: column;
         p {
-          text-align: left;
+          text-align: center;
           margin: 0 auto;
           width: 320px;
         }
@@ -277,6 +301,7 @@ export default {
       .info {
         -webkit-order: 1;
         // margin: 0 auto 60px ;
+        border: none;
       }
       .text {
         -webkit-order: 4;
