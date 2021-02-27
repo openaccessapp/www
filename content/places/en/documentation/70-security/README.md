@@ -20,3 +20,10 @@ AccessApp asks for and collects only device information
 AccessApp allows the creation of a user profile with the help of of provider ID (Apple ID, Google ID) in order to allow the user to store the data on the server in case the phone is lost or exchanged, but this is not required for the operation of the app.
 
 AccessApp does not keep event bookings after they have passed, unless the user chooses so. Passed event bookings are automatically deleted from the server. This reduces the possibility of user history and movements to be identified in case of a server breach.
+
+# People
+
+The security crew of AccessApp are
+
+* Michaela Hybnerova michaela.hybnerova@downloadaccess.app
+* T. E. Shaw t.e.shaw@dahoum.wales
