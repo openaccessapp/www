@@ -174,6 +174,7 @@ export default {
   }
   .center {
     font-size: 16px;
+     max-width: 560px;
     .md-position {
       text-align: justify;
       margin-left: 70px;
