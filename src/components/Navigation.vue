@@ -2,9 +2,12 @@
   <div class="row nav justify-content-center">
     <div class="col-xl-6 col-md-6 col-xs-6 col-12 logo-position">
       <div class="row">
+        <div class="logo">
         <router-link :to="`/${$router.history.current.params.lang}`">
           <img :src="image" />
-        </router-link>
+        </router-link> 
+        <span>an Open Social Innovation Project</span>
+        </div>
         <!-- <router-link :to="getURL('de')">
           <button
             class="language"
@@ -72,6 +75,13 @@ export default {
   .logo-position {
     margin-top: 30px;
     text-align: left;
+    .logo{
+    display: flex;
+    flex-direction: column;
+      span{
+        margin-top: 10px;
+      }
+    }
     .row {
       // align-items: center;
       img {
@@ -143,6 +153,11 @@ export default {
           margin-right: 40px;
           margin-left: 40px;
         }
+      }
+    }
+    .logo{
+      span{
+        margin-left: 16%;
       }
     }
   }

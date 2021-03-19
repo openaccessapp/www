@@ -32,6 +32,12 @@
         :places="places"
         :image="image"
       ></navigation>
+      <!-- This is hardcoded for Update Deutschland -->
+        <dir class="update-deutschland">
+          <img class="update-deutschland-image" src="assets/Logo_UpdateDeutschland.svg" />
+          <p>AccessApp is participating in the 48-hours Sprint <br> of Update Deutschland on 19-21 March <a href="https://downloadplaces.app/en/documentation/02-update-deutschland">read more here</a></p>
+        </dir>
+      <!-- This is hardcoded for Update Deutschland -->
       <div class="row">
         <div class="col-xl-6 col-md-6 col-xs-6 col-12 position-left">
           <p class="description">{{ description }}</p>
@@ -73,14 +79,14 @@
       >
         <polygon fill="#FCFDFF" points="0,100 100,0 100,100" />
       </svg>
-      <div class="row scroll">
+      <!-- <div class="row scroll">
         <div class="col-12">
           <p class="scroll-design">Scroll</p>
           <div class="lines"></div>
           <div class="lines2"></div>
           <img class="image-design" src="assets/angle-down.png" />
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -181,7 +187,7 @@ export default {
   text-align: left;
 }
 .description {
-  margin-top: 150px;
+  margin-top: 50px;
   margin-bottom: 30px;
   font-family: $font__family;
   font-size: 60px;
@@ -215,6 +221,8 @@ export default {
   margin-left: 0;
   margin-top: 20px;
   align-items: flex-end;
+  position: relative;
+  z-index: 1;
   p {
     margin-right: 10px;
     color: #385fe2;
@@ -236,7 +244,7 @@ img.position {
     position: relative;
     z-index: 2;
     margin-left: 300px;
-    margin-top: 80px;
+    margin-top: 50px;
     height: auto;
     width: 250px;
   }
@@ -270,6 +278,21 @@ img.position {
   width: 25px;
   height: 15px;
 }
+
+.update-deutschland {
+  margin-top: -1rem;
+  margin-bottom: 2rem;
+  position: relative;
+  .update-deutschland-image{
+    width: 200px;
+  }
+  p{
+    margin-top: 1rem;
+    a{
+      color: #385fe2;
+    }
+  }
+}
 @media only screen and (max-width: 415px) {
   .header {
     background-size: calc(100% - 100px);
@@ -297,6 +320,21 @@ img.position {
       }
     }
   }
+  .update-deutschland {
+    margin-top: -1rem;
+    margin-bottom: 2rem;
+    position: relative;
+    padding-left: 0;
+    .update-deutschland-image{
+      width: 200px;
+    }
+    p{
+      margin-top: 1rem;
+      a{
+        color: #385fe2;
+      }
+    }
+  }
 }
 @media only screen and (max-width: 769px) {
   .header {
@@ -315,6 +353,7 @@ img.position {
         right: -209px !important;
         width: 452px;
         height: 452px;
+        z-index: -20px;
       }
       .blue-circle {
         top: 330px !important;
