@@ -10,7 +10,7 @@
 
 ### History of AccessApp
 
-AccessApp was born as a result of the #wirvsvirus hackathon, which took place in the spring of 2021.
+AccessApp was born as a result of the #wirvsvirus hackathon, which took place in the spring of 2020. It has, by now, a small team of about a dozen part time volunteers, an MVP and first pilot projects.
 
 The German government follows up with the Update Deutschland (https://updatedeutschland.org).
 
