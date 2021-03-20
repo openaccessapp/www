@@ -179,10 +179,10 @@ export default {
       margin-top: 30px;
     }
     .position-style {
-      font-size: 14px;
+      font-size: 10px;
     }
     .person-description-style {
-      font-size: 16px;
+      font-size: 14px;
     }
   }
 }
