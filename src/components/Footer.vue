@@ -257,6 +257,9 @@ export default {
       width: 777px;
       height: 777px;
       z-index: 0 !important;
+      // This is temporary fix. We need to find where the huge horizontal swim is comming from
+      display: none;
+      // This is temporary fix.
     }
   }
 }

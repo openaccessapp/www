@@ -187,6 +187,8 @@ export default {
   text-align: left;
 }
 .description {
+  position: relative;
+  z-index: 1;
   margin-top: 50px;
   margin-bottom: 30px;
   font-family: $font__family;
@@ -196,6 +198,8 @@ export default {
   width: 564px;
 }
 .info-text {
+  position: relative;
+  z-index: 1;
   font-family: $font__descriptions;
   font-size: 18px;
   color: #1e2f67;
@@ -314,6 +318,7 @@ img.position {
         left: 222px !important;
         width: 447px;
         height: 447px;
+        display: none;
       }
       .documentation {
         margin-right: 0;
@@ -330,6 +335,8 @@ img.position {
     }
     p{
       margin-top: 1rem;
+      padding-left: 8.5%;
+      padding-right: 8.5%;
       a{
         color: #385fe2;
       }
