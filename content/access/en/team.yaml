@@ -1,17 +1,21 @@
 title: The Team
 people:
-  - avatar-link: assets/Alice-Mesnard.png
+  - avatar-link: assets/alice.png
     name: Alice Mesnard
     organisation: City University London
-    description: Alice is a development economist and Reader of Economics at City. Among her contributions to this field, she has studied the links between migration and health risks.
+    description: Alice is a development economist and Reader of Economics at City. Among her contributions to this field, she has studied the links between migration and health risks. 
   - avatar-link: assets/charlie.png
     name: Charlie Cox
     organisation: Digytle Limited
     description: Charlie provided the UK context for the project and was instrumental in its development since the early days of development.
     email: cc@digytle.com
     number: +44 7770 353 335
-    linkedin: https://www.linkedin.com/in/charlieblockchain/
-  - avatar-link: assets/Thomas.png
+    linkedin: https://www.linkedin.com/in/digytlecharlie/ 
+  - avatar-link: assets/martyna.png
+    name: Martyna Krasauskaitė
+    organisation: Digytle Limited
+    description: Martyna helps with the product development and with the funding effort.
+  - avatar-link: assets/thomas.png
     name: T. E. Shaw
     organisation: Dahoum
     description: T. E. connected the idea of Alice with the digital product development of Aux Nederland B. V. and UK operations of Digytle and has been leading the project ever since.
