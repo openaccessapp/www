@@ -88,9 +88,9 @@ export default {
     init() {
       const data =
         this.$router.history.current.params.lang == "en" ? team : teamDe;
-      this.title = data.title;
+      this.title  = data.title;
       this.people = data.people;
-      this.place = data.place;
+      this.place  = data.organisation;
     },
   },
 };

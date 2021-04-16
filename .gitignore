@@ -24,3 +24,4 @@ pnpm-debug.log*
 # Local Netlify folder
 .netlify
 .env
+package-lock.json
