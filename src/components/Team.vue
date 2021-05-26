@@ -30,24 +30,24 @@
           />
           <div class="contacts">
             <div class="center">
-              <div class="row">
-                <img v-if="person.email" src="/assets/team-email.svg" />
+              <div class="row" v-if="person.email">
+                <img  src="/assets/team-email.svg" />
                 <p>
                   <a :href="`mailto:${person.email} `">{{ person.email }}</a>
                 </p>
               </div>
-              <div class="row">
-                <img v-if="person.number" src="/assets/team-number.svg" />
+              <div class="row" v-if="person.number">
+                <img src="/assets/team-number.svg" />
                 <p>{{ person.number }}</p>
               </div>
-              <div class="row">
-                <img v-if="person.twitter" src="/assets/team-twitter.svg" />
+              <div class="row" v-if="person.twitter">
+                <img src="/assets/team-twitter.svg" />
                 <a :href="person.twitter" target="_blank"
                   ><p>{{ person.twitter }}</p></a
                 >
               </div>
-              <div class="row">
-                <img v-if="person.linkedin" src="/assets/team-linkedin.svg" />
+              <div class="row" v-if="person.linkedin">
+                <img  src="/assets/team-linkedin.svg" />
                 <a :href="person.linkedin" target="_blank"
                   ><p>{{ person.linkedin }}</p></a
                 >
@@ -106,6 +106,7 @@ export default {
   width: 75%;
   margin: 0 auto;
   margin-bottom: 0px;
+  height: 9.5rem;
 }
 
 .team {
@@ -150,6 +151,9 @@ export default {
       justify-content: flex-start;
       align-items: end;
       flex-wrap: unset;
+    }
+    a{
+      margin-top: 5px;
     }
     p {
       font-size: 12px;
