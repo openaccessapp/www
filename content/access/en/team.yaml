@@ -17,6 +17,11 @@ people:
     description: Martyna helps with the product development and with the funding effort.
     email: mk@downloadaccess.app
     linkedin: www.linkedin.com/in/martyna-kra
+  - avatar-link: assets/michaela.png
+    name: Michaela Hybnerová
+    organisation: Open Access App
+    description: Michaela helps with the secure product development and provides the Czech Republic context for the project.
+    linkedin: https://www.linkedin.com/in/justmishka/
   - avatar-link: assets/thomas.png
     name: T. E. Shaw
     organisation: Dahoum

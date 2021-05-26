@@ -83,6 +83,7 @@ AccessApp enables easier organisation of better visitor experience, especially d
   - to provide Visitors with safe and easy to plan experience
   - to provide Vulnerable Visitors with slots gentle on their vulnerability (for example slots with reduced number of visitors for weaker visitors during time of pandemic and slots with significantly reduced number of visitors for visitors with very weak immune system)
   - easy to plan experience includes planned queueing and guaranteed visit
+  - Scheduled visits for Places w/ not so frequent visits (eg. staggerd opening hours). Such can be shops in rural areas as well as specialised shops such as antique dealers, etc.
 - Guides
   - Announce their Tours
   - Provide information about the safety measures
