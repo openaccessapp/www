@@ -25,7 +25,7 @@
           <p class="person-description">{{ person.description }}</p>
 
           <div
-            v-if="person.email || person.number || person.twiter"
+            v-if="person.email || person.number || person.twiter || person.linkedin"
             class="lines"
           />
           <div class="contacts">
@@ -118,6 +118,7 @@ export default {
 .col-12 {
   font-family: $font__family;
   font-size: 40px;
+  margin-bottom: 50px;
   color: #1e2f67;
 }
 .person-name {
