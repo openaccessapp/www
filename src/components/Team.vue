@@ -15,7 +15,7 @@
       </div>
       <div class="row content">
         <div
-          class="col-xl-4 col-md-4 col-xs-4 col-12"
+          class="col-xl-4 col-md-12 col-xs-4 col-12"
           v-for="person of people"
           :key="person.name"
         >
@@ -176,12 +176,12 @@ export default {
     margin-top: 0;
   }
 }
-@media only screen and (max-width: 578px) {
-  .info-contacts {
-    flex-direction: column-reverse;
-    .lines {
-      margin-top: 25px;
-    }
+@media only screen and (max-width: 993px) {
+  .content {
+    flex-direction: column;
+  }
+  .person-description {
+    height: fit-content;
   }
 }
 </style>

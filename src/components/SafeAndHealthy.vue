@@ -102,18 +102,21 @@ export default {
     }
   }
 }
-@media only screen and (max-width: 768px) {
-  .usage-description {
-    margin-top: 50px;
-  }
+@media only screen and (max-width: 769px) {
+
   .safe-healthy {
     margin-top: 150px;
     margin-bottom: 80px;
     .container-fluid {
       display: block;
-      width: auto;
       padding: 0 15px 0 0;
       height: auto;
+    }
+    .usage-description {
+    margin-top: 50px;
+      p {
+        width: auto;
+      }
     }
   }
 }
