@@ -3,39 +3,11 @@
     <div class="col-xl-6 col-md-6 col-xs-6 col-12 logo-position">
       <div class="row">
         <div class="logo">
-        <router-link :to="`/${$router.history.current.params.lang}`">
-          <img :src="image" />
-        </router-link> 
-        <span>an Open Social Innovation Project</span>
+          <router-link :to="`/${$router.history.current.params.lang}`">
+            <img :src="image" />
+          </router-link>
+          <span>an Open Social Innovation Project</span>
         </div>
-        <!-- <router-link :to="getURL('de')">
-          <button
-            class="language"
-            :class="{'opacity' : currentPage ==='/en'|| currentPage ==='/en/terms' || currentPage ==='/en/privacy'}"
-          >English</button>
-          <div
-            v-if="currentPage ==='/en' || currentPage ==='/en/terms' || currentPage ==='/en/privacy'"
-            class="blue-line-en"
-          ></div>
-        </router-link>
-        <router-link :to="getURL('en')">
-          <button
-            class="language"
-            :class="{'opacity' : currentPage ==='/de'|| currentPage ==='/de/terms' || currentPage ==='/de/privacy' }"
-          >Deutsch</button>
-          <div
-            v-if="currentPage ==='/de' || currentPage ==='/de/terms' || currentPage ==='/de/privacy' "
-            class="blue-line-de"
-          ></div>
-        </router-link> -->
-      </div>
-    </div>
-    <div class="col-xl-6 col-md-6 col-xs-6 col-12 nav-text-button">
-      <div class="row">
-        <p class="medium-font">{{ navigationText }}</p>
-        <a :href="places">
-          <button class="btn">{{ buttonText }}</button>
-        </a>
       </div>
     </div>
   </div>
@@ -75,6 +47,8 @@ export default {
   .logo-position {
     margin-top: 30px;
     text-align: left;
+    margin-left: 0px;
+    margin-right: auto;
     .logo{
     display: flex;
     flex-direction: column;
@@ -83,7 +57,6 @@ export default {
       }
     }
     .row {
-      // align-items: center;
       img {
         width: 264px;
         height: 70px;
@@ -103,29 +76,6 @@ export default {
       .opacity {
         opacity: 1 !important;
       }
-    }
-  }
-  .nav-text-button {
-    margin-top: 40px;
-    font-family: $font__descriptions;
-    > div {
-      display: flex;
-      align-items: baseline;
-      justify-content: flex-end;
-    }
-    button.btn {
-      border: 10px;
-      background: $color__site;
-      color: white;
-      box-shadow: 0px 5px 10px #385fe240;
-      margin-left: 30px;
-      margin-right: 24px;
-      padding: 10px 35px;
-    }
-    .medium-font {
-      color: #1e2f67;
-      font-size: 16px;
-      font-family: $font__descriptions;
     }
   }
 }
