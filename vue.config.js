@@ -5,18 +5,18 @@ module.exports = {
     configureWebpack: {
         resolve: {
             alias: {
-                '@content': process.env.VUE_APP_SITE === 'places' ? path.resolve(__dirname, 'content/places') : path.resolve(__dirname, 'content/access'),
+                '@content': path.resolve(__dirname, 'content/access'),
                
             }
         },
         plugins: [
             new DirectoryTreePlugin({
-                dir: `./content/${process.env.VUE_APP_SITE}/en/documentation`,
+                dir: `./content/access/en/documentation`,
                 path: './src/en_content.json',
                 extensions: /\.md/
             }),
             new DirectoryTreePlugin({
-                dir: `./content/${process.env.VUE_APP_SITE}/de/documentation`,
+                dir: `./content/access/de/documentation`,
                 path: './src/de_content.json',
                 extensions: /\.md/
             })
@@ -44,8 +44,8 @@ module.exports = {
         config
             .plugin('html')
             .tap(args => {
-                args[0].favicon_name = process.env.VUE_APP_SITE === 'places' ? 'favicons/places/favicon.svg' : 'favicons/access/favicon.svg';
-                args[0].favicon_safari_name = process.env.VUE_APP_SITE === 'places' ? 'favicons/places/safari-pinned-tabs.svg' : 'favicons/access/safari-pinned-tabs.svg';
+                args[0].favicon_name = 'favicons/access/favicon.svg';
+                args[0].favicon_safari_name = 'favicons/access/safari-pinned-tabs.svg';
                 return args;
             });
     }
