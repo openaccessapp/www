@@ -1,11 +1,5 @@
 # Update Deutschland
 
-## Table of Contents
-
-- [What is AccessApp?](#what-is-accessapp)
-  - [Where do we come from?](#where-do-we-come-from)
-- [Implementation Guide for Places](places.md)
-
 ## Introduction
 
 ### History of AccessApp
