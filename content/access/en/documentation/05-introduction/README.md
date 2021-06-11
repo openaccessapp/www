@@ -2,16 +2,6 @@
 
 openaccess.app provides visitors and venues with an app to book visits and manage the flow of visitors.
 
-## Where to begin?
-
-
-
-## Table of Contents
-
-- [What is AccessApp?](#what-is-accessapp)
-  - [Where do we come from?](#where-do-we-come-from)
-- [Implementation Guide for Places](places.md)
-
 ## Free
 
 openaccess.app is free to use by both venues and their visitors.

@@ -6,11 +6,11 @@ openaccess.app has a proposition for the [Public Sector]().
 
 ## Visitors
 
-The Visitors...
+Visitors can book visits.
 
 ## Venues
 
-Venues are museums, theathres, ...
+Venues can manage the flow of visitors.
 
 ## Public Sector
 
@@ -18,6 +18,6 @@ The Public Sector has double responsibility.
 
 It is funded with public funds.
 
-And it must serve the public.
+And it must serve the public in a transparent and fair manner.
 
-This involves topics like 
+openaccess.app supports all these.

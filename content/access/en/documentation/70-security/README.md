@@ -1,29 +1,25 @@
 # Security
 
-AccessApp is designed with security in mind and is the most secure booking app.
+openaccess.app is designed security first.
 
-## Basic Concepts
+## Privacy Preserving
 
-AccessApp does not ask for or collect personally identifiable information such as
-* name
-* date of birth
-* address
+openaccess.app does not ask for or collect personally identifiable information.
 
-AccessApp asks for and collects only device information
-* location
-  * in order to show the map and nearby places
-* device ID
-  * in order to link the device to the personal choices
+## Operational Data
+
+openaccess.app will ask for GPS data when in map mode.
+
+The GPS data is only used to show the nearby venues.
+
+The GPS data is not stored on the device and is not uploaded to the server.
 
 ### Optional
 
-AccessApp allows the creation of a user profile with the help of of provider ID (Apple ID, Google ID) in order to allow the user to store the data on the server in case the phone is lost or exchanged, but this is not required for the operation of the app.
+openaccess.app allows the creation of a user profile with the help of of provider ID (Apple ID, Google ID) in order to allow the user to store the data on the server in case the phone is lost or exchanged, but this is not required for the operation of the app.
 
-AccessApp does not keep event bookings after they have passed, unless the user chooses so. Passed event bookings are automatically deleted from the server. This reduces the possibility of user history and movements to be identified in case of a server breach.
+openaccess.app does not keep event bookings after they have passed, unless the user chooses so. Passed event bookings are automatically deleted from the server. This reduces the possibility of user history and movements to be identified in case of a server breach.
 
-# People
+# Security Officer
 
-The security crew of AccessApp are
-
-* Michaela Hybnerova michaela.hybnerova@downloadaccess.app
-* T. E. Shaw t.e.shaw@dahoum.wales
+The Security Officer of openaccess.app is Michaela Hybnerova michaela.hybnerova@openaccess.app.
