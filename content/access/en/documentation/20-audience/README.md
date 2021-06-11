@@ -1,11 +1,23 @@
 # Audience
 
-The audience of AccessApp are Venues and Visitors.
+openaccess.app is made for visitors and venues.
+
+openaccess.app has a proposition for the [Public Sector]().
+
+## Visitors
+
+The Visitors...
 
 ## Venues
 
 Venues are museums, theathres, ...
 
-## Visitors
+## Public Sector
 
-The Visitors...
+The Public Sector has double responsibility.
+
+It is funded with public funds.
+
+And it must serve the public.
+
+This involves topics like 
