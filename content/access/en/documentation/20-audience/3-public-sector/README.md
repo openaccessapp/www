@@ -1,5 +1,5 @@
 # Governments
 
-AccessApp can help local and national governments to spend more efficiently the public money on the public sector.
+openaccess.app has a proposition for the Public Sector.
 
-It can also help them manage better pandemics.
+It can help the Public Sector to spend less public funds on it and serve the public in a more transparent and fair manner.
