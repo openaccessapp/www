@@ -5,18 +5,18 @@ module.exports = {
     configureWebpack: {
         resolve: {
             alias: {
-                '@content': path.resolve(__dirname, 'content/access'),
+                '@content': path.resolve(__dirname, 'content'),
                
             }
         },
         plugins: [
             new DirectoryTreePlugin({
-                dir: `./content/access/en/documentation`,
+                dir: `./content/en/documentation`,
                 path: './src/en_content.json',
                 extensions: /\.md/
             }),
             new DirectoryTreePlugin({
-                dir: `./content/access/de/documentation`,
+                dir: `./content/de/documentation`,
                 path: './src/de_content.json',
                 extensions: /\.md/
             })
