@@ -25,3 +25,6 @@ pnpm-debug.log*
 .netlify
 .env
 package-lock.json
+
+/src/de_content.json
+/src/en_content.json
