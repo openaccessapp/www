@@ -102,8 +102,8 @@ export default {
       let path = this.findFirstFile(node)?.path;
       if (path) {
         let separated = path.split(this.pickSeparator());
-        let link = separated.slice(3, separated.length - 1).join("/"); // without README.md
-        path = separated.slice(3, separated.length).join("/");
+        let link = separated.slice(2, separated.length - 1).join("/"); // without README.md
+        path = separated.slice(2, separated.length).join("/");
         import(`@content/${lang}/${path}`).then(
           (data) => (this.content = marked(data.default))
         );
