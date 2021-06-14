@@ -1,10 +1,12 @@
 <template>
   <div class="documentation row">
     <div class="node col-3">
-      <div class="row logo">
-        <img :src="`/assets/${logo}`" />
-        <h1>{{ logoText }}</h1>
-      </div>
+      <router-link :to="`/${$router.history.current.params.lang}`">
+        <div class="row logo">
+          <img :src="`/assets/${logo}`" />
+          <h1>{{ logoText }}</h1>
+        </div>
+      </router-link>
       <hr />
       <p class="start">
         {{ getStarted }}
@@ -27,7 +29,7 @@
     <Footer></Footer>
   </div>
 </template>
- 
+
 <script>
 import documentation from "@content/en/documentation.yaml";
 import marked from "marked";
@@ -121,7 +123,7 @@ export default {
     },
   },
 };
-</script> 
+</script>
 
 <style scoped lang="scss">
 @import "../../public/assets/scss/main.scss";
@@ -151,12 +153,14 @@ export default {
       img {
         width: 55px;
         height: 40px;
-        margin-right: 15px;
       }
       h1 {
         font-size: 15px;
         font-family: $font__descriptions;
-        font-weight: 700;
+        color: #4561BF;
+        &:hover {
+          text-decoration: none !important;
+        }
       }
     }
     .start {

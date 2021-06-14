@@ -10,6 +10,10 @@
         </div>
       </div>
     </div>
+    <dir class="update-deutschland">
+      <img class="update-deutschland-image" src="assets/Logo_UpdateDeutschland.svg" />
+      <p>Open Access App is participating in the 48-hours Sprint of Update Deutschland on 19-21 March <a href="https://openaccess.app/en/documentation/80-update-deutschland">read more here</a></p>
+    </dir>
   </div>
 </template>
 
@@ -44,6 +48,22 @@ export default {
 @import "../../public/assets/scss/main.scss";
 .nav {
   padding: 0 0 50px;
+  .update-deutschland {
+    position: relative;
+    display: flex;
+    .update-deutschland-image{
+      width: 130px;
+    }
+    p{
+      margin-top: 0.6rem;
+      margin-left: 20px;
+      width: 360px;
+      text-align: left;
+      a{
+        color: #385fe2;
+      }
+    }
+  }
   .logo-position {
     margin-top: 30px;
     text-align: left;
@@ -54,13 +74,12 @@ export default {
     flex-direction: column;
       span{
         margin-top: 10px;
+        color: #4561BF;
       }
     }
     .row {
       img {
-        width: 264px;
         height: 70px;
-        margin-right: 30px;
       }
       .language {
         background: none;

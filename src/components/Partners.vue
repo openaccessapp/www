@@ -17,17 +17,15 @@
           <div class="contacts">
             <div class="center">
               <p class="name">{{ partners.name }}</p>
-              <div class="row">
+              <div class="row" v-if="partners.email">
                 <img :src="partners['email-image']" />
                 <p>{{ partners.email }}</p>
               </div>
-              <div class="row">
-                <img :src="partners['number-image']" />
-                <p>{{ partners.number }}</p>
-              </div>
-              <div class="row">
+              <div class="row linkedin" v-if="partners.twitter">
                 <img :src="partners['twitter-image']" />
-                <p>{{ partners.twitter }}</p>
+                <a :href="partners.link">
+                  <p style="margin-top:5px;">{{ partners.twitter }}</p>
+                </a>
               </div>
             </div>
           </div>

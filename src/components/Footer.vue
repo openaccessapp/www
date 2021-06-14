@@ -20,7 +20,7 @@
     <div class="row container-links">
       <img
         class="col-xl-4 col-sm-4 col-md-4 col-4 logo"
-        src="/assets/logo-footer.svg"
+        src="/assets/logo-text.svg"
       />
       <div class="col-xl-3 col-sm-4 col-6 col-md-4 col-xs-6 info">
         <router-link :to="`/${$router.history.current.params.lang}/terms`">
@@ -167,12 +167,11 @@ export default {
   }
   .container-links {
     display: flex;
-    // justify-content: space-between;
     align-items: center;
     padding: 50px 190px;
     z-index: 1;
     .logo {
-      max-width: 205px;
+      max-width: 170px;
       max-height: 155px;
       padding: 0;
     }
@@ -283,7 +282,7 @@ export default {
           width: 320px;
         }
         img {
-          margin-top: 60px; 
+          margin-top: 60px;
           margin-bottom: 20px;
         }
       }
