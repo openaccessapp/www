@@ -1,1 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="52.544" height="40.286" viewBox="0 0 52.544 40.286"><defs><style>.a{fill:url(#a);}.b{fill:url(#b);}.c{fill:url(#c);}</style><linearGradient id="a" x1="0.499" x2="0.499" y2="1.001" gradientUnits="objectBoundingBox"><stop offset="0" stop-color="#335cea"/><stop offset="1" stop-color="#00d29b"/></linearGradient><linearGradient id="b" x1="-3.729" y1="0" x2="-3.729" y2="1" xlink:href="#a"/><linearGradient id="c" x1="0.5" y1="0" x2="0.5" y2="1" xlink:href="#a"/></defs><path class="a" d="M82.752,100.52l-19.063,6.214a1.123,1.123,0,0,1-1.44-1.106V93.39H83.558v6.024A1.152,1.152,0,0,1,82.752,100.52Z" transform="translate(-62.238 -66.497)"/><path class="b" d="M171.382,100.52l19.063,6.214a1.126,1.126,0,0,0,1.454-1.106V93.39H170.59v6.024A1.152,1.152,0,0,0,171.382,100.52Z" transform="translate(-139.381 -66.497)"/><path class="c" d="M114.253,18.346,88.481,0,62.705,18.349a1.181,1.181,0,0,0-.5.962V34.054L88.481,16.313l26.273,17.741V19.316a1.189,1.189,0,0,0-.5-.97Z" transform="translate(-62.21)"/></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2019 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="16.3367mm" height="20.3753mm" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
+viewBox="0 0 8.23 10.27"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <path fill="#4561BF" d="M-0 0l8.23 0 0 9.27 -2.86 -0 -0 -4.1 -2.53 0 0 4.1 -2.85 0 0 -9.27zm2.85 5.17l1.96 0.58 0 4.52 -1.96 -1 0 -4.1z"/>
+ </g>
+</svg>

@@ -6,17 +6,33 @@ partners:
     name: T. E. Shaw
     email-image: assets/team-email.svg
     email: t.e.shaw@auxnederlandbv.nl
-    number-image: assets/team-number.svg
-    number: +49 161 6 111 26 31
-    twitter-image:  assets/team-twitter.svg
-    twitter: Name.name  
+    twitter-image:  assets/team-linkedin.svg
+    twitter: T. E. Shaw
+    link: https://www.linkedin.com/in/dahoum/
   - image: "/assets/City-University.png"
     title: City University Of London
     description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem.
     name: Alice Mesnard
     email-image: assets/team-email.svg
-    email: email.emai@mail.com
-    number-image: assets/team-number.svg
-    number: 098 987 8767
-    twitter-image:  assets/team-twitter.svg
-    twitter: Name.name
+    email:
+    twitter-image:  assets/team-linkedin.svg
+    twitter:
+    link:
+  - image: "/assets/digytle.logo.svg"
+    title: Digytle
+    description: Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem.
+    name: Charlie Cox
+    email-image: assets/team-email.svg
+    email: cc@digytle.com
+    twitter-image:  assets/team-linkedin.svg
+    twitter: Charlie Cox
+    link: https://www.linkedin.com/in/digytlecharlie/
+  - image: "/assets/lichtgestalter.svg"
+    title: Lichtgestalter
+    description: Die Lichtgestalter bringen Licht in Architektur und Architektur ans Licht, kommunizieren im Raum und schaffen Raum für Kommunikation.“
+    name: Christoph Adlfinger-Pullmann
+    email-image: assets/team-email.svg
+    email: cap@dielichtgestalter.de
+    twitter-image:  assets/team-linkedin.svg
+    twitter: Christoph Adlfinger-Pullmann
+    link: https://www.linkedin.com/in/christoph-adlfinger-pullmann-35868262/
