@@ -6,6 +6,8 @@ openaccess.app provides visitors and venues with an app to book visits and manag
 
 Download the openaccess.app
 
+Learn [more](https://openaccess.app/en/documentation/20-audience/1-visitors).
+
 ## Are you a venue?
 
 Download the openaccess.app
