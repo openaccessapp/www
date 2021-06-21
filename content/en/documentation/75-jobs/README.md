@@ -1,3 +1,3 @@
 # Jobs
 
-openaccess.app is growing needs help.
+openaccess.app is growing and needs help.

@@ -2,6 +2,14 @@
 
 Download openaccess.app and book a visit.
 
+## Choose a Venue
+
+![](public/assets/visitor-1-choose-a-venue.png)
+
+## Book a Slot
+
+![](public/assets/visitor-2-book-a-slot.png)
+
 ## Privacy
 
 openaccess.app is privacy preserving.
