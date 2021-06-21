@@ -77,6 +77,7 @@ export default {
       font-size: 40px;
       color: #1e2f67;
       margin-bottom: 55px;
+      max-width: 500px;
     }
 
     p {
@@ -87,7 +88,7 @@ export default {
     }
   }
   img.position {
-    width: 100%;
+    width: 110%;
   }
 }
 

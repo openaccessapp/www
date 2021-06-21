@@ -9,7 +9,6 @@
         :isFilled="true"
         :top="-80"
       ></figure-circle>
-
       <figure-circle
         color="white"
         class="right-circle"
@@ -17,14 +16,6 @@
         :right="-200"
         :isFilled="true"
         :top="-100"
-      ></figure-circle>
-      <figure-circle
-        color="#385fe2"
-        class="blue-circle"
-        :zIndex="1"
-        :right="-200"
-        :isFilled="false"
-        :top="200"
       ></figure-circle>
       <navigation
         :navigationText="navigationText"
@@ -145,7 +136,7 @@ export default {
 
 .header {
   position: relative;
-  background-color: $color__header-background;
+  background-color: #DDEFFF;
   height: 1030px;
   .container {
     margin-top: 0;

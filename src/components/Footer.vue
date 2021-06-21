@@ -10,10 +10,10 @@
       customClass="custom-circle"
     ></figure-circle>
     <figure-circle
-      color="#DDFFF7"
+      color="#E3F1FE"
       class="green"
       :zIndex="0"
-      :left="-320"
+      :left="-360"
       :isFilled="true"
       :bottom="0"
     ></figure-circle>
@@ -113,9 +113,6 @@ export default {
   align-items: center;
   overflow: hidden;
   max-width: unset;
-  // padding: 0;
-  // height: auto;
-  // background: none;
   p {
     font-size: 16px;
     color: black;

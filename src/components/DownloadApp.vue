@@ -82,7 +82,7 @@ h2 {
   font-family: $font__family;
   font-size: 40px;
   color: #1e2f67;
-  margin-top: 100px;
+  margin-top: 6rem;
 }
 .links-position {
   margin-top: 50px;

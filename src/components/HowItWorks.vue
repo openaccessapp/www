@@ -8,15 +8,15 @@
     <div class="row content">
       <div class="col-md-12 col-lg-4 col-xl-4 col-sm-12 col-12 text-section">
         <div class="section" v-if="sections[0]">
-          <h3 class="title title-name">{{ sections[0].title }}</h3>
           <div class="find">
+            <h3 class="title title-name">{{ sections[0].title }}</h3>
             <p class="text">{{ sections[0].text }}</p>
             <img class="first-step" src="/assets/step1.svg" />
           </div>
         </div>
         <div class="section mt-5" v-if="sections[1]">
-          <h3 class="title title-name">{{ sections[1].title }}</h3>
           <div class="plan">
+            <h3 class="title title-name">{{ sections[1].title }}</h3>
             <p class="text">{{ sections[1].text }}</p>
             <img class="second-step" src="/assets/step2.svg" />
           </div>
@@ -31,8 +31,8 @@
         class="col-md-12 col-lg-4 col-xl-4 col-sm-12 col-12 text-section download-position"
       >
         <div class="section" v-if="sections[2]">
-          <h3 class="title title-name">{{ sections[2].title }}</h3>
           <div class="download">
+            <h3 class="title title-name">{{ sections[2].title }}</h3>
             <p class="text">{{ sections[2].text }}</p>
             <img class="third-step" src="/assets/step2.svg" />
           </div>
@@ -83,8 +83,10 @@ export default {
 .how-it-works {
   margin-top: 50px;
   .mock-image {
+    position: relative;
     width: 100%;
     height: 600px;
+    z-index: 1;
     .how-it-works-image {
       width: 350px;
       margin-top: 30px;
@@ -128,7 +130,8 @@ export default {
     }
     .find {
       margin-bottom: 100px;
-
+      margin-right: 70px;
+      user-select: none;
       .first-step {
         top: 270px;
         left: 145px;
@@ -140,9 +143,11 @@ export default {
       }
     }
     .plan {
+      margin-right: 70px;
+      user-select: none;
       .second-step {
         left: 155px;
-        top: 603px;
+        top: 450px;
       }
       &:hover {
         .second-step {
@@ -151,8 +156,10 @@ export default {
       }
     }
     .download {
+      margin-left: 40px;
+      user-select: none;
       .third-step {
-        top: 358px;
+        top: 258px;
         right: 154px;
       }
       &:hover {

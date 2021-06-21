@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Creator: CorelDRAW 2019 (64-Bit) -->
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="32.8643mm" height="20.3753mm" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
-viewBox="0 0 33.32 20.66"
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="32.7327mm" height="20.325mm" version="1.1" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd"
+viewBox="0 0 33.05 20.52"
  xmlns:xlink="http://www.w3.org/1999/xlink">
  <defs>
   <font id="FontID0" horiz-adv-x="671" font-variant="normal" fill-rule="nonzero" font-style="normal" font-weight="600">
@@ -25,9 +25,11 @@ viewBox="0 0 33.32 20.66"
  </defs>
  <g id="Layer_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
-  <path fill="#4561BF" d="M-0 0l16.56 0.01 0 18.65 -5.74 -0.01 -0 -8.25 -5.08 0 0 8.25 -5.74 0 0 -18.65zm5.74 10.4l3.94 1.17 0 9.09 -3.94 -2.01 0 -8.25z"/>
-  <text x="17.83" y="3.09"  fill="#4561BF" font-weight="600" font-size="5.49px" font-family="Segoe UI Semibold">open</text>
-  <text x="17.83" y="10.39"  fill="#4561BF" font-weight="600" font-size="5.49px" font-family="Segoe UI Semibold">access</text>
-  <text x="17.83" y="17.69"  fill="#4561BF" font-weight="600" font-size="5.49px" font-family="Segoe UI Semibold">.app</text>
+  <rect fill="#FEFEFE" x="5.71" y="10.36" width="5.06" height="8.22"/>
+  <text x="17.63" y="3.07"  fill="#4561BF" font-weight="600" font-size="5.47px" font-family="Segoe UI Semibold">open</text>
+  <text x="17.63" y="10.34"  fill="#4561BF" font-weight="600" font-size="5.47px" font-family="Segoe UI Semibold">access</text>
+  <text x="17.63" y="17.61"  fill="#4561BF" font-weight="600" font-size="5.47px" font-family="Segoe UI Semibold">.app</text>
+  <polygon fill="#4561BF" points="-0,0 16.5,0.01 16.5,18.58 10.78,18.57 10.78,10.36 5.71,10.36 5.71,18.57 -0,18.57 "/>
+  <polygon fill="#425AA6" points="5.54,10.31 9.47,11.47 9.47,20.52 5.54,18.52 "/>
  </g>
 </svg>

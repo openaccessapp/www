@@ -79,13 +79,12 @@ export default {
     font-size: 40px;
     color: #1e2f67;
     text-align: center;
-    margin: 130px auto 0px;
+    margin: 6rem auto 0px;
     align-items: center;
   }
 
   .row.information {
     align-items: center;
-    // align-items: baseline;
     justify-content: center;
     height: 500px;
 

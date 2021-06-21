@@ -8,28 +8,26 @@
       <polygon fill="white" points="0,0 0,100 100,0" />
     </svg>
     <div class="center">
-      <div class="row">
-        <div class="col-12">
-          <h2 class="title">{{ title }}</h2>
-        </div>
-      </div>
       <div class="container">
         <figure-circle
           color="#F7F7FA"
           :zIndex="0"
-          :left="-400"
+          :left="-600"
           :isFilled="false"
-          :top="250"
+          :top="150"
         ></figure-circle>
         <figure-circle
           color="#F7F7FA"
           :zIndex="0"
-          :right="-300"
+          :right="-650"
           :isFilled="false"
-          :top="500"
+          :top="100"
         ></figure-circle>
         <carousel :perPage="1">
           <slide v-for="customer of reviews" :key="customer.name">
+            <div class="col-12">
+          <h2 class="title">{{ title }}</h2>
+        </div>
             <img :src="customer['avatar-link']" class="person-avatar" />
             <p class="bold">{{ customer.name }}</p>
             <p class="position-style">{{ customer.position }}</p>
@@ -85,67 +83,51 @@ export default {
 @import "../../public/assets/scss/main.scss";
 
 .customer-reviews {
-  background-color: $color__site;
+  background-color: #6C8CF6;
   position: relative;
-  padding: 50px 0;
-  height: auto;
-  margin-top: 250px;
+  height: 35rem;
   svg {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 30vw;
+    height: 12vw;
     /* set height to pixels if you want angle to change with screen width */
-  }
-}
-.figures {
-  position: absolute;
-  .triangle {
-    position: absolute;
-    border-bottom: 1000px solid $color__site;
-    border-left: 100vw solid transparent;
-    position: absolute;
-    width: 0;
-    height: 0;
-  }
-  .rect {
-    position: absolute;
-    width: 100vw;
-    height: 200px;
-    background: $color__site;
   }
 }
 .center {
   margin-top: 300px;
 }
 .container {
-  z-index: 1;
-  background-color: white;
+  position: relative;
+  z-index: 10;
   border-radius: 25px;
   width: 55%;
   padding-top: 40px;
   padding-bottom: 35px;
-  margin-top: 0;
+  background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 2px );
+  -webkit-backdrop-filter: blur( 2px );
+  border-radius: 40px;
 }
 .title {
   font-family: $font__family;
   font-size: 40px;
-  color: #f7f7fa;
-  // margin-top: 150px;
+  color: #1E2F67;
 }
 .position-style {
   font-family: $font__descriptions;
   font-weight: 500;
   font-size: 16px;
-  color: #9597ac;
+  color: #1E2F67;
   margin-bottom: 25px;
 }
 .person-description-style {
   font-family: $font__descriptions;
   font-weight: 500;
   font-size: 20px;
-  color: #9597ac;
+  color: #1E2F67;
   width: 50%;
   margin: auto;
 }
@@ -154,7 +136,7 @@ export default {
   font-family: "Rubik", sans-serif;
   font-weight: bold;
   font-size: 18px;
-  color: #385fe2;
+  color: #1E2F67;
   margin-bottom: 8px;
 }
 @media only screen and (max-width: 415px) {

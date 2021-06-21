@@ -12,7 +12,7 @@
     </div>
     <dir class="update-deutschland">
       <img class="update-deutschland-image" src="assets/Logo_UpdateDeutschland.svg" />
-      <p>Open Access App is participating in the 48-hours Sprint of Update Deutschland on 19-21 March <a href="https://openaccess.app/en/documentation/80-update-deutschland">read more here</a></p>
+      <p>Open Access App is participating in the 48-hours Sprint of Update Deutschland on 19-21 March <br> <a href="https://openaccess.app/en/documentation/80-update-deutschland">read more here</a></p>
     </dir>
   </div>
 </template>
@@ -47,7 +47,7 @@ export default {
 @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap");
 @import "../../public/assets/scss/main.scss";
 .nav {
-  padding: 0 0 50px;
+  padding: 0 20px 50px;
   .update-deutschland {
     position: relative;
     display: flex;
@@ -59,6 +59,7 @@ export default {
       margin-left: 20px;
       width: 360px;
       text-align: left;
+      font-size: 15px;
       a{
         color: #385fe2;
       }

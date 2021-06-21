@@ -111,6 +111,7 @@ export default {
 
 .team {
   position: relative;
+  margin-top: -6rem;
   .container {
     margin-top: 100px;
   }

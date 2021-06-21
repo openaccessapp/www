@@ -2,14 +2,14 @@ title: Customer Reviews
 reviews:
   - avatar-link: assets/Eliana-Tsiparova.png
     name: Eliana Tsiparova
-    position: UI/UX Designer at AuxCode
-    review: A perfect app to explore safe activities happening around me and nice and easy to navigate 
-  - avatar-link: assets/logo.png
+    position: UI/UX Designer
+    review: A perfect app to explore safe activities happening around me and nice and easy to navigate
+  - avatar-link: assets/Eliana-Tsiparova.png
     name: Kate
-    place: Manchester
+    position: Student
     review: This app is badly needed by the shielding community - thank you!
-  - avatar-link: assets/logo.png
+  - avatar-link: assets/Eliana-Tsiparova.png
     name: Alex
-    place: Hertford
+    position: Lawyer
     review: My local shop has started using this app and now I can start going there once again.
-  
+
