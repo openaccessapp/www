@@ -177,13 +177,16 @@ export default {
   }
   .center {
     font-size: 16px;
-     max-width: 560px;
+    max-width: 560px;
     .md-position {
       text-align: justify;
       margin-left: 70px;
       max-width: 560px;
       margin-left: 330px;
       margin-top: 135px;
+    }
+    img{
+      max-width: 560px;
     }
   }
   .help {
