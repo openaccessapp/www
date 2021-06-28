@@ -287,23 +287,6 @@ img.position {
       }
     }
   }
-  .update-deutschland {
-    margin-top: -1rem;
-    margin-bottom: 2rem;
-    position: relative;
-    padding-left: 0;
-    .update-deutschland-image{
-      width: 200px;
-    }
-    p{
-      margin-top: 1rem;
-      padding-left: 8.5%;
-      padding-right: 8.5%;
-      a{
-        color: #385fe2;
-      }
-    }
-  }
 }
 @media only screen and (max-width: 769px) {
   .header {

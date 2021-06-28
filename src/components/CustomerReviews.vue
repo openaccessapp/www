@@ -139,44 +139,31 @@ export default {
   color: #1E2F67;
   margin-bottom: 8px;
 }
+@media only screen and (max-width: 768px) {
+  .center {
+    margin-top: 100px;
+  }
+  .customer-reviews {
+    height: 40rem;
+  }
+  .person-description-style {
+    width: auto;
+  }
+}
 @media only screen and (max-width: 415px) {
   .customer-reviews {
-    margin-top: 20px;
-    .container {
-      padding-top: 0;
-      height: 315px;
-    }
-    svg {
-      height: 50vw;
-    }
-    .center {
-      margin-top: 115px;
-      .title {
-        font-size: 25px;
-      }
-    }
-    .person-avatar {
-      width: 60px;
-      height: 60px;
-      margin-top: 30px;
-    }
-    .position-style {
-      font-size: 10px;
-    }
-    .person-description-style {
-      font-size: 14px;
-    }
+    height: 45rem;
   }
-}
-@media only screen and (max-width: 768px) {
+  .container {
+    width: 85%;
+  }
   .person-description-style {
-    width: 90%;
-  }
-}
-
-@media only screen and (max-width: 1365px) {
-  .customer-reviews {
-    overflow: hidden;
+    font-family: $font__descriptions;
+    font-weight: 500;
+    font-size: 20px;
+    color: #1E2F67;
+    width: auto;
+    margin: auto;
   }
 }
 </style>

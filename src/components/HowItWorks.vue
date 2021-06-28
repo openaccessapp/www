@@ -172,15 +172,6 @@ export default {
 }
 @media only screen and (max-width: 415px) {
   .how-it-works {
-    width: 350px;
-    margin-top: 30px;
-
-    .mt-5 {
-      margin-top: 0 !important;
-    }
-    .download-position {
-      margin-top: 80px;
-    }
     .text-section {
       .section {
         .title-name {
@@ -193,10 +184,8 @@ export default {
     }
     .title-size {
       font-size: 25px;
+      margin-top: 3rem;
     }
-  }
-  .container {
-    margin-top: 110px;
   }
 }
 @media only screen and (max-width: 769px) {
@@ -204,12 +193,17 @@ export default {
     .mock-image {
       display: none;
     }
+    .download-position {
+      margin-top: 50px;
+    }
     .text-section {
       .text {
-        margin: 0 auto;
+        margin: auto;
+        width: fit-content;
         max-width: 280px;
       }
       .find {
+        margin: auto;
         &:hover {
           .first-step {
             display: none;
@@ -217,6 +211,7 @@ export default {
         }
       }
       .plan {
+        margin: auto;
         &:hover {
           .second-step {
             display: none;
@@ -224,6 +219,8 @@ export default {
         }
       }
       .download {
+        margin: auto;
+        margin-bottom: 4rem;
         &:hover {
           .third-step {
             display: none;

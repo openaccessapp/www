@@ -72,7 +72,6 @@ export default {
 }
 .partners {
   width: 1300px;
-  margin: 0 auto;
 
   .header {
     font-family: $font__family;
@@ -176,12 +175,25 @@ export default {
 @media only screen and (max-width: 415px) {
   .partners.container {
     width: auto;
-    margin-top: 0 !important;
+  }
+
+ .partners {
+    width: 1300px;
+
+    .row.information {
+      height: auto;
+
+      .partners-cards {
+        margin-bottom: 100px;
+        margin-top: 50px;
+      }
+    }
   }
 }
 
 @media only screen and (max-width: 769px) {
   .partners {
+    margin-bottom: 100px;
     .title {
       .header {
         margin-top: 85px;

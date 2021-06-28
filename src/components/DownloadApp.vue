@@ -109,6 +109,7 @@ h2 {
 }
 @media only screen and (min-width: 768px) {
   .row {
+    margin-top: 50px;
     .column-inner-first,
     .column-inner-last {
       display: flex;

@@ -70,8 +70,7 @@ export default {
   .usage-description {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    margin-left: 15%;
     h3 {
       font-family: $font__family;
       font-size: 40px;
@@ -93,31 +92,30 @@ export default {
 }
 
 @media only screen and (max-width: 415px) {
-  .safe-healthy {
-    .usage-description h3 {
-      font-size: 25px;
+  .usage-description {
+    h3 {
+      width: 250px;
+      margin: auto;
     }
-    p {
-      font-size: 16px;
-      max-width: 280px;
+    p{
+      width: 250px! important;
+      margin: auto;
     }
   }
 }
 @media only screen and (max-width: 769px) {
-
   .safe-healthy {
-    margin-top: 150px;
-    margin-bottom: 80px;
+    margin-top: 100px;
     .container-fluid {
       display: block;
-      padding: 0 15px 0 0;
-      height: auto;
-    }
-    .usage-description {
-    margin-top: 50px;
-      p {
-        width: auto;
+      .row{
+        display: flex;
+        flex-direction: column;
       }
+    }
+    img.position {
+      width: 120%;
+      margin-bottom: 50px;
     }
   }
 }

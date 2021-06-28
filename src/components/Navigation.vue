@@ -119,8 +119,6 @@ export default {
       .row {
         img {
           width: 105px;
-          height: 30px;
-          margin-right: 40px;
           margin-left: 40px;
         }
       }
@@ -128,6 +126,22 @@ export default {
     .logo{
       span{
         margin-left: 16%;
+      }
+    }
+    .update-deutschland {
+      display: flex;
+      flex-direction: column;
+      margin-top: 5rem;
+      img{
+        margin: auto;
+      }
+      p{
+        margin-top: 1rem;
+        width: auto;
+        margin: auto;
+        a{
+          color: #385fe2;
+        }
       }
     }
   }
@@ -139,24 +153,17 @@ export default {
       top: -75px;
       right: 25px;
     }
-
-    .nav-text-button {
-      display: none;
-      > div {
-        flex-direction: column;
-        align-items: center;
-        button.btn {
-          margin-left: 0;
+    .logo-position {
+      .row {
+        img {
+          width: 105px;
+          margin-left: 40px;
         }
       }
     }
-  }
-}
-@media screen and (max-width: 1200px) {
-  .nav {
-    .nav-text-button {
-      button.btn {
-        margin-left: 30px;
+    .logo{
+      span{
+        margin-left: 16%;
       }
     }
   }
