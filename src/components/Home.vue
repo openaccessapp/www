@@ -6,6 +6,7 @@
     <SafeAndHealthy></SafeAndHealthy>
     <Team></Team>
     <Partners></Partners>
+    <Ambasadors></Ambasadors>
     <DownloadApp></DownloadApp>
     <Footer :lang="lang"></Footer>
   </div>
@@ -20,6 +21,7 @@ import CustomerReviews from "./CustomerReviews";
 import SafeAndHealthy from "./SafeAndHealthy";
 import Team from "./Team";
 import Partners from "./Partners";
+import Ambasadors from "./Ambasadors";
 import DownloadApp from "./DownloadApp";
 import Footer from "./Footer";
 export default {
@@ -31,6 +33,7 @@ export default {
     SafeAndHealthy,
     Team,
     Partners,
+    Ambasadors,
     DownloadApp,
     Footer,
   },
