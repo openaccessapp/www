@@ -110,6 +110,7 @@ export default {
 }
 
 .ambasadors {
+  display: none;
   position: relative;
   margin-top: -6rem;
   .container {
